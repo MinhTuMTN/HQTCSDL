@@ -58,17 +58,9 @@ ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_thue CHECK (thue > 0)
 ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_soTienTamTinh CHECK (soTienTamTinh > 0)
 GO
 
-ALTER TABLE dbo.ChiTietHoaDon ADD CONSTRAINT check_soLuong CHECK (soLuong > 0)
-GO
-
-ALTER TABLE dbo.CongThucMonAn ADD CONSTRAINT check_soLuongMonAn CHECK (soLuong > 0)
-GO
 
 ALTER TABLE dbo.NguyenLieu ADD CONSTRAINT check_donGia CHECK (donGia > 0)
 ALTER TABLE dbo.NguyenLieu ADD CONSTRAINT check_soLuongTon CHECK (soLuongTon >= 0)
-GO
-
-ALTER TABLE dbo.MonAn ADD CONSTRAINT check_giaTien CHECK (giaTien > 0)
 GO
 
 ALTER TABLE dbo.NhaCungCap ADD CONSTRAINT check_soDienThoaiNCC CHECK (soDienThoai LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
@@ -95,3 +87,38 @@ CREATE VIEW view_CongThucMonAn AS
 	WHERE CongThucMonAn.maMonAn=MonAn.maMonAn AND CongThucMonAn.maNguyenLieu=NguyenLieu.maNguyenLieu
 GO
 
+CREATE TRIGGER trigger_giaTien ON dbo.MonAn
+INSTEAD OF INSERT
+AS
+DECLARE @new FLOAT
+SELECT @new=ne.giaTien FROM Inserted ne
+IF (@new<0)
+BEGIN
+	PRINT(N'Giá tiền phải lớn hơn 0')
+	ROLLBACK;
+END
+GO
+
+CREATE TRIGGER trigger_soLuongChiTietHoaDon ON dbo.ChiTietHoaDon
+INSTEAD OF INSERT
+AS
+DECLARE @new FLOAT
+SELECT @new=ne.soLuong FROM Inserted ne
+IF (@new<0)
+BEGIN
+	PRINT(N'Số lượng phải lớn hơn 0')
+	ROLLBACK;
+END
+GO
+
+CREATE TRIGGER trigger_soLuongCongThucMonAn ON dbo.CongThucMonAn
+INSTEAD OF INSERT
+AS
+DECLARE @new FLOAT
+SELECT @new=ne.soLuong FROM Inserted ne
+IF (@new<0)
+BEGIN
+	PRINT(N'Số lượng phải lớn hơn 0')
+	ROLLBACK;
+END
+GO
