@@ -1,3 +1,6 @@
+USE QuanLyNhaHang
+GO
+
 CREATE PROC spUpdateNhanVien (
 	@maNhanVien CHAR(10),
     @hoTen NVARCHAR(100),
@@ -94,6 +97,7 @@ BEGIN
     UPDATE dbo.DatTruoc SET trangThaiDatTruoc=@trangThaiDatTruoc, thoiGianCheckIn=@thoiGianCheckIn, thoiGianDatTruoc=@thoiGianDatTruoc, soLuongNguoi=@soLuongNguoi, maKhachHang=@maKhachHang, maBan=@maBan, maNhanVienTiepNhan=@maNhanVienTiepNhan
 	WHERE maDatTruoc=@maDatTruoc
 END
+GO
 
 CREATE PROC spUpdateCoupon(
 	@maCoupon CHAR(10),
