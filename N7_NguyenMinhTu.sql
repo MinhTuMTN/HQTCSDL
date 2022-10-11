@@ -104,7 +104,8 @@ CREATE TABLE MonAn
 (
 	maMonAn CHAR(10) PRIMARY KEY,
 	tenMonAn NVARCHAR(150),
-	giaTien FLOAT
+	giaTien FLOAT,
+	hinhAnh VARCHAR(150)
 )
 GO
 CREATE TABLE ChiTietHoaDon
@@ -389,22 +390,22 @@ VALUES
     )
 GO
 
-insert into MonAn(maMonAn, tenMonAn, giaTien)
-values ('10001', N'Cảo Tôm Phúc Lục', 72000)
-, ('10002', N'Phùng Trảo Thủ', 62000)
-, ('10003', N'Há Cảo Sò Điệp', 72000)
-, ('10004', N'Bánh Bao Thượng Hải', 65000)
-, ('10005', N'Xíu Mại Trứng Tôm', 70000)
-, ('10006', N'Bánh Bao Thang Trúc Kim Sa', 65000)
-, ('10007', N'Bánh Sầu Riêng Ngàn Lớp', 72000)
-, ('10008', N'Hoành Thánh Tôm Chiên', 72000)
-, ('10009', N'Cảo Bò Nấm Truffle', 80000)
-, ('10010', N'Thanh Cua Cuộn Rong Biển', 75000)
-, ('10011', N'Canh Sen Đen', 92000)
-, ('10012', N'Canh Bào Ngư Thượng Hạng', 498000)
-, ('10013', N'Heo Quay Da Giòn', 178000)
-, ('10014', N'Hải Sản Đậu Hủ Tay Cầm', 238000)
-, ('10015', N'Sò Điệp Xào Măng Tây', 298000)
+INSERT INTO dbo.MonAn
+VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
+, ('10002', N'Phùng Trảo Thủ', 62000, 'phung-trao-thu.png')
+, ('10003', N'Há Cảo Sò Điệp', 72000, 'ha-cao-so-diep.png')
+, ('10004', N'Bánh Bao Thượng Hải', 65000, 'banh-bao-thuong-hai.png')
+, ('10005', N'Xíu Mại Trứng Tôm', 70000, 'xiu-mai-trung-tom.png')
+, ('10006', N'Bánh Bao Thang Trúc Kim Sa', 65000, 'banh-bao-thang-truc-kim-sa.png')
+, ('10007', N'Bánh Sầu Riêng Ngàn Lớp', 72000, 'banh-sau-rieng-ngan-lop.png')
+, ('10008', N'Hoành Thánh Tôm Chiên', 72000, 'hoanh-thanh-tom-chien.png')
+, ('10009', N'Cảo Bò Nấm Truffle', 80000, 'cao-bo-nam-truffle.png')
+, ('10010', N'Thanh Cua Cuộn Rong Biển', 75000, 'thanh-cua-cuon-rong-bien.png')
+, ('10011', N'Canh Sen Đen', 92000, 'canh-sen-den.png')
+, ('10012', N'Canh Bào Ngư Thượng Hạng', 498000, 'canh-bao-ngu-thuong-hang.png')
+, ('10013', N'Heo Quay Da Giòn', 178000, 'heo-quay-da-gion.png')
+, ('10014', N'Hải Sản Đậu Hủ Tay Cầm', 238000, 'hai-san-dau-hu-tay-cam.png')
+, ('10015', N'Sò Điệp Xào Măng Tây', 298000, 'so-diep-xao-mang-tay.png')
 GO
 
 insert into ChiTietHoaDon(maHoaDon, maMonAn, soLuong )
