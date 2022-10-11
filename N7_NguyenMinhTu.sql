@@ -65,7 +65,7 @@ CREATE TABLE Ban
 GO
 CREATE TABLE DatTruoc
 (
-	maDatTruoc CHAR(10),
+	maDatTruoc CHAR(10) PRIMARY KEY,
 	trangThaiDatTruoc NVARCHAR(20),
 	thoiGianCheckIn DATETIME,
 	thoiGianDatTruoc DATETIME,
