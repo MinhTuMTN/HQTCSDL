@@ -75,44 +75,29 @@ CREATE TABLE DatTruoc
 	maNhanVienTiepNhan CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
 )
 GO
-CREATE TABLE DonHang
-(
-	maDonHang CHAR(10) PRIMARY KEY,
-	thoiGianCheckIn DATETIME,
-	maBan CHAR(10) REFERENCES dbo.Ban(maBan),
-	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
-	maDauBep CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
-	maNhanVienPhucVu CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
-	maNhanVienThuNgan CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
-)
-GO
 CREATE TABLE Coupon
 (
 	maCoupon CHAR(10) PRIMARY KEY,
 	ngayBatDau DATE,
 	ngayKetThuc DATE,
 	phanTramGiam FLOAT,
-	soTienGiamToiDa FLOAT,
-	soTienToiThieu FLOAT
-)
-GO
-CREATE TABLE SuDungCoupon
-(
-	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
-	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
-	ngaySuDung DATE,
-	PRIMARY KEY(maKhachHang,maCoupon)
+	giamToiDa FLOAT,
+	donToiThieu FLOAT
 )
 GO
 CREATE TABLE HoaDon
 (
 	maHoaDon CHAR(10) PRIMARY KEY,
-	phuThu FLOAT,
-	maDonHang CHAR(10) REFERENCES dbo.DonHang(maDonHang),
-	soTienTamTinh FLOAT,
+	thoiGianCheckIn DATETIME,
 	thue FLOAT,
+	phuThu FLOAT,
 	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
-	tongTienPhaiThanhToan FLOAT
+	soTienThanhToan FLOAT,
+	maBan CHAR(10) REFERENCES dbo.Ban(maBan),
+	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
+	maDauBep CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
+	maNhanVienPhucVu CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
+	maNhanVienThuNgan CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
 )
 GO
 CREATE TABLE MonAn
@@ -134,45 +119,18 @@ CREATE TABLE NguyenLieu
 (
 	maNguyenLieu CHAR(10) PRIMARY KEY,
 	tenNguyenLieu NVARCHAR(150),
-	donViTinh NVARCHAR(15),
+	donViTinh CHAR(10),
 	donGia FLOAT,
 	soLuongTon FLOAT
-)
-GO
-CREATE TABLE CongThucMonAn
-(
-	maMonAn CHAR(10) REFERENCES dbo.MonAn(maMonAn),
-	maNguyenLieu CHAR(10) REFERENCES dbo.NguyenLieu(maNguyenLieu),
-	soLuong FLOAT
-)
-GO
-CREATE TABLE NhaCungCap
-(
-	maNhaCungCap CHAR(10) PRIMARY KEY,
-	tenNhaCungCap NVARCHAR(150),
-	diaChi NVARCHAR(250),
-	email VARCHAR(150),
-	soDienThoai CHAR(10)
-)
-GO
-CREATE TABLE ChiTieuNguyenLieu
-(
-	maChiTieuNguyenLieu CHAR(10) PRIMARY KEY,
-	ngayNhap DATE,
-	soLuongNhap FLOAT,
-	tongTien FLOAT,
-	maNhaCungCap CHAR(10) REFERENCES dbo.NhaCungCap(maNhaCungCap),
-	maNguyenLieu CHAR(10) REFERENCES dbo.NguyenLieu(maNguyenLieu),
-	maNguoiQuanLy CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
 )
 GO
 
 
 -- Thêm Constraint
 ALTER TABLE	dbo.Coupon ADD CONSTRAINT check_phanTramGiam CHECK (phanTramGiam >= 0 AND phanTramGiam <= 1);
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienGiamToiDa CHECK (soTienGiamToiDa > 0)
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienToiThieu CHECK (soTienToiThieu > 0)
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_ngayBatDauKetThuc CHECK (ngayBatDau < ngayKetThuc)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienGiamToiDa CHECK (giamToiDa > 0)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienToiThieu CHECK (donToiThieu > 0)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_ngayBatDauKetThuc CHECK (ngayBatDau <= ngayKetThuc)
 GO
 
 CREATE FUNCTION dbo.checkLoaiNhanVien (@nhanVienId CHAR(10))
@@ -195,9 +153,9 @@ BEGIN
 END
 GO
 
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_nhanVienPhucVu CHECK (dbo.checkLoaiNhanVien(maNhanVienPhucVu) = N'Phục vụ');
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_nhanVienThuNgan CHECK (dbo.checkLoaiNhanVien(maNhanVienThuNgan) = N'Thu ngân');
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_nhanVienDauBep CHECK (dbo.checkLoaiNhanVien(maDauBep) = N'Đầu bếp');
+ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_nhanVienPhucVu CHECK (dbo.checkLoaiNhanVien(maNhanVienPhucVu) = N'Phục vụ');
+ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_nhanVienThuNgan CHECK (dbo.checkLoaiNhanVien(maNhanVienThuNgan) = N'Thu ngân');
+ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_nhanVienDauBep CHECK (dbo.checkLoaiNhanVien(maDauBep) = N'Đầu bếp');
 GO
 
 ALTER TABLE dbo.DatTruoc ADD CONSTRAINT check_nhanVienTiepNhan CHECK (dbo.checkLoaiNhanVien(maNhanVienTiepNhan) = N'Thu ngân');
@@ -223,32 +181,16 @@ GO
 
 ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_phuThu CHECK (phuThu >= 0)
 ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_thue CHECK (thue > 0)
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_soTienTamTinh CHECK (soTienTamTinh > 0)
+ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan > 0)
 GO
 
 ALTER TABLE dbo.ChiTietHoaDon ADD CONSTRAINT check_soLuong CHECK (soLuong > 0)
 GO
 
-ALTER TABLE dbo.CongThucMonAn ADD CONSTRAINT check_soLuongMonAn CHECK (soLuong > 0)
-GO
-
-ALTER TABLE dbo.NguyenLieu ADD CONSTRAINT check_donGia CHECK (donGia > 0)
-ALTER TABLE dbo.NguyenLieu ADD CONSTRAINT check_soLuongTon CHECK (soLuongTon >= 0)
-GO
-
 ALTER TABLE dbo.MonAn ADD CONSTRAINT check_giaTien CHECK (giaTien > 0)
 GO
 
-ALTER TABLE dbo.NhaCungCap ADD CONSTRAINT check_soDienThoaiNCC CHECK (soDienThoai LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
-ALTER TABLE dbo.NhaCungCap ADD CONSTRAINT check_email CHECK (email LIKE '%@%.%' AND email NOT LIKE '@%' AND email NOT LIKE '%@%@%')
-GO
-
-ALTER TABLE dbo.ChiTieuNguyenLieu ADD CONSTRAINT check_soLuongNhap CHECK (soLuongNhap > 0)
-ALTER TABLE dbo.ChiTieuNguyenLieu ADD CONSTRAINT check_tongTien CHECK (tongTien > 0)
-ALTER TABLE dbo.ChiTieuNguyenLieu ADD CONSTRAINT check_ngayNhap CHECK (ngayNhap <= GETDATE())
-GO
-
-ALTER TABLE dbo.CaTruc ADD CONSTRAINT check_thoiGianCaTruc CHECK (ngayBatDau < ngayKetThuc)
+ALTER TABLE dbo.CaTruc ADD CONSTRAINT check_thoiGianCaTruc CHECK (ngayBatDau <= ngayKetThuc)
 GO
 
 -- Tạo View
@@ -258,16 +200,10 @@ CREATE VIEW view_LuongNhanVien AS
 	WHERE Luong.maCaTruc=CaTruc.maCaTruc
 GO
 
-CREATE VIEW view_CongThucMonAn AS
-	SELECT tenMonAn, tenNguyenLieu, soLuong, donViTinh
-	FROM dbo.CongThucMonAn, dbo.MonAn, dbo.NguyenLieu
-	WHERE CongThucMonAn.maMonAn=MonAn.maMonAn AND CongThucMonAn.maNguyenLieu=NguyenLieu.maNguyenLieu
-GO
-
 
 -- Tạo trigger
 CREATE TRIGGER trigger_giaTien ON dbo.MonAn
-INSTEAD OF INSERT
+FOR INSERT, UPDATE
 AS
 DECLARE @new FLOAT
 SELECT @new=ne.giaTien FROM Inserted ne
@@ -279,19 +215,7 @@ END
 GO
 
 CREATE TRIGGER trigger_soLuongChiTietHoaDon ON dbo.ChiTietHoaDon
-INSTEAD OF INSERT
-AS
-DECLARE @new FLOAT
-SELECT @new=ne.soLuong FROM Inserted ne
-IF (@new<0)
-BEGIN
-	PRINT(N'Số lượng phải lớn hơn 0')
-	ROLLBACK;
-END
-GO
-
-CREATE TRIGGER trigger_soLuongCongThucMonAn ON dbo.CongThucMonAn
-INSTEAD OF INSERT
+FOR INSERT, UPDATE
 AS
 DECLARE @new FLOAT
 SELECT @new=ne.soLuong FROM Inserted ne
@@ -431,54 +355,38 @@ values ('DT01', N'đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103'
 	, ('DT06', N'bị từ chối', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
 GO
 
-insert into DonHang(maDonHang, thoiGianCheckIn, maBan, maKhachHang, maDauBep, maNhanVienPhucVu, maNhanVienThuNgan)
-values ('DH001', '2022-10-05', 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789')
-GO
-
-insert into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, soTienGiamToiDa, soTienToiThieu)
+insert into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
 values ('CP10', '2022-10-01', '2022-10-07' , 0.1 , 200000 , 50000)
 	, ('CP20', '2022-10-08', '2022-10-15', 0.2 , 300000 , 100000)
 GO
 
-insert into HoaDon(maHoaDon, phuThu, maDonHang, soTienTamTinh, thue, maCoupon, tongTienPhaiThanhToan)
-values ('HD0001', 20000, 'DH001', 1018000, 10000, 'CP10', 926200 )
-GO
-
-insert into NhaCungCap(maNhaCungCap, tenNhaCungCap, diaChi, email, soDienThoai)
-values ('CC0001', N'Thực Phẩm Tấn Tài', N'1517 Phạm Thế Hiển F6 Q.8', 'kinhdoanh@thucphamtantai.com', '0706675696')
-	, ('NCC0002', N'Thực Phẩm La Sicilia', N'Tầng 10, Tòa nhà Miss Áo Dài, 21 Nguyễn Trung Ngạn, P. Bến Nghé, Q. 1, TP. HCM', 'info@lasicilia.com.vn', '0989170531')
-	, ('NCC0003', N'Thực Phẩm Hải Triều', N'3/12F ấp Tiền Lân, Xã Bà Điểm, Huyện Hóc Môn, TP Hồ Chí Minh', 'thucphamhaitrieu@gmail.com', '0902322124')
-	, ('NCC0004', N'Thực Phẩm Quốc Tuấn', N'8 Trần Văn Quang, Phường 10, Tân Bình, TP Hồ Chí Minh', 'tmquoctuan@yahoo.com', '0908777650')
-	, ('NCC0005', N'Thực Phẩm Nhanh', N'204/16/5 Quốc Lộ 13, P.26, Q.Bình Thạnh, Tp.HCM', 'Sales@thucphamnhanh.com', '0311941289')
-GO
-
-insert into NguyenLieu(maNguyenLieu, tenNguyenLieu, donViTinh, donGia, soLuongTon)
-values 	('NL101', N'Muối', N'Kilogam', 6000 , 80)
-	, ('NL102', N'Đường', N'Kilogam', 8000 , 100)
-	, ('NL103', N'Bột Ngọt', N'Kilogam', 60000 , 60)
-	, ('NL104', N'Bột Nêm', N'Kilogam', 22000, 75)
-	, ('NL105', N'Nước mắm', N'Lít', 140000 , 30)
-	, ('NL106', N'Nước tương', N'Lít', 145000 , 30)
-	, ('NL107', N'Tôm Sú', N'Kilogam', 190000, 70)
-	, ('NL108', N'Gà', N'Kilogam', 155000, 55)
-	, ('NL109', N'Vịt', N'Kilogam', 55000, 50)
-	, ('NL110', N'Heo', N'Kilogam', 90000, 80)
-	, ('NL111', N'Sò Điệp', N'Kilogam', 190000, 300)
-	, ('NL112', N'Bò', N'Kilogam', 85000, 75)
-	, ('NL113', N'Bào Ngư', N'Kilogam', 600000, 250)
-	, ('NL114', N'Cua', N'Kilogam', 230000 , 150)
-	, ('NL115', N'Trứng Gà', N'Trái', 2000, 270)
-	, ('NL116', N'Nấm', N'Kilogam', 300000 , 60)
-	, ('NL117', N'Hạt Sen', N'Kilogam', 85000, 50)
-	, ('NL118', N'Măng Tây', N'Kilogam', 120000, 50)
-	, ('NL119', N'Đậu Hủ', N'Kilogam', 50000 , 40)
-	, ('NL120', N'Sầu Riêng', N'Trái', 90000, 30)
-	, ('NL121', N'Bột Chiên', N'Gói', 15000 , 45)
-	, ('NL122', N'Rong Biển', N'Kilogam', 230000 , 65)
-	, ('NL123', N'Bột Thang', N'Gói', 10000 , 40)
-	, ('NL124', N'Hành lá', N'Kilogam', 25000 , 30)
-	, ('NL125', N'Cà Rốt', N'Kilogam', 30000 , 40)
-	, ('NL126', N'Ớt', N'Kilogam', 90000, 35)
+INSERT INTO dbo.HoaDon
+(
+    maHoaDon,
+    thoiGianCheckIn,
+    thue,
+    phuThu,
+    maCoupon,
+    soTienThanhToan,
+    maBan,
+    maKhachHang,
+    maDauBep,
+    maNhanVienPhucVu,
+    maNhanVienThuNgan
+)
+VALUES
+(   'HD0001',        -- maHoaDon - char(10)
+    '20220709', -- thoiGianCheckIn - datetime
+    100000,       -- thue - float
+    50000,       -- phuThu - float
+    'CP10',        -- maCoupon - char(10)
+    1100000,       -- soTienThanhToan - float
+    'BV103',        -- maBan - char(10)
+    'KH01',        -- maKhachHang - char(10)
+    'NV220333',        -- maDauBep - char(10)
+    'NV330103',        -- maNhanVienPhucVu - char(10)
+    'NV440789'         -- maNhanVienThuNgan - char(10)
+    )
 GO
 
 insert into MonAn(maMonAn, tenMonAn, giaTien)
@@ -499,39 +407,12 @@ values ('10001', N'Cảo Tôm Phúc Lục', 72000)
 , ('10015', N'Sò Điệp Xào Măng Tây', 298000)
 GO
 
-insert into CongThucMonAn(maMonAn, maNguyenLieu, soLuong)
-values ('10003', 'NL101', 1)
-	, ('10003', 'NL102', 1)
-	, ('10003', 'NL103', 1)
-	, ('10003', 'NL104', 1)
-	, ('10003', 'NL105', 1)
-	, ('10003', 'NL106', 1)
-	, ('10003', 'NL111', 10)
-	, ('10003', 'NL121', 1)
-	, ('10003', 'NL124', 1)
-	, ('10005', 'NL107', 1)
-	, ('10005', 'NL115', 6)
-	, ('10007', 'NL120', 1)
-	, ('10012', 'NL105', 1)
-	, ('10012', 'NL106', 1)
-	, ('10013', 'NL113', 1)
-GO
-
-insert into ChiTieuNguyenLieu(maChiTieuNguyenLieu, ngayNhap, soLuongNhap, tongTien, maNhaCungCap, maNguyenLieu, maNguoiQuanLy)
-values ('CT0001', '2022-09-15', 20, 1100000 ,'NCC0002', 'NL109', 'NV110001')
-	, ('CT0002', '2022-09-22', 30, 2550000, 'NCC0004', 'NL117', 'NV110003')
-GO
-
 insert into ChiTietHoaDon(maHoaDon, maMonAn, soLuong )
 values('HD0001', '10003', 2)
 	, ('HD0001', '10005', 2)
 	, ('HD0001', '10007', 2)
 	, ('HD0001', '10012', 1)
 	, ('HD0001', '10013', 2)
-GO
-
-insert into SuDungCoupon(maKhachHang, maCoupon, ngaySuDung)
-values ('KH01', 'CP10', '2022-10-02')
 GO
 
 insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)

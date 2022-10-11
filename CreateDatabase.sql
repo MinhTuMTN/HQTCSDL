@@ -75,44 +75,29 @@ CREATE TABLE DatTruoc
 	maNhanVienTiepNhan CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
 )
 GO
-CREATE TABLE DonHang
-(
-	maDonHang CHAR(10) PRIMARY KEY,
-	thoiGianCheckIn DATETIME,
-	maBan CHAR(10) REFERENCES dbo.Ban(maBan),
-	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
-	maDauBep CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
-	maNhanVienPhucVu CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
-	maNhanVienThuNgan CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
-)
-GO
 CREATE TABLE Coupon
 (
 	maCoupon CHAR(10) PRIMARY KEY,
 	ngayBatDau DATE,
 	ngayKetThuc DATE,
 	phanTramGiam FLOAT,
-	soTienGiamToiDa FLOAT,
-	soTienToiThieu FLOAT
-)
-GO
-CREATE TABLE SuDungCoupon
-(
-	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
-	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
-	ngaySuDung DATE,
-	PRIMARY KEY(maKhachHang,maCoupon)
+	giamToiDa FLOAT,
+	donToiThieu FLOAT
 )
 GO
 CREATE TABLE HoaDon
 (
 	maHoaDon CHAR(10) PRIMARY KEY,
-	phuThu FLOAT,
-	maDonHang CHAR(10) REFERENCES dbo.DonHang(maDonHang),
-	soTienTamTinh FLOAT,
+	thoiGianCheckIn DATETIME,
 	thue FLOAT,
+	phuThu FLOAT,
 	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
-	tongTienPhaiThanhToan FLOAT
+	soTienThanhToan FLOAT,
+	maBan CHAR(10) REFERENCES dbo.Ban(maBan),
+	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
+	maDauBep CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
+	maNhanVienPhucVu CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
+	maNhanVienThuNgan CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
 )
 GO
 CREATE TABLE MonAn
@@ -139,29 +124,3 @@ CREATE TABLE NguyenLieu
 	soLuongTon FLOAT
 )
 GO
-CREATE TABLE CongThucMonAn
-(
-	maMonAn CHAR(10) REFERENCES dbo.MonAn(maMonAn),
-	maNguyenLieu CHAR(10) REFERENCES dbo.NguyenLieu(maNguyenLieu),
-	soLuong FLOAT
-)
-GO
-CREATE TABLE NhaCungCap
-(
-	maNhaCungCap CHAR(10) PRIMARY KEY,
-	tenNhaCungCap NVARCHAR(150),
-	diaChi NVARCHAR(250),
-	email VARCHAR(150),
-	soDienThoai CHAR(10)
-)
-GO
-CREATE TABLE ChiTieuNguyenLieu
-(
-	maChiTieuNguyenLieu CHAR(10) PRIMARY KEY,
-	ngayNhap DATE,
-	soLuongNhap FLOAT,
-	tongTien FLOAT,
-	maNhaCungCap CHAR(10) REFERENCES dbo.NhaCungCap(maNhaCungCap),
-	maNguyenLieu CHAR(10) REFERENCES dbo.NguyenLieu(maNguyenLieu),
-	maNguoiQuanLy CHAR(10) REFERENCES dbo.NhanVien(maNhanVien)
-)
