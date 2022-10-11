@@ -116,15 +116,6 @@ CREATE TABLE ChiTietHoaDon
 	PRIMARY KEY(maHoaDon,maMonAn)
 )
 GO
-CREATE TABLE NguyenLieu
-(
-	maNguyenLieu CHAR(10) PRIMARY KEY,
-	tenNguyenLieu NVARCHAR(150),
-	donViTinh CHAR(10),
-	donGia FLOAT,
-	soLuongTon FLOAT
-)
-GO
 
 
 -- Thêm Constraint
