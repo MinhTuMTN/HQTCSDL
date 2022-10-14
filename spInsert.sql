@@ -84,4 +84,3 @@ AS BEGIN
 		VALUES (@maHoaDon, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
 	END
 GO
-
