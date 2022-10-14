@@ -185,14 +185,6 @@ GO
 ALTER TABLE dbo.CaTruc ADD CONSTRAINT check_thoiGianCaTruc CHECK (ngayBatDau <= ngayKetThuc)
 GO
 
--- Tạo View
-CREATE VIEW view_LuongNhanVien AS
-	SELECT maNhanVien, CaTruc.maCaTruc, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
-	FROM dbo.Luong, dbo.CaTruc
-	WHERE Luong.maCaTruc=CaTruc.maCaTruc
-GO
-
-
 -- Tạo trigger
 CREATE TRIGGER trigger_giaTien ON dbo.MonAn
 FOR INSERT, UPDATE
