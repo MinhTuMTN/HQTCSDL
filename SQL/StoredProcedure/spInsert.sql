@@ -14,10 +14,10 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertChiTietHoaDon @maHoaDon char(10), @maMonAn char(10), @soLuong int
+CREATE PROCEDURE spInsertChiTietDonHang @maDonHang char(10), @maMonAn char(10), @soLuong int
 AS BEGIN
-		INSERT INTO dbo.ChiTietHoaDon 
-		VALUES (@maHoaDon, @maMonAn, @soLuong)
+		INSERT INTO dbo.ChiTietDonHang 
+		VALUES (@maDonHang, @maMonAn, @soLuong)
 	END
 GO
 
@@ -41,10 +41,10 @@ AS BEGIN
 		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
 	END
 GO
-CREATE PROCEDURE spInsertHoaDon @maHoaDon char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10)
+CREATE PROCEDURE spInsertDonHang @maDonHang char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10)
 AS BEGIN
-		INSERT INTO dbo.HoaDon
-		VALUES (@maHoaDon, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
+		INSERT INTO dbo.DonHang
+		VALUES (@maDonHang, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
 	END
 GO
 
