@@ -93,6 +93,7 @@ CREATE TABLE HoaDon
 	phuThu FLOAT,
 	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
 	soTienThanhToan FLOAT,
+	trangThaiHoaDon NVARCHAR(50),
 	maBan CHAR(10) REFERENCES dbo.Ban(maBan),
 	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
 	maDauBep CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
@@ -356,7 +357,8 @@ INSERT INTO dbo.HoaDon
     maKhachHang,
     maDauBep,
     maNhanVienPhucVu,
-    maNhanVienThuNgan
+    maNhanVienThuNgan,
+	trangThaiHoaDon
 )
 VALUES
 (   'HD0001',        -- maHoaDon - char(10)
@@ -369,7 +371,8 @@ VALUES
     'KH01',        -- maKhachHang - char(10)
     'NV220333',        -- maDauBep - char(10)
     'NV330103',        -- maNhanVienPhucVu - char(10)
-    'NV440789'         -- maNhanVienThuNgan - char(10)
+    'NV440789',         -- maNhanVienThuNgan - char(10)
+	N'Đã thanh toán'
     )
 GO
 
@@ -408,3 +411,582 @@ values ('NV110001', 'CT1001', 0, 1200000 )
 	, ('NV330101', 'CT1003', 0, 660000)
 	, ('NV440123', 'CT1001', 0, 810000)
 	, ('NV440123', 'CT1003', 1, 270000)
+
+use QuanLyNhaHang
+go
+
+-- Store Procedure insert dữ liệu
+CREATE PROCEDURE spInsertBan(@maBan char(10), @trangThaiBan nvarchar(50), @loaiBan nvarchar(20), @soLuongGheToiDa int)
+AS BEGIN
+		INSERT INTO dbo.Ban
+		VALUES (@maBan, @trangThaiBan, @loaiBan, @soLuongGheToiDa)
+	END
+GO
+
+CREATE PROCEDURE spInsertCaTruc(@maCaTruc char(10), @ngayBatDau date, @ngayKetThuc date)
+AS BEGIN
+		INSERT INTO dbo.CaTruc
+		VALUES (@maCaTruc, @ngayBatDau, @ngayKetThuc)
+	END
+GO
+
+CREATE PROCEDURE spInsertChiTietHoaDon(@maHoaDon char(10), @maMonAn char(10), @soLuong int)
+AS BEGIN
+		INSERT INTO dbo.ChiTietHoaDon 
+		VALUES (@maHoaDon, @maMonAn, @soLuong)
+	END
+GO
+
+CREATE PROCEDURE spInsertCoupon(@maCoupon char(10), @ngayBatDau date, @ngayKetThuc date, @phanTramGiam float, @giamToiDa float, @donToiThieu float)
+AS BEGIN
+		INSERT INTO dbo.Coupon 
+		VALUES (@maCoupon, @ngayBatDau, @ngayKetThuc, @phanTramGiam, @giamToiDa, @donToiThieu)
+	END
+GO
+
+CREATE PROCEDURE spInsertDangKyCaTruc(@maNhanVien char(10), @maCaTruc char(10))
+AS BEGIN
+		INSERT INTO dbo.DangKyCaTruc
+		VALUES (@maNhanVien , @maCaTruc)
+	END
+GO
+
+CREATE PROCEDURE spInsertDatTruoc(@maDatTruoc char(10), @trangThaiDatTruoc nvarchar(20), @thoiGianCheckIn datetime, @thoiGianDatTruoc datetime, @soLuongNguoi int, @maKhachHang char(10), @maBan char(10), @maNhanVienTiepNhan char(10))
+AS BEGIN
+		INSERT INTO dbo.DatTruoc
+		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
+	END
+GO
+CREATE PROCEDURE spInsertHoaDon(@maHoaDon char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @trangThaiHoaDon NVARCHAR(50), @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
+AS BEGIN
+		INSERT INTO dbo.HoaDon
+		VALUES (@maHoaDon, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @trangThaiHoaDon, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
+	END
+GO
+
+CREATE PROCEDURE spInsertKhachHang(@maKhachHang char(10), @hoTen nvarchar(150), @soDienThoai char(10), @ngaySinh date, @gioiTinh bit)
+AS BEGIN
+		INSERT INTO dbo.KhachHang
+		VALUES (@maKhachHang, @hoTen, @soDienThoai, @ngaySinh, @gioiTinh)
+	END
+GO
+
+CREATE PROCEDURE spInsertLuong @maNhanVien char(10), @maCaTruc char(10), @soNgayNghi int, @tongLuong float
+AS BEGIN
+		INSERT INTO dbo.Luong
+		VALUES (@maNhanVien, @maCaTruc, @soNgayNghi, @tongLuong)
+	END
+GO
+
+CREATE PROCEDURE spInsertMonAn @maMonAn char(10), @tenMonAn nvarchar(150), @giaTien float, @hinhAnh varchar(150)
+AS BEGIN
+		INSERT INTO dbo.MonAn
+		VALUES (@maMonAn, @tenMonAn, @giaTien, @hinhAnh)
+	END
+GO
+
+CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh date, @gioitinh bit, @diachi nvarchar(100), @SDT int, @heSoLuong float, @loaiNhanVien nvarchar(20))
+AS BEGIN
+		INSERT INTO dbo.NhanVien
+		VALUES (@ma,@ten,@ngaysinh,@gioitinh,@diachi,@SDT,@heSoLuong,@loaiNhanVien)
+	END
+GO
+
+CREATE PROCEDURE spInsertTaiKhoan(@tenDangNhap varchar(50), @matKhau varchar(50), @trangThaiTaiKhoan nvarchar(20), @maNhanVien char(10))
+AS BEGIN
+		INSERT INTO dbo.TaiKhoan
+		VALUES (@tenDangNhap, @matKhau, @trangThaiTaiKhoan, @maNhanVien)
+	END
+GO
+
+-- Stored Procedure tìm kiếm
+-- Search procedure: tìm kiếm một đối tượng dựa theo khóa chính
+CREATE PROCEDURE spSearchNhanVien(@maNhanVien CHAR(10))
+AS BEGIN
+    SELECT *
+	FROM dbo.NhanVien
+	WHERE @maNhanVien = maNhanVien
+END
+GO
+
+CREATE PROCEDURE spSearchBan(@maBan CHAR(10))
+AS BEGIN
+    SELECT *
+	FROM dbo.Ban
+	WHERE maBan = @maBan
+END
+GO
+
+CREATE PROCEDURE spSearchHoaDon(@maHoaDon CHAR(10))
+AS BEGIN
+    SELECT *
+	FROM dbo.HoaDon
+	WHERE maHoaDon = @maHoaDon
+END
+GO
+
+CREATE PROCEDURE spSearchMonAn(@maMonAn CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.MonAn
+	   WHERE maMonAn = @maMonAn
+   END
+GO
+
+CREATE PROCEDURE spSearchCoupon(@maCoupon CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.Coupon
+	   WHERE maCoupon = @maCoupon
+   END
+GO
+
+CREATE PROCEDURE spSearchKhachHang(@maKhachHang CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.KhachHang
+	   WHERE maKhachHang = @maKhachHang
+   END
+GO
+
+CREATE PROCEDURE spSearchDatTruoc(@maDatTruoc CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.DatTruoc
+	   WHERE maDatTruoc = @maDatTruoc
+   END
+GO
+
+CREATE PROCEDURE spSearchCaTruc(@maCaTruc CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.CaTruc
+	   WHERE maCaTruc = @maCaTruc
+   END
+GO
+
+CREATE PROCEDURE spSearchTaiKhoan(@tenDangNhap VARCHAR(50))
+AS BEGIN
+       SELECT *
+	   FROM dbo.TaiKhoan
+	   WHERE tenDangNhap = @tenDangNhap
+   END
+GO
+
+CREATE PROCEDURE spSearchDangKyCaTruc(@maNhanVien CHAR(10), @maCatruc CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.DangKyCaTruc
+	   WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCatruc
+   END
+GO
+
+CREATE PROCEDURE spSearchLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.Luong
+	   WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCaTruc
+   END
+GO
+
+CREATE PROCEDURE spSearchChiTietHoaDon(@maHoaDon CHAR(10), @maMonAn CHAR(10))
+AS BEGIN
+       SELECT *
+	   FROM dbo.ChiTietHoaDon
+	   WHERE maHoaDon = @maHoaDon AND maMonAn = @maMonAn
+   END
+GO
+
+-- Select procedure: in ra toàn bộ bảng
+CREATE PROCEDURE spSelectNhanVien
+AS BEGIN
+    SELECT *
+	FROM dbo.NhanVien
+END
+GO
+
+CREATE PROCEDURE spSelectBan
+AS BEGIN
+    SELECT *
+	FROM dbo.Ban
+END
+GO
+
+CREATE PROCEDURE spSelectHoaDon
+AS BEGIN
+    SELECT *
+	FROM dbo.HoaDon
+END
+GO
+
+CREATE PROCEDURE spSelectMonAn
+AS BEGIN
+       SELECT *
+	   FROM dbo.MonAn
+   END
+GO
+
+CREATE PROCEDURE spSelectCoupon
+AS BEGIN
+       SELECT *
+	   FROM dbo.Coupon
+   END
+GO
+
+CREATE PROCEDURE spSelectKhachHang
+AS BEGIN
+       SELECT *
+	   FROM dbo.KhachHang
+   END
+GO
+
+CREATE PROCEDURE spSelectDatTruoc
+AS BEGIN
+       SELECT *
+	   FROM dbo.DatTruoc
+   END
+GO
+
+CREATE PROCEDURE spSelectCaTruc
+AS BEGIN
+       SELECT *
+	   FROM dbo.CaTruc
+   END
+GO
+
+CREATE PROCEDURE spSelectTaiKhoan
+AS BEGIN
+       SELECT *
+	   FROM dbo.TaiKhoan
+   END
+GO
+
+CREATE PROCEDURE spSelectDangKyCaTruc
+AS BEGIN
+       SELECT *
+	   FROM dbo.DangKyCaTruc
+   END
+GO
+
+CREATE PROCEDURE spSelectLuong
+AS BEGIN
+       SELECT *
+	   FROM dbo.Luong
+   END
+GO
+
+CREATE PROCEDURE spSelectChiTietHoaDon
+AS BEGIN
+       SELECT *
+	   FROM dbo.ChiTietHoaDon
+   END
+GO
+
+-- Store Procedure Update
+CREATE PROC spUpdateNhanVien (
+	@maNhanVien CHAR(10),
+    @hoTen NVARCHAR(100),
+    @ngaySinh DATE,
+    @gioiTinh BIT,
+    @diaChi NVARCHAR(150),
+    @soDienThoai CHAR(10),
+    @heSoLuong FLOAT,
+    @loaiNhanVien NVARCHAR(20)
+)
+AS
+BEGIN
+	UPDATE dbo.NhanVien SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
+	WHERE maNhanVien=@maNhanVien
+END
+GO
+
+CREATE PROC spUpdateCaTruc (
+	@maCaTruc CHAR(10),
+	@ngayBatDau DATE,
+	@ngayKetThuc DATE
+)
+AS
+BEGIN
+    UPDATE dbo.CaTruc SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc 
+	WHERE maCaTruc=@maCaTruc
+END
+GO
+
+CREATE PROC spUpdateTaiKhoan(
+	@tenDangNhap VARCHAR(50),
+	@matKhau VARCHAR(50),
+	@trangThaiTaiKhoan NVARCHAR(20)
+)
+AS
+BEGIN
+    UPDATE dbo.TaiKhoan SET matKhau=@matKhau, trangThaiTaiKhoan=@trangThaiTaiKhoan 
+	WHERE tenDangNhap=@tenDangNhap
+END
+GO
+
+CREATE PROC spUpdateLuong(
+	@maNhanVien CHAR(10),
+	@maCaTruc CHAR(10),
+	@soNgayNghi INT
+)
+AS
+BEGIN
+    UPDATE dbo.Luong SET soNgayNghi=@soNgayNghi
+	WHERE maNhanVien=@maNhanVien AND maCaTruc=@maCaTruc
+END
+GO
+
+CREATE PROC spUpdateKhachHang (
+	@maKhachHang CHAR(10),
+	@hoTen NVARCHAR(150),
+	@soDienThoai CHAR(10),
+	@ngaySinh DATE,
+	@gioiTinh BIT
+)
+AS
+BEGIN
+    UPDATE dbo.KhachHang SET hoTen=@hoTen, soDienThoai=@soDienThoai, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh
+	WHERE maKhachHang=@maKhachHang
+
+END
+GO
+
+CREATE PROC spUpdateBan (
+	@maBan CHAR(10),
+	@trangThaiBan NVARCHAR(50),
+	@loaiBan NVARCHAR(20),
+	@soLuongGheToiDa INT
+)
+AS
+BEGIN
+    UPDATE dbo.Ban SET trangThaiBan=@trangThaiBan, loaiBan=@loaiBan, soLuongGheToiDa=@soLuongGheToiDa
+	WHERE maBan=@maBan
+END
+GO
+
+CREATE PROC spUpdateDatTruoc(
+	@maDatTruoc CHAR(10),
+	@trangThaiDatTruoc NVARCHAR(20),
+	@thoiGianCheckIn DATETIME,
+	@thoiGianDatTruoc DATETIME,
+	@soLuongNguoi INT,
+	@maKhachHang CHAR(10),
+	@maBan CHAR(10),
+	@maNhanVienTiepNhan CHAR(10)
+)
+AS
+BEGIN
+    UPDATE dbo.DatTruoc SET trangThaiDatTruoc=@trangThaiDatTruoc, thoiGianCheckIn=@thoiGianCheckIn, thoiGianDatTruoc=@thoiGianDatTruoc, soLuongNguoi=@soLuongNguoi, maKhachHang=@maKhachHang, maBan=@maBan, maNhanVienTiepNhan=@maNhanVienTiepNhan
+	WHERE maDatTruoc=@maDatTruoc
+END
+GO
+
+CREATE PROC spUpdateCoupon(
+	@maCoupon CHAR(10),
+	@ngayBatDau DATE,
+	@ngayKetThuc DATE,
+	@phanTramGiam FLOAT,
+	@giamToiDa FLOAT,
+	@donToiThieu FLOAT
+)
+AS
+BEGIN
+	UPDATE dbo.Coupon SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc, phanTramGiam=@phanTramGiam, giamToiDa=@giamToiDa, donToiThieu=@donToiThieu
+	WHERE maCoupon=@maCoupon
+END
+GO
+
+CREATE PROC spUpdateHoaDon(
+	@maHoaDon CHAR(10),
+	@thoiGianCheckIn DATETIME,
+	@thue FLOAT,
+	@phuThu FLOAT,
+	@maCoupon CHAR(10),
+	@maBan CHAR(10),
+	@maKhachHang CHAR(10),
+	@maDauBep CHAR(10),
+	@maNhanVienPhucVu CHAR(10),
+	@maNhanVienThuNgan CHAR(10)
+)
+AS
+BEGIN
+    UPDATE dbo.HoaDon SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
+	WHERE maHoaDon=@maHoaDon
+
+END
+GO
+
+CREATE PROC spUpdateMonAn(
+	@maMonAn CHAR(10),
+	@tenMonAn NVARCHAR(150),
+	@giaTien FLOAT,
+	@hinhAnh VARCHAR(150)
+)
+AS
+BEGIN
+    UPDATE dbo.MonAn SET tenMonAn=@tenMonAn, giaTien=@giaTien, hinhAnh=@hinhAnh
+	WHERE maMonAn=@maMonAn
+END
+GO
+
+CREATE PROC spUpdateChiTietHoaDon(
+	@maHoaDon CHAR(10),
+	@maMonAn CHAR(10),
+	@soLuong INT
+)
+AS
+BEGIN
+    UPDATE dbo.ChiTietHoaDon SET soLuong=@soLuong
+	WHERE maHoaDon=@maHoaDon AND maMonAn=@maMonAn
+END
+GO
+
+-- Tạo views
+CREATE VIEW viewNhanVienDangKyCaTruc -- Thông tin các nhân viên đăng ký các ca trực
+AS SELECT NhanVien.maNhanVien, CaTruc.maCaTruc, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien
+FROM dbo.NhanVien, dbo.DangKyCaTruc, dbo.CaTruc
+WHERE DangKyCaTruc.maNhanVien = NhanVien.maNhanVien AND CaTruc.maCaTruc = DangKyCaTruc.maCaTruc
+GO
+
+CREATE VIEW viewMonAnDuocPhucVu -- Thông tin các món ăn được phục vụ
+AS SELECT maKhachHang, hinhAnh, tenMonAn, soLuong, maCoupon, maBan, maDauBep, maNhanVienPhucVu, maNhanVienThuNgan, thoiGianCheckIn
+FROM dbo.MonAn, dbo.ChiTietHoaDon, dbo.HoaDon
+WHERE ChiTietHoaDon.maHoaDon = HoaDon.maHoaDon AND ChiTietHoaDon.maMonAn = MonAn.maMonAn
+GO
+
+CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
+AS SELECT CaTruc.maCaTruc, hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
+FROM dbo.Luong, dbo.CaTruc, dbo.NhanVien
+WHERE Luong.maCaTruc=CaTruc.maCaTruc AND NhanVien.maNhanVien = Luong.maNhanVien
+GO
+
+-- Tạo các Function
+CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @soNgayCuaCaTruc INT
+	DECLARE @soNgayNghi INT
+	DECLARE @heSoLuong FLOAT
+
+	SELECT @soNgayCuaCaTruc = DATEDIFF(day,ngayBatDau,ngayKetThuc) + 1 
+	FROM dbo.CaTruc 
+	WHERE maCaTruc = @maCaTruc
+
+	SELECT @soNgayNghi = soNgayNghi FROM dbo.Luong
+	WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCaTruc
+
+	SELECT @heSoLuong = heSoLuong FROM dbo.NhanVien
+	WHERE maNhanVien = @maNhanVien
+
+	DECLARE @result FLOAT
+	SET @result = (@soNgayCuaCaTruc - @soNgayNghi)*@heSoLuong
+	RETURN @result
+END
+GO
+
+CREATE TRIGGER triggerUpdateLuong ON dbo.Luong
+FOR INSERT, UPDATE AS
+BEGIN
+    DECLARE @maNhanVien CHAR(10)
+	DECLARE @maCaTruc CHAR(10)
+
+	SELECT @maNhanVien = ins.maNhanVien, @maCaTruc = ins.maCaTruc FROM Inserted ins
+
+	UPDATE dbo.Luong 
+	SET tongLuong = dbo.fnTinhLuong(@maNhanVien, @maCaTruc)
+	WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCaTruc
+END
+GO
+
+CREATE FUNCTION fnGiaTienMonAn(@maMonAn CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @result FLOAT
+	SELECT @result = giaTien FROM dbo.MonAn
+	WHERE maMonAn = @maMonAn
+
+	RETURN @result
+END
+GO
+
+
+--Bao gồm món ăn + phụ thu
+CREATE FUNCTION fnTinhTamThu(@maHoaDon CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @tong FLOAT
+	SET @tong = 0
+
+	SELECT @tong = @tong + dbo.fnGiaTienMonAn(CT.maMonAn) * CT.soLuong 
+	FROM dbo.ChiTietHoaDon CT
+	WHERE maHoaDon = @maHoaDon
+
+	SELECT @tong = @tong + phuThu
+	FROM dbo.HoaDon
+	WHERE maHoaDon = @maHoaDon
+
+	RETURN @tong
+END
+GO
+
+
+CREATE TRIGGER triggerApDungCoupon ON dbo.HoaDon
+FOR INSERT, UPDATE AS
+BEGIN
+    DECLARE @maHoaDon CHAR(10)
+	DECLARE @maCoupon CHAR(10)
+
+	SELECT @maHoaDon=maHoaDon, @maCoupon=maCoupon FROM Inserted
+	IF(@maCoupon IS NULL)
+		RETURN
+
+	DECLARE @donToiThieu FLOAT
+	SELECT @donToiThieu = donToiThieu FROM dbo.Coupon
+	WHERE maCoupon = @maCoupon
+
+	DECLARE @giaTriDon FLOAT
+	SELECT @giaTriDon = dbo.fnTinhTamThu(@maHoaDon)
+
+	IF (@giaTriDon >= @donToiThieu)
+		RETURN
+	ELSE
+		UPDATE dbo.HoaDon SET maCoupon = NULL WHERE maHoaDon = @maHoaDon
+END
+GO
+
+CREATE FUNCTION fnTinhTienGiam(@maHoaDon CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @maCoupon CHAR(10)
+	DECLARE @donToiThieu FLOAT 
+	DECLARE @giamToiDa FLOAT
+	DECLARE @phanTramGiam FLOAT
+	DECLARE @tienTamTinh FLOAT
+
+	SELECT @maCoupon = maCoupon FROM dbo.HoaDon
+	WHERE maHoaDon = @maHoaDon
+
+	IF(@maCoupon IS NULL)
+		RETURN 0
+
+	SELECT @donToiThieu = donToiThieu, @giamToiDa = giamToiDa, @phanTramGiam = phanTramGiam 
+	FROM dbo.Coupon
+	WHERE maCoupon = @maCoupon
+
+	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maHoaDon)
+
+	IF(@tienTamTinh < @donToiThieu)
+		RETURN 0
+
+	IF(@giamToiDa < (@tienTamTinh * @phanTramGiam))
+		RETURN @giamToiDa
+	RETURN @tienTamTinh * @phanTramGiam
+END
+GO
+
+CREATE FUNCTION fnTinhTienHoaDon(@maHoaDon CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    RETURN dbo.fnTinhTamThu(@maHoaDon) - dbo.fnTinhTienGiam(@maHoaDon)
+END
+GO
