@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDDB79E6-3959-488F-AE8A-639EEA220C88}</ProjectGuid>
+    <ProjectGuid>{15F9D7C0-25C3-41AF-AB78-23AC5DDCF291}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RestaurantManagement</RootNamespace>
     <AssemblyName>RestaurantManagement</AssemblyName>
@@ -63,9 +63,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
