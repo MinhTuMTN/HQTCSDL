@@ -27,6 +27,7 @@ namespace CustomControls.RJControls
         private string placeholderText = "";
         private bool isPlaceholder = false;
         private bool isPasswordChar = false;
+        private Image icon;
 
         //Events
         public event EventHandler _TextChanged;
@@ -188,6 +189,19 @@ namespace CustomControls.RJControls
                 placeholderText = value;
                 textBox1.Text = "";
                 SetPlaceholder();
+            }
+        }
+
+        public Image Icon
+        {
+            get
+            {
+                
+                return icon;
+            }
+            set
+            {
+                icon = value;
             }
         }
 

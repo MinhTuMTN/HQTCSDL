@@ -14,12 +14,16 @@ namespace RestaurantManagement.PresentationLayer.Control
     public class CustomButton : Button
     {
         //Fields
+        private Boolean firstHover = true;
+        private Color tempBgColor;
+        private Color tempTextColor;
         private int borderSize = 0;
         private int borderRadius = 0;
-        private Color borderColor = Color.PaleVioletRed;
+        private Color borderColor;
+        private Color backgroundColorHover = Color.Transparent;
+        private Color textColorHover = Color.Transparent;
 
-        //Properties
-        [Category("RJ Code Advance")]
+        //Properties=
         public int BorderSize
         {
             get { return borderSize; }
@@ -30,7 +34,6 @@ namespace RestaurantManagement.PresentationLayer.Control
             }
         }
 
-        [Category("RJ Code Advance")]
         public int BorderRadius
         {
             get { return borderRadius; }
@@ -41,7 +44,6 @@ namespace RestaurantManagement.PresentationLayer.Control
             }
         }
 
-        [Category("RJ Code Advance")]
         public Color BorderColor
         {
             get { return borderColor; }
@@ -52,19 +54,20 @@ namespace RestaurantManagement.PresentationLayer.Control
             }
         }
 
-        [Category("RJ Code Advance")]
         public Color BackgroundColor
         {
             get { return this.BackColor; }
             set { this.BackColor = value; }
         }
 
-        [Category("RJ Code Advance")]
         public Color TextColor
         {
             get { return this.ForeColor; }
             set { this.ForeColor = value; }
         }
+
+        public Color BackgroundColorHover { get => backgroundColorHover; set => backgroundColorHover = value; }
+        public Color TextColorHover { get => textColorHover; set => textColorHover = value; }
 
         //Constructor
         public CustomButton()
@@ -75,6 +78,10 @@ namespace RestaurantManagement.PresentationLayer.Control
             this.BackColor = Color.MediumSlateBlue;
             this.ForeColor = Color.White;
             this.Resize += new EventHandler(Button_Resize);
+            this.BackgroundColorHover = this.BackgroundColor;
+            this.ForeColor = this.TextColor;
+            this.MouseMove += new MouseEventHandler(Button_Hover);
+            this.MouseLeave += new EventHandler(Button_Leave);
         }
 
         //Methods
@@ -152,6 +159,25 @@ namespace RestaurantManagement.PresentationLayer.Control
         {
             if (borderRadius > this.Height)
                 borderRadius = this.Height;
+        }
+
+        private void Button_Hover(object sender, EventArgs e)
+        {
+            if(firstHover)
+            {
+                firstHover = false;
+                tempBgColor = this.BackgroundColor;
+                tempTextColor = this.TextColor;
+                this.BackgroundColor = this.BackgroundColorHover;
+                this.TextColor = this.TextColorHover;
+            }
+        }
+
+        private void Button_Leave(object sender, EventArgs e)
+        {
+            this.BackgroundColor = tempBgColor;
+            this.TextColor = tempTextColor;
+            firstHover = true;
         }
     }
 }
