@@ -114,8 +114,8 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateHoaDon(
-	@maHoaDon CHAR(10),
+CREATE PROC spUpdateDonHang(
+	@maDonHang CHAR(10),
 	@thoiGianCheckIn DATETIME,
 	@thue FLOAT,
 	@phuThu FLOAT,
@@ -128,8 +128,8 @@ CREATE PROC spUpdateHoaDon(
 )
 AS
 BEGIN
-    UPDATE dbo.HoaDon SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
-	WHERE maHoaDon=@maHoaDon
+    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
+	WHERE maDonHang=@maDonHang
 
 END
 GO
@@ -147,15 +147,15 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateChiTietHoaDon(
-	@maHoaDon CHAR(10),
+CREATE PROC spUpdateChiTietDonHang(
+	@maDonHang CHAR(10),
 	@maMonAn CHAR(10),
 	@soLuong INT
 )
 AS
 BEGIN
-    UPDATE dbo.ChiTietHoaDon SET soLuong=@soLuong
-	WHERE maHoaDon=@maHoaDon AND maMonAn=@maMonAn
+    UPDATE dbo.ChiTietDonHang SET soLuong=@soLuong
+	WHERE maDonHang=@maDonHang AND maMonAn=@maMonAn
 END
 GO
 

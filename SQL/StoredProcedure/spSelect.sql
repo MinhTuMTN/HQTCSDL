@@ -16,10 +16,10 @@ AS BEGIN
 END
 GO
 
-CREATE PROCEDURE spSelectHoaDon
+CREATE PROCEDURE spSelectDonHang
 AS BEGIN
     SELECT *
-	FROM dbo.HoaDon
+	FROM dbo.DonHang
 END
 GO
 
@@ -79,10 +79,10 @@ AS BEGIN
    END
 GO
 
-CREATE PROCEDURE spSelectChiTietHoaDon
+CREATE PROCEDURE spSelectChiTietDonHang
 AS BEGIN
        SELECT *
-	   FROM dbo.ChiTietHoaDon
+	   FROM dbo.ChiTietDonHang
    END
 GO
 
@@ -90,11 +90,11 @@ GO
 EXEC dbo.spSelectNhanVien
 EXEC dbo.spSelectBan
 EXEC dbo.spSelectCaTruc
-EXEC dbo.spSelectChiTietHoaDon
+EXEC dbo.spSelectChiTietDonHang
 EXEC dbo.spSelectCoupon
 EXEC dbo.spSelectDangKyCaTruc
 EXEC dbo.spSelectDatTruoc
-EXEC dbo.spSelectHoaDon
+EXEC dbo.spSelectDonHang
 EXEC dbo.spSelectKhachHang
 EXEC dbo.spSelectLuong
 EXEC dbo.spSelectMonAn

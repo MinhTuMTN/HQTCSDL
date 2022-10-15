@@ -49,32 +49,32 @@ GO
 
 
 --Bao gồm món ăn + phụ thu
-CREATE FUNCTION fnTinhTamThu(@maHoaDon CHAR(10))
+CREATE FUNCTION fnTinhTamThu(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
     DECLARE @tong FLOAT
 	SET @tong = 0
 
 	SELECT @tong = @tong + dbo.fnGiaTienMonAn(CT.maMonAn) * CT.soLuong 
-	FROM dbo.ChiTietHoaDon CT
-	WHERE maHoaDon = @maHoaDon
+	FROM dbo.ChiTietDonHang CT
+	WHERE maDonHang = @maDonHang
 
 	SELECT @tong = @tong + phuThu
-	FROM dbo.HoaDon
-	WHERE maHoaDon = @maHoaDon
+	FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
 
 	RETURN @tong
 END
 GO
 
 
-CREATE TRIGGER triggerApDungCoupon ON dbo.HoaDon
+CREATE TRIGGER triggerApDungCoupon ON dbo.DonHang
 FOR INSERT, UPDATE AS
 BEGIN
-    DECLARE @maHoaDon CHAR(10)
+    DECLARE @maDonHang CHAR(10)
 	DECLARE @maCoupon CHAR(10)
 
-	SELECT @maHoaDon=maHoaDon, @maCoupon=maCoupon FROM Inserted
+	SELECT @maDonHang=maDonHang, @maCoupon=maCoupon FROM Inserted
 	IF(@maCoupon IS NULL)
 		RETURN
 
@@ -83,16 +83,16 @@ BEGIN
 	WHERE maCoupon = @maCoupon
 
 	DECLARE @giaTriDon FLOAT
-	SELECT @giaTriDon = dbo.fnTinhTamThu(@maHoaDon)
+	SELECT @giaTriDon = dbo.fnTinhTamThu(@maDonHang)
 
 	IF (@giaTriDon >= @donToiThieu)
 		RETURN
 	ELSE
-		UPDATE dbo.HoaDon SET maCoupon = NULL WHERE maHoaDon = @maHoaDon
+		UPDATE dbo.DonHang SET maCoupon = NULL WHERE maDonHang = @maDonHang
 END
 GO
 
-CREATE FUNCTION fnTinhTienGiam(@maHoaDon CHAR(10))
+CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
 	DECLARE @maCoupon CHAR(10)
@@ -101,8 +101,8 @@ BEGIN
 	DECLARE @phanTramGiam FLOAT
 	DECLARE @tienTamTinh FLOAT
 
-	SELECT @maCoupon = maCoupon FROM dbo.HoaDon
-	WHERE maHoaDon = @maHoaDon
+	SELECT @maCoupon = maCoupon FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
 
 	IF(@maCoupon IS NULL)
 		RETURN 0
@@ -111,7 +111,7 @@ BEGIN
 	FROM dbo.Coupon
 	WHERE maCoupon = @maCoupon
 
-	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maHoaDon)
+	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maDonHang)
 
 	IF(@tienTamTinh < @donToiThieu)
 		RETURN 0
@@ -122,9 +122,9 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION fnTinhTienHoaDon(@maHoaDon CHAR(10))
+CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
-    RETURN dbo.fnTinhTamThu(@maHoaDon) - dbo.fnTinhTienGiam(@maHoaDon)
+    RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
 END
 GO
