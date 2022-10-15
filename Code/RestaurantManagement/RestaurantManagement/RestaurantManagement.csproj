@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{224D36BF-086D-4529-8CDF-578E0EE74CDB}</ProjectGuid>
+    <ProjectGuid>{DDDB79E6-3959-488F-AE8A-639EEA220C88}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RestaurantManagement</RootNamespace>
     <AssemblyName>RestaurantManagement</AssemblyName>
@@ -52,23 +52,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\Control\CustomButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\Control\RJTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
-      <DependentUpon>RJTextBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
-      <DependentUpon>RJTextBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,14 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="PresentationLayer\View\" />
-=======
-    <Content Include="PresentationLayer\Images\Logo\logo.png" />
-    <Content Include="PresentationLayer\Images\Logo\logo.svg" />
->>>>>>> c9cdc0e082b31fed1dcb7e378ee41245781f9b93
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
