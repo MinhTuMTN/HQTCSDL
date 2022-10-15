@@ -9,3 +9,4 @@ D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.csproj.CoreCompileInputs.cache
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.exe
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.pdb
+D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\CustomControls.RJControls.RJTextBox.resources
