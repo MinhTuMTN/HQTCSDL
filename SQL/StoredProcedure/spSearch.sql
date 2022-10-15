@@ -18,11 +18,11 @@ AS BEGIN
 END
 GO
 
-CREATE PROCEDURE spSearchHoaDon(@maHoaDon CHAR(10))
+CREATE PROCEDURE spSearchDonHang(@maDonHang CHAR(10))
 AS BEGIN
     SELECT *
-	FROM dbo.HoaDon
-	WHERE maHoaDon = @maHoaDon
+	FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
 END
 GO
 
@@ -90,11 +90,11 @@ AS BEGIN
    END
 GO
 
-CREATE PROCEDURE spSearchChiTietHoaDon(@maHoaDon CHAR(10), @maMonAn CHAR(10))
+CREATE PROCEDURE spSearchChiTietDonHang(@maDonHang CHAR(10), @maMonAn CHAR(10))
 AS BEGIN
        SELECT *
-	   FROM dbo.ChiTietHoaDon
-	   WHERE maHoaDon = @maHoaDon AND maMonAn = @maMonAn
+	   FROM dbo.ChiTietDonHang
+	   WHERE maDonHang = @maDonHang AND maMonAn = @maMonAn
    END
 GO
 
@@ -102,13 +102,13 @@ GO
 EXEC dbo.spSearchNhanVien @maNhanVien = 'NV110001' -- char(10)
 EXEC dbo.spSearchBan @maBan = 'BT201' -- char(10)
 EXEC dbo.spSearchCaTruc @maCaTruc = 'CT1002' -- char(10)
-EXEC dbo.spSearchChiTietHoaDon @maHoaDon = 'HD0001', -- char(10)
+EXEC dbo.spSearchChiTietDonHang @maDonHang = 'HD0001', -- char(10)
                                @maMonAn = '10007'   -- char(10)
 EXEC dbo.spSearchCoupon @maCoupon = 'CP20' -- char(10)
 EXEC dbo.spSearchDangKyCaTruc @maNhanVien = 'NV220111', -- char(10)
                               @maCatruc = 'CT1003'    -- char(10)
 EXEC dbo.spSearchDatTruoc @maDatTruoc = 'DT01' -- char(10)
-EXEC dbo.spSearchHoaDon @maHoaDon = 'HD0001' -- char(10)
+EXEC dbo.spSearchDonHang @maDonHang = 'HD0001' -- char(10)
 EXEC dbo.spSearchKhachHang @maKhachHang = 'KH03' -- char(10)
 EXEC dbo.spSearchLuong @maNhanVien = 'NV220111', -- char(10)
                        @maCaTruc = 'CT1001'    -- char(10)

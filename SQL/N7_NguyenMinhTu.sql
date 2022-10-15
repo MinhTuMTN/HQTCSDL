@@ -85,15 +85,15 @@ CREATE TABLE Coupon
 	donToiThieu FLOAT
 )
 GO
-CREATE TABLE HoaDon
+CREATE TABLE DonHang
 (
-	maHoaDon CHAR(10) PRIMARY KEY,
+	maDonHang CHAR(10) PRIMARY KEY,
 	thoiGianCheckIn DATETIME,
 	thue FLOAT,
 	phuThu FLOAT,
 	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
 	soTienThanhToan FLOAT,
-	trangThaiHoaDon NVARCHAR(50),
+	trangThaiDonHang NVARCHAR(50),
 	maBan CHAR(10) REFERENCES dbo.Ban(maBan),
 	maKhachHang CHAR(10) REFERENCES dbo.KhachHang(maKhachHang),
 	maDauBep CHAR(10) REFERENCES dbo.NhanVien(maNhanVien),
@@ -109,12 +109,12 @@ CREATE TABLE MonAn
 	hinhAnh VARCHAR(150)
 )
 GO
-CREATE TABLE ChiTietHoaDon
+CREATE TABLE ChiTietDonHang
 (
-	maHoaDon CHAR(10) REFERENCES dbo.HoaDon(maHoaDon),
+	maDonHang CHAR(10) REFERENCES dbo.DonHang(maDonHang),
 	maMonAn CHAR(10) REFERENCES dbo.MonAn(maMonAn),
 	soLuong INT,
-	PRIMARY KEY(maHoaDon,maMonAn)
+	PRIMARY KEY(maDonHang,maMonAn)
 )
 GO
 
@@ -146,9 +146,9 @@ BEGIN
 END
 GO
 
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_nhanVienPhucVu CHECK (dbo.checkLoaiNhanVien(maNhanVienPhucVu) = N'Phục vụ');
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_nhanVienThuNgan CHECK (dbo.checkLoaiNhanVien(maNhanVienThuNgan) = N'Thu ngân');
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_nhanVienDauBep CHECK (dbo.checkLoaiNhanVien(maDauBep) = N'Đầu bếp');
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_nhanVienPhucVu CHECK (dbo.checkLoaiNhanVien(maNhanVienPhucVu) = N'Phục vụ');
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_nhanVienThuNgan CHECK (dbo.checkLoaiNhanVien(maNhanVienThuNgan) = N'Thu ngân');
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_nhanVienDauBep CHECK (dbo.checkLoaiNhanVien(maDauBep) = N'Đầu bếp');
 GO
 
 ALTER TABLE dbo.DatTruoc ADD CONSTRAINT check_nhanVienTiepNhan CHECK (dbo.checkLoaiNhanVien(maNhanVienTiepNhan) = N'Thu ngân');
@@ -172,12 +172,12 @@ GO
 ALTER TABLE dbo.Ban ADD CONSTRAINT check_soLuongGheToiDa CHECK (soLuongGheToiDa > 0)
 GO
 
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_phuThu CHECK (phuThu >= 0)
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_thue CHECK (thue > 0)
-ALTER TABLE dbo.HoaDon ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan > 0)
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_phuThu CHECK (phuThu >= 0)
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_thue CHECK (thue > 0)
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan > 0)
 GO
 
-ALTER TABLE dbo.ChiTietHoaDon ADD CONSTRAINT check_soLuong CHECK (soLuong > 0)
+ALTER TABLE dbo.ChiTietDonHang ADD CONSTRAINT check_soLuong CHECK (soLuong > 0)
 GO
 
 ALTER TABLE dbo.MonAn ADD CONSTRAINT check_giaTien CHECK (giaTien > 0)
@@ -199,7 +199,7 @@ BEGIN
 END
 GO
 
-CREATE TRIGGER trigger_soLuongChiTietHoaDon ON dbo.ChiTietHoaDon
+CREATE TRIGGER trigger_soLuongChiTietDonHang ON dbo.ChiTietDonHang
 FOR INSERT, UPDATE
 AS
 DECLARE @new FLOAT
@@ -345,9 +345,9 @@ values ('CP10', '2022-10-01', '2022-10-07' , 0.1 , 200000 , 50000)
 	, ('CP20', '2022-10-08', '2022-10-15', 0.2 , 300000 , 100000)
 GO
 
-INSERT INTO dbo.HoaDon
+INSERT INTO dbo.DonHang
 (
-    maHoaDon,
+    maDonHang,
     thoiGianCheckIn,
     thue,
     phuThu,
@@ -358,10 +358,10 @@ INSERT INTO dbo.HoaDon
     maDauBep,
     maNhanVienPhucVu,
     maNhanVienThuNgan,
-	trangThaiHoaDon
+	trangThaiDonHang
 )
 VALUES
-(   'HD0001',        -- maHoaDon - char(10)
+(   'HD0001',        -- maDonHang - char(10)
     '20220709', -- thoiGianCheckIn - datetime
     100000,       -- thue - float
     50000,       -- phuThu - float
@@ -394,7 +394,7 @@ VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
 , ('10015', N'Sò Điệp Xào Măng Tây', 298000, 'so-diep-xao-mang-tay.png')
 GO
 
-insert into ChiTietHoaDon(maHoaDon, maMonAn, soLuong )
+insert into ChiTietDonHang(maDonHang, maMonAn, soLuong )
 values('HD0001', '10003', 2)
 	, ('HD0001', '10005', 2)
 	, ('HD0001', '10007', 2)
@@ -430,10 +430,10 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertChiTietHoaDon(@maHoaDon char(10), @maMonAn char(10), @soLuong int)
+CREATE PROCEDURE spInsertChiTietDonHang(@maDonHang char(10), @maMonAn char(10), @soLuong int)
 AS BEGIN
-		INSERT INTO dbo.ChiTietHoaDon 
-		VALUES (@maHoaDon, @maMonAn, @soLuong)
+		INSERT INTO dbo.ChiTietDonHang 
+		VALUES (@maDonHang, @maMonAn, @soLuong)
 	END
 GO
 
@@ -457,10 +457,10 @@ AS BEGIN
 		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
 	END
 GO
-CREATE PROCEDURE spInsertHoaDon(@maHoaDon char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @trangThaiHoaDon NVARCHAR(50), @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
+CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @trangThaiDonHang NVARCHAR(50), @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
 AS BEGIN
-		INSERT INTO dbo.HoaDon
-		VALUES (@maHoaDon, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @trangThaiHoaDon, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
+		INSERT INTO dbo.DonHang
+		VALUES (@maDonHang, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @trangThaiDonHang, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
 	END
 GO
 
@@ -517,11 +517,11 @@ AS BEGIN
 END
 GO
 
-CREATE PROCEDURE spSearchHoaDon(@maHoaDon CHAR(10))
+CREATE PROCEDURE spSearchDonHang(@maDonHang CHAR(10))
 AS BEGIN
     SELECT *
-	FROM dbo.HoaDon
-	WHERE maHoaDon = @maHoaDon
+	FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
 END
 GO
 
@@ -589,11 +589,11 @@ AS BEGIN
    END
 GO
 
-CREATE PROCEDURE spSearchChiTietHoaDon(@maHoaDon CHAR(10), @maMonAn CHAR(10))
+CREATE PROCEDURE spSearchChiTietDonHang(@maDonHang CHAR(10), @maMonAn CHAR(10))
 AS BEGIN
        SELECT *
-	   FROM dbo.ChiTietHoaDon
-	   WHERE maHoaDon = @maHoaDon AND maMonAn = @maMonAn
+	   FROM dbo.ChiTietDonHang
+	   WHERE maDonHang = @maDonHang AND maMonAn = @maMonAn
    END
 GO
 
@@ -612,10 +612,10 @@ AS BEGIN
 END
 GO
 
-CREATE PROCEDURE spSelectHoaDon
+CREATE PROCEDURE spSelectDonHang
 AS BEGIN
     SELECT *
-	FROM dbo.HoaDon
+	FROM dbo.DonHang
 END
 GO
 
@@ -675,10 +675,10 @@ AS BEGIN
    END
 GO
 
-CREATE PROCEDURE spSelectChiTietHoaDon
+CREATE PROCEDURE spSelectChiTietDonHang
 AS BEGIN
        SELECT *
-	   FROM dbo.ChiTietHoaDon
+	   FROM dbo.ChiTietDonHang
    END
 GO
 
@@ -796,8 +796,8 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateHoaDon(
-	@maHoaDon CHAR(10),
+CREATE PROC spUpdateDonHang(
+	@maDonHang CHAR(10),
 	@thoiGianCheckIn DATETIME,
 	@thue FLOAT,
 	@phuThu FLOAT,
@@ -810,8 +810,8 @@ CREATE PROC spUpdateHoaDon(
 )
 AS
 BEGIN
-    UPDATE dbo.HoaDon SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
-	WHERE maHoaDon=@maHoaDon
+    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
+	WHERE maDonHang=@maDonHang
 
 END
 GO
@@ -829,15 +829,15 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateChiTietHoaDon(
-	@maHoaDon CHAR(10),
+CREATE PROC spUpdateChiTietDonHang(
+	@maDonHang CHAR(10),
 	@maMonAn CHAR(10),
 	@soLuong INT
 )
 AS
 BEGIN
-    UPDATE dbo.ChiTietHoaDon SET soLuong=@soLuong
-	WHERE maHoaDon=@maHoaDon AND maMonAn=@maMonAn
+    UPDATE dbo.ChiTietDonHang SET soLuong=@soLuong
+	WHERE maDonHang=@maDonHang AND maMonAn=@maMonAn
 END
 GO
 
@@ -850,8 +850,8 @@ GO
 
 CREATE VIEW viewMonAnDuocPhucVu -- Thông tin các món ăn được phục vụ
 AS SELECT maKhachHang, hinhAnh, tenMonAn, soLuong, maCoupon, maBan, maDauBep, maNhanVienPhucVu, maNhanVienThuNgan, thoiGianCheckIn
-FROM dbo.MonAn, dbo.ChiTietHoaDon, dbo.HoaDon
-WHERE ChiTietHoaDon.maHoaDon = HoaDon.maHoaDon AND ChiTietHoaDon.maMonAn = MonAn.maMonAn
+FROM dbo.MonAn, dbo.ChiTietDonHang, dbo.DonHang
+WHERE ChiTietDonHang.maDonHang = DonHang.maDonHang AND ChiTietDonHang.maMonAn = MonAn.maMonAn
 GO
 
 CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
@@ -911,32 +911,32 @@ GO
 
 
 --Bao gồm món ăn + phụ thu
-CREATE FUNCTION fnTinhTamThu(@maHoaDon CHAR(10))
+CREATE FUNCTION fnTinhTamThu(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
     DECLARE @tong FLOAT
 	SET @tong = 0
 
 	SELECT @tong = @tong + dbo.fnGiaTienMonAn(CT.maMonAn) * CT.soLuong 
-	FROM dbo.ChiTietHoaDon CT
-	WHERE maHoaDon = @maHoaDon
+	FROM dbo.ChiTietDonHang CT
+	WHERE maDonHang = @maDonHang
 
 	SELECT @tong = @tong + phuThu
-	FROM dbo.HoaDon
-	WHERE maHoaDon = @maHoaDon
+	FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
 
 	RETURN @tong
 END
 GO
 
 
-CREATE TRIGGER triggerApDungCoupon ON dbo.HoaDon
+CREATE TRIGGER triggerApDungCoupon ON dbo.DonHang
 FOR INSERT, UPDATE AS
 BEGIN
-    DECLARE @maHoaDon CHAR(10)
+    DECLARE @maDonHang CHAR(10)
 	DECLARE @maCoupon CHAR(10)
 
-	SELECT @maHoaDon=maHoaDon, @maCoupon=maCoupon FROM Inserted
+	SELECT @maDonHang=maDonHang, @maCoupon=maCoupon FROM Inserted
 	IF(@maCoupon IS NULL)
 		RETURN
 
@@ -945,16 +945,16 @@ BEGIN
 	WHERE maCoupon = @maCoupon
 
 	DECLARE @giaTriDon FLOAT
-	SELECT @giaTriDon = dbo.fnTinhTamThu(@maHoaDon)
+	SELECT @giaTriDon = dbo.fnTinhTamThu(@maDonHang)
 
 	IF (@giaTriDon >= @donToiThieu)
 		RETURN
 	ELSE
-		UPDATE dbo.HoaDon SET maCoupon = NULL WHERE maHoaDon = @maHoaDon
+		UPDATE dbo.DonHang SET maCoupon = NULL WHERE maDonHang = @maDonHang
 END
 GO
 
-CREATE FUNCTION fnTinhTienGiam(@maHoaDon CHAR(10))
+CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
 	DECLARE @maCoupon CHAR(10)
@@ -963,8 +963,8 @@ BEGIN
 	DECLARE @phanTramGiam FLOAT
 	DECLARE @tienTamTinh FLOAT
 
-	SELECT @maCoupon = maCoupon FROM dbo.HoaDon
-	WHERE maHoaDon = @maHoaDon
+	SELECT @maCoupon = maCoupon FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
 
 	IF(@maCoupon IS NULL)
 		RETURN 0
@@ -973,7 +973,7 @@ BEGIN
 	FROM dbo.Coupon
 	WHERE maCoupon = @maCoupon
 
-	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maHoaDon)
+	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maDonHang)
 
 	IF(@tienTamTinh < @donToiThieu)
 		RETURN 0
@@ -984,9 +984,9 @@ BEGIN
 END
 GO
 
-CREATE FUNCTION fnTinhTienHoaDon(@maHoaDon CHAR(10))
+CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
-    RETURN dbo.fnTinhTamThu(@maHoaDon) - dbo.fnTinhTienGiam(@maHoaDon)
+    RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
 END
 GO

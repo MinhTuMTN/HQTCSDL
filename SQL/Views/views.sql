@@ -10,8 +10,8 @@ GO
 
 CREATE VIEW viewMonAnDuocPhucVu -- Thông tin các món ăn được phục vụ
 AS SELECT maKhachHang, hinhAnh, tenMonAn, soLuong, maCoupon, maBan, maDauBep, maNhanVienPhucVu, maNhanVienThuNgan, thoiGianCheckIn
-FROM dbo.MonAn, dbo.ChiTietHoaDon, dbo.HoaDon
-WHERE ChiTietHoaDon.maHoaDon = HoaDon.maHoaDon AND ChiTietHoaDon.maMonAn = MonAn.maMonAn
+FROM dbo.MonAn, dbo.ChiTietDonHang, dbo.DonHang
+WHERE ChiTietDonHang.maDonHang = DonHang.maDonHang AND ChiTietDonHang.maMonAn = MonAn.maMonAn
 GO
 
 CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
