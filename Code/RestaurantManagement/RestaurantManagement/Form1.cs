@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace RestaurantManagement
 {
-    public partial class Form1 : Form
+    public partial class frmDangNhap : Form
     {
-        public Form1()
+        public frmDangNhap()
         {
             InitializeComponent();
+        }
+
+        private void rjTextBox2__TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
