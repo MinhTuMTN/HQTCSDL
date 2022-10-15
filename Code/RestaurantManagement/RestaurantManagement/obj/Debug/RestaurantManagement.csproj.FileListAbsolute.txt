@@ -9,4 +9,18 @@ D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.exe
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.pdb
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.Form1.resources
+<<<<<<< HEAD
 D:\OneDrive - minhtunguyen\HCMUTE\HCMUTE\Year3\HeQuanTriCoSoDuLieu\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\CustomControls.RJControls.RJTextBox.resources
+=======
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\bin\Debug\RestaurantManagement.exe.config
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\bin\Debug\RestaurantManagement.exe
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\bin\Debug\RestaurantManagement.pdb
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.csproj.AssemblyReference.cache
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.csproj.SuggestedBindingRedirects.cache
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.Form1.resources
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.Properties.Resources.resources
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.csproj.GenerateResource.cache
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.csproj.CoreCompileInputs.cache
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.exe
+D:\OneDrive - minhtunguyen\HCMUTE_TuyetVi\Nam_03\HK1\Database\HQTCSDL\Code\RestaurantManagement\RestaurantManagement\obj\Debug\RestaurantManagement.pdb
+>>>>>>> 0e3db38e4f7cf19fde8c1b6000235ca61f9ac93e

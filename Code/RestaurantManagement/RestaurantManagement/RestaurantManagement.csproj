@@ -92,8 +92,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Folder Include="PresentationLayer\View\" />
+=======
     <Content Include="PresentationLayer\Images\Logo\logo.png" />
     <Content Include="PresentationLayer\Images\Logo\logo.svg" />
+>>>>>>> c9cdc0e082b31fed1dcb7e378ee41245781f9b93
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
