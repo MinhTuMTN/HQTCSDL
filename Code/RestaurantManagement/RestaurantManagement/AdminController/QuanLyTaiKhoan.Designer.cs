@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.SuspendLayout();
             // 
             // button1
@@ -40,20 +41,33 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(104, 37);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(45, 20);
+            this.gunaLabel1.TabIndex = 1;
+            this.gunaLabel1.Text = "Hello";
+            // 
             // QuanLyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.button1);
             this.Name = "QuanLyTaiKhoan";
             this.Text = "QuanLyTaiKhoan";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
     }
 }
