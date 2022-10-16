@@ -1,3 +1,9 @@
 ERD: https://app.diagrams.net/#G1ttajSdWIvodaVaHVmVTBz4abShWplRHM
 
 Word: https://minhtunguyen-my.sharepoint.com/:w:/g/personal/admin_minhtunguyen_onmicrosoft_com/EcCTLQOJ5KxNlL8flkq7CQkBiHhBNjP0Jm5qZ5BTMgDRRg?e=e4uVty
+
+
+Hướng dẫn dùng Git
+1. Thực hiện thay đổi
+2. Chạy chương trình (Quan trọng)
+3. Git add, commit, push
