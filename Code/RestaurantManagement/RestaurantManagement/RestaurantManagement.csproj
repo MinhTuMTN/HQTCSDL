@@ -57,6 +57,12 @@
     <Compile Include="PresentationLayer\AdminView\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyCaTruc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyCaTruc.Designer.cs">
+      <DependentUpon>QuanLyCaTruc.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\AdminView\QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
