@@ -47,9 +47,9 @@
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel1.Location = new System.Drawing.Point(104, 37);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(45, 20);
+            this.gunaLabel1.Size = new System.Drawing.Size(36, 20);
             this.gunaLabel1.TabIndex = 1;
-            this.gunaLabel1.Text = "Hello";
+            this.gunaLabel1.Text = "Hell";
             // 
             // QuanLyTaiKhoan
             // 
