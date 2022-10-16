@@ -51,16 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminController\MainMenu.cs">
+    <Compile Include="PresentationLayer\AdminView\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminController\MainMenu.Designer.cs">
+    <Compile Include="PresentationLayer\AdminView\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminController\QuanLyTaiKhoan.cs">
+    <Compile Include="PresentationLayer\AdminView\QuanLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminController\QuanLyTaiKhoan.Designer.cs">
+    <Compile Include="PresentationLayer\AdminView\QuanLyTaiKhoan.Designer.cs">
       <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -80,10 +80,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdminController\MainMenu.resx">
+    <EmbeddedResource Include="PresentationLayer\AdminView\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminController\QuanLyTaiKhoan.resx">
+    <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyTaiKhoan.resx">
       <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
