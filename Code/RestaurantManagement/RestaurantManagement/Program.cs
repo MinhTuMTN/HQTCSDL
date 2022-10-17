@@ -1,4 +1,5 @@
-﻿using RestaurantManagement.AsminController;
+﻿using RestaurantManagement.AdminController;
+using RestaurantManagement.AsminController;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new QuanLyTaiKhoan());
         }
     }
 }
