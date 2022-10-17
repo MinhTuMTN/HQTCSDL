@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(129, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 78);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // gunaLabel1
             // 
@@ -50,6 +41,15 @@
             this.gunaLabel1.Size = new System.Drawing.Size(36, 20);
             this.gunaLabel1.TabIndex = 1;
             this.gunaLabel1.Text = "Hell";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(129, 141);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 78);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // QuanLyTaiKhoan
             // 
@@ -67,7 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private System.Windows.Forms.Button button1;
     }
 }
