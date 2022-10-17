@@ -34,11 +34,11 @@
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(70, 41);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(52, 44);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(102, 18);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(30, 18);
             this.guna2HtmlLabel1.TabIndex = 0;
-            this.guna2HtmlLabel1.Text = "Minh Tu Tuyet Vi";
+            this.guna2HtmlLabel1.Text = "Vi Vi";
             // 
             // QuanLyCaTruc
             // 
