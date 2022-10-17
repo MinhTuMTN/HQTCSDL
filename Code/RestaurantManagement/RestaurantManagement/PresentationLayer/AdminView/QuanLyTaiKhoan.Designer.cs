@@ -34,8 +34,8 @@ namespace RestaurantManagement.AdminController
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.gbCapNhat = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.gbThem = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -46,8 +46,9 @@ namespace RestaurantManagement.AdminController
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.guna2GroupBox2);
-            this.guna2Panel1.Controls.Add(this.guna2GroupBox1);
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))), ((int)(((byte)(41)))));
+            this.guna2Panel1.Controls.Add(this.gbCapNhat);
+            this.guna2Panel1.Controls.Add(this.gbThem);
             this.guna2Panel1.Controls.Add(this.guna2TextBox1);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Controls.Add(this.guna2DataGridView1);
@@ -56,32 +57,36 @@ namespace RestaurantManagement.AdminController
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1241, 722);
             this.guna2Panel1.TabIndex = 0;
-            guna2Panel1.BackColor = Color.FromArgb(220, 31, 34, 41);
             // 
-            // guna2GroupBox2
+            // gbCapNhat
             // 
-            this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox2.Location = new System.Drawing.Point(920, 353);
-            this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
-            this.guna2GroupBox2.Size = new System.Drawing.Size(300, 356);
-            this.guna2GroupBox2.TabIndex = 9;
-            this.guna2GroupBox2.Text = "guna2GroupBox2";
+            this.gbCapNhat.BorderRadius = 15;
+            this.gbCapNhat.BorderThickness = 4;
+            this.gbCapNhat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gbCapNhat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.gbCapNhat.Location = new System.Drawing.Point(920, 353);
+            this.gbCapNhat.Name = "gbCapNhat";
+            this.gbCapNhat.ShadowDecoration.Parent = this.gbCapNhat;
+            this.gbCapNhat.Size = new System.Drawing.Size(300, 356);
+            this.gbCapNhat.TabIndex = 9;
+            this.gbCapNhat.Text = "Cập nhật tài khoản";
             // 
-            // guna2GroupBox1
+            // gbThem
             // 
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(920, 14);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(300, 312);
-            this.guna2GroupBox1.TabIndex = 8;
-            this.guna2GroupBox1.Text = "guna2GroupBox1";
+            this.gbThem.BorderRadius = 15;
+            this.gbThem.BorderThickness = 5;
+            this.gbThem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gbThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.gbThem.Location = new System.Drawing.Point(920, 14);
+            this.gbThem.Name = "gbThem";
+            this.gbThem.ShadowDecoration.Parent = this.gbThem;
+            this.gbThem.Size = new System.Drawing.Size(300, 312);
+            this.gbThem.TabIndex = 8;
+            this.gbThem.Text = "Thêm tài khoản";
             // 
             // guna2TextBox1
             // 
+            this.guna2TextBox1.BorderRadius = 15;
             this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox1.DefaultText = "";
             this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -203,8 +208,8 @@ namespace RestaurantManagement.AdminController
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2GroupBox gbCapNhat;
+        private Guna.UI2.WinForms.Guna2GroupBox gbThem;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
