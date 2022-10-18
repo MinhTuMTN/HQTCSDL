@@ -90,9 +90,6 @@
     <Compile Include="PresentationLayer\Control\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\Control\MyPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="PresentationLayer\Control\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
