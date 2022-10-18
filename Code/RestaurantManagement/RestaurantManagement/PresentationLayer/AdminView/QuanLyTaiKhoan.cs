@@ -16,5 +16,6 @@ namespace RestaurantManagement.AdminController
         {
             InitializeComponent();
         }
+
     }
 }

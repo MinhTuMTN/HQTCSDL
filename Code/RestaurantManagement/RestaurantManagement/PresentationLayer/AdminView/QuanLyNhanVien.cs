@@ -16,5 +16,15 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         {
             InitializeComponent();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
