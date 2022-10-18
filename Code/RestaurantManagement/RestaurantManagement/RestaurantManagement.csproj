@@ -87,6 +87,9 @@
     <Compile Include="PresentationLayer\Control\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PresentationLayer\Control\MyPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PresentationLayer\Control\RJTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +104,9 @@
     <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyCaTruc.resx">
       <DependentUpon>QuanLyCaTruc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyNhanVien.resx">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyTaiKhoan.resx">
       <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,18 +118,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -135,6 +141,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PresentationLayer\Images\background.jpg" />
+    <None Include="PresentationLayer\Images\Logo\manager_96px.png" />
+    <None Include="PresentationLayer\Images\Logo\add_user_male_96px.png" />
+    <None Include="PresentationLayer\Images\Logo\edit_user_96px.png" />
+    <Content Include="PresentationLayer\Images\Logo\icons8_denied_96px_3.png" />
     <Content Include="PresentationLayer\Images\Logo\icons8_key_64px_2.png" />
     <Content Include="PresentationLayer\Images\Logo\icons8_user_64px_4.png" />
     <Content Include="PresentationLayer\Images\Logo\logo.png" />
