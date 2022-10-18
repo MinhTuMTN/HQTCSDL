@@ -40,6 +40,9 @@
       <HintPath>..\..\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="RestaurantManagement">
+      <HintPath>obj\Debug\RestaurantManagement.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -85,6 +88,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Control\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Control\MyPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="PresentationLayer\Control\RJTextBox.cs">

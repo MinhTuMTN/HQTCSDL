@@ -18,7 +18,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuanLyTaiKhoan());
+            Application.Run(new frmMainMenu());
         }
     }
 }
