@@ -29,6 +29,16 @@ namespace RestaurantManagement.AsminController
             taiKhoan.FormBorderStyle = FormBorderStyle.None;
             taiKhoan.TopLevel = false;
 
+
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(taiKhoan);
+
+            taiKhoan.Show();
+        }
+
+        private void gunaGradientTileButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
