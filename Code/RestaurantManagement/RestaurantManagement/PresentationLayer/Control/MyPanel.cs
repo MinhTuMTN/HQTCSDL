@@ -8,9 +8,9 @@ using System.Windows.Forms;
 namespace RestaurantManagement.PresentationLayer.Control
 {
  
-    public class MyPanelDoubleBuffer : Panel
+    internal class MyPanel : Panel
     {
-        public MyPanelDoubleBuffer()
+        public MyPanel()
         {
             this.DoubleBuffered = true;
 
