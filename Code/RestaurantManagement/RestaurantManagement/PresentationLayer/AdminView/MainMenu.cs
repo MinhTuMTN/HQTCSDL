@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.AdminController;
+using RestaurantManagement.PresentationLayer.AdminView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,9 +37,17 @@ namespace RestaurantManagement.AsminController
             taiKhoan.Show();
         }
 
-        private void gunaGradientTileButton4_Click(object sender, EventArgs e)
+        private void btnQuanLyNhanVien_Click(object sender, EventArgs e)
         {
+            QuanLyNhanVien nhanVien = new QuanLyNhanVien();
+            nhanVien.FormBorderStyle = FormBorderStyle.None;
+            nhanVien.TopLevel = false;
 
+
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(nhanVien);
+
+            nhanVien.Show();
         }
     }
 }
