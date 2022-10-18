@@ -100,6 +100,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnXoa
             // 
+            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.BorderRadius = 10;
             this.btnXoa.CheckedState.Parent = this.btnXoa;
             this.btnXoa.CustomImages.Parent = this.btnXoa;
@@ -119,6 +120,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnSua
             // 
+            this.btnSua.BackColor = System.Drawing.Color.Transparent;
             this.btnSua.BorderRadius = 10;
             this.btnSua.CheckedState.Parent = this.btnSua;
             this.btnSua.CustomImages.Parent = this.btnSua;
@@ -138,6 +140,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnThem
             // 
+            this.btnThem.BackColor = System.Drawing.Color.Transparent;
             this.btnThem.BorderRadius = 10;
             this.btnThem.CheckedState.Parent = this.btnThem;
             this.btnThem.CustomImages.Parent = this.btnThem;
