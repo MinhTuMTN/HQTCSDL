@@ -31,9 +31,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyNhanVien));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
@@ -57,18 +57,13 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtgNhanVien = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgNhanVien)).BeginInit();
-            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))), ((int)(((byte)(41)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
             this.guna2Panel1.Controls.Add(this.btnXoa);
             this.guna2Panel1.Controls.Add(this.btnSua);
             this.guna2Panel1.Controls.Add(this.btnThem);
@@ -91,7 +86,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2Panel1.Controls.Add(this.txtHoTen);
             this.guna2Panel1.Controls.Add(this.txtMaNhanVien);
             this.guna2Panel1.Controls.Add(this.dtgNhanVien);
-            this.guna2Panel1.Controls.Add(this.guna2CustomGradientPanel1);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
@@ -100,6 +94,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnXoa
             // 
+            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.BorderRadius = 10;
             this.btnXoa.CheckedState.Parent = this.btnXoa;
             this.btnXoa.CustomImages.Parent = this.btnXoa;
@@ -110,7 +105,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoa.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnXoa.Location = new System.Drawing.Point(991, 776);
+            this.btnXoa.Location = new System.Drawing.Point(1007, 757);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ShadowDecoration.Parent = this.btnXoa;
             this.btnXoa.Size = new System.Drawing.Size(111, 45);
@@ -119,6 +114,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnSua
             // 
+            this.btnSua.BackColor = System.Drawing.Color.Transparent;
             this.btnSua.BorderRadius = 10;
             this.btnSua.CheckedState.Parent = this.btnSua;
             this.btnSua.CustomImages.Parent = this.btnSua;
@@ -129,7 +125,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSua.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSua.Location = new System.Drawing.Point(874, 776);
+            this.btnSua.Location = new System.Drawing.Point(890, 757);
             this.btnSua.Name = "btnSua";
             this.btnSua.ShadowDecoration.Parent = this.btnSua;
             this.btnSua.Size = new System.Drawing.Size(111, 45);
@@ -138,6 +134,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnThem
             // 
+            this.btnThem.BackColor = System.Drawing.Color.Transparent;
             this.btnThem.BorderRadius = 10;
             this.btnThem.CheckedState.Parent = this.btnThem;
             this.btnThem.CustomImages.Parent = this.btnThem;
@@ -148,7 +145,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThem.Location = new System.Drawing.Point(757, 776);
+            this.btnThem.Location = new System.Drawing.Point(773, 757);
             this.btnThem.Name = "btnThem";
             this.btnThem.ShadowDecoration.Parent = this.btnThem;
             this.btnThem.Size = new System.Drawing.Size(111, 45);
@@ -175,7 +172,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             "Phục vụ",
             "Đầu bếp"});
             this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(624, 694);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(640, 693);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
             this.guna2ComboBox1.Size = new System.Drawing.Size(478, 36);
@@ -200,7 +197,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2TextBox4.ForeColor = System.Drawing.Color.LightGray;
             this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
-            this.guna2TextBox4.Location = new System.Drawing.Point(623, 608);
+            this.guna2TextBox4.Location = new System.Drawing.Point(639, 584);
             this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox4.Name = "guna2TextBox4";
             this.guna2TextBox4.PasswordChar = '\0';
@@ -230,7 +227,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2TextBox3.ForeColor = System.Drawing.Color.LightGray;
             this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
-            this.guna2TextBox3.Location = new System.Drawing.Point(623, 522);
+            this.guna2TextBox3.Location = new System.Drawing.Point(639, 480);
             this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
@@ -260,7 +257,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2TextBox2.ForeColor = System.Drawing.Color.LightGray;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
-            this.guna2TextBox2.Location = new System.Drawing.Point(623, 440);
+            this.guna2TextBox2.Location = new System.Drawing.Point(639, 376);
             this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
@@ -277,7 +274,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(619, 666);
+            this.label11.Location = new System.Drawing.Point(635, 665);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(137, 20);
             this.label11.TabIndex = 18;
@@ -289,7 +286,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(619, 585);
+            this.label10.Location = new System.Drawing.Point(635, 561);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(116, 20);
             this.label10.TabIndex = 17;
@@ -301,7 +298,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(619, 499);
+            this.label9.Location = new System.Drawing.Point(635, 457);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 20);
             this.label9.TabIndex = 16;
@@ -313,7 +310,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(619, 417);
+            this.label8.Location = new System.Drawing.Point(635, 353);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 20);
             this.label8.TabIndex = 15;
@@ -322,6 +319,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // rdbNu
             // 
             this.rdbNu.AutoSize = true;
+            this.rdbNu.BackColor = System.Drawing.Color.Transparent;
             this.rdbNu.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdbNu.CheckedState.BorderThickness = 0;
             this.rdbNu.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -329,7 +327,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNu.CheckedState.InnerOffset = -4;
             this.rdbNu.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNu.ForeColor = System.Drawing.Color.White;
-            this.rdbNu.Location = new System.Drawing.Point(980, 378);
+            this.rdbNu.Location = new System.Drawing.Point(999, 297);
             this.rdbNu.Name = "rdbNu";
             this.rdbNu.Size = new System.Drawing.Size(51, 23);
             this.rdbNu.TabIndex = 14;
@@ -339,11 +337,13 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNu.UncheckedState.BorderThickness = 2;
             this.rdbNu.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbNu.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbNu.UseVisualStyleBackColor = true;
+            this.rdbNu.UseVisualStyleBackColor = false;
             // 
             // rdbNam
             // 
             this.rdbNam.AutoSize = true;
+            this.rdbNam.BackColor = System.Drawing.Color.Transparent;
+            this.rdbNam.Checked = true;
             this.rdbNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdbNam.CheckedState.BorderThickness = 0;
             this.rdbNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -351,7 +351,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNam.CheckedState.InnerOffset = -4;
             this.rdbNam.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNam.ForeColor = System.Drawing.Color.White;
-            this.rdbNam.Location = new System.Drawing.Point(890, 378);
+            this.rdbNam.Location = new System.Drawing.Point(909, 297);
             this.rdbNam.Name = "rdbNam";
             this.rdbNam.Size = new System.Drawing.Size(65, 23);
             this.rdbNam.TabIndex = 13;
@@ -361,7 +361,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNam.UncheckedState.BorderThickness = 2;
             this.rdbNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbNam.UseVisualStyleBackColor = true;
+            this.rdbNam.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -369,7 +369,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(886, 352);
+            this.label7.Location = new System.Drawing.Point(905, 262);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 20);
             this.label7.TabIndex = 12;
@@ -377,9 +377,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // dtNgaySinh
             // 
-            this.dtNgaySinh.Location = new System.Drawing.Point(623, 379);
+            this.dtNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgaySinh.Location = new System.Drawing.Point(643, 294);
             this.dtNgaySinh.Name = "dtNgaySinh";
-            this.dtNgaySinh.Size = new System.Drawing.Size(234, 22);
+            this.dtNgaySinh.Size = new System.Drawing.Size(234, 24);
             this.dtNgaySinh.TabIndex = 11;
             // 
             // label6
@@ -388,7 +389,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(619, 356);
+            this.label6.Location = new System.Drawing.Point(639, 262);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 20);
             this.label6.TabIndex = 10;
@@ -401,7 +402,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(619, 270);
+            this.label5.Location = new System.Drawing.Point(635, 164);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 20);
             this.label5.TabIndex = 8;
@@ -413,7 +414,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(619, 199);
+            this.label4.Location = new System.Drawing.Point(632, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 20);
             this.label4.TabIndex = 7;
@@ -425,7 +426,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Lucida Sans", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(704, 141);
+            this.label3.Location = new System.Drawing.Point(713, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(331, 35);
             this.label3.TabIndex = 6;
@@ -450,7 +451,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.txtHoTen.ForeColor = System.Drawing.Color.LightGray;
             this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHoTen.HoverState.Parent = this.txtHoTen;
-            this.txtHoTen.Location = new System.Drawing.Point(623, 292);
+            this.txtHoTen.Location = new System.Drawing.Point(639, 186);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.PasswordChar = '\0';
@@ -480,7 +481,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.txtMaNhanVien.ForeColor = System.Drawing.Color.LightGray;
             this.txtMaNhanVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaNhanVien.HoverState.Parent = this.txtMaNhanVien;
-            this.txtMaNhanVien.Location = new System.Drawing.Point(623, 223);
+            this.txtMaNhanVien.Location = new System.Drawing.Point(636, 88);
             this.txtMaNhanVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.PasswordChar = '\0';
@@ -493,39 +494,39 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // dtgNhanVien
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtgNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgNhanVien.BackgroundColor = System.Drawing.Color.White;
             this.dtgNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgNhanVien.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgNhanVien.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgNhanVien.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgNhanVien.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgNhanVien.EnableHeadersVisualStyles = false;
             this.dtgNhanVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgNhanVien.Location = new System.Drawing.Point(22, 132);
+            this.dtgNhanVien.Location = new System.Drawing.Point(12, 12);
             this.dtgNhanVien.Name = "dtgNhanVien";
             this.dtgNhanVien.RowHeadersVisible = false;
             this.dtgNhanVien.RowHeadersWidth = 51;
             this.dtgNhanVien.RowTemplate.Height = 24;
             this.dtgNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgNhanVien.Size = new System.Drawing.Size(574, 689);
+            this.dtgNhanVien.Size = new System.Drawing.Size(604, 809);
             this.dtgNhanVien.TabIndex = 1;
             this.dtgNhanVien.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dtgNhanVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -550,66 +551,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dtgNhanVien.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgNhanVien.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // guna2CustomGradientPanel1
-            // 
-            this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CustomGradientPanel1.BorderRadius = 20;
-            this.guna2CustomGradientPanel1.Controls.Add(this.label2);
-            this.guna2CustomGradientPanel1.Controls.Add(this.label1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2TextBox1);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(22, 30);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1080, 82);
-            this.guna2CustomGradientPanel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 22);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Quản lý nhân viên";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 27);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "The Moon Restaurant";
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.BorderThickness = 3;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.IconRight = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconRight")));
-            this.guna2TextBox1.Location = new System.Drawing.Point(326, 20);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "Tìm kiếm";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(528, 44);
-            this.guna2TextBox1.TabIndex = 8;
-            // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -622,8 +563,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgNhanVien)).EndInit();
-            this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -631,15 +570,11 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2DataGridView dtgNhanVien;
         private Guna.UI2.WinForms.Guna2TextBox txtHoTen;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNhanVien;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2RadioButton rdbNu;
