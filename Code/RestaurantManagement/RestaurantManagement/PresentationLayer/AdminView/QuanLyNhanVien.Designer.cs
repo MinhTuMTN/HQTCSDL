@@ -322,6 +322,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // rdbNu
             // 
             this.rdbNu.AutoSize = true;
+            this.rdbNu.BackColor = System.Drawing.Color.Transparent;
             this.rdbNu.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdbNu.CheckedState.BorderThickness = 0;
             this.rdbNu.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -339,11 +340,12 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNu.UncheckedState.BorderThickness = 2;
             this.rdbNu.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbNu.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbNu.UseVisualStyleBackColor = true;
+            this.rdbNu.UseVisualStyleBackColor = false;
             // 
             // rdbNam
             // 
             this.rdbNam.AutoSize = true;
+            this.rdbNam.BackColor = System.Drawing.Color.Transparent;
             this.rdbNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rdbNam.CheckedState.BorderThickness = 0;
             this.rdbNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -361,7 +363,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNam.UncheckedState.BorderThickness = 2;
             this.rdbNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rdbNam.UseVisualStyleBackColor = true;
+            this.rdbNam.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
