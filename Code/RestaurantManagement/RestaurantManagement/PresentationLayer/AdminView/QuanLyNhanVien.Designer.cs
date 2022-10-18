@@ -339,7 +339,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNu.CheckedState.InnerOffset = -4;
             this.rdbNu.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNu.ForeColor = System.Drawing.Color.White;
-            this.rdbNu.Location = new System.Drawing.Point(980, 378);
+            this.rdbNu.Location = new System.Drawing.Point(979, 382);
             this.rdbNu.Name = "rdbNu";
             this.rdbNu.Size = new System.Drawing.Size(51, 23);
             this.rdbNu.TabIndex = 14;
@@ -362,7 +362,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNam.CheckedState.InnerOffset = -4;
             this.rdbNam.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbNam.ForeColor = System.Drawing.Color.White;
-            this.rdbNam.Location = new System.Drawing.Point(890, 378);
+            this.rdbNam.Location = new System.Drawing.Point(889, 382);
             this.rdbNam.Name = "rdbNam";
             this.rdbNam.Size = new System.Drawing.Size(65, 23);
             this.rdbNam.TabIndex = 13;
@@ -380,7 +380,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(886, 352);
+            this.label7.Location = new System.Drawing.Point(885, 356);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 20);
             this.label7.TabIndex = 12;
@@ -388,9 +388,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // dtNgaySinh
             // 
+            this.dtNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgaySinh.Location = new System.Drawing.Point(623, 379);
             this.dtNgaySinh.Name = "dtNgaySinh";
-            this.dtNgaySinh.Size = new System.Drawing.Size(234, 22);
+            this.dtNgaySinh.Size = new System.Drawing.Size(234, 24);
             this.dtNgaySinh.TabIndex = 11;
             // 
             // label6
