@@ -7,18 +7,11 @@ using System.Windows.Forms;
 
 namespace RestaurantManagement.PresentationLayer.Control
 {
- 
-    internal class MyPanel : Panel
+    internal class MyPanel:Panel
     {
         public MyPanel()
         {
             this.DoubleBuffered = true;
-
-            // or
-
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            UpdateStyles();
         }
     }
 }

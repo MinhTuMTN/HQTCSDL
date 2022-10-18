@@ -106,6 +106,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnXoa
             // 
+            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
             this.btnXoa.BorderRadius = 10;
             this.btnXoa.CheckedState.Parent = this.btnXoa;
             this.btnXoa.CustomImages.Parent = this.btnXoa;
@@ -114,6 +115,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.HoverState.Parent = this.btnXoa;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoa.ImageSize = new System.Drawing.Size(30, 30);
             this.btnXoa.Location = new System.Drawing.Point(991, 776);
             this.btnXoa.Name = "btnXoa";
@@ -124,6 +126,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnSua
             // 
+            this.btnSua.BackColor = System.Drawing.Color.Transparent;
             this.btnSua.BorderRadius = 10;
             this.btnSua.CheckedState.Parent = this.btnSua;
             this.btnSua.CustomImages.Parent = this.btnSua;
@@ -132,6 +135,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.HoverState.Parent = this.btnSua;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSua.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSua.Location = new System.Drawing.Point(874, 776);
             this.btnSua.Name = "btnSua";
@@ -142,6 +146,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             // btnThem
             // 
+            this.btnThem.BackColor = System.Drawing.Color.Transparent;
             this.btnThem.BorderRadius = 10;
             this.btnThem.CheckedState.Parent = this.btnThem;
             this.btnThem.CustomImages.Parent = this.btnThem;
@@ -150,6 +155,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.HoverState.Parent = this.btnThem;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(30, 30);
             this.btnThem.Location = new System.Drawing.Point(757, 776);
             this.btnThem.Name = "btnThem";
@@ -633,6 +639,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.IconRight = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconRight")));
             this.guna2TextBox1.Location = new System.Drawing.Point(326, 20);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
