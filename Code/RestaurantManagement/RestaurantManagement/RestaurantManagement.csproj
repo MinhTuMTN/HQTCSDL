@@ -98,6 +98,9 @@
     <EmbeddedResource Include="PresentationLayer\AdminView\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyCaTruc.resx">
+      <DependentUpon>QuanLyCaTruc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyTaiKhoan.resx">
       <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
