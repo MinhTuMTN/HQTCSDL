@@ -63,9 +63,6 @@ namespace RestaurantManagement.AsminController
 
         private void pnMain_Resize(object sender, EventArgs e)
         {
-            Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
-            btn.Checked = true;
-
             pnMain.Controls[0].Size = pnMain.Size;
         }
 
