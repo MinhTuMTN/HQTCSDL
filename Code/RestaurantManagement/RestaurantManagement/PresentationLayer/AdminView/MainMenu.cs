@@ -24,9 +24,8 @@ namespace RestaurantManagement.AsminController
             btnQuanLyNhanVien_Click(sender, e);
         }
 
-        private void LoadPanelMain(String functionText, Form target)
+        private void LoadPanelMain(Form target)
         {
-            lblChucNang.Text = functionText;
             target.FormBorderStyle = FormBorderStyle.None;
             target.TopLevel = false;
             target.Parent = pnMain;
@@ -41,12 +40,12 @@ namespace RestaurantManagement.AsminController
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
-            LoadPanelMain("Quản lý tài khoản", new QuanLyTaiKhoan());
+            LoadPanelMain(new QuanLyTaiKhoan());
         }
 
         private void btnQuanLyNhanVien_Click(object sender, EventArgs e)
         {
-            LoadPanelMain("Quản lý nhân viên", new QuanLyNhanVien());
+            LoadPanelMain(new QuanLyNhanVien());
         }
 
         private void pnMain_Resize(object sender, EventArgs e)
