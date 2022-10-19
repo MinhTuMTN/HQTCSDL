@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{15F9D7C0-25C3-41AF-AB78-23AC5DDCF291}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>RestaurantManagement</RootNamespace>
     <AssemblyName>RestaurantManagement</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -57,7 +57,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
     <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
+    <Compile Include="DataAccessLayer\Model\Ban.cs" />
+    <Compile Include="DataAccessLayer\Model\CaTruc.cs" />
+    <Compile Include="DataAccessLayer\Model\ChiTietHoaDon.cs" />
+    <Compile Include="DataAccessLayer\Model\Coupon.cs" />
+    <Compile Include="DataAccessLayer\Model\DangKyCaTruc.cs" />
+    <Compile Include="DataAccessLayer\Model\DatTruoc.cs" />
+    <Compile Include="DataAccessLayer\Model\HoaDon.cs" />
+    <Compile Include="DataAccessLayer\Model\KhachHang.cs" />
+    <Compile Include="DataAccessLayer\Model\Luong.cs" />
+    <Compile Include="DataAccessLayer\Model\MonAn.cs" />
+    <Compile Include="DataAccessLayer\Model\NhanVien.cs" />
+    <Compile Include="DataAccessLayer\Model\TaiKhoan.cs" />
     <Compile Include="PresentationLayer\AdminView\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

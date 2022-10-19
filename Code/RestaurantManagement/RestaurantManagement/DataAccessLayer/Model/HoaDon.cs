@@ -19,6 +19,7 @@ namespace RestaurantManagement.DataAccessLayer.Model
         private NhanVien thuNgan;
         private NhanVien dauBep;
         private KhachHang khachHang;
+        private List<ChiTietHoaDon> dsChiTietHD;
 
         public HoaDon()
         {
@@ -50,5 +51,6 @@ namespace RestaurantManagement.DataAccessLayer.Model
         public NhanVien ThuNgan { get => thuNgan; set => thuNgan = value; }
         public NhanVien DauBep { get => dauBep; set => dauBep = value; }
         public KhachHang KhachHang { get => khachHang; set => khachHang = value; }
+        public List<ChiTietHoaDon> DsChiTietHD { get => dsChiTietHD; set => dsChiTietHD = value; }
     }
 }
