@@ -31,13 +31,17 @@ namespace RestaurantManagement.AdminController
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyTaiKhoan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.myPanel1 = new RestaurantManagement.PresentationLayer.Control.MyPanel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+<<<<<<< HEAD
 =======
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,8 +55,19 @@ namespace RestaurantManagement.AdminController
             this.label1 = new System.Windows.Forms.Label();
             this.lblChucNang = new System.Windows.Forms.Label();
 >>>>>>> Stashed changes
+=======
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.lblChucNang = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgvTaiKhoan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.gbCapNhat = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.gbThem = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
             this.lblChucNang = new System.Windows.Forms.Label();
@@ -69,20 +84,29 @@ namespace RestaurantManagement.AdminController
             this.txtTaiKhoanSua = new Guna.UI2.WinForms.Guna2TextBox();
             this.gbThem = new Guna.UI2.WinForms.Guna2GroupBox();
             this.bntResetTao = new Guna.UI2.WinForms.Guna2Button();
+=======
+            this.txtMaNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbTinhTrang = new Guna.UI2.WinForms.Guna2ComboBox();
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
-            this.cbTinhTrangTao = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtMaNhanVienTao = new Guna.UI2.WinForms.Guna2TextBox();
-            this.bntMatKhauThem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTaiKhoanTao = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dgvTaiKhoan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
             this.myPanel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
-            this.guna2GradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            this.pnMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
             this.gbCapNhat.SuspendLayout();
             this.gbThem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
+            this.pnMain.SuspendLayout();
+            this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // myPanel1
@@ -222,10 +246,10 @@ namespace RestaurantManagement.AdminController
             this.guna2CustomGradientPanel1.BorderRadius = 20;
             this.guna2CustomGradientPanel1.BorderThickness = 3;
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2GradientPanel1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.btnCaiDat);
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2CircleButton1);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblChucNang);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txtTimKiem);
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2TextBox1);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(6, 18);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
@@ -285,6 +309,200 @@ namespace RestaurantManagement.AdminController
             this.lblChucNang.TabIndex = 10;
             this.lblChucNang.Text = "Quản lý nhân viên";
 >>>>>>> Stashed changes
+            // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.guna2CircleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
+            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 22);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.ShadowDecoration.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(43, 41);
+            this.guna2CircleButton1.TabIndex = 12;
+            // 
+            // lblChucNang
+            // 
+            this.lblChucNang.AutoSize = true;
+            this.lblChucNang.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucNang.Location = new System.Drawing.Point(30, 42);
+            this.lblChucNang.Name = "lblChucNang";
+            this.lblChucNang.Size = new System.Drawing.Size(162, 22);
+            this.lblChucNang.TabIndex = 10;
+            this.lblChucNang.Text = "Quản lý tài khoản";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 27);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "The Moon Restaurant";
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
+            this.guna2TextBox1.BorderRadius = 15;
+            this.guna2TextBox1.BorderThickness = 3;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.IconRight = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconRight")));
+            this.guna2TextBox1.Location = new System.Drawing.Point(341, 20);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "Tìm kiếm";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
+            this.guna2TextBox1.Size = new System.Drawing.Size(502, 44);
+            this.guna2TextBox1.TabIndex = 8;
+            // 
+            // dgvTaiKhoan
+            // 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTaiKhoan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTaiKhoan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTaiKhoan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvTaiKhoan.ColumnHeadersHeight = 4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaiKhoan.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvTaiKhoan.EnableHeadersVisualStyles = false;
+            this.dgvTaiKhoan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvTaiKhoan.Location = new System.Drawing.Point(9, 16);
+            this.dgvTaiKhoan.Name = "dgvTaiKhoan";
+            this.dgvTaiKhoan.RowHeadersVisible = false;
+            this.dgvTaiKhoan.RowHeadersWidth = 51;
+            this.dgvTaiKhoan.RowTemplate.Height = 24;
+            this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTaiKhoan.Size = new System.Drawing.Size(756, 815);
+            this.dgvTaiKhoan.TabIndex = 14;
+            this.dgvTaiKhoan.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvTaiKhoan.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvTaiKhoan.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvTaiKhoan.ThemeStyle.ReadOnly = false;
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // gbCapNhat
+            // 
+            this.gbCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbCapNhat.BackColor = System.Drawing.Color.Transparent;
+            this.gbCapNhat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
+            this.gbCapNhat.BorderRadius = 15;
+            this.gbCapNhat.BorderThickness = 5;
+            this.gbCapNhat.Controls.Add(this.guna2GroupBox1);
+            this.gbCapNhat.Controls.Add(this.guna2Button2);
+            this.gbCapNhat.Controls.Add(this.guna2Button3);
+            this.gbCapNhat.Controls.Add(this.guna2ComboBox1);
+            this.gbCapNhat.Controls.Add(this.guna2TextBox4);
+            this.gbCapNhat.Controls.Add(this.guna2TextBox5);
+            this.gbCapNhat.Controls.Add(this.guna2TextBox6);
+            this.gbCapNhat.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
+            this.gbCapNhat.FillColor = System.Drawing.Color.Black;
+            this.gbCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCapNhat.ForeColor = System.Drawing.Color.White;
+            this.gbCapNhat.Location = new System.Drawing.Point(778, 445);
+            this.gbCapNhat.Name = "gbCapNhat";
+            this.gbCapNhat.ShadowDecoration.Parent = this.gbCapNhat;
+            this.gbCapNhat.Size = new System.Drawing.Size(334, 386);
+            this.gbCapNhat.TabIndex = 13;
+            this.gbCapNhat.Text = "Cập nhật tài khoản";
+            // 
+            // gbThem
+            // 
+            this.gbThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbThem.BackColor = System.Drawing.Color.Transparent;
+            this.gbThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
+            this.gbThem.BorderRadius = 15;
+            this.gbThem.BorderThickness = 5;
+            this.gbThem.Controls.Add(this.guna2Button1);
+            this.gbThem.Controls.Add(this.btnThem);
+            this.gbThem.Controls.Add(this.cbTinhTrang);
+            this.gbThem.Controls.Add(this.guna2TextBox3);
+            this.gbThem.Controls.Add(this.guna2TextBox2);
+            this.gbThem.Controls.Add(this.txtMaNhanVien);
+            this.gbThem.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
+            this.gbThem.FillColor = System.Drawing.Color.Black;
+            this.gbThem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbThem.ForeColor = System.Drawing.Color.White;
+            this.gbThem.Location = new System.Drawing.Point(778, 16);
+            this.gbThem.Name = "gbThem";
+            this.gbThem.ShadowDecoration.Parent = this.gbThem;
+            this.gbThem.Size = new System.Drawing.Size(334, 396);
+            this.gbThem.TabIndex = 12;
+            this.gbThem.Text = "Thêm tài khoản";
+            // 
+            // pnMain
+            // 
+            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
+            this.pnMain.Controls.Add(this.gbCapNhat);
+            this.pnMain.Controls.Add(this.gbThem);
+            this.pnMain.Controls.Add(this.dgvTaiKhoan);
+            this.pnMain.Location = new System.Drawing.Point(6, 125);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.ShadowDecoration.Parent = this.pnMain;
+            this.pnMain.Size = new System.Drawing.Size(1125, 847);
+            this.pnMain.TabIndex = 16;
             // 
             // guna2GradientPanel1
             // 
@@ -348,28 +566,42 @@ namespace RestaurantManagement.AdminController
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // btnCaiDat
+            // txtMaNhanVien
             // 
-            this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCaiDat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCaiDat.CheckedState.Parent = this.btnCaiDat;
-            this.btnCaiDat.CustomImages.Parent = this.btnCaiDat;
-            this.btnCaiDat.FillColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCaiDat.ForeColor = System.Drawing.Color.White;
-            this.btnCaiDat.HoverState.Parent = this.btnCaiDat;
-            this.btnCaiDat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.Image")));
-            this.btnCaiDat.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnCaiDat.Location = new System.Drawing.Point(1065, 22);
-            this.btnCaiDat.Name = "btnCaiDat";
-            this.btnCaiDat.PressedColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnCaiDat.ShadowDecoration.Parent = this.btnCaiDat;
-            this.btnCaiDat.Size = new System.Drawing.Size(43, 41);
-            this.btnCaiDat.TabIndex = 12;
+            this.txtMaNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaNhanVien.BackColor = System.Drawing.Color.Transparent;
+            this.txtMaNhanVien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.txtMaNhanVien.BorderRadius = 15;
+            this.txtMaNhanVien.BorderThickness = 2;
+            this.txtMaNhanVien.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMaNhanVien.DefaultText = "";
+            this.txtMaNhanVien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaNhanVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaNhanVien.DisabledState.Parent = this.txtMaNhanVien;
+            this.txtMaNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaNhanVien.FillColor = System.Drawing.SystemColors.Desktop;
+            this.txtMaNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaNhanVien.FocusedState.Parent = this.txtMaNhanVien;
+            this.txtMaNhanVien.ForeColor = System.Drawing.Color.LightGray;
+            this.txtMaNhanVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaNhanVien.HoverState.Parent = this.txtMaNhanVien;
+            this.txtMaNhanVien.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMaNhanVien.IconLeft")));
+            this.txtMaNhanVien.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.txtMaNhanVien.Location = new System.Drawing.Point(17, 67);
+            this.txtMaNhanVien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaNhanVien.Name = "txtMaNhanVien";
+            this.txtMaNhanVien.PasswordChar = '\0';
+            this.txtMaNhanVien.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtMaNhanVien.PlaceholderText = "Tài khoản";
+            this.txtMaNhanVien.SelectedText = "";
+            this.txtMaNhanVien.ShadowDecoration.Parent = this.txtMaNhanVien;
+            this.txtMaNhanVien.Size = new System.Drawing.Size(300, 40);
+            this.txtMaNhanVien.TabIndex = 17;
             // 
-            // lblChucNang
+            // guna2TextBox2
             // 
+<<<<<<< HEAD
             this.lblChucNang.AutoSize = true;
             this.lblChucNang.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChucNang.Location = new System.Drawing.Point(30, 42);
@@ -425,302 +657,96 @@ namespace RestaurantManagement.AdminController
             // 
 <<<<<<< Updated upstream
             // txtTimKiem
+=======
+            this.guna2TextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2TextBox2.BorderRadius = 15;
+            this.guna2TextBox2.BorderThickness = 2;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FillColor = System.Drawing.SystemColors.Desktop;
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.FocusedState.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.HoverState.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox2.IconLeft")));
+            this.guna2TextBox2.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox2.IconRightSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox2.Location = new System.Drawing.Point(17, 129);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox2.PlaceholderText = "Mật khẩu";
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.ShadowDecoration.Parent = this.guna2TextBox2;
+            this.guna2TextBox2.Size = new System.Drawing.Size(300, 40);
+            this.guna2TextBox2.TabIndex = 18;
             // 
-            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTimKiem.BackColor = System.Drawing.Color.Transparent;
-            this.txtTimKiem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
-            this.txtTimKiem.BorderRadius = 15;
-            this.txtTimKiem.BorderThickness = 3;
-            this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTimKiem.DefaultText = "";
-            this.txtTimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.DisabledState.Parent = this.txtTimKiem;
-            this.txtTimKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.FocusedState.Parent = this.txtTimKiem;
-            this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.HoverState.Parent = this.txtTimKiem;
-            this.txtTimKiem.IconRight = ((System.Drawing.Image)(resources.GetObject("txtTimKiem.IconRight")));
-            this.txtTimKiem.Location = new System.Drawing.Point(341, 20);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.PasswordChar = '\0';
-            this.txtTimKiem.PlaceholderText = "Tìm kiếm";
-            this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.ShadowDecoration.Parent = this.txtTimKiem;
-            this.txtTimKiem.Size = new System.Drawing.Size(502, 44);
-            this.txtTimKiem.TabIndex = 8;
+            // guna2TextBox3
             // 
-            // pnMain
+            this.guna2TextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TextBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2TextBox3.BorderRadius = 15;
+            this.guna2TextBox3.BorderThickness = 2;
+            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox3.DefaultText = "";
+            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox3.DisabledState.Parent = this.guna2TextBox3;
+            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox3.FillColor = System.Drawing.SystemColors.Desktop;
+            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox3.FocusedState.Parent = this.guna2TextBox3;
+            this.guna2TextBox3.ForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox3.HoverState.Parent = this.guna2TextBox3;
+            this.guna2TextBox3.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox3.IconLeft")));
+            this.guna2TextBox3.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox3.IconRightSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox3.Location = new System.Drawing.Point(17, 193);
+            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+            this.guna2TextBox3.Name = "guna2TextBox3";
+            this.guna2TextBox3.PasswordChar = '\0';
+            this.guna2TextBox3.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox3.PlaceholderText = "Mã nhân viên";
+            this.guna2TextBox3.SelectedText = "";
+            this.guna2TextBox3.ShadowDecoration.Parent = this.guna2TextBox3;
+            this.guna2TextBox3.Size = new System.Drawing.Size(300, 40);
+            this.guna2TextBox3.TabIndex = 19;
             // 
-            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
-            this.pnMain.Controls.Add(this.gbCapNhat);
-            this.pnMain.Controls.Add(this.gbThem);
-            this.pnMain.Controls.Add(this.dgvTaiKhoan);
-            this.pnMain.Location = new System.Drawing.Point(6, 125);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.ShadowDecoration.Parent = this.pnMain;
-            this.pnMain.Size = new System.Drawing.Size(1125, 847);
-            this.pnMain.TabIndex = 16;
+            // cbTinhTrang
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             // 
-            // gbCapNhat
-            // 
-            this.gbCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbCapNhat.BackColor = System.Drawing.Color.Transparent;
-            this.gbCapNhat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
-            this.gbCapNhat.BorderRadius = 15;
-            this.gbCapNhat.BorderThickness = 5;
-            this.gbCapNhat.Controls.Add(this.guna2GroupBox1);
-            this.gbCapNhat.Controls.Add(this.btnResetSua);
-            this.gbCapNhat.Controls.Add(this.btnSua);
-            this.gbCapNhat.Controls.Add(this.cbTinhTrangSua);
-            this.gbCapNhat.Controls.Add(this.txtMaNhanVienSua);
-            this.gbCapNhat.Controls.Add(this.txtMatKhauSua);
-            this.gbCapNhat.Controls.Add(this.txtTaiKhoanSua);
-            this.gbCapNhat.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
-            this.gbCapNhat.FillColor = System.Drawing.Color.Black;
-            this.gbCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCapNhat.ForeColor = System.Drawing.Color.White;
-            this.gbCapNhat.Location = new System.Drawing.Point(778, 445);
-            this.gbCapNhat.Name = "gbCapNhat";
-            this.gbCapNhat.ShadowDecoration.Parent = this.gbCapNhat;
-            this.gbCapNhat.Size = new System.Drawing.Size(334, 386);
-            this.gbCapNhat.TabIndex = 13;
-            this.gbCapNhat.Text = "Cập nhật tài khoản";
-            // 
-            // guna2GroupBox1
-            // 
-            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
-            this.guna2GroupBox1.BorderRadius = 15;
-            this.guna2GroupBox1.BorderThickness = 5;
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
-            this.guna2GroupBox1.FillColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(763, 433);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(334, 386);
-            this.guna2GroupBox1.TabIndex = 26;
-            this.guna2GroupBox1.Text = "Cập nhật tài khoản";
-            // 
-            // btnResetSua
-            // 
-            this.btnResetSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetSua.BackColor = System.Drawing.Color.Transparent;
-            this.btnResetSua.BorderRadius = 15;
-            this.btnResetSua.CheckedState.Parent = this.btnResetSua;
-            this.btnResetSua.CustomImages.Parent = this.btnResetSua;
-            this.btnResetSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.btnResetSua.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnResetSua.ForeColor = System.Drawing.Color.White;
-            this.btnResetSua.HoverState.Parent = this.btnResetSua;
-            this.btnResetSua.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSua.Image")));
-            this.btnResetSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnResetSua.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnResetSua.Location = new System.Drawing.Point(89, 324);
-            this.btnResetSua.Name = "btnResetSua";
-            this.btnResetSua.ShadowDecoration.Parent = this.btnResetSua;
-            this.btnResetSua.Size = new System.Drawing.Size(111, 37);
-            this.btnResetSua.TabIndex = 32;
-            this.btnResetSua.Text = "     Reset";
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.BackColor = System.Drawing.Color.Transparent;
-            this.btnSua.BorderRadius = 15;
-            this.btnSua.CheckedState.Parent = this.btnSua;
-            this.btnSua.CustomImages.Parent = this.btnSua;
-            this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.HoverState.Parent = this.btnSua;
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSua.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSua.Location = new System.Drawing.Point(207, 324);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.ShadowDecoration.Parent = this.btnSua;
-            this.btnSua.Size = new System.Drawing.Size(111, 37);
-            this.btnSua.TabIndex = 31;
-            this.btnSua.Text = "     Sửa";
-            // 
-            // cbTinhTrangSua
-            // 
-            this.cbTinhTrangSua.BackColor = System.Drawing.Color.Transparent;
-            this.cbTinhTrangSua.BorderRadius = 15;
-            this.cbTinhTrangSua.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTinhTrangSua.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTinhTrangSua.FocusedColor = System.Drawing.Color.Empty;
-            this.cbTinhTrangSua.FocusedState.Parent = this.cbTinhTrangSua;
-            this.cbTinhTrangSua.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbTinhTrangSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbTinhTrangSua.FormattingEnabled = true;
-            this.cbTinhTrangSua.HoverState.Parent = this.cbTinhTrangSua;
-            this.cbTinhTrangSua.ItemHeight = 30;
-            this.cbTinhTrangSua.Items.AddRange(new object[] {
+            this.cbTinhTrang.BackColor = System.Drawing.Color.Transparent;
+            this.cbTinhTrang.BorderRadius = 15;
+            this.cbTinhTrang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTinhTrang.FocusedColor = System.Drawing.Color.Empty;
+            this.cbTinhTrang.FocusedState.Parent = this.cbTinhTrang;
+            this.cbTinhTrang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbTinhTrang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbTinhTrang.FormattingEnabled = true;
+            this.cbTinhTrang.HoverState.Parent = this.cbTinhTrang;
+            this.cbTinhTrang.ItemHeight = 30;
+            this.cbTinhTrang.Items.AddRange(new object[] {
             "Đang hoạt động",
             "Bị chặn"});
-            this.cbTinhTrangSua.ItemsAppearance.Parent = this.cbTinhTrangSua;
-            this.cbTinhTrangSua.Location = new System.Drawing.Point(18, 267);
-            this.cbTinhTrangSua.Name = "cbTinhTrangSua";
-            this.cbTinhTrangSua.ShadowDecoration.Parent = this.cbTinhTrangSua;
-            this.cbTinhTrangSua.Size = new System.Drawing.Size(300, 36);
-            this.cbTinhTrangSua.TabIndex = 30;
-            // 
-            // txtMaNhanVienSua
-            // 
-            this.txtMaNhanVienSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNhanVienSua.BackColor = System.Drawing.Color.Transparent;
-            this.txtMaNhanVienSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.txtMaNhanVienSua.BorderRadius = 15;
-            this.txtMaNhanVienSua.BorderThickness = 2;
-            this.txtMaNhanVienSua.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaNhanVienSua.DefaultText = "";
-            this.txtMaNhanVienSua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMaNhanVienSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMaNhanVienSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaNhanVienSua.DisabledState.Parent = this.txtMaNhanVienSua;
-            this.txtMaNhanVienSua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaNhanVienSua.FillColor = System.Drawing.SystemColors.Desktop;
-            this.txtMaNhanVienSua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaNhanVienSua.FocusedState.Parent = this.txtMaNhanVienSua;
-            this.txtMaNhanVienSua.ForeColor = System.Drawing.Color.LightGray;
-            this.txtMaNhanVienSua.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaNhanVienSua.HoverState.Parent = this.txtMaNhanVienSua;
-            this.txtMaNhanVienSua.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMaNhanVienSua.IconLeft")));
-            this.txtMaNhanVienSua.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtMaNhanVienSua.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMaNhanVienSua.Location = new System.Drawing.Point(18, 205);
-            this.txtMaNhanVienSua.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
-            this.txtMaNhanVienSua.Name = "txtMaNhanVienSua";
-            this.txtMaNhanVienSua.PasswordChar = '\0';
-            this.txtMaNhanVienSua.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtMaNhanVienSua.PlaceholderText = "Mã nhân viên";
-            this.txtMaNhanVienSua.ReadOnly = true;
-            this.txtMaNhanVienSua.SelectedText = "";
-            this.txtMaNhanVienSua.ShadowDecoration.Parent = this.txtMaNhanVienSua;
-            this.txtMaNhanVienSua.Size = new System.Drawing.Size(300, 40);
-            this.txtMaNhanVienSua.TabIndex = 29;
-            // 
-            // txtMatKhauSua
-            // 
-            this.txtMatKhauSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMatKhauSua.BackColor = System.Drawing.Color.Transparent;
-            this.txtMatKhauSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.txtMatKhauSua.BorderRadius = 15;
-            this.txtMatKhauSua.BorderThickness = 2;
-            this.txtMatKhauSua.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMatKhauSua.DefaultText = "";
-            this.txtMatKhauSua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMatKhauSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMatKhauSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMatKhauSua.DisabledState.Parent = this.txtMatKhauSua;
-            this.txtMatKhauSua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMatKhauSua.FillColor = System.Drawing.SystemColors.Desktop;
-            this.txtMatKhauSua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMatKhauSua.FocusedState.Parent = this.txtMatKhauSua;
-            this.txtMatKhauSua.ForeColor = System.Drawing.Color.LightGray;
-            this.txtMatKhauSua.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMatKhauSua.HoverState.Parent = this.txtMatKhauSua;
-            this.txtMatKhauSua.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMatKhauSua.IconLeft")));
-            this.txtMatKhauSua.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtMatKhauSua.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMatKhauSua.Location = new System.Drawing.Point(18, 137);
-            this.txtMatKhauSua.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-            this.txtMatKhauSua.Name = "txtMatKhauSua";
-            this.txtMatKhauSua.PasswordChar = '\0';
-            this.txtMatKhauSua.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtMatKhauSua.PlaceholderText = "Mật khẩu";
-            this.txtMatKhauSua.SelectedText = "";
-            this.txtMatKhauSua.ShadowDecoration.Parent = this.txtMatKhauSua;
-            this.txtMatKhauSua.Size = new System.Drawing.Size(300, 40);
-            this.txtMatKhauSua.TabIndex = 28;
-            // 
-            // txtTaiKhoanSua
-            // 
-            this.txtTaiKhoanSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTaiKhoanSua.BackColor = System.Drawing.Color.Transparent;
-            this.txtTaiKhoanSua.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.txtTaiKhoanSua.BorderRadius = 15;
-            this.txtTaiKhoanSua.BorderThickness = 2;
-            this.txtTaiKhoanSua.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTaiKhoanSua.DefaultText = "";
-            this.txtTaiKhoanSua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTaiKhoanSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTaiKhoanSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTaiKhoanSua.DisabledState.Parent = this.txtTaiKhoanSua;
-            this.txtTaiKhoanSua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTaiKhoanSua.FillColor = System.Drawing.SystemColors.Desktop;
-            this.txtTaiKhoanSua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTaiKhoanSua.FocusedState.Parent = this.txtTaiKhoanSua;
-            this.txtTaiKhoanSua.ForeColor = System.Drawing.Color.LightGray;
-            this.txtTaiKhoanSua.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTaiKhoanSua.HoverState.Parent = this.txtTaiKhoanSua;
-            this.txtTaiKhoanSua.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtTaiKhoanSua.IconLeft")));
-            this.txtTaiKhoanSua.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtTaiKhoanSua.Location = new System.Drawing.Point(18, 74);
-            this.txtTaiKhoanSua.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtTaiKhoanSua.Name = "txtTaiKhoanSua";
-            this.txtTaiKhoanSua.PasswordChar = '\0';
-            this.txtTaiKhoanSua.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtTaiKhoanSua.PlaceholderText = "Tài khoản";
-            this.txtTaiKhoanSua.SelectedText = "";
-            this.txtTaiKhoanSua.ShadowDecoration.Parent = this.txtTaiKhoanSua;
-            this.txtTaiKhoanSua.Size = new System.Drawing.Size(300, 40);
-            this.txtTaiKhoanSua.TabIndex = 27;
-            // 
-            // gbThem
-            // 
-            this.gbThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbThem.BackColor = System.Drawing.Color.Transparent;
-            this.gbThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
-            this.gbThem.BorderRadius = 15;
-            this.gbThem.BorderThickness = 5;
-            this.gbThem.Controls.Add(this.bntResetTao);
-            this.gbThem.Controls.Add(this.btnThem);
-            this.gbThem.Controls.Add(this.cbTinhTrangTao);
-            this.gbThem.Controls.Add(this.txtMaNhanVienTao);
-            this.gbThem.Controls.Add(this.bntMatKhauThem);
-            this.gbThem.Controls.Add(this.txtTaiKhoanTao);
-            this.gbThem.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
-            this.gbThem.FillColor = System.Drawing.Color.Black;
-            this.gbThem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbThem.ForeColor = System.Drawing.Color.White;
-            this.gbThem.Location = new System.Drawing.Point(778, 16);
-            this.gbThem.Name = "gbThem";
-            this.gbThem.ShadowDecoration.Parent = this.gbThem;
-            this.gbThem.Size = new System.Drawing.Size(334, 396);
-            this.gbThem.TabIndex = 12;
-            this.gbThem.Text = "Thêm tài khoản";
-            // 
-            // bntResetTao
-            // 
-            this.bntResetTao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntResetTao.BackColor = System.Drawing.Color.Transparent;
-            this.bntResetTao.BorderRadius = 15;
-            this.bntResetTao.CheckedState.Parent = this.bntResetTao;
-            this.bntResetTao.CustomImages.Parent = this.bntResetTao;
-            this.bntResetTao.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.bntResetTao.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bntResetTao.ForeColor = System.Drawing.Color.White;
-            this.bntResetTao.HoverState.Parent = this.bntResetTao;
-            this.bntResetTao.Image = ((System.Drawing.Image)(resources.GetObject("bntResetTao.Image")));
-            this.bntResetTao.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bntResetTao.ImageSize = new System.Drawing.Size(30, 30);
-            this.bntResetTao.Location = new System.Drawing.Point(89, 310);
-            this.bntResetTao.Name = "bntResetTao";
-            this.bntResetTao.ShadowDecoration.Parent = this.bntResetTao;
-            this.bntResetTao.Size = new System.Drawing.Size(111, 37);
-            this.bntResetTao.TabIndex = 25;
-            this.bntResetTao.Text = "     Reset";
+            this.cbTinhTrang.ItemsAppearance.Parent = this.cbTinhTrang;
+            this.cbTinhTrang.Location = new System.Drawing.Point(18, 254);
+            this.cbTinhTrang.Name = "cbTinhTrang";
+            this.cbTinhTrang.ShadowDecoration.Parent = this.cbTinhTrang;
+            this.cbTinhTrang.Size = new System.Drawing.Size(299, 36);
+            this.cbTinhTrang.TabIndex = 20;
             // 
             // btnThem
             // 
@@ -743,99 +769,182 @@ namespace RestaurantManagement.AdminController
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "     Thêm";
             // 
-            // cbTinhTrangTao
+            // guna2Button1
             // 
-            this.cbTinhTrangTao.BackColor = System.Drawing.Color.Transparent;
-            this.cbTinhTrangTao.BorderRadius = 15;
-            this.cbTinhTrangTao.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTinhTrangTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTinhTrangTao.FocusedColor = System.Drawing.Color.Empty;
-            this.cbTinhTrangTao.FocusedState.Parent = this.cbTinhTrangTao;
-            this.cbTinhTrangTao.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbTinhTrangTao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbTinhTrangTao.FormattingEnabled = true;
-            this.cbTinhTrangTao.HoverState.Parent = this.cbTinhTrangTao;
-            this.cbTinhTrangTao.ItemHeight = 30;
-            this.cbTinhTrangTao.Items.AddRange(new object[] {
+            this.guna2Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(89, 310);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(111, 37);
+            this.guna2Button1.TabIndex = 25;
+            this.guna2Button1.Text = "     Reset";
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
+            this.guna2GroupBox1.BorderRadius = 15;
+            this.guna2GroupBox1.BorderThickness = 5;
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
+            this.guna2GroupBox1.FillColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
+            this.guna2GroupBox1.Location = new System.Drawing.Point(763, 433);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
+            this.guna2GroupBox1.Size = new System.Drawing.Size(334, 386);
+            this.guna2GroupBox1.TabIndex = 26;
+            this.guna2GroupBox1.Text = "Cập nhật tài khoản";
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderRadius = 15;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
+            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button2.Location = new System.Drawing.Point(89, 324);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(111, 37);
+            this.guna2Button2.TabIndex = 32;
+            this.guna2Button2.Text = "     Reset";
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.BorderRadius = 15;
+            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
+            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.HoverState.Parent = this.guna2Button3;
+            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
+            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button3.Location = new System.Drawing.Point(207, 324);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
+            this.guna2Button3.Size = new System.Drawing.Size(111, 37);
+            this.guna2Button3.TabIndex = 31;
+            this.guna2Button3.Text = "     Thêm";
+            // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 15;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.FormattingEnabled = true;
+            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
             "Đang hoạt động",
             "Bị chặn"});
-            this.cbTinhTrangTao.ItemsAppearance.Parent = this.cbTinhTrangTao;
-            this.cbTinhTrangTao.Location = new System.Drawing.Point(18, 254);
-            this.cbTinhTrangTao.Name = "cbTinhTrangTao";
-            this.cbTinhTrangTao.ShadowDecoration.Parent = this.cbTinhTrangTao;
-            this.cbTinhTrangTao.Size = new System.Drawing.Size(299, 36);
-            this.cbTinhTrangTao.TabIndex = 20;
+            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(18, 267);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Size = new System.Drawing.Size(300, 36);
+            this.guna2ComboBox1.TabIndex = 30;
             // 
-            // txtMaNhanVienTao
+            // guna2TextBox4
             // 
-            this.txtMaNhanVienTao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNhanVienTao.BackColor = System.Drawing.Color.Transparent;
-            this.txtMaNhanVienTao.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.txtMaNhanVienTao.BorderRadius = 15;
-            this.txtMaNhanVienTao.BorderThickness = 2;
-            this.txtMaNhanVienTao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaNhanVienTao.DefaultText = "";
-            this.txtMaNhanVienTao.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMaNhanVienTao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMaNhanVienTao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaNhanVienTao.DisabledState.Parent = this.txtMaNhanVienTao;
-            this.txtMaNhanVienTao.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaNhanVienTao.FillColor = System.Drawing.SystemColors.Desktop;
-            this.txtMaNhanVienTao.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaNhanVienTao.FocusedState.Parent = this.txtMaNhanVienTao;
-            this.txtMaNhanVienTao.ForeColor = System.Drawing.Color.LightGray;
-            this.txtMaNhanVienTao.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaNhanVienTao.HoverState.Parent = this.txtMaNhanVienTao;
-            this.txtMaNhanVienTao.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMaNhanVienTao.IconLeft")));
-            this.txtMaNhanVienTao.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtMaNhanVienTao.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMaNhanVienTao.Location = new System.Drawing.Point(17, 193);
-            this.txtMaNhanVienTao.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-            this.txtMaNhanVienTao.Name = "txtMaNhanVienTao";
-            this.txtMaNhanVienTao.PasswordChar = '\0';
-            this.txtMaNhanVienTao.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtMaNhanVienTao.PlaceholderText = "Mã nhân viên";
-            this.txtMaNhanVienTao.SelectedText = "";
-            this.txtMaNhanVienTao.ShadowDecoration.Parent = this.txtMaNhanVienTao;
-            this.txtMaNhanVienTao.Size = new System.Drawing.Size(300, 40);
-            this.txtMaNhanVienTao.TabIndex = 19;
+            this.guna2TextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TextBox4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2TextBox4.BorderRadius = 15;
+            this.guna2TextBox4.BorderThickness = 2;
+            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox4.DefaultText = "";
+            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox4.DisabledState.Parent = this.guna2TextBox4;
+            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox4.FillColor = System.Drawing.SystemColors.Desktop;
+            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox4.FocusedState.Parent = this.guna2TextBox4;
+            this.guna2TextBox4.ForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox4.HoverState.Parent = this.guna2TextBox4;
+            this.guna2TextBox4.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox4.IconLeft")));
+            this.guna2TextBox4.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox4.IconRightSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox4.Location = new System.Drawing.Point(18, 205);
+            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
+            this.guna2TextBox4.Name = "guna2TextBox4";
+            this.guna2TextBox4.PasswordChar = '\0';
+            this.guna2TextBox4.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox4.PlaceholderText = "Mã nhân viên";
+            this.guna2TextBox4.ReadOnly = true;
+            this.guna2TextBox4.SelectedText = "";
+            this.guna2TextBox4.ShadowDecoration.Parent = this.guna2TextBox4;
+            this.guna2TextBox4.Size = new System.Drawing.Size(300, 40);
+            this.guna2TextBox4.TabIndex = 29;
             // 
-            // bntMatKhauThem
+            // guna2TextBox5
             // 
-            this.bntMatKhauThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntMatKhauThem.BackColor = System.Drawing.Color.Transparent;
-            this.bntMatKhauThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.bntMatKhauThem.BorderRadius = 15;
-            this.bntMatKhauThem.BorderThickness = 2;
-            this.bntMatKhauThem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bntMatKhauThem.DefaultText = "";
-            this.bntMatKhauThem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.bntMatKhauThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.bntMatKhauThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bntMatKhauThem.DisabledState.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bntMatKhauThem.FillColor = System.Drawing.SystemColors.Desktop;
-            this.bntMatKhauThem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bntMatKhauThem.FocusedState.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.ForeColor = System.Drawing.Color.LightGray;
-            this.bntMatKhauThem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bntMatKhauThem.HoverState.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.IconLeft = ((System.Drawing.Image)(resources.GetObject("bntMatKhauThem.IconLeft")));
-            this.bntMatKhauThem.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.bntMatKhauThem.IconRightSize = new System.Drawing.Size(30, 30);
-            this.bntMatKhauThem.Location = new System.Drawing.Point(17, 129);
-            this.bntMatKhauThem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.bntMatKhauThem.Name = "bntMatKhauThem";
-            this.bntMatKhauThem.PasswordChar = '\0';
-            this.bntMatKhauThem.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.bntMatKhauThem.PlaceholderText = "Mật khẩu";
-            this.bntMatKhauThem.SelectedText = "";
-            this.bntMatKhauThem.ShadowDecoration.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.Size = new System.Drawing.Size(300, 40);
-            this.bntMatKhauThem.TabIndex = 18;
+            this.guna2TextBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TextBox5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2TextBox5.BorderRadius = 15;
+            this.guna2TextBox5.BorderThickness = 2;
+            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox5.DefaultText = "";
+            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox5.DisabledState.Parent = this.guna2TextBox5;
+            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox5.FillColor = System.Drawing.SystemColors.Desktop;
+            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox5.FocusedState.Parent = this.guna2TextBox5;
+            this.guna2TextBox5.ForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox5.HoverState.Parent = this.guna2TextBox5;
+            this.guna2TextBox5.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox5.IconLeft")));
+            this.guna2TextBox5.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox5.IconRightSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox5.Location = new System.Drawing.Point(18, 137);
+            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+            this.guna2TextBox5.Name = "guna2TextBox5";
+            this.guna2TextBox5.PasswordChar = '\0';
+            this.guna2TextBox5.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox5.PlaceholderText = "Mật khẩu";
+            this.guna2TextBox5.SelectedText = "";
+            this.guna2TextBox5.ShadowDecoration.Parent = this.guna2TextBox5;
+            this.guna2TextBox5.Size = new System.Drawing.Size(300, 40);
+            this.guna2TextBox5.TabIndex = 28;
             // 
-            // txtTaiKhoanTao
+            // guna2TextBox6
             // 
+<<<<<<< HEAD
             this.txtTaiKhoanTao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTaiKhoanTao.BackColor = System.Drawing.Color.Transparent;
             this.txtTaiKhoanTao.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
@@ -962,6 +1071,38 @@ namespace RestaurantManagement.AdminController
             this.guna2TextBox2.Size = new System.Drawing.Size(299, 40);
             this.guna2TextBox2.TabIndex = 20;
 >>>>>>> Stashed changes
+=======
+            this.guna2TextBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TextBox6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2TextBox6.BorderRadius = 15;
+            this.guna2TextBox6.BorderThickness = 2;
+            this.guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox6.DefaultText = "";
+            this.guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox6.DisabledState.Parent = this.guna2TextBox6;
+            this.guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox6.FillColor = System.Drawing.SystemColors.Desktop;
+            this.guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox6.FocusedState.Parent = this.guna2TextBox6;
+            this.guna2TextBox6.ForeColor = System.Drawing.Color.LightGray;
+            this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox6.HoverState.Parent = this.guna2TextBox6;
+            this.guna2TextBox6.IconLeft = ((System.Drawing.Image)(resources.GetObject("guna2TextBox6.IconLeft")));
+            this.guna2TextBox6.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.guna2TextBox6.Location = new System.Drawing.Point(18, 74);
+            this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.guna2TextBox6.Name = "guna2TextBox6";
+            this.guna2TextBox6.PasswordChar = '\0';
+            this.guna2TextBox6.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox6.PlaceholderText = "Tài khoản";
+            this.guna2TextBox6.SelectedText = "";
+            this.guna2TextBox6.ShadowDecoration.Parent = this.guna2TextBox6;
+            this.guna2TextBox6.Size = new System.Drawing.Size(300, 40);
+            this.guna2TextBox6.TabIndex = 27;
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             // 
             // QuanLyTaiKhoan
             // 
@@ -982,9 +1123,14 @@ namespace RestaurantManagement.AdminController
 >>>>>>> Stashed changes
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
+            this.gbCapNhat.ResumeLayout(false);
+            this.gbThem.ResumeLayout(false);
+            this.pnMain.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             this.pnMain.ResumeLayout(false);
             this.gbCapNhat.ResumeLayout(false);
@@ -994,6 +1140,8 @@ namespace RestaurantManagement.AdminController
             this.myPanel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             this.ResumeLayout(false);
 
         }
@@ -1004,6 +1152,7 @@ namespace RestaurantManagement.AdminController
         private Guna.UI2.WinForms.Guna2GroupBox gbThem;
         private PresentationLayer.Control.MyPanel myPanel1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTaiKhoan;
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI2.WinForms.Guna2ComboBox cbTinhTrangTao;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNhanVienTao;
@@ -1024,10 +1173,18 @@ namespace RestaurantManagement.AdminController
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 3b60676 (Updata nhiều form)
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Label lblChucNang;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Label label12;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2CircleButton btnCaiDat;
         private Label lblChucNang;
         private Label label1;
@@ -1039,5 +1196,20 @@ namespace RestaurantManagement.AdminController
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
 >>>>>>> Stashed changes
+=======
+        private Guna.UI2.WinForms.Guna2ComboBox cbTinhTrang;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtMaNhanVien;
+        private Guna.UI2.WinForms.Guna2Button btnThem;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
+>>>>>>> parent of 3b60676 (Updata nhiều form)
     }
 }
