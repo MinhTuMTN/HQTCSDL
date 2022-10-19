@@ -417,14 +417,14 @@
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
             this.guna2TextBox1.IconRight = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconRight")));
-            this.guna2TextBox1.Location = new System.Drawing.Point(326, 20);
+            this.guna2TextBox1.Location = new System.Drawing.Point(341, 20);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "Tìm kiếm";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(557, 44);
+            this.guna2TextBox1.Size = new System.Drawing.Size(542, 44);
             this.guna2TextBox1.TabIndex = 8;
             // 
             // pnMain
@@ -453,9 +453,10 @@
             this.Controls.Add(this.gunaPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý";
+            this.Text = "The Moon Restaurant - Quản lý nhà hàng";
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.gunaPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
