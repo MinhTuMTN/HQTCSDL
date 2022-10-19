@@ -66,6 +66,24 @@
     <Compile Include="PresentationLayer\AdminView\QuanLyCaTruc.Designer.cs">
       <DependentUpon>QuanLyCaTruc.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyCoupon.Designer.cs">
+      <DependentUpon>QuanLyCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyKhachHang.Designer.cs">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyMonAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\QuanLyMonAn.Designer.cs">
+      <DependentUpon>QuanLyMonAn.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\AdminView\QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +101,18 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\ThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\TraLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\AdminView\TraLuong.Designer.cs">
+      <DependentUpon>TraLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Control\CustomButton.cs">
       <SubType>Component</SubType>
@@ -104,6 +134,15 @@
     <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyCaTruc.resx">
       <DependentUpon>QuanLyCaTruc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyCoupon.resx">
+      <DependentUpon>QuanLyCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyKhachHang.resx">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyMonAn.resx">
+      <DependentUpon>QuanLyMonAn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\AdminView\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\AdminView\TraLuong.resx">
+      <DependentUpon>TraLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
