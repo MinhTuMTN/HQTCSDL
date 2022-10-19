@@ -58,7 +58,7 @@
             this.txtSearch.Location = new System.Drawing.Point(6, 18);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
-            this.txtSearch.Size = new System.Drawing.Size(1118, 82);
+            this.txtSearch.Size = new System.Drawing.Size(1118, 85);
             this.txtSearch.TabIndex = 4;
             // 
             // guna2CircleButton1
@@ -73,7 +73,7 @@
             this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
             this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
             this.guna2CircleButton1.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 20);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 21);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.PressedColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
