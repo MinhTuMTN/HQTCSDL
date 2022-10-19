@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
       <HintPath>..\..\Guna.UI.dll</HintPath>
@@ -54,6 +57,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
+    <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
+    <Compile Include="DataAccessLayer\Model\Ban.cs" />
+    <Compile Include="DataAccessLayer\Model\CaTruc.cs" />
+    <Compile Include="DataAccessLayer\Model\ChiTietHoaDon.cs" />
+    <Compile Include="DataAccessLayer\Model\Coupon.cs" />
+    <Compile Include="DataAccessLayer\Model\DangKyCaTruc.cs" />
+    <Compile Include="DataAccessLayer\Model\DatTruoc.cs" />
+    <Compile Include="DataAccessLayer\Model\HoaDon.cs" />
+    <Compile Include="DataAccessLayer\Model\KhachHang.cs" />
+    <Compile Include="DataAccessLayer\Model\Luong.cs" />
+    <Compile Include="DataAccessLayer\Model\MonAn.cs" />
+    <Compile Include="DataAccessLayer\Model\NhanVien.cs" />
+    <Compile Include="DataAccessLayer\Model\TaiKhoan.cs" />
     <Compile Include="PresentationLayer\AdminView\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
