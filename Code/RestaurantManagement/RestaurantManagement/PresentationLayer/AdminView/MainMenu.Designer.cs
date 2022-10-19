@@ -55,7 +55,7 @@
             // 
             // gunaPanel1
             // 
-            this.gunaPanel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gunaPanel1.BackColor = System.Drawing.Color.White;
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton8);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton7);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton6);
@@ -418,7 +418,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1266, 956);
             this.Controls.Add(this.guna2CustomGradientPanel1);
