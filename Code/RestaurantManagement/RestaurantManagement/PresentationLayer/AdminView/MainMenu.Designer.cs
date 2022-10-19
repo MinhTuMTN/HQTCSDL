@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.gunaGradientTileButton8 = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaGradientTileButton7 = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaGradientTileButton6 = new Guna.UI.WinForms.GunaGradientTileButton();
@@ -47,7 +48,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.gunaPanel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -69,8 +69,18 @@
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel1.Name = "gunaPanel1";
-            this.gunaPanel1.Size = new System.Drawing.Size(133, 956);
+            this.gunaPanel1.Size = new System.Drawing.Size(133, 983);
             this.gunaPanel1.TabIndex = 0;
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Separator1.Location = new System.Drawing.Point(130, 0);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(3, 981);
+            this.guna2Separator1.TabIndex = 9;
             // 
             // gunaGradientTileButton8
             // 
@@ -168,7 +178,7 @@
             this.gunaGradientTileButton5.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.gunaGradientTileButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientTileButton5.Image")));
             this.gunaGradientTileButton5.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaGradientTileButton5.Location = new System.Drawing.Point(12, 503);
+            this.gunaGradientTileButton5.Location = new System.Drawing.Point(14, 503);
             this.gunaGradientTileButton5.Name = "gunaGradientTileButton5";
             this.gunaGradientTileButton5.OnHoverBaseColor1 = System.Drawing.Color.SlateGray;
             this.gunaGradientTileButton5.OnHoverBaseColor2 = System.Drawing.Color.Silver;
@@ -306,7 +316,7 @@
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(139, 12);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1129, 82);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1158, 82);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
             // guna2CircleButton1
@@ -321,7 +331,7 @@
             this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
             this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
             this.guna2CircleButton1.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(1030, 20);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1059, 20);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.PressedColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -337,7 +347,7 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(868, 14);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(897, 14);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
             this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 50);
@@ -414,31 +424,22 @@
             this.guna2TextBox1.PlaceholderText = "Tìm kiếm";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(528, 44);
+            this.guna2TextBox1.Size = new System.Drawing.Size(557, 44);
             this.guna2TextBox1.TabIndex = 8;
             // 
             // pnMain
             // 
-            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnMain.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnMain.BorderRadius = 20;
             this.pnMain.BorderThickness = 3;
-            this.pnMain.Location = new System.Drawing.Point(139, 113);
+            this.pnMain.Location = new System.Drawing.Point(139, 121);
             this.pnMain.Name = "pnMain";
             this.pnMain.ShadowDecoration.Parent = this.pnMain;
-            this.pnMain.Size = new System.Drawing.Size(1130, 843);
+            this.pnMain.Size = new System.Drawing.Size(1158, 860);
             this.pnMain.TabIndex = 3;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.guna2Separator1.Location = new System.Drawing.Point(130, 0);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(3, 954);
-            this.guna2Separator1.TabIndex = 9;
+            this.pnMain.Resize += new System.EventHandler(this.pnMain_Resize);
             // 
             // frmMainMenu
             // 
@@ -446,7 +447,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 956);
+            this.ClientSize = new System.Drawing.Size(1304, 983);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.gunaPanel1);

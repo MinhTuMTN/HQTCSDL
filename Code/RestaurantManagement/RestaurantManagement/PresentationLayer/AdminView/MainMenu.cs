@@ -24,32 +24,34 @@ namespace RestaurantManagement.AsminController
             btnQuanLyNhanVien_Click(sender, e);
         }
 
-        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        private void LoadPanelMain(String functionText, Form target)
         {
-            lblChucNang.Text = "Quản lý tài khoản";
-            QuanLyTaiKhoan taiKhoan = new QuanLyTaiKhoan();
-            taiKhoan.FormBorderStyle = FormBorderStyle.None;
-            taiKhoan.TopLevel = false;
+            lblChucNang.Text = functionText;
+            target.FormBorderStyle = FormBorderStyle.None;
+            target.TopLevel = false;
+            target.Parent = pnMain;
 
+            target.Size = pnMain.Size;
 
             pnMain.Controls.Clear();
-            pnMain.Controls.Add(taiKhoan);
+            pnMain.Controls.Add(target);
 
-            taiKhoan.Show();
+            target.Show();
+        }
+
+        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain("Quản lý tài khoản", new QuanLyTaiKhoan());
         }
 
         private void btnQuanLyNhanVien_Click(object sender, EventArgs e)
         {
-            lblChucNang.Text = "Quản lý nhân viên";
-            QuanLyNhanVien nhanVien = new QuanLyNhanVien();
-            nhanVien.FormBorderStyle = FormBorderStyle.None;
-            nhanVien.TopLevel = false;
+            LoadPanelMain("Quản lý nhân viên", new QuanLyNhanVien());
+        }
 
-
-            pnMain.Controls.Clear();
-            pnMain.Controls.Add(nhanVien);
-
-            nhanVien.Show();
+        private void pnMain_Resize(object sender, EventArgs e)
+        {
+            pnMain.Controls[0].Size = pnMain.Size;
         }
     }
 }
