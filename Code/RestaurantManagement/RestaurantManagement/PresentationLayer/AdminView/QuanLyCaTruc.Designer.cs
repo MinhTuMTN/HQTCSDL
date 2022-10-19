@@ -64,6 +64,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             // btnCaiDat
             // 
@@ -99,6 +100,10 @@
             // guna2CircleButton1
             // 
 >>>>>>> parent of 3b60676 (Updata nhiều form)
+=======
+            // guna2CircleButton1
+            // 
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             this.guna2CircleButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.guna2CircleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
@@ -112,7 +117,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 22);
+=======
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 21);
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
             this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 21);
 >>>>>>> parent of 3b60676 (Updata nhiều form)
@@ -129,9 +138,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.guna2CircleButton1.Size = new System.Drawing.Size(43, 43);
             this.guna2CircleButton1.TabIndex = 12;
 >>>>>>> Stashed changes
+=======
+            this.guna2CircleButton1.Size = new System.Drawing.Size(43, 41);
+            this.guna2CircleButton1.TabIndex = 12;
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
             this.guna2CircleButton1.Size = new System.Drawing.Size(43, 41);
             this.guna2CircleButton1.TabIndex = 12;
@@ -159,11 +173,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 60);
 =======
             this.guna2GradientPanel1.Size = new System.Drawing.Size(160, 60);
 >>>>>>> Stashed changes
+=======
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 50);
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
             this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 50);
 >>>>>>> parent of 3b60676 (Updata nhiều form)
@@ -184,11 +202,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             this.label12.Location = new System.Drawing.Point(62, 19);
 =======
             this.label12.Location = new System.Drawing.Point(63, 19);
 >>>>>>> Stashed changes
+=======
+            this.label12.Location = new System.Drawing.Point(55, 13);
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
             this.label12.Location = new System.Drawing.Point(55, 13);
 >>>>>>> parent of 3b60676 (Updata nhiều form)

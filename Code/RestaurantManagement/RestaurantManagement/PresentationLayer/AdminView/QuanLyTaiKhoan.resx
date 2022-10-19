@@ -121,8 +121,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+=======
+  <data name="guna2Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
   <data name="guna2Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 >>>>>>> parent of 3b60676 (Updata nhiều form)
@@ -172,10 +176,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <data name="btnCaiDat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 =======
   <data name="guna2TextBox2.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 >>>>>>> Stashed changes
+=======
+  <data name="guna2Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 =======
   <data name="guna2Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 =======
@@ -203,6 +210,101 @@
         IiIiIiLyXxoY+AvgSugta2HUSQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="guna2TextBox4.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAQWSURBVHhe7Z0xchMxGIVTUqRImYIiRQ5ASZEiJQfIAXIECioqjkHBMCk4ABU1BcegSEFBQUnJ
+        THjPv8LsSr82Wltaycz7Zt6Mrf3l/8nPmcjerHMihBBCCCGEEEIIIYQQQoiheHh4uIRuG+sqtJuB8dOo
+        bqrTUDYD41dRXQtdhnbbEwy05i60m4HxCzvschHKZmD8zg435Ta02x42Nw9NUSClsLl5aIoCKYXNzUNT
+        FEgpbG4emqJASmFz85DwB7pfqd+Qxz6BcDfF49SzMGUpEPb2PC2Ja/QYMpD7UFIM5uSerH0CmXIdpqzu
+        sQTmMBQPBfIECgQokB6wuXlImAUSxjz2frIw3iQQ3L62oZRQsgN3FcgUjCuQGDY3DwkKpAdsbh4SmgSC
+        2y8hPhHUDyjH2m2vAglUe/VGrH1jqEACCqQmbG4eEuJAuEhPZ6Hk4Ccr4pBAzqDY506hZAfuH28gJWDO
+        EIGUgjkKBLcVyBJsbh4S+GEdF79G3yGPaSDnEHtSb6AcawNh79jPU8p9GDpkIDVxX70YX3ofsjaQmigQ
+        BwXSkFwg3A29y+jf7m0KxhVIBVb/ws3Bx7KHbIoCKYWPZQ/ZlK6B8DMjLjLWJ+hbRjzmzcnpLcTga+gj
+        5Hn6Anm991mH+4d9XYGp1b9wc6CeT2Rrqm0choRmzbOLAtkamjXPLgpka2jWPLsokK2hWfPsokBaAVO8
+        JICmY03P7MXiMW9O7hKCG8h7nKUzhjzmzcnpPeR5qraOTUDz3Ks3+2kvj1lJwqr9O+q5+By1fgqbr6Mq
+        bG4eEhRID9jcPCQokB6wuXlIUCA9YHPzkKBAesDm5iFBgfQAzXPb3uehJIHHotpHcevJRZZqn23vTbAx
+        A+PNt+9HBxbCT0pb0+2n8OjAAhXISGCBCmQksEAFMhJYoAI5FJjKncLdRzyN6p0q5WlXbktryP0eEozn
+        1sGdn/c4FI95c/qdwkVzGmuN+9F4TdAjt47/5o1hTRRIKWxuHpqiQEphc/PQFAVSCpubh6YokFLY3Dwk
+        NLkcYQnU0cu++gB5/IK8euqodlnZV1YOzOFiPEoD2Zoh34cokJGAqaJAcH928eREqy76XCLUbslRB5Jj
+        1WXRS4TaLVEgS4TaLVEgS4Raj58Qt6ilYn2OaV32rGg3YOoYApld8P8UrLdpKaFkXOBRgYwEPCqQkYDH
+        okBKwBwFcijwqEBGAh4VyEjAYy6Q5l+kHBNqPdxAMP4a8nx8hnguPVGYugP3eXrZm+/+Md4moHkukJq0
+        CoTf+ODxNZQsgjo++R46H0JCrYcCqYwCKYXNzUNTFEgpbG4emqJASkHzbv8ULMaZ96jzUDID4y+iuke9
+        CiWLoI5XB3vz+/1TMCGEEEIIIYQQQgghhBBCpJyc/AVpz+YyKvq4DAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="guna2TextBox5.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="guna2TextBox6.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABGdBTUEAALGPC/xhBQAAAppJREFUeF7t
+        mr1rU3EUhtNaoQgWW0TooAW7lCJFcBdc/PgP/FoEQUdFUP8CF0HBxQ6CgkNRl9aPQfxEUIro2qpQBUcn
+        rQqKH/E59/dOQpEk95fccz0PPBCSm/O+5w5JbpJGEARBEARBEARBEARBEARBEHRKs9nsx4N4D1/jB2m3
+        7T57rF+H1x+WXYdz+BP/hR0zi0N6ej1hwVNatlV+4AmNqRcsdqNYsTOuaVw9sIXSXqUwo7G+YZGjaZ9S
+        OazxPmGBQfxerFIu33BQMf6g/KVijTxMK8YflP+SdsjCsmJ8QfFtqX9WphTnB0qfT92zclZxfqD0zdQ9
+        K7OK8wOln6fuWZlXnB8o/SR1z8pjxfmB0jOpe1auKs4PlLYLxtz4u7Ck9Br8XdTPg832+emX4u+KFfKw
+        pBh/UH532iELOxXjExawryrLZkHj/cISI1jmNZPNGtF437DIDvxlW3WIzdiusfWAhbbiZ9uuTT7ihMbV
+        CxbbgE9tyxawt2X7FL1eY+oLS07hA/yKK2GP3cctetr/BYtP4iE8I+32pB4OgiBoG15L+tA+AG5G+47Y
+        tNvD2KfD6g/L2kk4gNNob9vLuBKf0I65iPtxWGPqAQsN4D58hPbjfLvYcx/iXlyl8f6gvJ0Q+3n2LZbN
+        Eh5BXyeIwnvwDebGMnYptrpQcjVewJzf3P2NZZ3DAdWoFhQbw5fYK17gmOpUAwptwhyvJa1irz0bVau3
+        UGQc31urimBdxlWvN1BgCF9Zm4qxiGtVs7sQbH9HvW0tKsot7P7fYQk9XsRXm2Oq2x0IHMWcfwoqC+s4
+        qtr5IexkEeuD06qdH8LupEwX3FXt/BC2kDJdsKja+SFsPmW64Jlq54ewCbyC1yvuZaznb1FB4IFG4w94
+        MeK5ThDLSAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="guna2CircleButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+>>>>>>> parent of 3b60676 (Updata nhiều form)
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAPFSURBVHhe7d09aBRBGMbxBAuJIATFL7S1sPIjjTbRXgSxVrQSooJoo3YRRDDGBMHGSrCx0dZG
+        QRHsbGwUBD8bQTSo8aMQjf/ZvAMh3N3O3s5sRvf5wQvnuTN7PA+b9fC4DIiIiIiIiIiI/Dvm5uZWMKeY
+        J8yMzXPmArPGDpMmEPhW5g3TzWdmrx0uKRH0Hua7S73EH2bMlkkKBOzK+ObSDqRSUiHYqmV4rpRjto3E
+        QKD9luGplFgIcjdTpwzPlXLctpV+EGCsMjxXygnbXqoguNhleCqlKgIbYdwbvVR+M/vtdFKGsFJdHQt9
+        YdbaKaUMYTVRykU7nYQgsNSlPLVTSShCS1nKrJ1GqiC4XYz7mR/bjJ1CqiK8FFfKY9teCGOdPQzGmtil
+        nLat240g/PuMs/ZUMNbEKuUVM2TbthchLH7Td87+Khhr6pbyldlm27UXIYwynYK8ZIcEY02/N/pPzHbb
+        pr0IoVsZXhOluDJ22PL2IoSyMrwJWxKMNaGlqAyHEELL8FKUojIcQqhahnfZtgjGmm6lqAyHEPotw4tR
+        ivvXnMoghLpleJO2ZTDW+FJcGSP2dHu5ECyMWMZt62Csce9TRu2P7eVCYGJcGYtdsVNIKEJLVYanUkIR
+        VuoyvCk7pXRDSE2V4amUbgin6TK8aXsJ4hHKUpXhTTOD9nLajSBSf24qhDv/JntJ7UUIS31lOO+ZLfaS
+        2osQVEYuCEFl5IIQVEYuCEFl5IIQVEYuCEFl5IIQVEYuCEFl5IIQVEYuCEFl5IIQVEYuCEFl5IIQVEYu
+        CEFl5IIQVEYuCEFl5IIQVEYuCEFl5IIQVEYuCEFl5IIQ1jP3mNeM+wacpaBPoXdCKCuZKZdQg1RGL4Sz
+        jPngkmqAyghBSA+KuNJSGaEI6k4RWTq6gVdBWDeK2NJQGVUR2NUiuvj0Y6ofhDZexBeXrox+EdzJIsJ4
+        VEYdhHewiDEO/ZiqiwDd796IQWWUIaBhe9gTx911idagMsoQ0BDzjtlpT/XEce5KOcKMMWeY88wEc525
+        xbxgOlEZIQjpQBHX/NdKBJXSC3sMMtfchguojFAEdbuIbF6sUjYXu81TGaEIapj56VJboHYprHdXifsF
+        WyqjCsI6zHRSO0jWP2L0PqMKArvPdFPrSmHtBnsoIQhsI1P2v4FR7ikSgKAni8jLqZQmEPLHIu4wujmn
+        RsA/iqjDvWVW23KJjXCfFTH3NsvcZPYxy22ppEDAh5hO3I3+IXOUWWWHSxMs9JfML8bdJ9zHffRNOSIi
+        IiIiIiLyXxoY+AvgSugta2HUSQAAAABJRU5ErkJggg==
+</value>
+  </data>
+<<<<<<< HEAD
   <data name="guna2TextBox4.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -488,6 +590,8 @@
 >>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
 >>>>>>> parent of 3b60676 (Updata nhiều form)
+=======
+>>>>>>> parent of 3b60676 (Updata nhiều form)
   <data name="guna2TextBox1.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAANYdJREFUeF7t
@@ -725,8 +829,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   <data name="btnResetSua.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+=======
+  <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
   <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
 >>>>>>> parent of 3b60676 (Updata nhiều form)
@@ -922,6 +1030,7 @@
   </data>
   <data name="guna2Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1272,6 +1381,8 @@
 >>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
 >>>>>>> parent of 3b60676 (Updata nhiều form)
+=======
+>>>>>>> parent of 3b60676 (Updata nhiều form)
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAesSURBVHhe7Z1pyBVVGMfdFzSLtMxcMiUwKyiiILO0pAWiDxFGge0QQbu2SplBH8I2+iIYmUVZ
         0WaWibTZRhGRtC9EGxnti+372+9/53nhzXvOzNz33jl35t7zgz/oe5855znPuXfOzJwzzxkQiUQikUgk
@@ -1309,6 +1420,9 @@
         AABJRU5ErkJggg==
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 3b60676 (Updata nhiều form)
+=======
 >>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
 >>>>>>> parent of 3b60676 (Updata nhiều form)

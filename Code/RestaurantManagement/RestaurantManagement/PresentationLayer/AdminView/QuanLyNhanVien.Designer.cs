@@ -619,6 +619,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             // btnCaiDat
             // 
@@ -654,6 +655,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // guna2CircleButton1
             // 
 >>>>>>> parent of 3b60676 (Updata nhiều form)
+=======
+            // guna2CircleButton1
+            // 
+>>>>>>> parent of 3b60676 (Updata nhiều form)
             this.guna2CircleButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.guna2CircleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
@@ -672,9 +677,14 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.guna2CircleButton1.Size = new System.Drawing.Size(43, 43);
             this.guna2CircleButton1.TabIndex = 12;
 >>>>>>> Stashed changes
+=======
+            this.guna2CircleButton1.Size = new System.Drawing.Size(43, 41);
+            this.guna2CircleButton1.TabIndex = 12;
+>>>>>>> parent of 3b60676 (Updata nhiều form)
 =======
             this.guna2CircleButton1.Size = new System.Drawing.Size(43, 41);
             this.guna2CircleButton1.TabIndex = 12;
