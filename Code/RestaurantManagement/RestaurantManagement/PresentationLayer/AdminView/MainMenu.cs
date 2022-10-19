@@ -50,8 +50,11 @@ namespace RestaurantManagement.AsminController
         {
             try
             {
-                Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
-                btn.Checked = true;
+                if(sender != null && sender.GetType() == typeof(Guna.UI2.WinForms.Guna2GradientTileButton))
+                {
+                    Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
+                    btn.Checked = true;
+                }
             }
             catch
             {
