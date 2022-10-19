@@ -17,5 +17,14 @@ namespace RestaurantManagement.AdminController
             InitializeComponent();
         }
 
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

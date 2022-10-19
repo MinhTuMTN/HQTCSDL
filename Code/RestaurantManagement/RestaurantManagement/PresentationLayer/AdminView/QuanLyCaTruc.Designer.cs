@@ -89,6 +89,7 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1118, 85);
             this.guna2CustomGradientPanel1.TabIndex = 4;
             // 
+<<<<<<< Updated upstream
             // btnCaiDat
             // 
             this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -108,6 +109,27 @@
             this.btnCaiDat.ShadowDecoration.Parent = this.btnCaiDat;
             this.btnCaiDat.Size = new System.Drawing.Size(43, 41);
             this.btnCaiDat.TabIndex = 12;
+=======
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.guna2CircleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
+            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(45, 45);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 22);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.ShadowDecoration.Parent = this.guna2CircleButton1;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(43, 43);
+            this.guna2CircleButton1.TabIndex = 12;
+>>>>>>> Stashed changes
             // 
             // guna2GradientPanel1
             // 
@@ -120,7 +142,11 @@
             this.guna2GradientPanel1.Location = new System.Drawing.Point(903, 12);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
+<<<<<<< Updated upstream
             this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 60);
+=======
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(160, 60);
+>>>>>>> Stashed changes
             this.guna2GradientPanel1.TabIndex = 11;
             // 
             // label12
@@ -129,7 +155,11 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
+<<<<<<< Updated upstream
             this.label12.Location = new System.Drawing.Point(62, 19);
+=======
+            this.label12.Location = new System.Drawing.Point(63, 19);
+>>>>>>> Stashed changes
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 23);
             this.label12.TabIndex = 1;
