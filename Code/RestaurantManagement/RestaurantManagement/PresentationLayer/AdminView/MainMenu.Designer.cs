@@ -46,7 +46,8 @@
             this.lblChucNang = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pnMain = new RestaurantManagement.PresentationLayer.Control.MyPanel();
+            this.pnMain = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.gunaPanel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -56,6 +57,7 @@
             // gunaPanel1
             // 
             this.gunaPanel1.BackColor = System.Drawing.Color.White;
+            this.gunaPanel1.Controls.Add(this.guna2Separator1);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton8);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton7);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton6);
@@ -290,21 +292,26 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.guna2CustomGradientPanel1.BorderRadius = 20;
+            this.guna2CustomGradientPanel1.BorderThickness = 3;
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2CircleButton1);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2GradientPanel1);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblChucNang);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2TextBox1);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(150, 12);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(139, 12);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1104, 82);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1129, 82);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
             // guna2CircleButton1
             // 
+            this.guna2CircleButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.guna2CircleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
             this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
@@ -324,6 +331,7 @@
             // 
             // guna2GradientPanel1
             // 
+            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2GradientPanel1.BorderRadius = 15;
             this.guna2GradientPanel1.Controls.Add(this.label12);
             this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
@@ -337,6 +345,7 @@
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
@@ -380,6 +389,8 @@
             // 
             // guna2TextBox1
             // 
+            this.guna2TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
             this.guna2TextBox1.BorderRadius = 15;
@@ -408,11 +419,26 @@
             // 
             // pnMain
             // 
-            this.pnMain.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnMain.Location = new System.Drawing.Point(139, 105);
+            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnMain.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnMain.BorderRadius = 20;
+            this.pnMain.BorderThickness = 3;
+            this.pnMain.Location = new System.Drawing.Point(139, 113);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1133, 847);
-            this.pnMain.TabIndex = 1;
+            this.pnMain.ShadowDecoration.Parent = this.pnMain;
+            this.pnMain.Size = new System.Drawing.Size(1130, 843);
+            this.pnMain.TabIndex = 3;
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Separator1.Location = new System.Drawing.Point(130, 0);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(3, 954);
+            this.guna2Separator1.TabIndex = 9;
             // 
             // frmMainMenu
             // 
@@ -420,9 +446,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1266, 956);
-            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.ClientSize = new System.Drawing.Size(1280, 956);
             this.Controls.Add(this.pnMain);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.gunaPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -451,7 +477,6 @@
         private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton6;
         private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton5;
         private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton8;
-        private PresentationLayer.Control.MyPanel pnMain;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
@@ -460,5 +485,7 @@
         private System.Windows.Forms.Label lblChucNang;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel pnMain;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }
