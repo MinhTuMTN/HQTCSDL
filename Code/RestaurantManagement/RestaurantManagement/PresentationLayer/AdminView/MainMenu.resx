@@ -132,7 +132,7 @@
         ftRCIgu1/aiFRBZqJ0mSJEmSJEmV1eofUpldehoNp/4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaGradientTileButton7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnThongKe.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAA6xJREFUeF7t
         mEmIE0EUhjPuKAqKKCgeHPHihjrigqLBW0CPMevEEDF6EETxIngIeBnRiycR9KI3FxgQlZE56UFEL94U
@@ -153,7 +153,7 @@
         QNz9IlKAuPtFpABx94tIAeLuNxgMBoPBYDAYDJOZROIfvehoXB1QYK4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaGradientTileButton6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnTraLuong.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABjRJREFUeF7t
         m2uIVVUUxzXIXpJpWX2Q+tBDy4qwzA9BBEU0qVTWNMw4M9yoJntgED2gDzVJFCRFlFREQVBUUAQppdaX
@@ -185,7 +185,7 @@
         L+K/lM/on+K00EILLbTQQgwmTPgPcYDmuhD0zG0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaGradientTileButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCoupon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABUtJREFUeF7t
         m0+MXVMcx2fEv4U/C2FTBLEQlAVdacYQC6P+pTIy/00mzEJJ2oU/G8lYUHZ0ocKmigRhycaiCVZVUSFN
@@ -213,7 +213,7 @@
         Z4LdQv8xofO9u5X1Eg5Cdf9pqk+fPn16z8DAf9Xdb/k7SMr0AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="gunaGradientTileButton4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnKhachHang.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAA4NJREFUeF7t
         mstqFFEQhgNicOEt4kt4QVBUfAmvMDi5QZjFvEPwBUSIVzDiXnwG1z5CojHRnbjSjdGF9/iX/DY9dbqn
@@ -234,7 +234,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="gunaGradientTileButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnMonAn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABbNJREFUeF7t
         mlloHVUYx1P3ulut+iIuaF0rbgGlUPMg1esWKY1mu7chDxGCKOLWPlRTKhJBKxS0iFZ8qNiColAEAwql

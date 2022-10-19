@@ -57,5 +57,30 @@ namespace RestaurantManagement.AsminController
         {
             LoadPanelMain(new QuanLyCaTruc());
         }
+
+        private void btnMonAn_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain(new QuanLyMonAn());
+        }
+
+        private void btnKhachHang_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain(new QuanLyKhachHang());
+        }
+
+        private void btnCoupon_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain(new QuanLyCoupon());
+        }
+
+        private void btnTraLuong_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain(new TraLuong());
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain(new ThongKe());
+        }
     }
 }
