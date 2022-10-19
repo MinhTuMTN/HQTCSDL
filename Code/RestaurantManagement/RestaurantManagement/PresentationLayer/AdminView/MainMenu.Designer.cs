@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.gunaGradientTileButton8 = new Guna.UI.WinForms.GunaGradientTileButton();
+            this.btnCaTruc = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaGradientTileButton7 = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaGradientTileButton6 = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaGradientTileButton5 = new Guna.UI.WinForms.GunaGradientTileButton();
@@ -47,7 +47,7 @@
             // 
             this.gunaPanel1.BackColor = System.Drawing.Color.White;
             this.gunaPanel1.Controls.Add(this.guna2Separator1);
-            this.gunaPanel1.Controls.Add(this.gunaGradientTileButton8);
+            this.gunaPanel1.Controls.Add(this.btnCaTruc);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton7);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton6);
             this.gunaPanel1.Controls.Add(this.gunaGradientTileButton5);
@@ -71,32 +71,33 @@
             this.guna2Separator1.Size = new System.Drawing.Size(3, 981);
             this.guna2Separator1.TabIndex = 9;
             // 
-            // gunaGradientTileButton8
+            // btnCaTruc
             // 
-            this.gunaGradientTileButton8.AnimationHoverSpeed = 0.07F;
-            this.gunaGradientTileButton8.AnimationSpeed = 0.03F;
-            this.gunaGradientTileButton8.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradientTileButton8.BaseColor1 = System.Drawing.Color.Transparent;
-            this.gunaGradientTileButton8.BaseColor2 = System.Drawing.Color.Transparent;
-            this.gunaGradientTileButton8.BorderColor = System.Drawing.Color.Black;
-            this.gunaGradientTileButton8.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaGradientTileButton8.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaGradientTileButton8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaGradientTileButton8.ForeColor = System.Drawing.Color.Silver;
-            this.gunaGradientTileButton8.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.gunaGradientTileButton8.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientTileButton8.Image")));
-            this.gunaGradientTileButton8.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaGradientTileButton8.Location = new System.Drawing.Point(12, 304);
-            this.gunaGradientTileButton8.Name = "gunaGradientTileButton8";
-            this.gunaGradientTileButton8.OnHoverBaseColor1 = System.Drawing.Color.SlateGray;
-            this.gunaGradientTileButton8.OnHoverBaseColor2 = System.Drawing.Color.Silver;
-            this.gunaGradientTileButton8.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaGradientTileButton8.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaGradientTileButton8.OnHoverImage = null;
-            this.gunaGradientTileButton8.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaGradientTileButton8.Size = new System.Drawing.Size(109, 96);
-            this.gunaGradientTileButton8.TabIndex = 8;
-            this.gunaGradientTileButton8.Text = "Shifts";
+            this.btnCaTruc.AnimationHoverSpeed = 0.07F;
+            this.btnCaTruc.AnimationSpeed = 0.03F;
+            this.btnCaTruc.BackColor = System.Drawing.Color.Transparent;
+            this.btnCaTruc.BaseColor1 = System.Drawing.Color.Transparent;
+            this.btnCaTruc.BaseColor2 = System.Drawing.Color.Transparent;
+            this.btnCaTruc.BorderColor = System.Drawing.Color.Black;
+            this.btnCaTruc.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCaTruc.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCaTruc.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaTruc.ForeColor = System.Drawing.Color.Silver;
+            this.btnCaTruc.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnCaTruc.Image = ((System.Drawing.Image)(resources.GetObject("btnCaTruc.Image")));
+            this.btnCaTruc.ImageSize = new System.Drawing.Size(52, 52);
+            this.btnCaTruc.Location = new System.Drawing.Point(12, 304);
+            this.btnCaTruc.Name = "btnCaTruc";
+            this.btnCaTruc.OnHoverBaseColor1 = System.Drawing.Color.SlateGray;
+            this.btnCaTruc.OnHoverBaseColor2 = System.Drawing.Color.Silver;
+            this.btnCaTruc.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnCaTruc.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCaTruc.OnHoverImage = null;
+            this.btnCaTruc.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCaTruc.Size = new System.Drawing.Size(109, 96);
+            this.btnCaTruc.TabIndex = 8;
+            this.btnCaTruc.Text = "Shifts";
+            this.btnCaTruc.Click += new System.EventHandler(this.btnCaTruc_Click);
             // 
             // gunaGradientTileButton7
             // 
@@ -334,7 +335,7 @@
         private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton7;
         private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton6;
         private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton5;
-        private Guna.UI.WinForms.GunaGradientTileButton gunaGradientTileButton8;
+        private Guna.UI.WinForms.GunaGradientTileButton btnCaTruc;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel pnMain;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }

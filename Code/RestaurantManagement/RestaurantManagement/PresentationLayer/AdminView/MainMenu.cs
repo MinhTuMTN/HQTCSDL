@@ -52,5 +52,10 @@ namespace RestaurantManagement.AsminController
         {
             pnMain.Controls[0].Size = pnMain.Size;
         }
+
+        private void btnCaTruc_Click(object sender, EventArgs e)
+        {
+            LoadPanelMain(new QuanLyCaTruc());
+        }
     }
 }
