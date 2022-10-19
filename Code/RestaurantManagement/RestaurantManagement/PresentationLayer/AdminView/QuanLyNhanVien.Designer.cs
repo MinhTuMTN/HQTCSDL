@@ -111,7 +111,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnXoa.BorderRadius = 10;
             this.btnXoa.CheckedState.Parent = this.btnXoa;
             this.btnXoa.CustomImages.Parent = this.btnXoa;
-            this.btnXoa.FillColor = System.Drawing.Color.Salmon;
+            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.HoverState.Parent = this.btnXoa;
@@ -132,7 +132,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnSua.BorderRadius = 10;
             this.btnSua.CheckedState.Parent = this.btnSua;
             this.btnSua.CustomImages.Parent = this.btnSua;
-            this.btnSua.FillColor = System.Drawing.Color.Salmon;
+            this.btnSua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
             this.btnSua.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.HoverState.Parent = this.btnSua;
@@ -153,7 +153,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnThem.BorderRadius = 10;
             this.btnThem.CheckedState.Parent = this.btnThem;
             this.btnThem.CustomImages.Parent = this.btnThem;
-            this.btnThem.FillColor = System.Drawing.Color.Salmon;
+            this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.HoverState.Parent = this.btnThem;
@@ -603,7 +603,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(6, 18);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1118, 82);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1118, 85);
             this.guna2CustomGradientPanel1.TabIndex = 3;
             // 
             // guna2CircleButton1
@@ -618,7 +618,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
             this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
             this.guna2CircleButton1.ImageSize = new System.Drawing.Size(45, 45);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 20);
+            this.guna2CircleButton1.Location = new System.Drawing.Point(1065, 22);
             this.guna2CircleButton1.Name = "guna2CircleButton1";
             this.guna2CircleButton1.PressedColor = System.Drawing.Color.Transparent;
             this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -633,11 +633,11 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2GradientPanel1.Controls.Add(this.label12);
             this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(903, 14);
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(903, 12);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 50);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 60);
             this.guna2GradientPanel1.TabIndex = 11;
             // 
             // label12
@@ -646,7 +646,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(55, 13);
+            this.label12.Location = new System.Drawing.Point(62, 19);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 23);
             this.label12.TabIndex = 1;
@@ -655,11 +655,12 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(13, 5);
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(-1, -2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(63, 63);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -718,6 +719,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1128, 975);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.pnMain);
