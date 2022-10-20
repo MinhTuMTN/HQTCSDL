@@ -485,7 +485,7 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh date, @gioitinh bit, @diachi nvarchar(100), @SDT int, @heSoLuong float, @loaiNhanVien nvarchar(20))
+CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh date, @gioitinh bit, @diachi nvarchar(100), @SDT CHAR(10), @heSoLuong float, @loaiNhanVien nvarchar(20))
 AS BEGIN
 		INSERT INTO dbo.NhanVien
 		VALUES (@ma,@ten,@ngaysinh,@gioitinh,@diachi,@SDT,@heSoLuong,@loaiNhanVien)
