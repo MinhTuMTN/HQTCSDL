@@ -50,6 +50,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.rdbNu = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdbNam = new Guna.UI2.WinForms.Guna2RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,15 +58,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvNhanVien = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.lblChucNang = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +66,14 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.soDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loaiNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblChucNang = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -175,7 +175,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnThem.Size = new System.Drawing.Size(111, 45);
             this.btnThem.TabIndex = 23;
             this.btnThem.Text = "Thêm";
-            this.btnThem.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cbLoaiNhanVien
             // 
@@ -410,6 +410,15 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label7.TabIndex = 12;
             this.label7.Text = "Giới tính:";
             // 
+            // dtNgaySinh
+            // 
+            this.dtNgaySinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgaySinh.Location = new System.Drawing.Point(631, 294);
+            this.dtNgaySinh.Name = "dtNgaySinh";
+            this.dtNgaySinh.Size = new System.Drawing.Size(234, 24);
+            this.dtNgaySinh.TabIndex = 11;
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -422,7 +431,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label6.Size = new System.Drawing.Size(98, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Ngày sinh:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -531,11 +539,11 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dgvNhanVien.AllowUserToDeleteRows = false;
             this.dgvNhanVien.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhanVien.BackgroundColor = System.Drawing.Color.White;
             this.dgvNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNhanVien.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -560,7 +568,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.loaiNhanVien});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -571,6 +579,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dgvNhanVien.Location = new System.Drawing.Point(12, 12);
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
+            this.dgvNhanVien.RowHeadersVisible = false;
             this.dgvNhanVien.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1);
@@ -603,6 +612,80 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dgvNhanVien.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
+            // maNhanVien
+            // 
+            this.maNhanVien.DataPropertyName = "maNhanVien";
+            this.maNhanVien.FillWeight = 128.3423F;
+            this.maNhanVien.HeaderText = "Mã nhân viên";
+            this.maNhanVien.MinimumWidth = 6;
+            this.maNhanVien.Name = "maNhanVien";
+            this.maNhanVien.ReadOnly = true;
+            // 
+            // hoTen
+            // 
+            this.hoTen.DataPropertyName = "hoTen";
+            this.hoTen.FillWeight = 95.9511F;
+            this.hoTen.HeaderText = "Họ tên";
+            this.hoTen.MinimumWidth = 6;
+            this.hoTen.Name = "hoTen";
+            this.hoTen.ReadOnly = true;
+            // 
+            // ngaySinh
+            // 
+            this.ngaySinh.DataPropertyName = "ngaySinh";
+            this.ngaySinh.FillWeight = 95.9511F;
+            this.ngaySinh.HeaderText = "Ngày sinh";
+            this.ngaySinh.MinimumWidth = 6;
+            this.ngaySinh.Name = "ngaySinh";
+            this.ngaySinh.ReadOnly = true;
+            // 
+            // gioiTinh
+            // 
+            this.gioiTinh.DataPropertyName = "gioiTinh";
+            this.gioiTinh.FillWeight = 95.9511F;
+            this.gioiTinh.HeaderText = "Giới tính";
+            this.gioiTinh.MinimumWidth = 6;
+            this.gioiTinh.Name = "gioiTinh";
+            this.gioiTinh.ReadOnly = true;
+            this.gioiTinh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.gioiTinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // diaChi
+            // 
+            this.diaChi.DataPropertyName = "diaChi";
+            this.diaChi.FillWeight = 95.9511F;
+            this.diaChi.HeaderText = "Địa chỉ";
+            this.diaChi.MinimumWidth = 6;
+            this.diaChi.Name = "diaChi";
+            this.diaChi.ReadOnly = true;
+            // 
+            // soDienThoai
+            // 
+            this.soDienThoai.DataPropertyName = "soDienThoai";
+            this.soDienThoai.FillWeight = 95.9511F;
+            this.soDienThoai.HeaderText = "Số điện thoại";
+            this.soDienThoai.MinimumWidth = 6;
+            this.soDienThoai.Name = "soDienThoai";
+            this.soDienThoai.ReadOnly = true;
+            // 
+            // heSoLuong
+            // 
+            this.heSoLuong.DataPropertyName = "heSoLuong";
+            this.heSoLuong.FillWeight = 95.9511F;
+            this.heSoLuong.HeaderText = "Hệ số lương";
+            this.heSoLuong.MinimumWidth = 6;
+            this.heSoLuong.Name = "heSoLuong";
+            this.heSoLuong.ReadOnly = true;
+            // 
+            // loaiNhanVien
+            // 
+            this.loaiNhanVien.DataPropertyName = "loaiNhanVien";
+            this.loaiNhanVien.FillWeight = 95.9511F;
+            this.loaiNhanVien.HeaderText = "Loại nhân viên";
+            this.loaiNhanVien.MinimumWidth = 6;
+            this.loaiNhanVien.Name = "loaiNhanVien";
+            this.loaiNhanVien.ReadOnly = true;
+            // 
             // guna2CustomGradientPanel1
             // 
             this.guna2CustomGradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -615,7 +698,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2GradientPanel1);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblChucNang);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2TextBox1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtSearch);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(6, 18);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
@@ -701,126 +784,44 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.label1.TabIndex = 9;
             this.label1.Text = "The Moon Restaurant";
             // 
-            // guna2TextBox1
+            // txtSearch
             // 
-            this.guna2TextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
-            this.guna2TextBox1.BorderRadius = 15;
-            this.guna2TextBox1.BorderThickness = 3;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.IconRight = ((System.Drawing.Image)(resources.GetObject("guna2TextBox1.IconRight")));
-            this.guna2TextBox1.Location = new System.Drawing.Point(341, 20);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "Tìm kiếm";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(502, 44);
-            this.guna2TextBox1.TabIndex = 8;
-            // 
-            // dtNgaySinh
-            // 
-            this.dtNgaySinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgaySinh.Location = new System.Drawing.Point(631, 294);
-            this.dtNgaySinh.Name = "dtNgaySinh";
-            this.dtNgaySinh.Size = new System.Drawing.Size(234, 24);
-            this.dtNgaySinh.TabIndex = 11;
-            // 
-            // maNhanVien
-            // 
-            this.maNhanVien.DataPropertyName = "maNhanVien";
-            this.maNhanVien.FillWeight = 128.3423F;
-            this.maNhanVien.HeaderText = "Mã nhân viên";
-            this.maNhanVien.MinimumWidth = 6;
-            this.maNhanVien.Name = "maNhanVien";
-            this.maNhanVien.ReadOnly = true;
-            this.maNhanVien.Width = 50;
-            // 
-            // hoTen
-            // 
-            this.hoTen.DataPropertyName = "hoTen";
-            this.hoTen.FillWeight = 95.9511F;
-            this.hoTen.HeaderText = "Họ tên";
-            this.hoTen.MinimumWidth = 6;
-            this.hoTen.Name = "hoTen";
-            this.hoTen.ReadOnly = true;
-            this.hoTen.Width = 69;
-            // 
-            // ngaySinh
-            // 
-            this.ngaySinh.DataPropertyName = "ngaySinh";
-            this.ngaySinh.FillWeight = 95.9511F;
-            this.ngaySinh.HeaderText = "Ngày sinh";
-            this.ngaySinh.MinimumWidth = 6;
-            this.ngaySinh.Name = "ngaySinh";
-            this.ngaySinh.ReadOnly = true;
-            this.ngaySinh.Width = 68;
-            // 
-            // gioiTinh
-            // 
-            this.gioiTinh.DataPropertyName = "gioiTinh";
-            this.gioiTinh.FillWeight = 95.9511F;
-            this.gioiTinh.HeaderText = "Giới tính";
-            this.gioiTinh.MinimumWidth = 6;
-            this.gioiTinh.Name = "gioiTinh";
-            this.gioiTinh.ReadOnly = true;
-            this.gioiTinh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.gioiTinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.gioiTinh.Width = 20;
-            // 
-            // diaChi
-            // 
-            this.diaChi.DataPropertyName = "diaChi";
-            this.diaChi.FillWeight = 95.9511F;
-            this.diaChi.HeaderText = "Địa chỉ";
-            this.diaChi.MinimumWidth = 6;
-            this.diaChi.Name = "diaChi";
-            this.diaChi.ReadOnly = true;
-            this.diaChi.Width = 68;
-            // 
-            // soDienThoai
-            // 
-            this.soDienThoai.DataPropertyName = "soDienThoai";
-            this.soDienThoai.FillWeight = 95.9511F;
-            this.soDienThoai.HeaderText = "Số điện thoại";
-            this.soDienThoai.MinimumWidth = 6;
-            this.soDienThoai.Name = "soDienThoai";
-            this.soDienThoai.ReadOnly = true;
-            this.soDienThoai.Width = 69;
-            // 
-            // heSoLuong
-            // 
-            this.heSoLuong.DataPropertyName = "heSoLuong";
-            this.heSoLuong.FillWeight = 95.9511F;
-            this.heSoLuong.HeaderText = "Hệ số lương";
-            this.heSoLuong.MinimumWidth = 6;
-            this.heSoLuong.Name = "heSoLuong";
-            this.heSoLuong.ReadOnly = true;
-            this.heSoLuong.Width = 69;
-            // 
-            // loaiNhanVien
-            // 
-            this.loaiNhanVien.DataPropertyName = "loaiNhanVien";
-            this.loaiNhanVien.FillWeight = 95.9511F;
-            this.loaiNhanVien.HeaderText = "Loại nhân viên";
-            this.loaiNhanVien.MinimumWidth = 6;
-            this.loaiNhanVien.Name = "loaiNhanVien";
-            this.loaiNhanVien.ReadOnly = true;
-            this.loaiNhanVien.Width = 68;
+            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
+            this.txtSearch.BorderRadius = 15;
+            this.txtSearch.BorderThickness = 3;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.Parent = this.txtSearch;
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.FocusedState.FillColor = System.Drawing.Color.Transparent;
+            this.txtSearch.FocusedState.ForeColor = System.Drawing.Color.Black;
+            this.txtSearch.FocusedState.Parent = this.txtSearch;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.txtSearch.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.txtSearch.HoverState.Parent = this.txtSearch;
+            this.txtSearch.HoverState.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtSearch.IconRight = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconRight")));
+            this.txtSearch.Location = new System.Drawing.Point(341, 20);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Red;
+            this.txtSearch.PlaceholderText = "Tìm kiếm (nhập mã nhân viên hoặc họ tên có dấu)";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.ShadowDecoration.Parent = this.txtSearch;
+            this.txtSearch.Size = new System.Drawing.Size(502, 44);
+            this.txtSearch.TabIndex = 8;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // QuanLyNhanVien
             // 
@@ -878,7 +879,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label lblChucNang;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.DateTimePicker dtNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTen;
