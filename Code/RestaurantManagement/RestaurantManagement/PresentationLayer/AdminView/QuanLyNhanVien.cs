@@ -81,7 +81,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private NhanVien GetNhanVienFromControls()
         {
             bool gioiTinh = false;
             float heSoLuong;
@@ -92,22 +92,45 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             catch
             {
                 MessageBox.Show("Vui lòng nhập hệ số lương phù hợp");
-                return;
+                return null;
             }
 
             if (rdbNu.Checked)
                 gioiTinh = true;
-            string error = "";
             NhanVien nhanVien = new NhanVien(txtMaNhanVien.Text.Trim(),
-                                            txtHoTen.Text.Trim(),
-                                            txtSoDienThoai.Text.Trim(),
-                                            dtNgaySinh.Value,
-                                            gioiTinh,
-                                            txtDiaChi.Text.Trim(),
-                                            heSoLuong,
-                                            cbLoaiNhanVien.Text.Trim());
+                                           txtHoTen.Text.Trim(),
+                                           txtSoDienThoai.Text.Trim(),
+                                           dtNgaySinh.Value,
+                                           gioiTinh,
+                                           txtDiaChi.Text.Trim(),
+                                           heSoLuong,
+                                           cbLoaiNhanVien.Text.Trim());
+            return nhanVien;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            NhanVien nhanVien = GetNhanVienFromControls();
+            if (nhanVien == null)
+                return;
+
             if (bussiness.AddNhanVien(nhanVien, ref error))
                 MessageBox.Show("Thêm nhân viên thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyNhanVien_Load(null, null);
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            NhanVien nhanVien = GetNhanVienFromControls();
+            if (nhanVien == null)
+                return;
+
+            if (bussiness.UpdateNhanVien(nhanVien, ref error))
+                MessageBox.Show("Chỉnh sửa thông tin nhân viên thành công");
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
             QuanLyNhanVien_Load(null, null);

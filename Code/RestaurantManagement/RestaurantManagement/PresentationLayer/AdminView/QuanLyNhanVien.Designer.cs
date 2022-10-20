@@ -154,6 +154,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnSua.Size = new System.Drawing.Size(111, 45);
             this.btnSua.TabIndex = 24;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 

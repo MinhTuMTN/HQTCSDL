@@ -30,6 +30,8 @@ namespace RestaurantManagement.BussinessLayer
             return results;
         }
 
+        
+
         public bool AddNhanVien(NhanVien nhanVien, ref string error)
         {
             string cmd = "dbo.spInsertNhanVien";
@@ -40,6 +42,22 @@ namespace RestaurantManagement.BussinessLayer
                 new SqlParameter("@gioiTinh", nhanVien.GioiTinh),
                 new SqlParameter("@diaChi", nhanVien.DiaChi),
                 new SqlParameter("@SDT", nhanVien.SoDienThoai),
+                new SqlParameter("@heSoLuong", nhanVien.HeSoLuong),
+                new SqlParameter("@loaiNhanVien", nhanVien.LoaiNhanVien)
+            };
+            return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
+        }
+
+        public bool UpdateNhanVien(NhanVien nhanVien, ref string error)
+        {
+            string cmd = "dbo.spUpdateNhanVien";
+            SqlParameter[] parameters = {
+                new SqlParameter("@maNhanVien", nhanVien.MaNhanVien),
+                new SqlParameter("@hoTen", nhanVien.HoTen),
+                new SqlParameter("@ngaySinh", nhanVien.NgaySinh),
+                new SqlParameter("@gioiTinh", nhanVien.GioiTinh),
+                new SqlParameter("@diaChi", nhanVien.DiaChi),
+                new SqlParameter("@soDienThoai", nhanVien.SoDienThoai),
                 new SqlParameter("@heSoLuong", nhanVien.HeSoLuong),
                 new SqlParameter("@loaiNhanVien", nhanVien.LoaiNhanVien)
             };
