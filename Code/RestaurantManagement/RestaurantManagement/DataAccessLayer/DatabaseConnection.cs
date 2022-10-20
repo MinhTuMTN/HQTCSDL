@@ -49,6 +49,10 @@ namespace RestaurantManagement.DataAccessLayer
             {
                 error = e.Message;
             }
+            finally
+            {
+                connection.Close();
+            }
             return false;
         }
 
