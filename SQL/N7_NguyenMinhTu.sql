@@ -870,6 +870,14 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchBan(@maBan NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Ban
+	WHERE maBan LIKE '%' + @maBan + '%'
+)
+GO
+
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
