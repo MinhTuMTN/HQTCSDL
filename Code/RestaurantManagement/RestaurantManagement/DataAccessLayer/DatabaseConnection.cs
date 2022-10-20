@@ -10,7 +10,7 @@ namespace RestaurantManagement.DataAccessLayer
 {
     public class DatabaseConnection
     {
-        private const string connectionString = "Data Source=DESKTOP-2F9QKVJ\\TUYETVI;Initial Catalog=QuanLyNhaHang;User ID=sa;Password=0703";
+        private const string connectionString = "Data Source=MINHTUNGUYEN\\MINHTU_SERVER;Initial Catalog=QuanLyNhaHang;User ID=sa;Password=3052";
         private SqlCommand sqlCommand;
         private SqlConnection connection;
 
@@ -48,6 +48,10 @@ namespace RestaurantManagement.DataAccessLayer
             catch (SqlException e)
             {
                 error = e.Message;
+            }
+            finally
+            {
+                connection.Close();
             }
             return false;
         }

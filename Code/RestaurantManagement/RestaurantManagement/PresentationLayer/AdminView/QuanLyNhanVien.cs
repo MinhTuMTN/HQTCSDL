@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.BussinessLayer;
+using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,22 +20,13 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             InitializeComponent();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             string error = "";
             try
             {
                 dgvNhanVien.DataSource = bussiness.GetAllNhanVien(ref error);
+                dgvNhanVien.Refresh();
 
                 if (dgvNhanVien.RowCount > 0)
                 {
@@ -45,7 +37,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             }
             catch
             {
-                MessageBox.Show("Lỗi", error);
             }
             
         }
@@ -63,9 +54,63 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 rdbNam.Checked = true;
 
             txtDiaChi.Text = dgvNhanVien.Rows[row].Cells[4].Value.ToString();
-            txtSDT.Text = dgvNhanVien.Rows[row].Cells[5].Value.ToString();
+            txtSoDienThoai.Text = dgvNhanVien.Rows[row].Cells[5].Value.ToString();
             txtHeSoLuong.Text = dgvNhanVien.Rows[row].Cells[6].Value.ToString();
             cbLoaiNhanVien.Text = (string)dgvNhanVien.Rows[row].Cells[7].Value;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string error = "";
+            try
+            {
+                string text = txtSearch.Text.Trim();
+                dgvNhanVien.DataSource = bussiness.FindNhanVien(text, ref error);
+
+                if (dgvNhanVien.RowCount > 0)
+                {
+                    DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
+                    dgvNhanVien_CellClick(sender, ev);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi", error);
+            }
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            bool gioiTinh = false;
+            float heSoLuong;
+            try
+            {
+                heSoLuong = float.Parse(txtHeSoLuong.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng nhập hệ số lương phù hợp");
+                return;
+            }
+
+            if (rdbNu.Checked)
+                gioiTinh = true;
+            string error = "";
+            NhanVien nhanVien = new NhanVien(txtMaNhanVien.Text.Trim(),
+                                            txtHoTen.Text.Trim(),
+                                            txtSoDienThoai.Text.Trim(),
+                                            dtNgaySinh.Value,
+                                            gioiTinh,
+                                            txtDiaChi.Text.Trim(),
+                                            heSoLuong,
+                                            cbLoaiNhanVien.Text.Trim());
+            if (bussiness.AddNhanVien(nhanVien, ref error))
+                MessageBox.Show("Thêm nhân viên thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyNhanVien_Load(null, null);
         }
     }
 }
