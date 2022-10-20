@@ -16,5 +16,16 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         {
             InitializeComponent();
         }
+
+        private void cbLoaiBan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QuanLyBan_Load(object sender, EventArgs e)
+        {
+            cbLoaiBanTao.SelectedIndex = 0;
+            cbTrangThaiBanTao.SelectedIndex = 0;
+        }
     }
 }
