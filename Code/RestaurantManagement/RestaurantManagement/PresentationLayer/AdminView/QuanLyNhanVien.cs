@@ -54,7 +54,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 rdbNam.Checked = true;
 
             txtDiaChi.Text = dgvNhanVien.Rows[row].Cells[4].Value.ToString();
-            txtSoDienThoai.Text = dgvNhanVien.Rows[row].Cells[5].Value.ToString();
+            txtSDT.Text = dgvNhanVien.Rows[row].Cells[5].Value.ToString();
             txtHeSoLuong.Text = dgvNhanVien.Rows[row].Cells[6].Value.ToString();
             cbLoaiNhanVien.Text = (string)dgvNhanVien.Rows[row].Cells[7].Value;
         }

@@ -50,8 +50,11 @@ namespace RestaurantManagement.AsminController
         {
             try
             {
-                Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
-                btn.Checked = true;
+                if(sender != null && sender.GetType() == typeof(Guna.UI2.WinForms.Guna2GradientTileButton))
+                {
+                    Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
+                    btn.Checked = true;
+                }
             }
             catch
             {
@@ -112,6 +115,14 @@ namespace RestaurantManagement.AsminController
             btn.Checked = true;
 
             LoadPanelMain(new ThongKe());
+        }
+
+        private void btnBan_Click(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
+            btn.Checked = true;
+
+            LoadPanelMain(new QuanLyBan());
         }
     }
 }
