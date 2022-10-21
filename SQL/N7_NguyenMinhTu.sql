@@ -870,6 +870,14 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchKhachHang(@text NVARCHAR(150))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.KhachHang
+	WHERE maKhachHang LIKE  '%' + @text + '%' OR hoTen LIKE '%' + @text + '%'
+)
+GO
+
 CREATE FUNCTION fnSearchBan(@maBan NVARCHAR(10))
 RETURNS TABLE AS
 RETURN(
