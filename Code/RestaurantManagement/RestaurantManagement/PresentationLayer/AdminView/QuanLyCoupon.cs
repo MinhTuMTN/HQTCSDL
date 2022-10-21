@@ -14,7 +14,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 {
     public partial class QuanLyCoupon : Form
     {
-        BussinessCoupon bussinessCoupon = new BussinessCoupon();
+        BussinessCoupon bussiness = new BussinessCoupon();
         public QuanLyCoupon()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             string error = "";
             try
             {
-                dtgCoupon.DataSource = bussinessCoupon.GetAllCoupon(ref error);
+                dtgCoupon.DataSource = bussiness.GetAllCoupon(ref error);
                 if(dtgCoupon.Rows.Count > 0)
                 {
                     DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
@@ -58,7 +58,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             string error = "";
             Coupon coupon = new Coupon(txtMaCoupon.Text.Trim(), (DateTime)dtpNgayBatDau.Value, (DateTime)dtpNgayKetThuc.Value, float.Parse(txtPhanTramGiam.Text), float.Parse(txtGiamToiDa.Text), float.Parse(txtDonToiThieu.Text));
 
-            if (bussinessCoupon.AddCoupon(coupon, ref error))
+            if (bussiness.AddCoupon(coupon, ref error))
                 MessageBox.Show("Thêm coupon thành công");
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
@@ -70,7 +70,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             string error = "";
             Coupon coupon = new Coupon(txtMaCoupon.Text.Trim(), (DateTime)dtpNgayBatDau.Value, (DateTime)dtpNgayKetThuc.Value, float.Parse(txtPhanTramGiam.Text), float.Parse(txtGiamToiDa.Text), float.Parse(txtDonToiThieu.Text));
 
-            if (bussinessCoupon.UpdateCoupon(coupon, ref error))
+            if (bussiness.UpdateCoupon(coupon, ref error))
                 MessageBox.Show("Cập nhật coupon thành công");
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
@@ -84,7 +84,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 return;
             string error = "";
             string maCoupon = txtMaCoupon.Text.Trim();
-            if (bussinessCoupon.DeleteCoupon(maCoupon, ref error))
+            if (bussiness.DeleteCoupon(maCoupon, ref error))
                 MessageBox.Show("Xoá coupon thành công");
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
@@ -93,9 +93,23 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
+        { 
             string error = "";
+            try
+            {
+                string text = txtTimKiem.Text.Trim();
+                dtgCoupon.DataSource = bussiness.FindCoupon(text, ref error);
 
+                if (dtgCoupon.RowCount > 0)
+                {
+                    DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
+                    dtgCoupon_CellClick(sender, ev);
+                }
+
+            }
+            catch
+            {
+            }
         }
     }
 }
