@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantManagement.BussinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 {
     public partial class QuanLyBan : Form
     {
+        BussinessBan bussiness = new BussinessBan();
+
         public QuanLyBan()
         {
             InitializeComponent();
@@ -26,6 +29,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         {
             cbLoaiBanTao.SelectedIndex = 0;
             cbTrangThaiBanTao.SelectedIndex = 0;
+            string error = "";
+            dgvBan.DataSource = bussiness.GetAllTable(ref error);
+            
         }
     }
 }
