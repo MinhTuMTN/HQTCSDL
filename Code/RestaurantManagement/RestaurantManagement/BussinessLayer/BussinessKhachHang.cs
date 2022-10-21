@@ -32,7 +32,7 @@ namespace RestaurantManagement.BussinessLayer
 
         public bool UpdateKhachHang(KhachHang khachHang, ref string error)
         {
-            string cmd = "dbo.spUpdateNhanVien";
+            string cmd = "dbo.spUpdateKhachHang";
             SqlParameter[] parameters = {
                 new SqlParameter("@maKhachHang", khachHang.MaKhachHang),
                 new SqlParameter("@hoTen", khachHang.HoTen),
