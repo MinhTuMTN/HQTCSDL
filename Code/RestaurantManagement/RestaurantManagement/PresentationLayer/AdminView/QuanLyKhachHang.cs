@@ -61,7 +61,20 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khách hàng này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Cancel)
+                return;
 
+            string error = "";
+            string maKhachHang = txtMaKhachHang.Text.Trim();
+            if (maKhachHang == null)
+                return;
+
+            if (bussiness.DeleteKhachHang(maKhachHang, ref error))
+                MessageBox.Show("Xóa khách hàng thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyKhachHang_Load(null, null);
         }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
