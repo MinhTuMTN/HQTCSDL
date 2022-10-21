@@ -44,7 +44,11 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\FoodImages\";
+            if (Directory.Exists(appPath) == false)                                              // <---
+            {                                                                                    // <---
+                Directory.CreateDirectory(appPath);                                              // <---
+            }
         }
 
         private void QuanLyMonAn_Load(object sender, EventArgs e)
