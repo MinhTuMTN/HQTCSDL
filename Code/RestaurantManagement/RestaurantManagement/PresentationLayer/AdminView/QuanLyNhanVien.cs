@@ -44,6 +44,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
+            if (row < 0)
+                return;
+
             txtMaNhanVien.Text = dgvNhanVien.Rows[row].Cells[0].Value.ToString();
             txtHoTen.Text = dgvNhanVien.Rows[row].Cells[1].Value.ToString();
             dtNgaySinh.Value = (DateTime)dgvNhanVien.Rows[row].Cells[2].Value;
@@ -138,6 +141,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult =  MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Cancel)
+                return;
+            
             string error = "";
             string maNhanVien = txtMaNhanVien.Text.Trim();
             if (maNhanVien == null)

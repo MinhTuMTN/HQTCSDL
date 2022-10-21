@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.BussinessLayer
 {
-    internal class BussinessKhachHang
+    public class BussinessKhachHang
     {
     }
 }
