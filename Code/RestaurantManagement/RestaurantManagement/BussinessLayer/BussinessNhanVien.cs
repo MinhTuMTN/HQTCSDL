@@ -63,5 +63,12 @@ namespace RestaurantManagement.BussinessLayer
             };
             return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
         }
+
+        public bool DeleteNhanVien(string maNhanVien, ref string error)
+        {
+            string cmd = "DELETE FROM NhanVien WHERE maNhanVien = @maNhanVien";
+            SqlParameter parameter = new SqlParameter("@maNhanVien", maNhanVien);
+            return connection.MyExecuteNonQuery(cmd, CommandType.Text, ref error, parameter);
+        }
     }
 }

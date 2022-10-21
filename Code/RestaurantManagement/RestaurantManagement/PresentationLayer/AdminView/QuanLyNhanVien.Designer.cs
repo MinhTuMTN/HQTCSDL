@@ -133,6 +133,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.btnXoa.Size = new System.Drawing.Size(111, 45);
             this.btnXoa.TabIndex = 25;
             this.btnXoa.Text = "Xoá";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 

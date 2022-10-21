@@ -135,5 +135,20 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
             QuanLyNhanVien_Load(null, null);
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            string maNhanVien = txtMaNhanVien.Text.Trim();
+            if (maNhanVien == null)
+                return;
+
+            if(bussiness.DeleteNhanVien(maNhanVien, ref error))
+                MessageBox.Show("Xóa nhân viên thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyNhanVien_Load(null, null);
+
+        }
     }
 }
