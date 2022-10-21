@@ -138,6 +138,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult =  MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Cancel)
+                return;
+            
             string error = "";
             string maNhanVien = txtMaNhanVien.Text.Trim();
             if (maNhanVien == null)
