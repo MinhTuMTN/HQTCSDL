@@ -15,12 +15,16 @@ namespace RestaurantManagement.PresentationLayer.AdminView
     public partial class QuanLyMonAn : Form
     {
         BussinessMonAn bussiness = new BussinessMonAn();
+        string imagesPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\FoodImages\";
 
         public QuanLyMonAn()
         {
             InitializeComponent();
             openImage.Title = "Select a Image";
             openImage.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
+
+            if (Directory.Exists(imagesPath) == false)                                          
+                Directory.CreateDirectory(imagesPath);   
         }
 
         private void btnThemHinhAnh_Click(object sender, EventArgs e)
@@ -44,11 +48,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\FoodImages\";
-            if (Directory.Exists(appPath) == false)                                              // <---
-            {                                                                                    // <---
-                Directory.CreateDirectory(appPath);                                              // <---
-            }
         }
 
         private void QuanLyMonAn_Load(object sender, EventArgs e)
@@ -73,7 +72,16 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void dgvMonAn_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int row = e.RowIndex;
+            if (row < 0)
+                return;
 
+            string image = imagesPath + dgvMonAn.Rows[row].Cells["hinhAnh"].Value.ToString().Trim();
+            picMonAn.Load(image);
+
+            txtMaMonAn.Text = dgvMonAn.Rows[row].Cells["maMonAn"].Value.ToString().Trim();
+            txtTenMonAn.Text = dgvMonAn.Rows[row].Cells["tenMonAn"].Value.ToString().Trim();
+            txtGiaTien.Text = dgvMonAn.Rows[row].Cells["giaTien"].Value.ToString().Trim();
         }
     }
 }

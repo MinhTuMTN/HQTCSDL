@@ -55,6 +55,10 @@
             this.txtTenMonAn = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaMonAn = new Guna.UI2.WinForms.Guna2TextBox();
             this.openImage = new System.Windows.Forms.OpenFileDialog();
+            this.maMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -206,6 +210,9 @@
             // 
             // dgvMonAn
             // 
+            this.dgvMonAn.AllowUserToAddRows = false;
+            this.dgvMonAn.AllowUserToDeleteRows = false;
+            this.dgvMonAn.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvMonAn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -215,16 +222,21 @@
             this.dgvMonAn.BackgroundColor = System.Drawing.Color.White;
             this.dgvMonAn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMonAn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvMonAn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvMonAn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMonAn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMonAn.ColumnHeadersHeight = 4;
+            this.dgvMonAn.ColumnHeadersHeight = 50;
+            this.dgvMonAn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maMonAn,
+            this.tenMonAn,
+            this.giaTien,
+            this.hinhAnh});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -237,9 +249,10 @@
             this.dgvMonAn.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvMonAn.Location = new System.Drawing.Point(12, 12);
             this.dgvMonAn.Name = "dgvMonAn";
+            this.dgvMonAn.ReadOnly = true;
             this.dgvMonAn.RowHeadersVisible = false;
             this.dgvMonAn.RowHeadersWidth = 51;
-            this.dgvMonAn.RowTemplate.Height = 24;
+            this.dgvMonAn.RowTemplate.Height = 40;
             this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMonAn.Size = new System.Drawing.Size(1111, 434);
             this.dgvMonAn.TabIndex = 1;
@@ -252,17 +265,17 @@
             this.dgvMonAn.ThemeStyle.BackColor = System.Drawing.Color.White;
             this.dgvMonAn.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvMonAn.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvMonAn.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvMonAn.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvMonAn.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvMonAn.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvMonAn.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvMonAn.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvMonAn.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvMonAn.ThemeStyle.ReadOnly = false;
+            this.dgvMonAn.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvMonAn.ThemeStyle.ReadOnly = true;
             this.dgvMonAn.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvMonAn.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvMonAn.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvMonAn.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvMonAn.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvMonAn.ThemeStyle.RowsStyle.Height = 40;
             this.dgvMonAn.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvMonAn.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonAn_CellClick);
@@ -309,7 +322,7 @@
             this.btnThemHinhAnh.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHinhAnh.Image")));
             this.btnThemHinhAnh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThemHinhAnh.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThemHinhAnh.Location = new System.Drawing.Point(97, 284);
+            this.btnThemHinhAnh.Location = new System.Drawing.Point(108, 307);
             this.btnThemHinhAnh.Name = "btnThemHinhAnh";
             this.btnThemHinhAnh.ShadowDecoration.Parent = this.btnThemHinhAnh;
             this.btnThemHinhAnh.Size = new System.Drawing.Size(125, 45);
@@ -321,11 +334,11 @@
             // 
             this.picMonAn.BackColor = System.Drawing.Color.Transparent;
             this.picMonAn.Image = ((System.Drawing.Image)(resources.GetObject("picMonAn.Image")));
-            this.picMonAn.Location = new System.Drawing.Point(31, 49);
+            this.picMonAn.Location = new System.Drawing.Point(49, 51);
             this.picMonAn.Name = "picMonAn";
             this.picMonAn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.picMonAn.ShadowDecoration.Parent = this.picMonAn;
-            this.picMonAn.Size = new System.Drawing.Size(264, 229);
+            this.picMonAn.Size = new System.Drawing.Size(250, 250);
             this.picMonAn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picMonAn.TabIndex = 27;
             this.picMonAn.TabStop = false;
@@ -536,6 +549,38 @@
             // 
             this.openImage.FileName = "openFileDialog1";
             // 
+            // maMonAn
+            // 
+            this.maMonAn.DataPropertyName = "maMonAn";
+            this.maMonAn.HeaderText = "Mã món ăn";
+            this.maMonAn.MinimumWidth = 6;
+            this.maMonAn.Name = "maMonAn";
+            this.maMonAn.ReadOnly = true;
+            // 
+            // tenMonAn
+            // 
+            this.tenMonAn.DataPropertyName = "tenMonAn";
+            this.tenMonAn.HeaderText = "Tên món ăn";
+            this.tenMonAn.MinimumWidth = 6;
+            this.tenMonAn.Name = "tenMonAn";
+            this.tenMonAn.ReadOnly = true;
+            // 
+            // giaTien
+            // 
+            this.giaTien.DataPropertyName = "giaTien";
+            this.giaTien.HeaderText = "Giá tiền";
+            this.giaTien.MinimumWidth = 6;
+            this.giaTien.Name = "giaTien";
+            this.giaTien.ReadOnly = true;
+            // 
+            // hinhAnh
+            // 
+            this.hinhAnh.DataPropertyName = "hinhAnh";
+            this.hinhAnh.HeaderText = "Hình ảnh";
+            this.hinhAnh.MinimumWidth = 6;
+            this.hinhAnh.Name = "hinhAnh";
+            this.hinhAnh.ReadOnly = true;
+            // 
             // QuanLyMonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -586,5 +631,9 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox picMonAn;
         private Guna.UI2.WinForms.Guna2Button btnThemHinhAnh;
         private System.Windows.Forms.OpenFileDialog openImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maMonAn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenMonAn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hinhAnh;
     }
 }
