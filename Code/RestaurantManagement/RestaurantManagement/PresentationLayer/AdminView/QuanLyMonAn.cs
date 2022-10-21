@@ -16,7 +16,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
     public partial class QuanLyMonAn : Form
     {
         BussinessMonAn bussiness = new BussinessMonAn();
-        string imagesPath = Path.GetDirectoryName(Application.ExecutablePath) + @"\FoodImages\";
+        string imagesPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug","")  + @"FoodImages\";
 
         public QuanLyMonAn()
         {
