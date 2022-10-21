@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.BussinessLayer;
+using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,6 +51,51 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             txtGiamToiDa.Text = dtgCoupon.Rows[row].Cells["giamToiDa"].Value.ToString();
             dtpNgayBatDau.Value = (DateTime)dtgCoupon.Rows[row].Cells["ngayBatDau"].Value;
             dtpNgayKetThuc.Value = (DateTime)dtgCoupon.Rows[row].Cells["ngayKetThuc"].Value;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            Coupon coupon = new Coupon(txtMaCoupon.Text.Trim(), (DateTime)dtpNgayBatDau.Value, (DateTime)dtpNgayKetThuc.Value, float.Parse(txtPhanTramGiam.Text), float.Parse(txtGiamToiDa.Text), float.Parse(txtDonToiThieu.Text));
+
+            if (bussinessCoupon.AddCoupon(coupon, ref error))
+                MessageBox.Show("Thêm coupon thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyCoupon_Load(null, null);
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            Coupon coupon = new Coupon(txtMaCoupon.Text.Trim(), (DateTime)dtpNgayBatDau.Value, (DateTime)dtpNgayKetThuc.Value, float.Parse(txtPhanTramGiam.Text), float.Parse(txtGiamToiDa.Text), float.Parse(txtDonToiThieu.Text));
+
+            if (bussinessCoupon.UpdateCoupon(coupon, ref error))
+                MessageBox.Show("Cập nhật coupon thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyCoupon_Load(null, null);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa coupon này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Cancel)
+                return;
+            string error = "";
+            string maCoupon = txtMaCoupon.Text.Trim();
+            if (bussinessCoupon.DeleteCoupon(maCoupon, ref error))
+                MessageBox.Show("Xoá coupon thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyCoupon_Load(null, null);
+
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string error = "";
+
         }
     }
 }
