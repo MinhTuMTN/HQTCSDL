@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.BussinessLayer;
+using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,30 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string iName = openImage.SafeFileName;   // <---
+                string filepath = openImage.FileName;    // <---
+                File.Copy(filepath, imagesPath + iName); 
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Unable to open file " + exp.Message);
+            }
+
+            string error = "";
+            MonAn monAn = new MonAn(txtMaMonAn.Text.Trim(),
+                                    txtTenMonAn.Text.Trim(),
+                                    float.Parse(txtGiaTien.Text.Trim()),
+                                    openImage.SafeFileName);
+            if (monAn == null)
+                return;
+
+            if (bussiness.AddMonAn(monAn, ref error))
+                MessageBox.Show("Thêm món ăn thành công");
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyMonAn_Load(null, null);
         }
 
         private void QuanLyMonAn_Load(object sender, EventArgs e)
