@@ -31,7 +31,27 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             cbTrangThaiBanTao.SelectedIndex = 0;
             string error = "";
             dgvBan.DataSource = bussiness.GetAllTable(ref error);
-            
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string error = "";
+            string text = txtTimKiem.Text.Trim();
+            dgvBan.DataSource = bussiness.FindBan(text, ref error);
+            if (dgvBan.RowCount != null)
+            {
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0,0);
+                dgvBan_CellClick(sender, ev);
+            }
+
+        }
+
+        private void dgvBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            txtMaBanSua.Text = dgvBan.Rows[row].Cells["maBan"].Value.ToString();
+            cbLoaiBanSua.SelectedValue = dgvBan.Rows[row].Cells["loaiBan"].Value;
+            cbTrangThaiBanSua.Text= dgvBan.Rows[row].Cells["trangThaiBan"].Value.ToString();
         }
     }
 }
