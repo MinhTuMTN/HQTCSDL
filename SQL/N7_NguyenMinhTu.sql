@@ -886,11 +886,19 @@ RETURN(
 )
 GO
 
-CREATE FUNCTION fnSearchCoupon (@maCoupon NVARCHAR(10))
+CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
 RETURNS TABLE AS
 RETURN(
 	SELECT * FROM dbo.Coupon
 	WHERE maCoupon LIKE '%' + @maCoupon + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchCouponByDate(@date DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Coupon
+	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
 )
 GO
 
