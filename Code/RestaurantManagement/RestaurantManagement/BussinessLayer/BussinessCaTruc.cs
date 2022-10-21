@@ -22,7 +22,7 @@ namespace RestaurantManagement.BussinessLayer
 
         public bool AddCaTruc (CaTruc caTruc, ref string error)
         {
-
+            return false;
         }
     }
 }
