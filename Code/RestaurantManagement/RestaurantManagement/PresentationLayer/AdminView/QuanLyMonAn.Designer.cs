@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyMonAn));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -43,6 +43,8 @@
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.dtgKhachHang = new Guna.UI2.WinForms.Guna2DataGridView();
             this.gbThongTinMonAn = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.btnThemHinhAnh = new Guna.UI2.WinForms.Guna2Button();
+            this.picMonAn = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
@@ -52,15 +54,14 @@
             this.txtGiaTien = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTenMonAn = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaMonAn = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnThemHinhAnh = new Guna.UI2.WinForms.Guna2Button();
+            this.openImage = new System.Windows.Forms.OpenFileDialog();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgKhachHang)).BeginInit();
             this.gbThongTinMonAn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMonAn)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
@@ -205,8 +206,8 @@
             // 
             // dtgKhachHang
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dtgKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtgKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -215,23 +216,23 @@
             this.dtgKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgKhachHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgKhachHang.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgKhachHang.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgKhachHang.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgKhachHang.EnableHeadersVisualStyles = false;
             this.dtgKhachHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgKhachHang.Location = new System.Drawing.Point(12, 12);
@@ -273,7 +274,7 @@
             this.gbThongTinMonAn.BorderRadius = 15;
             this.gbThongTinMonAn.BorderThickness = 4;
             this.gbThongTinMonAn.Controls.Add(this.btnThemHinhAnh);
-            this.gbThongTinMonAn.Controls.Add(this.guna2CirclePictureBox2);
+            this.gbThongTinMonAn.Controls.Add(this.picMonAn);
             this.gbThongTinMonAn.Controls.Add(this.btnThem);
             this.gbThongTinMonAn.Controls.Add(this.btnXoa);
             this.gbThongTinMonAn.Controls.Add(this.btnSua);
@@ -293,6 +294,41 @@
             this.gbThongTinMonAn.Size = new System.Drawing.Size(1111, 362);
             this.gbThongTinMonAn.TabIndex = 26;
             this.gbThongTinMonAn.Text = "Thông tin món ăn";
+            // 
+            // btnThemHinhAnh
+            // 
+            this.btnThemHinhAnh.BackColor = System.Drawing.Color.Transparent;
+            this.btnThemHinhAnh.BorderRadius = 10;
+            this.btnThemHinhAnh.CheckedState.Parent = this.btnThemHinhAnh;
+            this.btnThemHinhAnh.CustomImages.Parent = this.btnThemHinhAnh;
+            this.btnThemHinhAnh.FillColor = System.Drawing.Color.IndianRed;
+            this.btnThemHinhAnh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThemHinhAnh.ForeColor = System.Drawing.Color.White;
+            this.btnThemHinhAnh.HoverState.Parent = this.btnThemHinhAnh;
+            this.btnThemHinhAnh.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHinhAnh.Image")));
+            this.btnThemHinhAnh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThemHinhAnh.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnThemHinhAnh.Location = new System.Drawing.Point(97, 284);
+            this.btnThemHinhAnh.Name = "btnThemHinhAnh";
+            this.btnThemHinhAnh.ShadowDecoration.Parent = this.btnThemHinhAnh;
+            this.btnThemHinhAnh.Size = new System.Drawing.Size(125, 45);
+            this.btnThemHinhAnh.TabIndex = 28;
+            this.btnThemHinhAnh.Text = "    Images";
+            this.btnThemHinhAnh.Click += new System.EventHandler(this.btnThemHinhAnh_Click);
+            // 
+            // picMonAn
+            // 
+            this.picMonAn.BackColor = System.Drawing.Color.Transparent;
+            this.picMonAn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picMonAn.Image = ((System.Drawing.Image)(resources.GetObject("picMonAn.Image")));
+            this.picMonAn.Location = new System.Drawing.Point(31, 49);
+            this.picMonAn.Name = "picMonAn";
+            this.picMonAn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.picMonAn.ShadowDecoration.Parent = this.picMonAn;
+            this.picMonAn.Size = new System.Drawing.Size(264, 229);
+            this.picMonAn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMonAn.TabIndex = 27;
+            this.picMonAn.TabStop = false;
             // 
             // btnThem
             // 
@@ -359,7 +395,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -372,7 +407,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -385,7 +419,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,7 +431,8 @@
             // 
             // txtGiaTien
             // 
-            this.txtGiaTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGiaTien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGiaTien.BackColor = System.Drawing.Color.Transparent;
             this.txtGiaTien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
             this.txtGiaTien.BorderRadius = 10;
@@ -431,7 +465,8 @@
             // 
             // txtTenMonAn
             // 
-            this.txtTenMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenMonAn.BackColor = System.Drawing.Color.Transparent;
             this.txtTenMonAn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
             this.txtTenMonAn.BorderRadius = 10;
@@ -464,7 +499,8 @@
             // 
             // txtMaMonAn
             // 
-            this.txtMaMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaMonAn.BackColor = System.Drawing.Color.Transparent;
             this.txtMaMonAn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
             this.txtMaMonAn.BorderRadius = 10;
@@ -495,40 +531,9 @@
             this.txtMaMonAn.Size = new System.Drawing.Size(705, 39);
             this.txtMaMonAn.TabIndex = 4;
             // 
-            // guna2CirclePictureBox2
+            // openImage
             // 
-            this.guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.guna2CirclePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox2.Image")));
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(31, 49);
-            this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
-            this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox2.ShadowDecoration.Parent = this.guna2CirclePictureBox2;
-            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(264, 229);
-            this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox2.TabIndex = 27;
-            this.guna2CirclePictureBox2.TabStop = false;
-            // 
-            // btnThemHinhAnh
-            // 
-            this.btnThemHinhAnh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemHinhAnh.BackColor = System.Drawing.Color.Transparent;
-            this.btnThemHinhAnh.BorderRadius = 10;
-            this.btnThemHinhAnh.CheckedState.Parent = this.btnThemHinhAnh;
-            this.btnThemHinhAnh.CustomImages.Parent = this.btnThemHinhAnh;
-            this.btnThemHinhAnh.FillColor = System.Drawing.Color.IndianRed;
-            this.btnThemHinhAnh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnThemHinhAnh.ForeColor = System.Drawing.Color.White;
-            this.btnThemHinhAnh.HoverState.Parent = this.btnThemHinhAnh;
-            this.btnThemHinhAnh.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHinhAnh.Image")));
-            this.btnThemHinhAnh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnThemHinhAnh.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThemHinhAnh.Location = new System.Drawing.Point(97, 284);
-            this.btnThemHinhAnh.Name = "btnThemHinhAnh";
-            this.btnThemHinhAnh.ShadowDecoration.Parent = this.btnThemHinhAnh;
-            this.btnThemHinhAnh.Size = new System.Drawing.Size(125, 45);
-            this.btnThemHinhAnh.TabIndex = 28;
-            this.btnThemHinhAnh.Text = "    Images";
+            this.openImage.FileName = "openFileDialog1";
             // 
             // QuanLyMonAn
             // 
@@ -549,7 +554,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgKhachHang)).EndInit();
             this.gbThongTinMonAn.ResumeLayout(false);
             this.gbThongTinMonAn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMonAn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +581,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtGiaTien;
         private Guna.UI2.WinForms.Guna2TextBox txtTenMonAn;
         private Guna.UI2.WinForms.Guna2TextBox txtMaMonAn;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox picMonAn;
         private Guna.UI2.WinForms.Guna2Button btnThemHinhAnh;
+        private System.Windows.Forms.OpenFileDialog openImage;
     }
 }
