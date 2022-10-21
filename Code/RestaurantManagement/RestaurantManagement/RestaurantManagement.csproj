@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BussinessLayer\BussinessBan.cs" />
+    <Compile Include="BussinessLayer\BussinessCaTruc.cs" />
     <Compile Include="BussinessLayer\BussinessCoupon.cs" />
     <Compile Include="BussinessLayer\BussinessKhachHang.cs" />
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
