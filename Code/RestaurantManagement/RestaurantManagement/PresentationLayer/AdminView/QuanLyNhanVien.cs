@@ -44,6 +44,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
+            if (row < 0)
+                return;
+
             txtMaNhanVien.Text = dgvNhanVien.Rows[row].Cells[0].Value.ToString();
             txtHoTen.Text = dgvNhanVien.Rows[row].Cells[1].Value.ToString();
             dtNgaySinh.Value = (DateTime)dgvNhanVien.Rows[row].Cells[2].Value;
