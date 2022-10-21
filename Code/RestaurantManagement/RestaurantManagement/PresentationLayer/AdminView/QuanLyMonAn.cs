@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantManagement.BussinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 {
     public partial class QuanLyMonAn : Form
     {
+        BussinessMonAn bussiness = new BussinessMonAn();
+
         public QuanLyMonAn()
         {
             InitializeComponent();
@@ -37,6 +40,36 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             {
                 openImage.Dispose();
             }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QuanLyMonAn_Load(object sender, EventArgs e)
+        {
+            string error = "";
+            try
+            {
+                dgvMonAn.DataSource = bussiness.GetAllMonAn(ref error);
+                dgvMonAn.Refresh();
+
+                if (dgvMonAn.RowCount > 0)
+                {
+                    DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
+                    dgvMonAn_CellClick(sender, ev);
+                }
+
+            }
+            catch
+            {
+            }
+        }
+
+        private void dgvMonAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
