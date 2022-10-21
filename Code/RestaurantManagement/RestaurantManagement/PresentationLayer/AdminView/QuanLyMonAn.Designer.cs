@@ -41,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
-            this.dtgKhachHang = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvMonAn = new Guna.UI2.WinForms.Guna2DataGridView();
             this.gbThongTinMonAn = new Guna.UI2.WinForms.Guna2GroupBox();
             this.btnThemHinhAnh = new Guna.UI2.WinForms.Guna2Button();
             this.picMonAn = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -59,7 +59,7 @@
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.pnMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).BeginInit();
             this.gbThongTinMonAn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMonAn)).BeginInit();
             this.SuspendLayout();
@@ -196,7 +196,7 @@
             // 
             this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
-            this.pnMain.Controls.Add(this.dtgKhachHang);
+            this.pnMain.Controls.Add(this.dgvMonAn);
             this.pnMain.Controls.Add(this.gbThongTinMonAn);
             this.pnMain.Location = new System.Drawing.Point(-3, 128);
             this.pnMain.Name = "pnMain";
@@ -204,18 +204,18 @@
             this.pnMain.Size = new System.Drawing.Size(1133, 843);
             this.pnMain.TabIndex = 7;
             // 
-            // dtgKhachHang
+            // dgvMonAn
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvMonAn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgKhachHang.BackgroundColor = System.Drawing.Color.White;
-            this.dtgKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgKhachHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMonAn.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMonAn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMonAn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvMonAn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -223,8 +223,8 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgKhachHang.ColumnHeadersHeight = 4;
+            this.dgvMonAn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMonAn.ColumnHeadersHeight = 4;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -232,39 +232,40 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgKhachHang.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgKhachHang.EnableHeadersVisualStyles = false;
-            this.dtgKhachHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgKhachHang.Location = new System.Drawing.Point(12, 12);
-            this.dtgKhachHang.Name = "dtgKhachHang";
-            this.dtgKhachHang.RowHeadersVisible = false;
-            this.dtgKhachHang.RowHeadersWidth = 51;
-            this.dtgKhachHang.RowTemplate.Height = 24;
-            this.dtgKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgKhachHang.Size = new System.Drawing.Size(1111, 434);
-            this.dtgKhachHang.TabIndex = 1;
-            this.dtgKhachHang.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dtgKhachHang.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgKhachHang.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dtgKhachHang.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dtgKhachHang.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dtgKhachHang.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dtgKhachHang.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dtgKhachHang.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgKhachHang.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtgKhachHang.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgKhachHang.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dtgKhachHang.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dtgKhachHang.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dtgKhachHang.ThemeStyle.HeaderStyle.Height = 4;
-            this.dtgKhachHang.ThemeStyle.ReadOnly = false;
-            this.dtgKhachHang.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dtgKhachHang.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgKhachHang.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dtgKhachHang.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgKhachHang.ThemeStyle.RowsStyle.Height = 24;
-            this.dtgKhachHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgKhachHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvMonAn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvMonAn.EnableHeadersVisualStyles = false;
+            this.dgvMonAn.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvMonAn.Location = new System.Drawing.Point(12, 12);
+            this.dgvMonAn.Name = "dgvMonAn";
+            this.dgvMonAn.RowHeadersVisible = false;
+            this.dgvMonAn.RowHeadersWidth = 51;
+            this.dgvMonAn.RowTemplate.Height = 24;
+            this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMonAn.Size = new System.Drawing.Size(1111, 434);
+            this.dgvMonAn.TabIndex = 1;
+            this.dgvMonAn.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvMonAn.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvMonAn.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvMonAn.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvMonAn.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvMonAn.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvMonAn.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvMonAn.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvMonAn.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvMonAn.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvMonAn.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvMonAn.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvMonAn.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvMonAn.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvMonAn.ThemeStyle.ReadOnly = false;
+            this.dgvMonAn.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvMonAn.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvMonAn.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvMonAn.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvMonAn.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvMonAn.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvMonAn.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonAn_CellClick);
             // 
             // gbThongTinMonAn
             // 
@@ -319,7 +320,6 @@
             // picMonAn
             // 
             this.picMonAn.BackColor = System.Drawing.Color.Transparent;
-            this.picMonAn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picMonAn.Image = ((System.Drawing.Image)(resources.GetObject("picMonAn.Image")));
             this.picMonAn.Location = new System.Drawing.Point(31, 49);
             this.picMonAn.Name = "picMonAn";
@@ -350,6 +350,7 @@
             this.btnThem.Size = new System.Drawing.Size(125, 45);
             this.btnThem.TabIndex = 26;
             this.btnThem.Text = "   Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -545,13 +546,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QuanLyMonAn";
             this.Text = "QuanLyMonAn";
+            this.Load += new System.EventHandler(this.QuanLyMonAn_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.pnMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).EndInit();
             this.gbThongTinMonAn.ResumeLayout(false);
             this.gbThongTinMonAn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMonAn)).EndInit();
@@ -570,7 +572,7 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Panel pnMain;
-        private Guna.UI2.WinForms.Guna2DataGridView dtgKhachHang;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvMonAn;
         private Guna.UI2.WinForms.Guna2GroupBox gbThongTinMonAn;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private Guna.UI2.WinForms.Guna2Button btnXoa;
