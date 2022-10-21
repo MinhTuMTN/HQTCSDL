@@ -886,6 +886,14 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchCoupon (@maCoupon NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Coupon
+	WHERE maCoupon LIKE '%' + @maCoupon + '%'
+)
+GO
+
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
