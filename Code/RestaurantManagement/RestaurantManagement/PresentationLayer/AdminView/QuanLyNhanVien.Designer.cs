@@ -58,14 +58,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvNhanVien = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gioiTinh = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loaiNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -74,6 +66,14 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.lblChucNang = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gioiTinh = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.diaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loaiNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
@@ -539,7 +539,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             // 
             this.dgvNhanVien.AllowUserToAddRows = false;
             this.dgvNhanVien.AllowUserToDeleteRows = false;
-            this.dgvNhanVien.AllowUserToOrderColumns = true;
+            this.dgvNhanVien.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -552,7 +552,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dgvNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -586,7 +586,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             dataGridViewCellStyle4.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1);
             this.dgvNhanVien.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvNhanVien.RowTemplate.Height = 30;
+            this.dgvNhanVien.RowTemplate.Height = 40;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNhanVien.Size = new System.Drawing.Size(592, 809);
             this.dgvNhanVien.TabIndex = 1;
@@ -600,7 +600,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dgvNhanVien.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvNhanVien.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dgvNhanVien.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvNhanVien.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvNhanVien.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvNhanVien.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvNhanVien.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvNhanVien.ThemeStyle.HeaderStyle.Height = 50;
@@ -609,84 +609,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.dgvNhanVien.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvNhanVien.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvNhanVien.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvNhanVien.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvNhanVien.ThemeStyle.RowsStyle.Height = 40;
             this.dgvNhanVien.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvNhanVien.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
-            // 
-            // maNhanVien
-            // 
-            this.maNhanVien.DataPropertyName = "maNhanVien";
-            this.maNhanVien.FillWeight = 128.3423F;
-            this.maNhanVien.HeaderText = "Mã nhân viên";
-            this.maNhanVien.MinimumWidth = 6;
-            this.maNhanVien.Name = "maNhanVien";
-            this.maNhanVien.ReadOnly = true;
-            // 
-            // hoTen
-            // 
-            this.hoTen.DataPropertyName = "hoTen";
-            this.hoTen.FillWeight = 95.9511F;
-            this.hoTen.HeaderText = "Họ tên";
-            this.hoTen.MinimumWidth = 6;
-            this.hoTen.Name = "hoTen";
-            this.hoTen.ReadOnly = true;
-            // 
-            // ngaySinh
-            // 
-            this.ngaySinh.DataPropertyName = "ngaySinh";
-            this.ngaySinh.FillWeight = 95.9511F;
-            this.ngaySinh.HeaderText = "Ngày sinh";
-            this.ngaySinh.MinimumWidth = 6;
-            this.ngaySinh.Name = "ngaySinh";
-            this.ngaySinh.ReadOnly = true;
-            // 
-            // gioiTinh
-            // 
-            this.gioiTinh.DataPropertyName = "gioiTinh";
-            this.gioiTinh.FillWeight = 95.9511F;
-            this.gioiTinh.HeaderText = "Giới tính";
-            this.gioiTinh.MinimumWidth = 6;
-            this.gioiTinh.Name = "gioiTinh";
-            this.gioiTinh.ReadOnly = true;
-            this.gioiTinh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.gioiTinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // diaChi
-            // 
-            this.diaChi.DataPropertyName = "diaChi";
-            this.diaChi.FillWeight = 95.9511F;
-            this.diaChi.HeaderText = "Địa chỉ";
-            this.diaChi.MinimumWidth = 6;
-            this.diaChi.Name = "diaChi";
-            this.diaChi.ReadOnly = true;
-            // 
-            // soDienThoai
-            // 
-            this.soDienThoai.DataPropertyName = "soDienThoai";
-            this.soDienThoai.FillWeight = 95.9511F;
-            this.soDienThoai.HeaderText = "Số điện thoại";
-            this.soDienThoai.MinimumWidth = 6;
-            this.soDienThoai.Name = "soDienThoai";
-            this.soDienThoai.ReadOnly = true;
-            // 
-            // heSoLuong
-            // 
-            this.heSoLuong.DataPropertyName = "heSoLuong";
-            this.heSoLuong.FillWeight = 95.9511F;
-            this.heSoLuong.HeaderText = "Hệ số lương";
-            this.heSoLuong.MinimumWidth = 6;
-            this.heSoLuong.Name = "heSoLuong";
-            this.heSoLuong.ReadOnly = true;
-            // 
-            // loaiNhanVien
-            // 
-            this.loaiNhanVien.DataPropertyName = "loaiNhanVien";
-            this.loaiNhanVien.FillWeight = 95.9511F;
-            this.loaiNhanVien.HeaderText = "Loại nhân viên";
-            this.loaiNhanVien.MinimumWidth = 6;
-            this.loaiNhanVien.Name = "loaiNhanVien";
-            this.loaiNhanVien.ReadOnly = true;
             // 
             // guna2CustomGradientPanel1
             // 
@@ -824,6 +750,81 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             this.txtSearch.Size = new System.Drawing.Size(502, 44);
             this.txtSearch.TabIndex = 8;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // maNhanVien
+            // 
+            this.maNhanVien.DataPropertyName = "maNhanVien";
+            this.maNhanVien.FillWeight = 106.9519F;
+            this.maNhanVien.HeaderText = "Mã NV";
+            this.maNhanVien.MinimumWidth = 6;
+            this.maNhanVien.Name = "maNhanVien";
+            this.maNhanVien.ReadOnly = true;
+            this.maNhanVien.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // hoTen
+            // 
+            this.hoTen.DataPropertyName = "hoTen";
+            this.hoTen.FillWeight = 99.00687F;
+            this.hoTen.HeaderText = "Họ tên";
+            this.hoTen.MinimumWidth = 6;
+            this.hoTen.Name = "hoTen";
+            this.hoTen.ReadOnly = true;
+            // 
+            // ngaySinh
+            // 
+            this.ngaySinh.DataPropertyName = "ngaySinh";
+            this.ngaySinh.FillWeight = 99.00687F;
+            this.ngaySinh.HeaderText = "Ngày sinh";
+            this.ngaySinh.MinimumWidth = 6;
+            this.ngaySinh.Name = "ngaySinh";
+            this.ngaySinh.ReadOnly = true;
+            // 
+            // gioiTinh
+            // 
+            this.gioiTinh.DataPropertyName = "gioiTinh";
+            this.gioiTinh.FillWeight = 99.00687F;
+            this.gioiTinh.HeaderText = "Giới tính";
+            this.gioiTinh.MinimumWidth = 6;
+            this.gioiTinh.Name = "gioiTinh";
+            this.gioiTinh.ReadOnly = true;
+            this.gioiTinh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.gioiTinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // diaChi
+            // 
+            this.diaChi.DataPropertyName = "diaChi";
+            this.diaChi.FillWeight = 99.00687F;
+            this.diaChi.HeaderText = "Địa chỉ";
+            this.diaChi.MinimumWidth = 6;
+            this.diaChi.Name = "diaChi";
+            this.diaChi.ReadOnly = true;
+            // 
+            // soDienThoai
+            // 
+            this.soDienThoai.DataPropertyName = "soDienThoai";
+            this.soDienThoai.FillWeight = 99.00687F;
+            this.soDienThoai.HeaderText = "Số điện thoại";
+            this.soDienThoai.MinimumWidth = 6;
+            this.soDienThoai.Name = "soDienThoai";
+            this.soDienThoai.ReadOnly = true;
+            // 
+            // heSoLuong
+            // 
+            this.heSoLuong.DataPropertyName = "heSoLuong";
+            this.heSoLuong.FillWeight = 99.00687F;
+            this.heSoLuong.HeaderText = "Hệ số lương";
+            this.heSoLuong.MinimumWidth = 6;
+            this.heSoLuong.Name = "heSoLuong";
+            this.heSoLuong.ReadOnly = true;
+            // 
+            // loaiNhanVien
+            // 
+            this.loaiNhanVien.DataPropertyName = "loaiNhanVien";
+            this.loaiNhanVien.FillWeight = 99.00687F;
+            this.loaiNhanVien.HeaderText = "Loại nhân viên";
+            this.loaiNhanVien.MinimumWidth = 6;
+            this.loaiNhanVien.Name = "loaiNhanVien";
+            this.loaiNhanVien.ReadOnly = true;
             // 
             // QuanLyNhanVien
             // 
