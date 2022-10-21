@@ -1,4 +1,5 @@
 Code/RestaurantManagement/.vs/
 Code/RestaurantManagement/RestaurantManagement/obj/
 Code/RestaurantManagement/RestaurantManagement/bin/
+!Code/RestaurantManagement/RestaurantManagement/bin/Debug/FoodImages/
 Code/RestaurantManagement/RestaurantManagement/DataAccessLayer/DatabaseConnection.cs
