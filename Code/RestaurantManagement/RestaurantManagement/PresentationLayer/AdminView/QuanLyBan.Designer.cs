@@ -68,7 +68,6 @@
             this.btnResetSua = new Guna.UI2.WinForms.Guna2Button();
             this.cbLoaiBanSua = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
-            this.lbSoLuongGheMaxSua = new System.Windows.Forms.ListBox();
             this.txtMaBanSua = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -77,17 +76,19 @@
             this.cbTrangThaiBanTao = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbLoaiBanTao = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lbSoLuongGheMaxTao = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnResetTao = new Guna.UI2.WinForms.Guna2Button();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.txtMaBanTao = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvBan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.numSLGheSua = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.numSLGheTao = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.maBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loaiBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soLuongGheToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangThaiBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtSearch.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -97,6 +98,8 @@
             this.guna2GroupBox2.SuspendLayout();
             this.gbThem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSLGheSua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSLGheTao)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -248,6 +251,7 @@
             this.gbCapNhat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbCapNhat.BorderRadius = 15;
             this.gbCapNhat.BorderThickness = 5;
+            this.gbCapNhat.Controls.Add(this.numSLGheSua);
             this.gbCapNhat.Controls.Add(this.label15);
             this.gbCapNhat.Controls.Add(this.guna2GroupBox1);
             this.gbCapNhat.Controls.Add(this.cbTrangThaiBanSua);
@@ -255,7 +259,6 @@
             this.gbCapNhat.Controls.Add(this.btnResetSua);
             this.gbCapNhat.Controls.Add(this.cbLoaiBanSua);
             this.gbCapNhat.Controls.Add(this.btnSua);
-            this.gbCapNhat.Controls.Add(this.lbSoLuongGheMaxSua);
             this.gbCapNhat.Controls.Add(this.txtMaBanSua);
             this.gbCapNhat.Controls.Add(this.label17);
             this.gbCapNhat.Controls.Add(this.label18);
@@ -689,7 +692,7 @@
             this.cbTrangThaiBanSua.ItemHeight = 30;
             this.cbTrangThaiBanSua.Items.AddRange(new object[] {
             "Đang có sẵn",
-            "Đang phục vụ ",
+            "Đang phục vụ",
             "Đã đặt trước"});
             this.cbTrangThaiBanSua.ItemsAppearance.Parent = this.cbTrangThaiBanSua;
             this.cbTrangThaiBanSua.Location = new System.Drawing.Point(19, 201);
@@ -749,7 +752,7 @@
             this.cbLoaiBanSua.HoverState.Parent = this.cbLoaiBanSua;
             this.cbLoaiBanSua.ItemHeight = 30;
             this.cbLoaiBanSua.Items.AddRange(new object[] {
-            "Bàn thường",
+            "Thường",
             "VIP"});
             this.cbLoaiBanSua.ItemsAppearance.Parent = this.cbLoaiBanSua;
             this.cbLoaiBanSua.Location = new System.Drawing.Point(110, 124);
@@ -778,36 +781,7 @@
             this.btnSua.Size = new System.Drawing.Size(111, 37);
             this.btnSua.TabIndex = 31;
             this.btnSua.Text = "   Sửa";
-            // 
-            // lbSoLuongGheMaxSua
-            // 
-            this.lbSoLuongGheMaxSua.FormattingEnabled = true;
-            this.lbSoLuongGheMaxSua.ItemHeight = 20;
-            this.lbSoLuongGheMaxSua.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20"});
-            this.lbSoLuongGheMaxSua.Location = new System.Drawing.Point(201, 254);
-            this.lbSoLuongGheMaxSua.Name = "lbSoLuongGheMaxSua";
-            this.lbSoLuongGheMaxSua.Size = new System.Drawing.Size(106, 24);
-            this.lbSoLuongGheMaxSua.TabIndex = 39;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // txtMaBanSua
             // 
@@ -876,11 +850,11 @@
             this.gbThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbThem.BorderRadius = 15;
             this.gbThem.BorderThickness = 5;
+            this.gbThem.Controls.Add(this.numSLGheTao);
             this.gbThem.Controls.Add(this.label8);
             this.gbThem.Controls.Add(this.cbTrangThaiBanTao);
             this.gbThem.Controls.Add(this.label2);
             this.gbThem.Controls.Add(this.cbLoaiBanTao);
-            this.gbThem.Controls.Add(this.lbSoLuongGheMaxTao);
             this.gbThem.Controls.Add(this.label3);
             this.gbThem.Controls.Add(this.label4);
             this.gbThem.Controls.Add(this.btnResetTao);
@@ -967,7 +941,7 @@
             this.cbLoaiBanTao.HoverState.Parent = this.cbLoaiBanTao;
             this.cbLoaiBanTao.ItemHeight = 30;
             this.cbLoaiBanTao.Items.AddRange(new object[] {
-            "Bàn thường",
+            "Thường",
             "VIP"});
             this.cbLoaiBanTao.ItemsAppearance.Parent = this.cbLoaiBanTao;
             this.cbLoaiBanTao.Location = new System.Drawing.Point(109, 131);
@@ -976,36 +950,6 @@
             this.cbLoaiBanTao.Size = new System.Drawing.Size(205, 36);
             this.cbLoaiBanTao.TabIndex = 32;
             this.cbLoaiBanTao.SelectedIndexChanged += new System.EventHandler(this.cbLoaiBan_SelectedIndexChanged);
-            // 
-            // lbSoLuongGheMaxTao
-            // 
-            this.lbSoLuongGheMaxTao.FormattingEnabled = true;
-            this.lbSoLuongGheMaxTao.ItemHeight = 20;
-            this.lbSoLuongGheMaxTao.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20"});
-            this.lbSoLuongGheMaxTao.Location = new System.Drawing.Point(207, 261);
-            this.lbSoLuongGheMaxTao.Name = "lbSoLuongGheMaxTao";
-            this.lbSoLuongGheMaxTao.Size = new System.Drawing.Size(100, 24);
-            this.lbSoLuongGheMaxTao.TabIndex = 31;
             // 
             // label3
             // 
@@ -1074,6 +1018,7 @@
             this.btnThem.Size = new System.Drawing.Size(111, 37);
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "     Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtMaBanTao
             // 
@@ -1134,7 +1079,8 @@
             this.maBan,
             this.loaiBan,
             this.soLuongGheToiDa,
-            this.trangThaiBan});
+            this.trangThaiBan,
+            this.xoa});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1182,6 +1128,48 @@
             this.dgvBan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBan_CellClick);
             // 
+            // numSLGheSua
+            // 
+            this.numSLGheSua.BackColor = System.Drawing.Color.Transparent;
+            this.numSLGheSua.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numSLGheSua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.numSLGheSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.numSLGheSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.numSLGheSua.DisabledState.Parent = this.numSLGheSua;
+            this.numSLGheSua.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.numSLGheSua.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.numSLGheSua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.numSLGheSua.FocusedState.Parent = this.numSLGheSua;
+            this.numSLGheSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numSLGheSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.numSLGheSua.Location = new System.Drawing.Point(201, 258);
+            this.numSLGheSua.Name = "numSLGheSua";
+            this.numSLGheSua.ShadowDecoration.Parent = this.numSLGheSua;
+            this.numSLGheSua.Size = new System.Drawing.Size(100, 27);
+            this.numSLGheSua.TabIndex = 44;
+            this.numSLGheSua.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(75)))));
+            // 
+            // numSLGheTao
+            // 
+            this.numSLGheTao.BackColor = System.Drawing.Color.Transparent;
+            this.numSLGheTao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numSLGheTao.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.numSLGheTao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.numSLGheTao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.numSLGheTao.DisabledState.Parent = this.numSLGheTao;
+            this.numSLGheTao.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.numSLGheTao.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.numSLGheTao.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.numSLGheTao.FocusedState.Parent = this.numSLGheTao;
+            this.numSLGheTao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numSLGheTao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.numSLGheTao.Location = new System.Drawing.Point(207, 255);
+            this.numSLGheTao.Name = "numSLGheTao";
+            this.numSLGheTao.ShadowDecoration.Parent = this.numSLGheTao;
+            this.numSLGheTao.Size = new System.Drawing.Size(100, 30);
+            this.numSLGheTao.TabIndex = 45;
+            this.numSLGheTao.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(75)))));
+            // 
             // maBan
             // 
             this.maBan.DataPropertyName = "maBan";
@@ -1210,6 +1198,12 @@
             this.trangThaiBan.MinimumWidth = 6;
             this.trangThaiBan.Name = "trangThaiBan";
             // 
+            // xoa
+            // 
+            this.xoa.HeaderText = "Xoá";
+            this.xoa.MinimumWidth = 6;
+            this.xoa.Name = "xoa";
+            // 
             // QuanLyBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1236,6 +1230,8 @@
             this.gbThem.ResumeLayout(false);
             this.gbThem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSLGheSua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSLGheTao)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1261,7 +1257,6 @@
         private Guna.UI2.WinForms.Guna2Button btnResetTao;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private Guna.UI2.WinForms.Guna2TextBox txtMaBanTao;
-        private System.Windows.Forms.ListBox lbSoLuongGheMaxTao;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2ComboBox cbTrangThaiBanTao;
         private System.Windows.Forms.Label label2;
@@ -1288,14 +1283,16 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbTrangThaiBanSua;
         private System.Windows.Forms.Label label16;
         private Guna.UI2.WinForms.Guna2ComboBox cbLoaiBanSua;
-        private System.Windows.Forms.ListBox lbSoLuongGheMaxSua;
         private Guna.UI2.WinForms.Guna2TextBox txtMaBanSua;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2DataGridView dgvBan;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numSLGheSua;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numSLGheTao;
         private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn loaiBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuongGheToiDa;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThaiBan;
+        private System.Windows.Forms.DataGridViewButtonColumn xoa;
     }
 }

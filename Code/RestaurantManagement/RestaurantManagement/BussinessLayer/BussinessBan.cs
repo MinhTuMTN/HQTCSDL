@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.DataAccessLayer;
+using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,6 +29,32 @@ namespace RestaurantManagement.BussinessLayer
             SqlParameter parameter = new SqlParameter("@maBan", text);
             table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text,ref error, parameter);
             return table;
+        }
+
+        public bool AddBan(Ban ban, ref string error)
+        {
+            string cmd = "dbo.spInsertBan";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@maBan", ban.MaBan),
+                new SqlParameter("@trangThaiBan", ban.TrangThaiBan),
+                new SqlParameter("@loaiBan", ban.LoaiBan),
+                new SqlParameter("@soLuongGheToiDa", ban.SoLuongGheToiDa)
+            };
+            return conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
+        }
+
+        public bool UpdateBan(Ban ban, ref string error)
+        {
+            string cmd = "dbo.spUpdateBan";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@maBan", ban.MaBan),
+                new SqlParameter("@trangThaiBan", ban.TrangThaiBan),
+                new SqlParameter("@loaiBan", ban.LoaiBan),
+                new SqlParameter("@soLuongGheToiDa", ban.SoLuongGheToiDa)
+            };
+            return conn.MyExecuteNonQuery(cmd,CommandType.StoredProcedure, ref error, parameters);
         }
     }
 }
