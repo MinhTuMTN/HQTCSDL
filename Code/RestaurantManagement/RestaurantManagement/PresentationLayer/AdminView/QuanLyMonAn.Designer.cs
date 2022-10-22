@@ -579,10 +579,6 @@
             this.txtMaMonAn.Size = new System.Drawing.Size(705, 39);
             this.txtMaMonAn.TabIndex = 4;
             // 
-            // openImage
-            // 
-            this.openImage.FileName = "openFileDialog1";
-            // 
             // QuanLyMonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
