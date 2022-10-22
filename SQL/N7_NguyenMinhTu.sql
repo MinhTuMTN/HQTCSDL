@@ -908,6 +908,14 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchTaiKhoan (@text NVARCHAR(150))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.viewTaiKhoanNhanVien
+	WHERE maNhanVien LIKE  '%' + @text + '%' OR hoTen LIKE  '%' + @text + '%' OR tenDangNhap LIKE  '%' + @text + '%'
+)
+GO
+
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
