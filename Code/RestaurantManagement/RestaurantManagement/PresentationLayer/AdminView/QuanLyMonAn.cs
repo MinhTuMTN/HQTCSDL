@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,8 +27,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
             if (Directory.Exists(imagesPath) == false)                                          
                 Directory.CreateDirectory(imagesPath);
-
-            MessageBox.Show(DateTime.Now.Ticks.ToString());
         }
 
         private void btnThemHinhAnh_Click(object sender, EventArgs e)
@@ -51,30 +50,32 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string newImageName = DateTime.Now.ToString().Replace("/", "").Replace(" ", "").Replace(":", "") + DateTime.Now.Ticks.ToString() + Path.GetExtension(openImage.SafeFileName);
             try
             {
+
+                string newImageName = DateTime.Now.Ticks.ToString() + Path.GetExtension(openImage.SafeFileName);
+
                 string filepath = openImage.FileName;
-                File.Copy(filepath, imagesPath + newImageName); 
+                File.Copy(filepath, imagesPath + newImageName);
+
+                string error = "";
+                MonAn monAn = new MonAn(txtMaMonAn.Text.Trim(),
+                                        txtTenMonAn.Text.Trim(),
+                                        float.Parse(txtGiaTien.Text.Trim()),
+                                        newImageName);
+                if (monAn == null)
+                    return;
+
+                if (bussiness.AddMonAn(monAn, ref error))
+                    MessageBox.Show("Thêm món ăn thành công");
+                else
+                    MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+                QuanLyMonAn_Load(null, null);
             }
-            catch (Exception exp)
+            catch
             {
-                MessageBox.Show("Unable to open file " + exp.Message);
+                MessageBox.Show("Vui lòng chọn hình ảnh của món ăn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            string error = "";
-            MonAn monAn = new MonAn(txtMaMonAn.Text.Trim(),
-                                    txtTenMonAn.Text.Trim(),
-                                    float.Parse(txtGiaTien.Text.Trim()),
-                                    newImageName);
-            if (monAn == null)
-                return;
-
-            if (bussiness.AddMonAn(monAn, ref error))
-                MessageBox.Show("Thêm món ăn thành công");
-            else
-                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
-            QuanLyMonAn_Load(null, null);
         }
 
         private void QuanLyMonAn_Load(object sender, EventArgs e)
@@ -109,6 +110,31 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             txtMaMonAn.Text = dgvMonAn.Rows[row].Cells["maMonAn"].Value.ToString().Trim();
             txtTenMonAn.Text = dgvMonAn.Rows[row].Cells["tenMonAn"].Value.ToString().Trim();
             txtGiaTien.Text = dgvMonAn.Rows[row].Cells["giaTien"].Value.ToString().Trim();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa món ăn này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Cancel)
+                return;
+            string imageDelPath = picMonAn.ImageLocation.ToString();
+            
+
+            string error = "";
+            string maMonAn = txtMaMonAn.Text.Trim();
+            if (maMonAn == null)
+                return;
+
+            if (bussiness.DeleteMonAn(maMonAn, ref error))
+            {
+                MessageBox.Show("Xóa món ăn thành công");
+                QuanLyMonAn_Load(null, null);
+                dgvMonAn_CellClick(null, new DataGridViewCellEventArgs(0, 1));
+                File.Delete(imageDelPath);
+            }               
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            
         }
     }
 }

@@ -42,6 +42,10 @@
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvMonAn = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.maMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbThongTinMonAn = new Guna.UI2.WinForms.Guna2GroupBox();
             this.btnThemHinhAnh = new Guna.UI2.WinForms.Guna2Button();
             this.picMonAn = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -55,10 +59,6 @@
             this.txtTenMonAn = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaMonAn = new Guna.UI2.WinForms.Guna2TextBox();
             this.openImage = new System.Windows.Forms.OpenFileDialog();
-            this.maMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -280,6 +280,38 @@
             this.dgvMonAn.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonAn_CellClick);
             // 
+            // maMonAn
+            // 
+            this.maMonAn.DataPropertyName = "maMonAn";
+            this.maMonAn.HeaderText = "Mã món ăn";
+            this.maMonAn.MinimumWidth = 6;
+            this.maMonAn.Name = "maMonAn";
+            this.maMonAn.ReadOnly = true;
+            // 
+            // tenMonAn
+            // 
+            this.tenMonAn.DataPropertyName = "tenMonAn";
+            this.tenMonAn.HeaderText = "Tên món ăn";
+            this.tenMonAn.MinimumWidth = 6;
+            this.tenMonAn.Name = "tenMonAn";
+            this.tenMonAn.ReadOnly = true;
+            // 
+            // giaTien
+            // 
+            this.giaTien.DataPropertyName = "giaTien";
+            this.giaTien.HeaderText = "Giá tiền";
+            this.giaTien.MinimumWidth = 6;
+            this.giaTien.Name = "giaTien";
+            this.giaTien.ReadOnly = true;
+            // 
+            // hinhAnh
+            // 
+            this.hinhAnh.DataPropertyName = "hinhAnh";
+            this.hinhAnh.HeaderText = "Hình ảnh";
+            this.hinhAnh.MinimumWidth = 6;
+            this.hinhAnh.Name = "hinhAnh";
+            this.hinhAnh.ReadOnly = true;
+            // 
             // gbThongTinMonAn
             // 
             this.gbThongTinMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -385,6 +417,7 @@
             this.btnXoa.Size = new System.Drawing.Size(125, 45);
             this.btnXoa.TabIndex = 25;
             this.btnXoa.Text = "   Xoá";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -548,38 +581,6 @@
             // openImage
             // 
             this.openImage.FileName = "openFileDialog1";
-            // 
-            // maMonAn
-            // 
-            this.maMonAn.DataPropertyName = "maMonAn";
-            this.maMonAn.HeaderText = "Mã món ăn";
-            this.maMonAn.MinimumWidth = 6;
-            this.maMonAn.Name = "maMonAn";
-            this.maMonAn.ReadOnly = true;
-            // 
-            // tenMonAn
-            // 
-            this.tenMonAn.DataPropertyName = "tenMonAn";
-            this.tenMonAn.HeaderText = "Tên món ăn";
-            this.tenMonAn.MinimumWidth = 6;
-            this.tenMonAn.Name = "tenMonAn";
-            this.tenMonAn.ReadOnly = true;
-            // 
-            // giaTien
-            // 
-            this.giaTien.DataPropertyName = "giaTien";
-            this.giaTien.HeaderText = "Giá tiền";
-            this.giaTien.MinimumWidth = 6;
-            this.giaTien.Name = "giaTien";
-            this.giaTien.ReadOnly = true;
-            // 
-            // hinhAnh
-            // 
-            this.hinhAnh.DataPropertyName = "hinhAnh";
-            this.hinhAnh.HeaderText = "Hình ảnh";
-            this.hinhAnh.MinimumWidth = 6;
-            this.hinhAnh.Name = "hinhAnh";
-            this.hinhAnh.ReadOnly = true;
             // 
             // QuanLyMonAn
             // 

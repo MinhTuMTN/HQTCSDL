@@ -32,5 +32,12 @@ namespace RestaurantManagement.BussinessLayer
             };
             return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
         }
+
+        public bool DeleteMonAn(string maMonAn, ref string error)
+        {
+            string cmd = "DELETE FROM MonAn WHERE maMonAn = @maMonAn";
+            SqlParameter parameter = new SqlParameter("@maMonAn", maMonAn);
+            return connection.MyExecuteNonQuery(cmd, CommandType.Text, ref error, parameter);
+        }
     }
 }
