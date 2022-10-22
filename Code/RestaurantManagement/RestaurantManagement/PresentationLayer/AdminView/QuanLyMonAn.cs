@@ -128,12 +128,12 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             if (bussiness.DeleteMonAn(maMonAn, ref error))
             {
                 MessageBox.Show("Xóa món ăn thành công");
-                QuanLyMonAn_Load(null, null);
-                dgvMonAn_CellClick(null, new DataGridViewCellEventArgs(0, 1));
+                picMonAn.Load(imagesPath + "food.png");
                 File.Delete(imageDelPath);
             }               
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+            QuanLyMonAn_Load(null, null);
             
         }
     }
