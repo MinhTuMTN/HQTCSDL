@@ -32,9 +32,9 @@ namespace RestaurantManagement.AdminController
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyTaiKhoan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.myPanel1 = new RestaurantManagement.PresentationLayer.Control.MyPanel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,6 +46,7 @@ namespace RestaurantManagement.AdminController
             this.label1 = new System.Windows.Forms.Label();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.gbCapNhat = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.btnResetSua = new Guna.UI2.WinForms.Guna2Button();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
@@ -54,13 +55,18 @@ namespace RestaurantManagement.AdminController
             this.txtMatKhauSua = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTaiKhoanSua = new Guna.UI2.WinForms.Guna2TextBox();
             this.gbThem = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao = new Guna.UI2.WinForms.Guna2ComboBox();
             this.bntResetTao = new Guna.UI2.WinForms.Guna2Button();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.cbTinhTrangTao = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtMaNhanVienTao = new Guna.UI2.WinForms.Guna2TextBox();
-            this.bntMatKhauThem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtMatKhauTao = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTaiKhoanTao = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvTaiKhoan = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.myPanel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -131,6 +137,7 @@ namespace RestaurantManagement.AdminController
             this.txtTimKiem.ShadowDecoration.Parent = this.txtTimKiem;
             this.txtTimKiem.Size = new System.Drawing.Size(502, 44);
             this.txtTimKiem.TabIndex = 13;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // btnCaiDat
             // 
@@ -231,6 +238,7 @@ namespace RestaurantManagement.AdminController
             this.gbCapNhat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbCapNhat.BorderRadius = 15;
             this.gbCapNhat.BorderThickness = 5;
+            this.gbCapNhat.Controls.Add(this.txtHoTen);
             this.gbCapNhat.Controls.Add(this.guna2GroupBox1);
             this.gbCapNhat.Controls.Add(this.btnResetSua);
             this.gbCapNhat.Controls.Add(this.btnSua);
@@ -242,12 +250,46 @@ namespace RestaurantManagement.AdminController
             this.gbCapNhat.FillColor = System.Drawing.Color.Black;
             this.gbCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCapNhat.ForeColor = System.Drawing.Color.White;
-            this.gbCapNhat.Location = new System.Drawing.Point(778, 445);
+            this.gbCapNhat.Location = new System.Drawing.Point(778, 410);
             this.gbCapNhat.Name = "gbCapNhat";
             this.gbCapNhat.ShadowDecoration.Parent = this.gbCapNhat;
-            this.gbCapNhat.Size = new System.Drawing.Size(334, 386);
+            this.gbCapNhat.Size = new System.Drawing.Size(334, 421);
             this.gbCapNhat.TabIndex = 13;
             this.gbCapNhat.Text = "Cập nhật tài khoản";
+            // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtHoTen.BackColor = System.Drawing.Color.Transparent;
+            this.txtHoTen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.txtHoTen.BorderRadius = 15;
+            this.txtHoTen.BorderThickness = 2;
+            this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtHoTen.DefaultText = "";
+            this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtHoTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtHoTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtHoTen.DisabledState.Parent = this.txtHoTen;
+            this.txtHoTen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtHoTen.FillColor = System.Drawing.SystemColors.Desktop;
+            this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtHoTen.FocusedState.Parent = this.txtHoTen;
+            this.txtHoTen.ForeColor = System.Drawing.Color.LightGray;
+            this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtHoTen.HoverState.Parent = this.txtHoTen;
+            this.txtHoTen.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtHoTen.IconLeft")));
+            this.txtHoTen.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.txtHoTen.Location = new System.Drawing.Point(17, 116);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.PasswordChar = '\0';
+            this.txtHoTen.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtHoTen.PlaceholderText = "Họ tên";
+            this.txtHoTen.ReadOnly = true;
+            this.txtHoTen.SelectedText = "";
+            this.txtHoTen.ShadowDecoration.Parent = this.txtHoTen;
+            this.txtHoTen.Size = new System.Drawing.Size(300, 40);
+            this.txtHoTen.TabIndex = 33;
             // 
             // guna2GroupBox1
             // 
@@ -260,7 +302,7 @@ namespace RestaurantManagement.AdminController
             this.guna2GroupBox1.FillColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(763, 433);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(763, 468);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(334, 386);
@@ -281,7 +323,7 @@ namespace RestaurantManagement.AdminController
             this.btnResetSua.Image = ((System.Drawing.Image)(resources.GetObject("btnResetSua.Image")));
             this.btnResetSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnResetSua.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnResetSua.Location = new System.Drawing.Point(89, 324);
+            this.btnResetSua.Location = new System.Drawing.Point(89, 365);
             this.btnResetSua.Name = "btnResetSua";
             this.btnResetSua.ShadowDecoration.Parent = this.btnResetSua;
             this.btnResetSua.Size = new System.Drawing.Size(111, 37);
@@ -302,12 +344,13 @@ namespace RestaurantManagement.AdminController
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSua.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSua.Location = new System.Drawing.Point(207, 324);
+            this.btnSua.Location = new System.Drawing.Point(206, 365);
             this.btnSua.Name = "btnSua";
             this.btnSua.ShadowDecoration.Parent = this.btnSua;
             this.btnSua.Size = new System.Drawing.Size(111, 37);
             this.btnSua.TabIndex = 31;
-            this.btnSua.Text = "     Sửa";
+            this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // cbTinhTrangSua
             // 
@@ -326,10 +369,11 @@ namespace RestaurantManagement.AdminController
             "Đang hoạt động",
             "Bị chặn"});
             this.cbTinhTrangSua.ItemsAppearance.Parent = this.cbTinhTrangSua;
-            this.cbTinhTrangSua.Location = new System.Drawing.Point(18, 267);
+            this.cbTinhTrangSua.Location = new System.Drawing.Point(17, 290);
             this.cbTinhTrangSua.Name = "cbTinhTrangSua";
             this.cbTinhTrangSua.ShadowDecoration.Parent = this.cbTinhTrangSua;
             this.cbTinhTrangSua.Size = new System.Drawing.Size(300, 36);
+            this.cbTinhTrangSua.StartIndex = 0;
             this.cbTinhTrangSua.TabIndex = 30;
             // 
             // txtMaNhanVienSua
@@ -355,7 +399,7 @@ namespace RestaurantManagement.AdminController
             this.txtMaNhanVienSua.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMaNhanVienSua.IconLeft")));
             this.txtMaNhanVienSua.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtMaNhanVienSua.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMaNhanVienSua.Location = new System.Drawing.Point(18, 205);
+            this.txtMaNhanVienSua.Location = new System.Drawing.Point(17, 60);
             this.txtMaNhanVienSua.Margin = new System.Windows.Forms.Padding(4, 10, 4, 10);
             this.txtMaNhanVienSua.Name = "txtMaNhanVienSua";
             this.txtMaNhanVienSua.PasswordChar = '\0';
@@ -390,7 +434,7 @@ namespace RestaurantManagement.AdminController
             this.txtMatKhauSua.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMatKhauSua.IconLeft")));
             this.txtMatKhauSua.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtMatKhauSua.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMatKhauSua.Location = new System.Drawing.Point(18, 137);
+            this.txtMatKhauSua.Location = new System.Drawing.Point(18, 233);
             this.txtMatKhauSua.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.txtMatKhauSua.Name = "txtMatKhauSua";
             this.txtMatKhauSua.PasswordChar = '\0';
@@ -398,7 +442,7 @@ namespace RestaurantManagement.AdminController
             this.txtMatKhauSua.PlaceholderText = "Mật khẩu";
             this.txtMatKhauSua.SelectedText = "";
             this.txtMatKhauSua.ShadowDecoration.Parent = this.txtMatKhauSua;
-            this.txtMatKhauSua.Size = new System.Drawing.Size(300, 40);
+            this.txtMatKhauSua.Size = new System.Drawing.Size(299, 40);
             this.txtMatKhauSua.TabIndex = 28;
             // 
             // txtTaiKhoanSua
@@ -423,12 +467,13 @@ namespace RestaurantManagement.AdminController
             this.txtTaiKhoanSua.HoverState.Parent = this.txtTaiKhoanSua;
             this.txtTaiKhoanSua.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtTaiKhoanSua.IconLeft")));
             this.txtTaiKhoanSua.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.txtTaiKhoanSua.Location = new System.Drawing.Point(18, 74);
+            this.txtTaiKhoanSua.Location = new System.Drawing.Point(17, 176);
             this.txtTaiKhoanSua.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtTaiKhoanSua.Name = "txtTaiKhoanSua";
             this.txtTaiKhoanSua.PasswordChar = '\0';
             this.txtTaiKhoanSua.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtTaiKhoanSua.PlaceholderText = "Tài khoản";
+            this.txtTaiKhoanSua.PlaceholderText = "Tên đăng nhập";
+            this.txtTaiKhoanSua.ReadOnly = true;
             this.txtTaiKhoanSua.SelectedText = "";
             this.txtTaiKhoanSua.ShadowDecoration.Parent = this.txtTaiKhoanSua;
             this.txtTaiKhoanSua.Size = new System.Drawing.Size(300, 40);
@@ -441,11 +486,12 @@ namespace RestaurantManagement.AdminController
             this.gbThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbThem.BorderRadius = 15;
             this.gbThem.BorderThickness = 5;
+            this.gbThem.Controls.Add(this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao);
             this.gbThem.Controls.Add(this.bntResetTao);
             this.gbThem.Controls.Add(this.btnThem);
             this.gbThem.Controls.Add(this.cbTinhTrangTao);
             this.gbThem.Controls.Add(this.txtMaNhanVienTao);
-            this.gbThem.Controls.Add(this.bntMatKhauThem);
+            this.gbThem.Controls.Add(this.txtMatKhauTao);
             this.gbThem.Controls.Add(this.txtTaiKhoanTao);
             this.gbThem.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbThem.FillColor = System.Drawing.Color.Black;
@@ -454,9 +500,32 @@ namespace RestaurantManagement.AdminController
             this.gbThem.Location = new System.Drawing.Point(778, 16);
             this.gbThem.Name = "gbThem";
             this.gbThem.ShadowDecoration.Parent = this.gbThem;
-            this.gbThem.Size = new System.Drawing.Size(334, 396);
+            this.gbThem.Size = new System.Drawing.Size(334, 370);
             this.gbThem.TabIndex = 12;
             this.gbThem.Text = "Thêm tài khoản";
+            // 
+            // cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao
+            // 
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.BackColor = System.Drawing.Color.Transparent;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.BorderRadius = 15;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.FocusedColor = System.Drawing.Color.Empty;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.FocusedState.Parent = this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.FormattingEnabled = true;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.HoverState.Parent = this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.ItemHeight = 30;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.Items.AddRange(new object[] {
+            "Đang hoạt động",
+            "Bị chặn"});
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.ItemsAppearance.Parent = this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.Location = new System.Drawing.Point(18, 254);
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.Name = "cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao";
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.ShadowDecoration.Parent = this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.Size = new System.Drawing.Size(300, 36);
+            this.cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao.TabIndex = 26;
             // 
             // bntResetTao
             // 
@@ -499,10 +568,11 @@ namespace RestaurantManagement.AdminController
             this.btnThem.Size = new System.Drawing.Size(111, 37);
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "     Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cbTinhTrangTao
             // 
-            this.cbTinhTrangTao.BackColor = System.Drawing.Color.Transparent;
+            this.cbTinhTrangTao.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbTinhTrangTao.BorderRadius = 15;
             this.cbTinhTrangTao.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTinhTrangTao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -521,6 +591,7 @@ namespace RestaurantManagement.AdminController
             this.cbTinhTrangTao.Name = "cbTinhTrangTao";
             this.cbTinhTrangTao.ShadowDecoration.Parent = this.cbTinhTrangTao;
             this.cbTinhTrangTao.Size = new System.Drawing.Size(299, 36);
+            this.cbTinhTrangTao.StartIndex = 0;
             this.cbTinhTrangTao.TabIndex = 20;
             // 
             // txtMaNhanVienTao
@@ -546,7 +617,7 @@ namespace RestaurantManagement.AdminController
             this.txtMaNhanVienTao.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMaNhanVienTao.IconLeft")));
             this.txtMaNhanVienTao.IconLeftSize = new System.Drawing.Size(30, 30);
             this.txtMaNhanVienTao.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtMaNhanVienTao.Location = new System.Drawing.Point(17, 193);
+            this.txtMaNhanVienTao.Location = new System.Drawing.Point(17, 194);
             this.txtMaNhanVienTao.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
             this.txtMaNhanVienTao.Name = "txtMaNhanVienTao";
             this.txtMaNhanVienTao.PasswordChar = '\0';
@@ -557,39 +628,39 @@ namespace RestaurantManagement.AdminController
             this.txtMaNhanVienTao.Size = new System.Drawing.Size(300, 40);
             this.txtMaNhanVienTao.TabIndex = 19;
             // 
-            // bntMatKhauThem
+            // txtMatKhauTao
             // 
-            this.bntMatKhauThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntMatKhauThem.BackColor = System.Drawing.Color.Transparent;
-            this.bntMatKhauThem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.bntMatKhauThem.BorderRadius = 15;
-            this.bntMatKhauThem.BorderThickness = 2;
-            this.bntMatKhauThem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bntMatKhauThem.DefaultText = "";
-            this.bntMatKhauThem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.bntMatKhauThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.bntMatKhauThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bntMatKhauThem.DisabledState.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bntMatKhauThem.FillColor = System.Drawing.SystemColors.Desktop;
-            this.bntMatKhauThem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bntMatKhauThem.FocusedState.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.ForeColor = System.Drawing.Color.LightGray;
-            this.bntMatKhauThem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bntMatKhauThem.HoverState.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.IconLeft = ((System.Drawing.Image)(resources.GetObject("bntMatKhauThem.IconLeft")));
-            this.bntMatKhauThem.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.bntMatKhauThem.IconRightSize = new System.Drawing.Size(30, 30);
-            this.bntMatKhauThem.Location = new System.Drawing.Point(17, 129);
-            this.bntMatKhauThem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.bntMatKhauThem.Name = "bntMatKhauThem";
-            this.bntMatKhauThem.PasswordChar = '\0';
-            this.bntMatKhauThem.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.bntMatKhauThem.PlaceholderText = "Mật khẩu";
-            this.bntMatKhauThem.SelectedText = "";
-            this.bntMatKhauThem.ShadowDecoration.Parent = this.bntMatKhauThem;
-            this.bntMatKhauThem.Size = new System.Drawing.Size(300, 40);
-            this.bntMatKhauThem.TabIndex = 18;
+            this.txtMatKhauTao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMatKhauTao.BackColor = System.Drawing.Color.Transparent;
+            this.txtMatKhauTao.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.txtMatKhauTao.BorderRadius = 15;
+            this.txtMatKhauTao.BorderThickness = 2;
+            this.txtMatKhauTao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMatKhauTao.DefaultText = "";
+            this.txtMatKhauTao.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMatKhauTao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMatKhauTao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMatKhauTao.DisabledState.Parent = this.txtMatKhauTao;
+            this.txtMatKhauTao.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMatKhauTao.FillColor = System.Drawing.SystemColors.Desktop;
+            this.txtMatKhauTao.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMatKhauTao.FocusedState.Parent = this.txtMatKhauTao;
+            this.txtMatKhauTao.ForeColor = System.Drawing.Color.LightGray;
+            this.txtMatKhauTao.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMatKhauTao.HoverState.Parent = this.txtMatKhauTao;
+            this.txtMatKhauTao.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtMatKhauTao.IconLeft")));
+            this.txtMatKhauTao.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.txtMatKhauTao.IconRightSize = new System.Drawing.Size(30, 30);
+            this.txtMatKhauTao.Location = new System.Drawing.Point(17, 134);
+            this.txtMatKhauTao.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtMatKhauTao.Name = "txtMatKhauTao";
+            this.txtMatKhauTao.PasswordChar = '\0';
+            this.txtMatKhauTao.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtMatKhauTao.PlaceholderText = "Mật khẩu";
+            this.txtMatKhauTao.SelectedText = "";
+            this.txtMatKhauTao.ShadowDecoration.Parent = this.txtMatKhauTao;
+            this.txtMatKhauTao.Size = new System.Drawing.Size(300, 40);
+            this.txtMatKhauTao.TabIndex = 18;
             // 
             // txtTaiKhoanTao
             // 
@@ -618,7 +689,7 @@ namespace RestaurantManagement.AdminController
             this.txtTaiKhoanTao.Name = "txtTaiKhoanTao";
             this.txtTaiKhoanTao.PasswordChar = '\0';
             this.txtTaiKhoanTao.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.txtTaiKhoanTao.PlaceholderText = "Tài khoản";
+            this.txtTaiKhoanTao.PlaceholderText = "Tên đăng nhập";
             this.txtTaiKhoanTao.SelectedText = "";
             this.txtTaiKhoanTao.ShadowDecoration.Parent = this.txtTaiKhoanTao;
             this.txtTaiKhoanTao.Size = new System.Drawing.Size(300, 40);
@@ -626,8 +697,10 @@ namespace RestaurantManagement.AdminController
             // 
             // dgvTaiKhoan
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvTaiKhoan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvTaiKhoan.AllowUserToAddRows = false;
+            this.dgvTaiKhoan.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -635,31 +708,37 @@ namespace RestaurantManagement.AdminController
             this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTaiKhoan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvTaiKhoan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvTaiKhoan.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaiKhoan.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvTaiKhoan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTaiKhoan.ColumnHeadersHeight = 50;
+            this.dgvTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maNhanVien,
+            this.hoTen,
+            this.tenDangNhap,
+            this.trangThaiTaiKhoan});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaiKhoan.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTaiKhoan.EnableHeadersVisualStyles = false;
             this.dgvTaiKhoan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTaiKhoan.Location = new System.Drawing.Point(9, 16);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
+            this.dgvTaiKhoan.ReadOnly = true;
             this.dgvTaiKhoan.RowHeadersVisible = false;
             this.dgvTaiKhoan.RowHeadersWidth = 51;
-            this.dgvTaiKhoan.RowTemplate.Height = 24;
+            this.dgvTaiKhoan.RowTemplate.Height = 40;
             this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaiKhoan.Size = new System.Drawing.Size(756, 815);
             this.dgvTaiKhoan.TabIndex = 14;
@@ -672,19 +751,52 @@ namespace RestaurantManagement.AdminController
             this.dgvTaiKhoan.ThemeStyle.BackColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTaiKhoan.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTaiKhoan.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvTaiKhoan.ThemeStyle.ReadOnly = false;
+            this.dgvTaiKhoan.ThemeStyle.HeaderStyle.Height = 50;
+            this.dgvTaiKhoan.ThemeStyle.ReadOnly = true;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Height = 40;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
+            // 
+            // maNhanVien
+            // 
+            this.maNhanVien.DataPropertyName = "maNhanVien";
+            this.maNhanVien.HeaderText = "Mã nhân viên";
+            this.maNhanVien.MinimumWidth = 6;
+            this.maNhanVien.Name = "maNhanVien";
+            this.maNhanVien.ReadOnly = true;
+            // 
+            // hoTen
+            // 
+            this.hoTen.DataPropertyName = "hoTen";
+            this.hoTen.HeaderText = "Họ tên";
+            this.hoTen.MinimumWidth = 6;
+            this.hoTen.Name = "hoTen";
+            this.hoTen.ReadOnly = true;
+            // 
+            // tenDangNhap
+            // 
+            this.tenDangNhap.DataPropertyName = "tenDangNhap";
+            this.tenDangNhap.HeaderText = "Tên đăng nhập";
+            this.tenDangNhap.MinimumWidth = 6;
+            this.tenDangNhap.Name = "tenDangNhap";
+            this.tenDangNhap.ReadOnly = true;
+            // 
+            // trangThaiTaiKhoan
+            // 
+            this.trangThaiTaiKhoan.DataPropertyName = "trangThaiTaiKhoan";
+            this.trangThaiTaiKhoan.HeaderText = "Trạng thái tài khoản";
+            this.trangThaiTaiKhoan.MinimumWidth = 6;
+            this.trangThaiTaiKhoan.Name = "trangThaiTaiKhoan";
+            this.trangThaiTaiKhoan.ReadOnly = true;
             // 
             // QuanLyTaiKhoan
             // 
@@ -697,6 +809,7 @@ namespace RestaurantManagement.AdminController
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "QuanLyTaiKhoan";
             this.Text = "QuanLyTaiKhoan";
+            this.Load += new System.EventHandler(this.QuanLyTaiKhoan_Load);
             this.myPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
@@ -718,7 +831,7 @@ namespace RestaurantManagement.AdminController
         private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI2.WinForms.Guna2ComboBox cbTinhTrangTao;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNhanVienTao;
-        private Guna.UI2.WinForms.Guna2TextBox bntMatKhauThem;
+        private Guna.UI2.WinForms.Guna2TextBox txtMatKhauTao;
         private Guna.UI2.WinForms.Guna2TextBox txtTaiKhoanTao;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private Guna.UI2.WinForms.Guna2Button bntResetTao;
@@ -738,5 +851,11 @@ namespace RestaurantManagement.AdminController
         private Label lblChucNang;
         private Label label1;
         private PresentationLayer.Control.MyPanel myPanel1;
+        private DataGridViewTextBoxColumn maNhanVien;
+        private DataGridViewTextBoxColumn hoTen;
+        private DataGridViewTextBoxColumn tenDangNhap;
+        private DataGridViewTextBoxColumn trangThaiTaiKhoan;
+        private Guna.UI2.WinForms.Guna2TextBox txtHoTen;
+        private Guna.UI2.WinForms.Guna2ComboBox cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
     }
 }

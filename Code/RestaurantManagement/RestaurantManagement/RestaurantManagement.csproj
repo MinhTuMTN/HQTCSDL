@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessLayer\BusinessTaiKhoan.cs" />
     <Compile Include="BussinessLayer\BussinessBan.cs" />
     <Compile Include="BussinessLayer\BussinessCaTruc.cs" />
     <Compile Include="BussinessLayer\BussinessCoupon.cs" />
