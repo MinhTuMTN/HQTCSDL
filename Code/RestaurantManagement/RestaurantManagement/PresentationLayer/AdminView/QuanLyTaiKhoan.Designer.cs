@@ -67,6 +67,7 @@ namespace RestaurantManagement.AdminController
             this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangThaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.myPanel1.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -722,7 +723,8 @@ namespace RestaurantManagement.AdminController
             this.maNhanVien,
             this.hoTen,
             this.tenDangNhap,
-            this.trangThaiTaiKhoan});
+            this.trangThaiTaiKhoan,
+            this.xoa});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -798,6 +800,15 @@ namespace RestaurantManagement.AdminController
             this.trangThaiTaiKhoan.Name = "trangThaiTaiKhoan";
             this.trangThaiTaiKhoan.ReadOnly = true;
             // 
+            // xoa
+            // 
+            this.xoa.HeaderText = "Xoá";
+            this.xoa.MinimumWidth = 6;
+            this.xoa.Name = "xoa";
+            this.xoa.ReadOnly = true;
+            this.xoa.Text = "Xoá";
+            this.xoa.UseColumnTextForButtonValue = true;
+            // 
             // QuanLyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -851,11 +862,12 @@ namespace RestaurantManagement.AdminController
         private Label lblChucNang;
         private Label label1;
         private PresentationLayer.Control.MyPanel myPanel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtHoTen;
+        private Guna.UI2.WinForms.Guna2ComboBox cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
         private DataGridViewTextBoxColumn maNhanVien;
         private DataGridViewTextBoxColumn hoTen;
         private DataGridViewTextBoxColumn tenDangNhap;
         private DataGridViewTextBoxColumn trangThaiTaiKhoan;
-        private Guna.UI2.WinForms.Guna2TextBox txtHoTen;
-        private Guna.UI2.WinForms.Guna2ComboBox cbTrangThaiTaiKhoanTaocbTrangThaiTaiKhoanTao;
+        private DataGridViewButtonColumn xoa;
     }
 }

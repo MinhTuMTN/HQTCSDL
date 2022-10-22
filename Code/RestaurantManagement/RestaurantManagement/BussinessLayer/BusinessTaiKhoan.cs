@@ -54,5 +54,12 @@ namespace RestaurantManagement.BussinessLayer
             result = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, sqlParameter);
             return result;
         }
+
+        public bool DeleteTaiKhoan (ref string error, string maNhanVien)
+        {
+            string cmd = "DELETE FROM dbo.TaiKhoan WHERE maNhanVien = @maNhanVien";
+            SqlParameter parameter = new SqlParameter("@maNhanVien", maNhanVien);
+            return conn.MyExecuteNonQuery(cmd,CommandType.Text, ref error, parameter);
+        }
     }
 }
