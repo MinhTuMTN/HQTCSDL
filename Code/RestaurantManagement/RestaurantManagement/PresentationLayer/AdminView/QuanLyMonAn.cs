@@ -105,7 +105,14 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 return;
 
             string image = imagesPath + dgvMonAn.Rows[row].Cells["hinhAnh"].Value.ToString().Trim();
-            picMonAn.Load(image);
+            try
+            {
+                picMonAn.Load(image);
+            }
+            catch
+            {
+                picMonAn.Load(imagesPath + "food.png");
+            }
 
             txtMaMonAn.Text = dgvMonAn.Rows[row].Cells["maMonAn"].Value.ToString().Trim();
             txtTenMonAn.Text = dgvMonAn.Rows[row].Cells["tenMonAn"].Value.ToString().Trim();
