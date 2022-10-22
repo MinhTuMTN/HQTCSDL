@@ -17,7 +17,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
     public partial class QuanLyMonAn : Form
     {
         BussinessMonAn bussiness = new BussinessMonAn();
-        string imagesPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug","")  + @"FoodImages\";
+        string imagesFolderPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug","")  + @"FoodImages\";
 
         public QuanLyMonAn()
         {
@@ -25,8 +25,8 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             openImage.Title = "Select a Image";
             openImage.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
 
-            if (Directory.Exists(imagesPath) == false)                                          
-                Directory.CreateDirectory(imagesPath);
+            if (Directory.Exists(imagesFolderPath) == false)                                          
+                Directory.CreateDirectory(imagesFolderPath);
         }
 
         private void btnThemHinhAnh_Click(object sender, EventArgs e)
@@ -55,8 +55,8 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
                 string newImageName = DateTime.Now.Ticks.ToString() + Path.GetExtension(openImage.SafeFileName);
 
-                string filepath = openImage.FileName;
-                File.Copy(filepath, imagesPath + newImageName);
+                string newImagePath = openImage.FileName;
+                File.Copy(newImagePath, imagesFolderPath + newImageName);
 
                 string error = "";
                 MonAn monAn = new MonAn(txtMaMonAn.Text.Trim(),
@@ -104,14 +104,14 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             if (row < 0)
                 return;
 
-            string image = imagesPath + dgvMonAn.Rows[row].Cells["hinhAnh"].Value.ToString().Trim();
+            string image = imagesFolderPath + dgvMonAn.Rows[row].Cells["hinhAnh"].Value.ToString().Trim();
             try
             {
                 picMonAn.Load(image);
             }
             catch
             {
-                picMonAn.Load(imagesPath + "food.png");
+                picMonAn.Load(imagesFolderPath + "food.png");
             }
 
             txtMaMonAn.Text = dgvMonAn.Rows[row].Cells["maMonAn"].Value.ToString().Trim();
@@ -135,13 +135,50 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             if (bussiness.DeleteMonAn(maMonAn, ref error))
             {
                 MessageBox.Show("Xóa món ăn thành công");
-                picMonAn.Load(imagesPath + "food.png");
+                picMonAn.Load(imagesFolderPath + "food.png");
                 File.Delete(imageDelPath);
             }               
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
             QuanLyMonAn_Load(null, null);
             
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy đường dẫn của hình ảnh cũ
+                string imageDelPath = imagesFolderPath + dgvMonAn.SelectedRows[0].Cells["hinhAnh"].Value.ToString();
+                //Xóa ảnh cũ trong thư mục
+                picMonAn.Load(imagesFolderPath + "food.png");
+                File.Delete(imageDelPath);
+
+                // Tạo tên mới cho file (tránh trùng lặp tên)
+                string newImageName = DateTime.Now.Ticks.ToString() + Path.GetExtension(openImage.SafeFileName);
+
+                // Lưu ảnh mới vào thư mục
+                string filepath = openImage.FileName;
+                File.Copy(filepath, imagesFolderPath + newImageName);
+
+                string error = "";
+                MonAn monAn = new MonAn(txtMaMonAn.Text.Trim(),
+                                        txtTenMonAn.Text.Trim(),
+                                        float.Parse(txtGiaTien.Text.Trim()),
+                                        newImageName);
+                if (monAn == null)
+                    return;
+
+                if (bussiness.UpdateMonAn(monAn, ref error))
+                    MessageBox.Show("Cập nhật món ăn thành công");
+                else
+                    MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+                QuanLyMonAn_Load(null, null);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn hình ảnh của món ăn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
