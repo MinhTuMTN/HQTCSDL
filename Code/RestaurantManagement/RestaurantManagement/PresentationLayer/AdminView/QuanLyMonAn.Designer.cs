@@ -439,6 +439,7 @@
             this.btnSua.Size = new System.Drawing.Size(125, 45);
             this.btnSua.TabIndex = 24;
             this.btnSua.Text = "   Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // label4
             // 
@@ -577,10 +578,6 @@
             this.txtMaMonAn.ShadowDecoration.Parent = this.txtMaMonAn;
             this.txtMaMonAn.Size = new System.Drawing.Size(705, 39);
             this.txtMaMonAn.TabIndex = 4;
-            // 
-            // openImage
-            // 
-            this.openImage.FileName = "openFileDialog1";
             // 
             // QuanLyMonAn
             // 
