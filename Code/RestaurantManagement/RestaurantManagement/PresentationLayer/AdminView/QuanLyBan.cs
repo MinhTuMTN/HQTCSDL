@@ -33,6 +33,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             string error = "";
             dgvBan.DataSource = bussiness.GetAllTable(ref error);
             dgvBan.Refresh();
+
+            if (dgvBan.Rows.Count > 0)
+                dgvBan_CellClick(null, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
