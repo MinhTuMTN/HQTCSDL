@@ -25,7 +25,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             openImage.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
 
             if (Directory.Exists(imagesPath) == false)                                          
-                Directory.CreateDirectory(imagesPath);   
+                Directory.CreateDirectory(imagesPath);
+
+            MessageBox.Show(DateTime.Now.Ticks.ToString());
         }
 
         private void btnThemHinhAnh_Click(object sender, EventArgs e)
@@ -49,11 +51,11 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string newImageName = DateTime.Now.ToString().Replace("/", "").Replace(" ", "").Replace(":", "") + DateTime.Now.Ticks.ToString() + Path.GetExtension(openImage.SafeFileName);
             try
             {
-                string iName = openImage.SafeFileName;   // <---
-                string filepath = openImage.FileName;    // <---
-                File.Copy(filepath, imagesPath + iName); 
+                string filepath = openImage.FileName;
+                File.Copy(filepath, imagesPath + newImageName); 
             }
             catch (Exception exp)
             {
@@ -64,7 +66,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             MonAn monAn = new MonAn(txtMaMonAn.Text.Trim(),
                                     txtTenMonAn.Text.Trim(),
                                     float.Parse(txtGiaTien.Text.Trim()),
-                                    openImage.SafeFileName);
+                                    newImageName);
             if (monAn == null)
                 return;
 
