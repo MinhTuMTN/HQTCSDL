@@ -116,5 +116,13 @@ namespace RestaurantManagement.AsminController
 
             LoadPanelMain(new ThongKe());
         }
+
+        private void btnBan_Click(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2GradientTileButton btn = (Guna.UI2.WinForms.Guna2GradientTileButton)sender;
+            btn.Checked = true;
+
+            LoadPanelMain(new QuanLyBan());
+        }
     }
 }

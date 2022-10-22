@@ -40,19 +40,21 @@
             this.btnTaiKhoan = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnQuanLyNhanVien = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.pnMain = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnBan = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaPanel1
             // 
             this.gunaPanel1.BackColor = System.Drawing.Color.White;
+            this.gunaPanel1.Controls.Add(this.btnMonAn);
+            this.gunaPanel1.Controls.Add(this.btnBan);
             this.gunaPanel1.Controls.Add(this.guna2Separator1);
             this.gunaPanel1.Controls.Add(this.btnCaTruc);
             this.gunaPanel1.Controls.Add(this.btnThongKe);
             this.gunaPanel1.Controls.Add(this.btnTraLuong);
             this.gunaPanel1.Controls.Add(this.btnCoupon);
             this.gunaPanel1.Controls.Add(this.btnKhachHang);
-            this.gunaPanel1.Controls.Add(this.btnMonAn);
             this.gunaPanel1.Controls.Add(this.btnTaiKhoan);
             this.gunaPanel1.Controls.Add(this.btnQuanLyNhanVien);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -92,7 +94,7 @@
             this.btnCaTruc.HoverState.Parent = this.btnCaTruc;
             this.btnCaTruc.Image = ((System.Drawing.Image)(resources.GetObject("btnCaTruc.Image")));
             this.btnCaTruc.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnCaTruc.Location = new System.Drawing.Point(12, 393);
+            this.btnCaTruc.Location = new System.Drawing.Point(15, 245);
             this.btnCaTruc.Name = "btnCaTruc";
             this.btnCaTruc.ShadowDecoration.Parent = this.btnCaTruc;
             this.btnCaTruc.Size = new System.Drawing.Size(109, 96);
@@ -121,7 +123,7 @@
             this.btnThongKe.HoverState.Parent = this.btnThongKe;
             this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
             this.btnThongKe.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnThongKe.Location = new System.Drawing.Point(12, 824);
+            this.btnThongKe.Location = new System.Drawing.Point(12, 851);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.ShadowDecoration.Parent = this.btnThongKe;
             this.btnThongKe.Size = new System.Drawing.Size(109, 85);
@@ -150,7 +152,7 @@
             this.btnTraLuong.HoverState.Parent = this.btnTraLuong;
             this.btnTraLuong.Image = ((System.Drawing.Image)(resources.GetObject("btnTraLuong.Image")));
             this.btnTraLuong.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnTraLuong.Location = new System.Drawing.Point(12, 715);
+            this.btnTraLuong.Location = new System.Drawing.Point(12, 749);
             this.btnTraLuong.Name = "btnTraLuong";
             this.btnTraLuong.ShadowDecoration.Parent = this.btnTraLuong;
             this.btnTraLuong.Size = new System.Drawing.Size(109, 96);
@@ -179,10 +181,10 @@
             this.btnCoupon.HoverState.Parent = this.btnCoupon;
             this.btnCoupon.Image = ((System.Drawing.Image)(resources.GetObject("btnCoupon.Image")));
             this.btnCoupon.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnCoupon.Location = new System.Drawing.Point(12, 606);
+            this.btnCoupon.Location = new System.Drawing.Point(15, 640);
             this.btnCoupon.Name = "btnCoupon";
             this.btnCoupon.ShadowDecoration.Parent = this.btnCoupon;
-            this.btnCoupon.Size = new System.Drawing.Size(104, 103);
+            this.btnCoupon.Size = new System.Drawing.Size(106, 103);
             this.btnCoupon.TabIndex = 5;
             this.btnCoupon.Text = "Coupons";
             this.btnCoupon.Click += new System.EventHandler(this.btnCoupon_Click);
@@ -208,7 +210,7 @@
             this.btnKhachHang.HoverState.Parent = this.btnKhachHang;
             this.btnKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnKhachHang.Image")));
             this.btnKhachHang.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnKhachHang.Location = new System.Drawing.Point(12, 495);
+            this.btnKhachHang.Location = new System.Drawing.Point(12, 543);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.ShadowDecoration.Parent = this.btnKhachHang;
             this.btnKhachHang.Size = new System.Drawing.Size(109, 91);
@@ -237,7 +239,7 @@
             this.btnMonAn.HoverState.Parent = this.btnMonAn;
             this.btnMonAn.Image = ((System.Drawing.Image)(resources.GetObject("btnMonAn.Image")));
             this.btnMonAn.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnMonAn.Location = new System.Drawing.Point(12, 194);
+            this.btnMonAn.Location = new System.Drawing.Point(15, 347);
             this.btnMonAn.Name = "btnMonAn";
             this.btnMonAn.ShadowDecoration.Parent = this.btnMonAn;
             this.btnMonAn.Size = new System.Drawing.Size(109, 88);
@@ -266,7 +268,7 @@
             this.btnTaiKhoan.HoverState.Parent = this.btnTaiKhoan;
             this.btnTaiKhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnTaiKhoan.Image")));
             this.btnTaiKhoan.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnTaiKhoan.Location = new System.Drawing.Point(12, 288);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(15, 140);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.ShadowDecoration.Parent = this.btnTaiKhoan;
             this.btnTaiKhoan.Size = new System.Drawing.Size(109, 99);
@@ -296,7 +298,7 @@
             this.btnQuanLyNhanVien.HoverState.Parent = this.btnQuanLyNhanVien;
             this.btnQuanLyNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyNhanVien.Image")));
             this.btnQuanLyNhanVien.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnQuanLyNhanVien.Location = new System.Drawing.Point(12, 88);
+            this.btnQuanLyNhanVien.Location = new System.Drawing.Point(12, 47);
             this.btnQuanLyNhanVien.Name = "btnQuanLyNhanVien";
             this.btnQuanLyNhanVien.ShadowDecoration.Parent = this.btnQuanLyNhanVien;
             this.btnQuanLyNhanVien.Size = new System.Drawing.Size(109, 87);
@@ -317,6 +319,35 @@
             this.pnMain.Size = new System.Drawing.Size(1158, 981);
             this.pnMain.TabIndex = 3;
             this.pnMain.Resize += new System.EventHandler(this.pnMain_Resize);
+            // 
+            // btnBan
+            // 
+            this.btnBan.BackColor = System.Drawing.Color.Transparent;
+            this.btnBan.BorderRadius = 20;
+            this.btnBan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnBan.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnBan.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
+            this.btnBan.CheckedState.Parent = this.btnBan;
+            this.btnBan.CustomImages.Parent = this.btnBan;
+            this.btnBan.FillColor = System.Drawing.Color.Transparent;
+            this.btnBan.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnBan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBan.ForeColor = System.Drawing.Color.Silver;
+            this.btnBan.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnBan.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
+            this.btnBan.HoverState.Parent = this.btnBan;
+            this.btnBan.Image = ((System.Drawing.Image)(resources.GetObject("btnBan.Image")));
+            this.btnBan.ImageSize = new System.Drawing.Size(52, 52);
+            this.btnBan.Location = new System.Drawing.Point(15, 441);
+            this.btnBan.Name = "btnBan";
+            this.btnBan.ShadowDecoration.Parent = this.btnBan;
+            this.btnBan.Size = new System.Drawing.Size(109, 96);
+            this.btnBan.TabIndex = 10;
+            this.btnBan.Text = "Tables";
+            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
             // 
             // frmMainMenu
             // 
@@ -352,5 +383,6 @@
         private Guna.UI2.WinForms.Guna2GradientTileButton btnCaTruc;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel pnMain;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private Guna.UI2.WinForms.Guna2GradientTileButton btnBan;
     }
 }

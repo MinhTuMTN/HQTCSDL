@@ -32,18 +32,18 @@ namespace RestaurantManagement.AdminController
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyTaiKhoan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.myPanel1 = new RestaurantManagement.PresentationLayer.Control.MyPanel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
             this.lblChucNang = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.gbCapNhat = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -73,15 +73,14 @@ namespace RestaurantManagement.AdminController
             // 
             // myPanel1
             // 
-            this.myPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.myPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.myPanel1.BackColor = System.Drawing.Color.White;
             this.myPanel1.Controls.Add(this.guna2CustomGradientPanel1);
             this.myPanel1.Controls.Add(this.pnMain);
             this.myPanel1.Location = new System.Drawing.Point(-3, -3);
             this.myPanel1.Name = "myPanel1";
-            this.myPanel1.Size = new System.Drawing.Size(1128, 975);
+            this.myPanel1.Size = new System.Drawing.Size(1128, 985);
             this.myPanel1.TabIndex = 0;
             // 
             // guna2CustomGradientPanel1
@@ -92,95 +91,16 @@ namespace RestaurantManagement.AdminController
             this.guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.guna2CustomGradientPanel1.BorderRadius = 20;
             this.guna2CustomGradientPanel1.BorderThickness = 3;
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2GradientPanel1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtTimKiem);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnCaiDat);
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2GradientPanel1);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblChucNang);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
-            this.guna2CustomGradientPanel1.Controls.Add(this.txtTimKiem);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(6, 18);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1118, 85);
-            this.guna2CustomGradientPanel1.TabIndex = 3;
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GradientPanel1.BorderRadius = 15;
-            this.guna2GradientPanel1.Controls.Add(this.label12);
-            this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(903, 12);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 60);
-            this.guna2GradientPanel1.TabIndex = 13;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(62, 19);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 23);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Quản lý";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(-1, -2);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(63, 63);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // btnCaiDat
-            // 
-            this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCaiDat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCaiDat.CheckedState.Parent = this.btnCaiDat;
-            this.btnCaiDat.CustomImages.Parent = this.btnCaiDat;
-            this.btnCaiDat.FillColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCaiDat.ForeColor = System.Drawing.Color.White;
-            this.btnCaiDat.HoverState.Parent = this.btnCaiDat;
-            this.btnCaiDat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.Image")));
-            this.btnCaiDat.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnCaiDat.Location = new System.Drawing.Point(1065, 22);
-            this.btnCaiDat.Name = "btnCaiDat";
-            this.btnCaiDat.PressedColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnCaiDat.ShadowDecoration.Parent = this.btnCaiDat;
-            this.btnCaiDat.Size = new System.Drawing.Size(43, 41);
-            this.btnCaiDat.TabIndex = 12;
-            // 
-            // lblChucNang
-            // 
-            this.lblChucNang.AutoSize = true;
-            this.lblChucNang.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChucNang.Location = new System.Drawing.Point(30, 42);
-            this.lblChucNang.Name = "lblChucNang";
-            this.lblChucNang.Size = new System.Drawing.Size(162, 22);
-            this.lblChucNang.TabIndex = 10;
-            this.lblChucNang.Text = "Quản lý tài khoản";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 27);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "The Moon Restaurant";
+            this.guna2CustomGradientPanel1.TabIndex = 17;
             // 
             // txtTimKiem
             // 
@@ -210,7 +130,86 @@ namespace RestaurantManagement.AdminController
             this.txtTimKiem.SelectedText = "";
             this.txtTimKiem.ShadowDecoration.Parent = this.txtTimKiem;
             this.txtTimKiem.Size = new System.Drawing.Size(502, 44);
-            this.txtTimKiem.TabIndex = 8;
+            this.txtTimKiem.TabIndex = 13;
+            // 
+            // btnCaiDat
+            // 
+            this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCaiDat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCaiDat.CheckedState.Parent = this.btnCaiDat;
+            this.btnCaiDat.CustomImages.Parent = this.btnCaiDat;
+            this.btnCaiDat.FillColor = System.Drawing.Color.Transparent;
+            this.btnCaiDat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCaiDat.ForeColor = System.Drawing.Color.White;
+            this.btnCaiDat.HoverState.Parent = this.btnCaiDat;
+            this.btnCaiDat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.Image")));
+            this.btnCaiDat.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnCaiDat.Location = new System.Drawing.Point(1065, 22);
+            this.btnCaiDat.Name = "btnCaiDat";
+            this.btnCaiDat.PressedColor = System.Drawing.Color.Transparent;
+            this.btnCaiDat.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnCaiDat.ShadowDecoration.Parent = this.btnCaiDat;
+            this.btnCaiDat.Size = new System.Drawing.Size(43, 41);
+            this.btnCaiDat.TabIndex = 12;
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientPanel1.BorderRadius = 15;
+            this.guna2GradientPanel1.Controls.Add(this.label12);
+            this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(903, 12);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(159, 60);
+            this.guna2GradientPanel1.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(62, 19);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 23);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Quản lý";
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(63, 63);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 0;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // lblChucNang
+            // 
+            this.lblChucNang.AutoSize = true;
+            this.lblChucNang.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucNang.Location = new System.Drawing.Point(30, 42);
+            this.lblChucNang.Name = "lblChucNang";
+            this.lblChucNang.Size = new System.Drawing.Size(162, 22);
+            this.lblChucNang.TabIndex = 10;
+            this.lblChucNang.Text = "Quản lý tài khoản";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 27);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "The Moon Restaurant";
             // 
             // pnMain
             // 
@@ -219,7 +218,7 @@ namespace RestaurantManagement.AdminController
             this.pnMain.Controls.Add(this.gbCapNhat);
             this.pnMain.Controls.Add(this.gbThem);
             this.pnMain.Controls.Add(this.dgvTaiKhoan);
-            this.pnMain.Location = new System.Drawing.Point(6, 125);
+            this.pnMain.Location = new System.Drawing.Point(6, 130);
             this.pnMain.Name = "pnMain";
             this.pnMain.ShadowDecoration.Parent = this.pnMain;
             this.pnMain.Size = new System.Drawing.Size(1125, 847);
@@ -627,8 +626,8 @@ namespace RestaurantManagement.AdminController
             // 
             // dgvTaiKhoan
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvTaiKhoan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvTaiKhoan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -637,23 +636,23 @@ namespace RestaurantManagement.AdminController
             this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTaiKhoan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTaiKhoan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTaiKhoan.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaiKhoan.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaiKhoan.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTaiKhoan.EnableHeadersVisualStyles = false;
             this.dgvTaiKhoan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvTaiKhoan.Location = new System.Drawing.Point(9, 16);
@@ -691,7 +690,7 @@ namespace RestaurantManagement.AdminController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 965);
+            this.ClientSize = new System.Drawing.Size(1128, 975);
             this.Controls.Add(this.myPanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -715,7 +714,6 @@ namespace RestaurantManagement.AdminController
         #endregion
         private Guna.UI2.WinForms.Guna2GroupBox gbCapNhat;
         private Guna.UI2.WinForms.Guna2GroupBox gbThem;
-        private PresentationLayer.Control.MyPanel myPanel1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvTaiKhoan;
         private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI2.WinForms.Guna2ComboBox cbTinhTrangTao;
@@ -732,12 +730,13 @@ namespace RestaurantManagement.AdminController
         private Guna.UI2.WinForms.Guna2TextBox txtMatKhauSua;
         private Guna.UI2.WinForms.Guna2TextBox txtTaiKhoanSua;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
+        private Guna.UI2.WinForms.Guna2CircleButton btnCaiDat;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Label label12;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2CircleButton btnCaiDat;
         private Label lblChucNang;
         private Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
+        private PresentationLayer.Control.MyPanel myPanel1;
     }
 }

@@ -213,27 +213,27 @@ GO
 
 -- Chèn dữ liệu mẫu
 insert into NhanVien(maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien)
-values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 1, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
-	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 1, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
-	, ('NV110003', N'Nguyễn Phương Nga', '1990-07-25', 0, N'8, Ấp Bình Văn, Phường 50, Huyện Nhữ Vỹ Châu Vĩnh Phúc', '0199322097', 400000, N'Quản Lý')
-	, ('NV220111', N'Trương Quang Định', '1993-08-24', 1, N'1456 Phố Nhạn, Ấp Phong Đàn, Quận Mai Mộc Quảng Ngãi', '0685598384', 380000, N'Đầu Bếp')
-	, ('NV220222', N'Đỗ Tố Hoa', '1996-12-01', 0, N'371, Ấp Trưng, Xã Bắc Đôn, Quận Giang Lô Phú Yên', '0467206578', 380000, N'Đầu Bếp')
-	, ('NV220333', N'Bùi Công Minh', '1994-05-09', 1, N'45 Võ Thị Sáu, P.Đa Kao. Trung tâm Quận 1, TP HCM','0671543545',380000, N'Đầu Bếp')
-	, ('NV220444', N'Đào Văn Mác', '1994-06-17', 1, N'98 Phố Tăng Dân Giao, Ấp Nghị Thiên, Quận Khoát Từ Đồng Tháp','0581080331', 380000, N'Đầu Bếp')
-	, ('NV220555', N'Nguyễn Thị Ngọc Lan', '1997-10-28', 0, N'14, Thôn Thủy Trạch, Xã 9, Quận Đàn Tiền Giang','0281160318', 380000, N'Đầu Bếp')
-	, ('NV330101', N'Ngô Cẩm Huệ', '1999-02-21', 0, N'512 Phố Phạm Thục Thông, Thôn Cát Đàn, Quận Âu Cà Mau','0186388645', 380000, N'Phục Vụ')
-	, ('NV330102', N'Trần Thiên Anh','2000-10-13', 1, N'7881 Phố Chung, Xã Chiến, Quận Cát Thái Nguyên','0984950567', 330000, N'Phục Vụ')
-	, ('NV330103', N'Đinh Quang Vinh', '2000-11-09', 1, N'840, Thôn Thập Xuân Khoát, Ấp Chiểu Anh, Quận Đình Khánh Hòa','0979873572', 330000, N'Phục Vụ')
-	, ('NV330104', N'Nguyễn Trường Hải', '2001-07-16', 1, N'5259 Phố Nhiên, Xã Kha, Huyện 16 Bình Phước','0682122957', 330000, N'Phục Vụ')
-	, ('NV330105', N'Đặng Thị Cẩm Tiên', '2002-08-15', 0, N'3 Phố Âu Phương Trực, Phường Bắc Thịnh, Quận Đăng Đà Nẵng','0351091857', 330000, N'Phục Vụ')
-	, ('NV330106', N'Phạm Hùng Thủy', '2001-04-25', 1, N'7933 Phố Lê Lập Đoan, Thôn Chương Cảnh, Quận Thục Lào Cai','0741419362', 330000, N'Phục Vụ')
-	, ('NV330107', N'Lý Bắc Nam', '2001-09-10', 1, N'554, Thôn Thôi Linh, Phường Định Lam, Quận Bồ Diệp Cà Mau','0713923079', 330000, N'Phục Vụ')
-	, ('NV330108', N'Trịnh Hoàng Yến Nhi', '2002-06-29', 0, N'3 Phố Đan Dao Khuyên, Phường Hoàn Hiển, Huyện Khánh Ý Vĩnh Phúc','0158769212', 330000, N'Phục Vụ')
-	, ('NV330109', N'Phan Hoàng Châu', '1999-03-08', 0, N'7704, Thôn Ái Đôn, Phường 64, Quận Hoan Ngô Thừa Thiên Huế','0851882959', 330000, N'Phục Vụ')
-	, ('NV330110', N'Lại Văn Phú','2001-07-14', 1, N'20 Phố Diệp Lực Liên, Phường Nhân Lạc, Huyện Kha Điện Biên','0126892148', 330000, N'Phục Vụ')
-	, ('NV440123', N'Trần Trường Thi', '2000-08-22', 1, N'2 Phố Nhiên, Phường Thu Kiều, Huyện 6 Cao Bằng','0775783212', 270000, N'Thu Ngân')
-	, ('NV440456', N'Mai Bảo Ngọc','1998-04-12', 0, N'20 Phố Đàm Trung Sơn, Thôn Đăng Hạ, Quận Phương Trác Tuyên Quang','0874588175', 270000, N'Thu Ngân')
-	, ('NV440789', N'Đỗ Hồng Thái Ngân', '1999-01-30', 0, N'5 Phố Hồng Yên Kiên, Phường Sinh Tiến, Huyện Bồ Diệp Quân Khánh Hòa','0679242119', 270000, N'Thu Ngân')
+values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
+	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 0, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
+	, ('NV110003', N'Nguyễn Phương Nga', '1990-07-25', 1, N'8, Ấp Bình Văn, Phường 50, Huyện Nhữ Vỹ Châu Vĩnh Phúc', '0199322097', 400000, N'Quản Lý')
+	, ('NV220111', N'Trương Quang Định', '1993-08-24', 0, N'1456 Phố Nhạn, Ấp Phong Đàn, Quận Mai Mộc Quảng Ngãi', '0685598384', 380000, N'Đầu Bếp')
+	, ('NV220222', N'Đỗ Tố Hoa', '1996-12-01', 1, N'371, Ấp Trưng, Xã Bắc Đôn, Quận Giang Lô Phú Yên', '0467206578', 380000, N'Đầu Bếp')
+	, ('NV220333', N'Bùi Công Minh', '1994-05-09', 0, N'45 Võ Thị Sáu, P.Đa Kao. Trung tâm Quận 1, TP HCM','0671543545',380000, N'Đầu Bếp')
+	, ('NV220444', N'Đào Văn Mác', '1994-06-17', 0, N'98 Phố Tăng Dân Giao, Ấp Nghị Thiên, Quận Khoát Từ Đồng Tháp','0581080331', 380000, N'Đầu Bếp')
+	, ('NV220555', N'Nguyễn Thị Ngọc Lan', '1997-10-28', 1, N'14, Thôn Thủy Trạch, Xã 9, Quận Đàn Tiền Giang','0281160318', 380000, N'Đầu Bếp')
+	, ('NV330101', N'Ngô Cẩm Huệ', '1999-02-21', 1, N'512 Phố Phạm Thục Thông, Thôn Cát Đàn, Quận Âu Cà Mau','0186388645', 380000, N'Phục Vụ')
+	, ('NV330102', N'Trần Thiên Anh','2000-10-13', 0, N'7881 Phố Chung, Xã Chiến, Quận Cát Thái Nguyên','0984950567', 330000, N'Phục Vụ')
+	, ('NV330103', N'Đinh Quang Vinh', '2000-11-09', 0, N'840, Thôn Thập Xuân Khoát, Ấp Chiểu Anh, Quận Đình Khánh Hòa','0979873572', 330000, N'Phục Vụ')
+	, ('NV330104', N'Nguyễn Trường Hải', '2001-07-16', 0, N'5259 Phố Nhiên, Xã Kha, Huyện 16 Bình Phước','0682122957', 330000, N'Phục Vụ')
+	, ('NV330105', N'Đặng Thị Cẩm Tiên', '2002-08-15', 1, N'3 Phố Âu Phương Trực, Phường Bắc Thịnh, Quận Đăng Đà Nẵng','0351091857', 330000, N'Phục Vụ')
+	, ('NV330106', N'Phạm Hùng Thủy', '2001-04-25', 0, N'7933 Phố Lê Lập Đoan, Thôn Chương Cảnh, Quận Thục Lào Cai','0741419362', 330000, N'Phục Vụ')
+	, ('NV330107', N'Lý Bắc Nam', '2001-09-10', 0, N'554, Thôn Thôi Linh, Phường Định Lam, Quận Bồ Diệp Cà Mau','0713923079', 330000, N'Phục Vụ')
+	, ('NV330108', N'Trịnh Hoàng Yến Nhi', '2002-06-29', 1, N'3 Phố Đan Dao Khuyên, Phường Hoàn Hiển, Huyện Khánh Ý Vĩnh Phúc','0158769212', 330000, N'Phục Vụ')
+	, ('NV330109', N'Phan Hoàng Châu', '1999-03-08', 1, N'7704, Thôn Ái Đôn, Phường 64, Quận Hoan Ngô Thừa Thiên Huế','0851882959', 330000, N'Phục Vụ')
+	, ('NV330110', N'Lại Văn Phú','2001-07-14', 0, N'20 Phố Diệp Lực Liên, Phường Nhân Lạc, Huyện Kha Điện Biên','0126892148', 330000, N'Phục Vụ')
+	, ('NV440123', N'Trần Trường Thi', '2000-08-22', 0, N'2 Phố Nhiên, Phường Thu Kiều, Huyện 6 Cao Bằng','0775783212', 270000, N'Thu Ngân')
+	, ('NV440456', N'Mai Bảo Ngọc','1998-04-12', 1, N'20 Phố Đàm Trung Sơn, Thôn Đăng Hạ, Quận Phương Trác Tuyên Quang','0874588175', 270000, N'Thu Ngân')
+	, ('NV440789', N'Đỗ Hồng Thái Ngân', '1999-01-30', 1, N'5 Phố Hồng Yên Kiên, Phường Sinh Tiến, Huyện Bồ Diệp Quân Khánh Hòa','0679242119', 270000, N'Thu Ngân')
 
 GO
 
@@ -307,12 +307,12 @@ values ('NV220111', 'CT1001')
 GO
 
 insert into KhachHang(maKhachHang, hoTen, soDienThoai, ngaySinh, gioiTinh)
-values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 1)
-	, ('KH02', N'Nguyễn Xuân Lan', '0510502106', '1992-05-17', 0)
-	, ('KH03', N'Bùi Ngọc Ánh', '0513341746', '1998-12-12', 0)
-	, ('KH04', N'Võ Xuân Hiển', '0759614456', '2002-02-19', 1)
-	, ('KH05', N'Trần Đình Nam', '0743563676', '1985-04-20', 1)
-	, ('KH06', N'Phan Mạnh Quỳnh', '0753120822', '2000-07-22', 1)
+values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
+	, ('KH02', N'Nguyễn Xuân Lan', '0510502106', '1992-05-17', 1)
+	, ('KH03', N'Bùi Ngọc Ánh', '0513341746', '1998-12-12', 1)
+	, ('KH04', N'Võ Xuân Hiển', '0759614456', '2002-02-19', 0)
+	, ('KH05', N'Trần Đình Nam', '0743563676', '1985-04-20', 0)
+	, ('KH06', N'Phan Mạnh Quỳnh', '0753120822', '2000-07-22', 0)
 
 GO
 
@@ -485,7 +485,7 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh date, @gioitinh bit, @diachi nvarchar(100), @SDT int, @heSoLuong float, @loaiNhanVien nvarchar(20))
+CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh date, @gioitinh bit, @diachi nvarchar(100), @SDT CHAR(10), @heSoLuong float, @loaiNhanVien nvarchar(20))
 AS BEGIN
 		INSERT INTO dbo.NhanVien
 		VALUES (@ma,@ten,@ngaysinh,@gioitinh,@diachi,@SDT,@heSoLuong,@loaiNhanVien)
@@ -501,11 +501,11 @@ GO
 
 -- Stored Procedure tìm kiếm
 -- Search procedure: tìm kiếm một đối tượng dựa theo khóa chính
-CREATE PROCEDURE spSearchNhanVien(@maNhanVien CHAR(10))
+CREATE PROCEDURE spSearchNhanVien(@text CHAR(10))
 AS BEGIN
     SELECT *
 	FROM dbo.NhanVien
-	WHERE @maNhanVien = maNhanVien
+	WHERE hoTen LIKE @text OR maNhanVien LIKE @text
 END
 GO
 
@@ -861,6 +861,47 @@ WHERE Luong.maCaTruc=CaTruc.maCaTruc AND NhanVien.maNhanVien = Luong.maNhanVien
 GO
 
 -- Tạo các Function
+CREATE FUNCTION fnSearchNhanVien(@text NVARCHAR(150))
+RETURNS TABLE AS
+RETURN(
+	SELECT *
+	FROM dbo.NhanVien
+	WHERE maNhanVien LIKE  '%' + @text + '%' OR hoTen LIKE '%' + @text + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchKhachHang(@text NVARCHAR(150))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.KhachHang
+	WHERE maKhachHang LIKE  '%' + @text + '%' OR hoTen LIKE '%' + @text + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchBan(@maBan NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Ban
+	WHERE maBan LIKE '%' + @maBan + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Coupon
+	WHERE maCoupon LIKE '%' + @maCoupon + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchCouponByDate(@date DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Coupon
+	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
+)
+GO
+
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
