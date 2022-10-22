@@ -860,6 +860,12 @@ FROM dbo.Luong, dbo.CaTruc, dbo.NhanVien
 WHERE Luong.maCaTruc=CaTruc.maCaTruc AND NhanVien.maNhanVien = Luong.maNhanVien
 GO
 
+CREATE VIEW viewTaiKhoanNhanVien
+AS SELECT TK.maNhanVien, NV.hoTen, TK.tenDangNhap, TK.trangThaiTaiKhoan FROM dbo.NhanVien NV, dbo.TaiKhoan TK
+WHERE NV.maNhanVien = TK.maNhanVien
+GO
+
+
 -- Tạo các Function
 CREATE FUNCTION fnSearchNhanVien(@text NVARCHAR(150))
 RETURNS TABLE AS
