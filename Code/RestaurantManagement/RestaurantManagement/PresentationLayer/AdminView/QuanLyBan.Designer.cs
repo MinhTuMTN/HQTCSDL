@@ -1210,7 +1210,7 @@
             // 
             // xoa
             // 
-            this.xoa.HeaderText = "Xoá";
+            this.xoa.HeaderText = "Xóa";
             this.xoa.MinimumWidth = 6;
             this.xoa.Name = "xoa";
             this.xoa.ReadOnly = true;
@@ -1299,7 +1299,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMaBanSua;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvBan;
         private Guna.UI2.WinForms.Guna2NumericUpDown numSLGheSua;
         private Guna.UI2.WinForms.Guna2NumericUpDown numSLGheTao;
         private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
@@ -1307,5 +1306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuongGheToiDa;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThaiBan;
         private System.Windows.Forms.DataGridViewButtonColumn xoa;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvBan;
     }
 }

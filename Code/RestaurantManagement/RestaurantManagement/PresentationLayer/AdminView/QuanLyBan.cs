@@ -19,6 +19,8 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         public QuanLyBan()
         {
             InitializeComponent();
+            dgvBan.AutoGenerateColumns = false;
+
         }
 
         private void cbLoaiBan_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,7 +34,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             cbTrangThaiBanTao.SelectedIndex = 0;
             string error = "";
             dgvBan.DataSource = bussiness.GetAllTable(ref error);
-            dgvBan.Refresh();
 
             if (dgvBan.Rows.Count > 0)
                 dgvBan_CellClick(null, new DataGridViewCellEventArgs(0, 0));
