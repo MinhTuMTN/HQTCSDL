@@ -1,6 +1,22 @@
 ﻿USE QuanLyNhaHang
 GO
 
+CREATE FUNCTION fnTinhLuongTamTinh(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @soNgayCuaCaTruc INT
+	SELECT @soNgayCuaCaTruc = DATEDIFF(day,ngayBatDau,ngayKetThuc) + 1 
+	FROM dbo.CaTruc 
+	WHERE maCaTruc = @maCaTruc
+
+	DECLARE @heSoLuong FLOAT
+	SELECT @heSoLuong = heSoLuong FROM dbo.NhanVien
+	WHERE maNhanVien = @maNhanVien
+
+	RETURN @heSoLuong * @soNgayCuaCaTruc
+END
+GO
+
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
