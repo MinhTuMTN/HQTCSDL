@@ -65,6 +65,7 @@
     <Compile Include="BussinessLayer\BussinessKhachHang.cs" />
     <Compile Include="BussinessLayer\BussinessMonAn.cs" />
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
+    <Compile Include="BussinessLayer\BussinessTraLuong.cs" />
     <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
     <Compile Include="DataAccessLayer\Model\Ban.cs" />
     <Compile Include="DataAccessLayer\Model\CaTruc.cs" />
