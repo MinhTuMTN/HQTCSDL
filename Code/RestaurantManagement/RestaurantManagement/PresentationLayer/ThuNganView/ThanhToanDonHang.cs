@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace RestaurantManagement.PresentationLayer.ThuNganView
 {
-    public partial class ThanhToanDonHang : Form
+    public partial class frmMainThuNgan : Form
     {
-        public ThanhToanDonHang()
+        public frmMainThuNgan()
         {
             InitializeComponent();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

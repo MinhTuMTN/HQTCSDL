@@ -3,6 +3,7 @@ using RestaurantManagement.AsminController;
 using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer;
 using RestaurantManagement.PresentationLayer.AdminView;
+using RestaurantManagement.PresentationLayer.ThuNganView;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,7 +23,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new frmMainThuNgan());
             //string error = "";
             //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
         }

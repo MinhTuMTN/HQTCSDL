@@ -66,12 +66,12 @@
     <Compile Include="BussinessLayer\BussinessMonAn.cs" />
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
     <Compile Include="BussinessLayer\BussinessTraLuong.cs" />
+    <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
     <Compile Include="DataAccessLayer\Model\Ban.cs" />
     <Compile Include="DataAccessLayer\Model\CaTruc.cs" />
     <Compile Include="DataAccessLayer\Model\ChiTietHoaDon.cs" />
     <Compile Include="DataAccessLayer\Model\Coupon.cs" />
     <Compile Include="DataAccessLayer\Model\DangKyCaTruc.cs" />
-    <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
     <Compile Include="DataAccessLayer\Model\DatTruoc.cs" />
     <Compile Include="DataAccessLayer\Model\HoaDon.cs" />
     <Compile Include="DataAccessLayer\Model\KhachHang.cs" />
@@ -157,6 +157,12 @@
     <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\ThuNganView\ThanhToanDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ThuNganView\ThanhToanDonHang.Designer.cs">
+      <DependentUpon>ThanhToanDonHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\AdminView\MainMenu.resx">
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ThuNganView\ThanhToanDonHang.resx">
+      <DependentUpon>ThanhToanDonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -229,8 +238,6 @@
     <Content Include="PresentationLayer\Images\Logo\logo.png" />
     <None Include="PresentationLayer\Images\Logo\Search_512px.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PresentationLayer\ThuNganView\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
