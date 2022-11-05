@@ -229,6 +229,8 @@
     <Content Include="PresentationLayer\Images\Logo\logo.png" />
     <None Include="PresentationLayer\Images\Logo\Search_512px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PresentationLayer\ThuNganView\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
