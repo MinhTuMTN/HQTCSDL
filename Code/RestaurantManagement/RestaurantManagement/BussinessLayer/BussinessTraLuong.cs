@@ -19,6 +19,33 @@ namespace RestaurantManagement.BussinessLayer
             return connection.MyExecuteQueryDataTable("SELECT * FROM viewLuongNhanVien", CommandType.Text, ref error);
         }
 
+        public DataTable GetDetailLuong(string maCaTruc, string maNhanVien, ref string error)
+        {
+            DataTable results = new DataTable();
+
+            string cmd = "SELECT * FROM dbo.fnDetailLuong(@maNhanVien, @maCaTruc)";
+            SqlParameter[] parameters = { 
+                new SqlParameter("@maNhanVien", maNhanVien),
+                new SqlParameter("@maCaTruc", maCaTruc)
+            };
+
+            results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parameters);
+            return results;
+        }
+
+        public float TamTinhLuong(string maCaTruc, string maNhanVien, ref string error)
+        {
+            string cmd = "SELECT dbo.fnTinhLuongTamTinh(@maNhanVien, @maCaTruc)";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@maNhanVien", maNhanVien),
+                new SqlParameter("@maCaTruc", maCaTruc)
+            };
+
+            float result = (float)(double)connection.MyExecuteScalar(cmd, CommandType.Text, ref error, parameters);
+            return result;
+        }
+
         public bool UpdateLuong(string maCaTruc, string hoTen, int soNgayNghi, ref string error)
         {
             // Cập nhật số ngày nghỉ lên view(viewLuongNhanVien).

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TraLuong));
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -39,13 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.dtgLuong = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.maCaTruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soNgayNghi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbThongTinLuong = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txtWarning = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -64,7 +57,7 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
+            this.btnXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnSua = new Guna.UI2.WinForms.Guna2Button();
             this.txtSoNgayNghi = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,6 +65,14 @@
             this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.maCaTruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soNgayNghi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -166,8 +167,8 @@
             this.dtgLuong.AllowUserToAddRows = false;
             this.dtgLuong.AllowUserToDeleteRows = false;
             this.dtgLuong.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtgLuong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtgLuong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -176,31 +177,32 @@
             this.dtgLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgLuong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgLuong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgLuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgLuong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtgLuong.ColumnHeadersHeight = 50;
             this.dtgLuong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maCaTruc,
+            this.maNhanVien,
             this.hoTen,
             this.heSoLuong,
             this.ngayBatDau,
             this.ngayKetThuc,
             this.soNgayNghi,
             this.tongLuong});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgLuong.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgLuong.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgLuong.EnableHeadersVisualStyles = false;
             this.dtgLuong.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgLuong.Location = new System.Drawing.Point(12, 12);
@@ -236,62 +238,6 @@
             this.dtgLuong.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgLuong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgLuong_CellClick);
             // 
-            // maCaTruc
-            // 
-            this.maCaTruc.DataPropertyName = "maCaTruc";
-            this.maCaTruc.HeaderText = "Mã ca trực";
-            this.maCaTruc.MinimumWidth = 6;
-            this.maCaTruc.Name = "maCaTruc";
-            this.maCaTruc.ReadOnly = true;
-            // 
-            // hoTen
-            // 
-            this.hoTen.DataPropertyName = "hoTen";
-            this.hoTen.HeaderText = "Họ tên";
-            this.hoTen.MinimumWidth = 6;
-            this.hoTen.Name = "hoTen";
-            this.hoTen.ReadOnly = true;
-            // 
-            // heSoLuong
-            // 
-            this.heSoLuong.DataPropertyName = "heSoLuong";
-            this.heSoLuong.HeaderText = "Hệ số lương";
-            this.heSoLuong.MinimumWidth = 6;
-            this.heSoLuong.Name = "heSoLuong";
-            this.heSoLuong.ReadOnly = true;
-            // 
-            // ngayBatDau
-            // 
-            this.ngayBatDau.DataPropertyName = "ngayBatDau";
-            this.ngayBatDau.HeaderText = "Ngày BĐ";
-            this.ngayBatDau.MinimumWidth = 6;
-            this.ngayBatDau.Name = "ngayBatDau";
-            this.ngayBatDau.ReadOnly = true;
-            // 
-            // ngayKetThuc
-            // 
-            this.ngayKetThuc.DataPropertyName = "ngayKetThuc";
-            this.ngayKetThuc.HeaderText = "Ngày KT";
-            this.ngayKetThuc.MinimumWidth = 6;
-            this.ngayKetThuc.Name = "ngayKetThuc";
-            this.ngayKetThuc.ReadOnly = true;
-            // 
-            // soNgayNghi
-            // 
-            this.soNgayNghi.DataPropertyName = "soNgayNghi";
-            this.soNgayNghi.HeaderText = "Số ngày nghỉ";
-            this.soNgayNghi.MinimumWidth = 6;
-            this.soNgayNghi.Name = "soNgayNghi";
-            this.soNgayNghi.ReadOnly = true;
-            // 
-            // tongLuong
-            // 
-            this.tongLuong.DataPropertyName = "tongLuong";
-            this.tongLuong.HeaderText = "Tổng lương";
-            this.tongLuong.MinimumWidth = 6;
-            this.tongLuong.Name = "tongLuong";
-            this.tongLuong.ReadOnly = true;
-            // 
             // gbThongTinLuong
             // 
             this.gbThongTinLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -301,7 +247,7 @@
             this.gbThongTinLuong.BorderThickness = 4;
             this.gbThongTinLuong.Controls.Add(this.txtWarning);
             this.gbThongTinLuong.Controls.Add(this.guna2CustomGradientPanel2);
-            this.gbThongTinLuong.Controls.Add(this.btnXoa);
+            this.gbThongTinLuong.Controls.Add(this.btnXuat);
             this.gbThongTinLuong.Controls.Add(this.btnSua);
             this.gbThongTinLuong.Controls.Add(this.label4);
             this.gbThongTinLuong.Controls.Add(this.label5);
@@ -550,26 +496,28 @@
             this.guna2PictureBox3.TabIndex = 37;
             this.guna2PictureBox3.TabStop = false;
             // 
-            // btnXoa
+            // btnXuat
             // 
-            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoa.BorderRadius = 20;
-            this.btnXoa.CheckedState.Parent = this.btnXoa;
-            this.btnXoa.CustomImages.Parent = this.btnXoa;
-            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.HoverState.Parent = this.btnXoa;
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnXoa.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnXoa.Location = new System.Drawing.Point(959, 300);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.ShadowDecoration.Parent = this.btnXoa;
-            this.btnXoa.Size = new System.Drawing.Size(125, 45);
-            this.btnXoa.TabIndex = 25;
-            this.btnXoa.Text = "   Xoá";
+            this.btnXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnXuat.BorderRadius = 20;
+            this.btnXuat.CheckedState.Parent = this.btnXuat;
+            this.btnXuat.CustomImages.Parent = this.btnXuat;
+            this.btnXuat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.btnXuat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnXuat.ForeColor = System.Drawing.Color.White;
+            this.btnXuat.HoverState.Parent = this.btnXuat;
+            this.btnXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnXuat.Image")));
+            this.btnXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnXuat.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnXuat.Location = new System.Drawing.Point(934, 293);
+            this.btnXuat.Name = "btnXuat";
+            this.btnXuat.ShadowDecoration.Parent = this.btnXuat;
+            this.btnXuat.Size = new System.Drawing.Size(153, 45);
+            this.btnXuat.TabIndex = 25;
+            this.btnXuat.Text = "Xuất hóa đơn";
+            this.btnXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
             // 
             // btnSua
             // 
@@ -585,13 +533,12 @@
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSua.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSua.Location = new System.Drawing.Point(798, 300);
+            this.btnSua.Location = new System.Drawing.Point(745, 296);
             this.btnSua.Name = "btnSua";
             this.btnSua.ShadowDecoration.Parent = this.btnSua;
-            this.btnSua.Size = new System.Drawing.Size(125, 45);
+            this.btnSua.Size = new System.Drawing.Size(153, 45);
             this.btnSua.TabIndex = 24;
             this.btnSua.Text = "Cập nhật";
-            this.btnSua.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // txtSoNgayNghi
@@ -760,6 +707,71 @@
             this.txtTimKiem.Size = new System.Drawing.Size(502, 44);
             this.txtTimKiem.TabIndex = 8;
             // 
+            // maCaTruc
+            // 
+            this.maCaTruc.DataPropertyName = "maCaTruc";
+            this.maCaTruc.HeaderText = "Mã ca trực";
+            this.maCaTruc.MinimumWidth = 6;
+            this.maCaTruc.Name = "maCaTruc";
+            this.maCaTruc.ReadOnly = true;
+            // 
+            // maNhanVien
+            // 
+            this.maNhanVien.DataPropertyName = "maNhanVien";
+            this.maNhanVien.HeaderText = "Mã nhân viên";
+            this.maNhanVien.MinimumWidth = 6;
+            this.maNhanVien.Name = "maNhanVien";
+            this.maNhanVien.ReadOnly = true;
+            this.maNhanVien.Visible = false;
+            // 
+            // hoTen
+            // 
+            this.hoTen.DataPropertyName = "hoTen";
+            this.hoTen.HeaderText = "Họ tên";
+            this.hoTen.MinimumWidth = 6;
+            this.hoTen.Name = "hoTen";
+            this.hoTen.ReadOnly = true;
+            // 
+            // heSoLuong
+            // 
+            this.heSoLuong.DataPropertyName = "heSoLuong";
+            this.heSoLuong.HeaderText = "Hệ số lương";
+            this.heSoLuong.MinimumWidth = 6;
+            this.heSoLuong.Name = "heSoLuong";
+            this.heSoLuong.ReadOnly = true;
+            // 
+            // ngayBatDau
+            // 
+            this.ngayBatDau.DataPropertyName = "ngayBatDau";
+            this.ngayBatDau.HeaderText = "Ngày BĐ";
+            this.ngayBatDau.MinimumWidth = 6;
+            this.ngayBatDau.Name = "ngayBatDau";
+            this.ngayBatDau.ReadOnly = true;
+            // 
+            // ngayKetThuc
+            // 
+            this.ngayKetThuc.DataPropertyName = "ngayKetThuc";
+            this.ngayKetThuc.HeaderText = "Ngày KT";
+            this.ngayKetThuc.MinimumWidth = 6;
+            this.ngayKetThuc.Name = "ngayKetThuc";
+            this.ngayKetThuc.ReadOnly = true;
+            // 
+            // soNgayNghi
+            // 
+            this.soNgayNghi.DataPropertyName = "soNgayNghi";
+            this.soNgayNghi.HeaderText = "Số ngày nghỉ";
+            this.soNgayNghi.MinimumWidth = 6;
+            this.soNgayNghi.Name = "soNgayNghi";
+            this.soNgayNghi.ReadOnly = true;
+            // 
+            // tongLuong
+            // 
+            this.tongLuong.DataPropertyName = "tongLuong";
+            this.tongLuong.HeaderText = "Tổng lương";
+            this.tongLuong.MinimumWidth = 6;
+            this.tongLuong.Name = "tongLuong";
+            this.tongLuong.ReadOnly = true;
+            // 
             // TraLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -803,7 +815,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI2.WinForms.Guna2DataGridView dtgLuong;
         private Guna.UI2.WinForms.Guna2GroupBox gbThongTinLuong;
-        private Guna.UI2.WinForms.Guna2Button btnXoa;
+        private Guna.UI2.WinForms.Guna2Button btnXuat;
         private Guna.UI2.WinForms.Guna2Button btnSua;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -823,14 +835,15 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtWarning;
+        private Guna.UI2.WinForms.Guna2Button btnLoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn maCaTruc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn heSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayBatDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayKetThuc;
         private System.Windows.Forms.DataGridViewTextBoxColumn soNgayNghi;
         private System.Windows.Forms.DataGridViewTextBoxColumn tongLuong;
-        private Guna.UI2.WinForms.Guna2HtmlLabel txtWarning;
-        private Guna.UI2.WinForms.Guna2Button btnLoc;
     }
 }
