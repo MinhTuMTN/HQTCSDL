@@ -157,12 +157,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\AdminView\ReportLuong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\AdminView\ReportLuong.Designer.cs">
-      <DependentUpon>ReportLuong.cs</DependentUpon>
-    </Compile>
     <Compile Include="PresentationLayer\AdminView\ThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
