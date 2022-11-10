@@ -97,5 +97,30 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             }
 
         }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            using(FilterLuong filter = new FilterLuong())
+            {
+                string error = "";
+                try
+                {
+                    if (filter.ShowDialog() == DialogResult.OK)
+                        dtgLuong.DataSource = bussiness.FindLuong(filter.maCaTruc,
+                                                                    filter.date,
+                                                                    filter.maNhanVien,
+                                                                    filter.hoTen,
+                                                                    ref error);
+                    if (dtgLuong.Rows.Count > 0)
+                        dtgLuong_CellClick(null, new DataGridViewCellEventArgs(0, 0));
+                }
+                catch
+                {
+                    MessageBox.Show(error, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+                    
+            }
+        }
     }
 }

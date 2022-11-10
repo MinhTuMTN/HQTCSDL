@@ -31,5 +31,41 @@ namespace RestaurantManagement.BussinessLayer
             };
             return connection.MyExecuteNonQuery(cmd, CommandType.Text, ref error, parameters);
         }
+
+        public DataTable FindLuong(string maCaTruc, DateTime date, string maNhanVien, string hoTen, ref string error)
+        {
+            DataTable results = new DataTable();
+            //string cmd = "SELECT * FROM dbo.fnSearchLuong(@maCaTruc, @date, @hoTen, @maNhanVien)";
+
+            string cmd = "SELECT * FROM dbo.fnSearchLuong(@maCaTruc, @date, @hoTen, @maNhanVien)";
+
+            SqlParameter paramMaCaTruc = new SqlParameter();
+            paramMaCaTruc.ParameterName = "@maCaTruc";
+            paramMaCaTruc.Value = DBNull.Value;
+            if (maCaTruc != null && maCaTruc.Trim() != "")
+                paramMaCaTruc.Value = maCaTruc;
+
+            SqlParameter parmDate = new SqlParameter();
+            parmDate.SqlDbType = SqlDbType.Date;
+            parmDate.ParameterName = "@date";
+            parmDate.Value = date.ToString("yyyy-MM-dd");
+            if (date == DateTime.MaxValue)
+                parmDate.Value = DBNull.Value;
+
+            SqlParameter paramHoTen = new SqlParameter();
+            paramHoTen.ParameterName = "@hoTen";
+            paramHoTen.Value = DBNull.Value;
+            if (hoTen != null && hoTen.Trim() != "")
+                paramHoTen.Value = hoTen;
+
+            SqlParameter paramMaNhanVien = new SqlParameter();
+            paramMaNhanVien.ParameterName = "@maNhanVien";
+            paramMaNhanVien.Value = DBNull.Value;
+            if (maNhanVien != null && maNhanVien.Trim() != "")
+                paramMaNhanVien.Value = maNhanVien;
+
+            results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, paramMaCaTruc, parmDate, paramHoTen, paramMaNhanVien);
+            return results;
+        }
     }
 }
