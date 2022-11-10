@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.BussinessLayer;
+using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,25 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 {
     public partial class TraLuong : Form
     {
+        private float _heSoLuong = 0;
+        private float _tamTinh = 0;
+        private int _soNgayNghi = 0;
+        private float _biTru = 0;
+        private float _thanhTien = 0;
+
         BussinessTraLuong bussiness = new BussinessTraLuong();
         public TraLuong()
         {
             InitializeComponent();
             dtgLuong.AutoGenerateColumns = false;
+            txtWarning.Visible = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            //string maNhanVien = 
+            //Luong luong = new Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong);
+            //bussiness.AddLuong()
         }
 
         private void TraLuong_Load(object sender, EventArgs e)
@@ -40,6 +50,56 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             txtHoTen.Text = dtgLuong.Rows[row].Cells["hoTen"].Value.ToString();
             txtMaCaTruc.Text = dtgLuong.Rows[row].Cells["maCaTruc"].Value.ToString();
             txtSoNgayNghi.Text = dtgLuong.Rows[row].Cells["soNgayNghi"].Value.ToString();
+
+            DateTime ngayBatDau = DateTime.Parse(dtgLuong.Rows[row].Cells["ngayBatDau"].Value.ToString());
+            DateTime ngayKetThuc = DateTime.Parse(dtgLuong.Rows[row].Cells["ngayKetThuc"].Value.ToString());
+            this._heSoLuong = float.Parse(dtgLuong.Rows[row].Cells["heSoLuong"].Value.ToString());
+            this._tamTinh = (float)(((ngayKetThuc - ngayBatDau).TotalDays + 1) * this._heSoLuong);
+            this._soNgayNghi = int.Parse(dtgLuong.Rows[row].Cells["soNgayNghi"].Value.ToString());
+            this._biTru = _soNgayNghi * this._heSoLuong;
+            this._thanhTien = _tamTinh - _biTru;
+
+            lblTamTinh.Text = _tamTinh.ToString();
+
+            lblBiTru.Text = _biTru.ToString();
+
+            lblThanhTien.Text = _thanhTien.ToString();
+        }
+
+        private void txtSoNgayNghi_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _soNgayNghi = int.Parse(txtSoNgayNghi.Text);
+                _biTru = _soNgayNghi * _heSoLuong;
+                _thanhTien = _tamTinh - _biTru;
+
+                lblBiTru.Text = _biTru.ToString();
+
+                lblThanhTien.Text = _thanhTien.ToString();
+                txtWarning.Visible = false;
+            }
+            catch
+            {
+                txtWarning.Visible = true;
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            try
+            {
+                bussiness.UpdateLuong(txtMaCaTruc.Text.Trim(), txtHoTen.Text.Trim(), _soNgayNghi, ref error);
+                TraLuong_Load(null, null);
+                MessageBox.Show(string.Format("Cập nhật lương thành công cho nhân viên {0}", txtHoTen.Text.Trim()),
+                    "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show(error, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
