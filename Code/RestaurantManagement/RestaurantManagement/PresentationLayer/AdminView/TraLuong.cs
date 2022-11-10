@@ -20,6 +20,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         private float _biTru = 0;
         private float _thanhTien = 0;
 
+
+        private string _maNhanVien;
+        private string _maCaTruc;
         BussinessTraLuong bussiness = new BussinessTraLuong();
         public TraLuong()
         {
@@ -60,6 +63,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             lblBiTru.Text = _biTru.ToString();
 
             lblThanhTien.Text = _thanhTien.ToString();
+
+            this._maNhanVien = dtgLuong.Rows[row].Cells["maNhanVien"].Value.ToString();
+            this._maCaTruc = dtgLuong.Rows[row].Cells["maCaTruc"].Value.ToString();
         }
 
         private void txtSoNgayNghi_TextChanged(object sender, EventArgs e)
@@ -120,6 +126,14 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 }
                 
                     
+            }
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            using(ViewReport viewReport = new ViewReport(this._maNhanVien, this._maCaTruc))
+            {
+                viewReport.ShowDialog();
             }
         }
     }
