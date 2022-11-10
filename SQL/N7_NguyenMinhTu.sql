@@ -905,6 +905,17 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT * FROM dbo.viewLuongNhanVien
+	WHERE maCaTruc=@maCaTruc OR @maCaTruc IS NULL 
+		OR ngayBatDau = @date OR ngayKetThuc=@date OR @date IS NULL 
+		OR hoTen=@hoTen OR @hoTen IS NULL
+		OR maNhanVien=@maNhanVien OR @maNhanVien IS NULL
+)
+GO
+
 CREATE FUNCTION fnTinhLuongTamTinh(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
