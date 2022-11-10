@@ -28,13 +28,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             txtWarning.Visible = false;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            //string maNhanVien = 
-            //Luong luong = new Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong);
-            //bussiness.AddLuong()
-        }
-
         private void TraLuong_Load(object sender, EventArgs e)
         {
             string error = "";
