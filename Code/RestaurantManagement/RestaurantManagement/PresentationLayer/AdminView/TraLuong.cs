@@ -40,6 +40,9 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         private void dtgLuong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
+            if (row < 0)
+                return;
+
             txtHoTen.Text = dtgLuong.Rows[row].Cells["hoTen"].Value.ToString();
             txtMaCaTruc.Text = dtgLuong.Rows[row].Cells["maCaTruc"].Value.ToString();
             txtSoNgayNghi.Text = dtgLuong.Rows[row].Cells["soNgayNghi"].Value.ToString();
