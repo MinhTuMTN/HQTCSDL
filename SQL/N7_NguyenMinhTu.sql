@@ -844,7 +844,7 @@ WHERE ChiTietDonHang.maDonHang = DonHang.maDonHang AND ChiTietDonHang.maMonAn = 
 GO
 
 CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
-AS SELECT CaTruc.maCaTruc, hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
+AS SELECT CaTruc.maCaTruc, Luong.maNhanVien , hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
 FROM dbo.Luong, dbo.CaTruc, dbo.NhanVien
 WHERE Luong.maCaTruc=CaTruc.maCaTruc AND NhanVien.maNhanVien = Luong.maNhanVien
 GO
