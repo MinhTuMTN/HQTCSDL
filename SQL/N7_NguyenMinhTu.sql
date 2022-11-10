@@ -724,17 +724,6 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateLuong(
-	@maNhanVien CHAR(10),
-	@maCaTruc CHAR(10),
-	@soNgayNghi INT
-)
-AS
-BEGIN
-    UPDATE dbo.Luong SET soNgayNghi=@soNgayNghi
-	WHERE maNhanVien=@maNhanVien AND maCaTruc=@maCaTruc
-END
-GO
 
 CREATE PROC spUpdateKhachHang (
 	@maKhachHang CHAR(10),
