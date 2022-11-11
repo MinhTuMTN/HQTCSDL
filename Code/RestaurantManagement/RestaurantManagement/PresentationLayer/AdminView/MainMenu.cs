@@ -66,7 +66,8 @@ namespace RestaurantManagement.AsminController
 
         private void pnMain_Resize(object sender, EventArgs e)
         {
-            pnMain.Controls[0].Size = pnMain.Size;
+            if(pnMain.Controls.Count > 0)
+                pnMain.Controls[0].Size = pnMain.Size;
         }
 
         private void btnCaTruc_Click(object sender, EventArgs e)

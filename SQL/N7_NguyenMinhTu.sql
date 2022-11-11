@@ -724,17 +724,6 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateLuong(
-	@maNhanVien CHAR(10),
-	@maCaTruc CHAR(10),
-	@soNgayNghi INT
-)
-AS
-BEGIN
-    UPDATE dbo.Luong SET soNgayNghi=@soNgayNghi
-	WHERE maNhanVien=@maNhanVien AND maCaTruc=@maCaTruc
-END
-GO
 
 CREATE PROC spUpdateKhachHang (
 	@maKhachHang CHAR(10),
@@ -855,10 +844,16 @@ WHERE ChiTietDonHang.maDonHang = DonHang.maDonHang AND ChiTietDonHang.maMonAn = 
 GO
 
 CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
-AS SELECT CaTruc.maCaTruc, hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
+AS SELECT CaTruc.maCaTruc, Luong.maNhanVien , hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
 FROM dbo.Luong, dbo.CaTruc, dbo.NhanVien
 WHERE Luong.maCaTruc=CaTruc.maCaTruc AND NhanVien.maNhanVien = Luong.maNhanVien
 GO
+
+CREATE VIEW viewTaiKhoanNhanVien
+AS SELECT TK.maNhanVien, NV.hoTen, TK.tenDangNhap, TK.trangThaiTaiKhoan FROM dbo.NhanVien NV, dbo.TaiKhoan TK
+WHERE NV.maNhanVien = TK.maNhanVien
+GO
+
 
 -- Tạo các Function
 CREATE FUNCTION fnSearchNhanVien(@text NVARCHAR(150))
@@ -900,6 +895,41 @@ RETURN(
 	SELECT * FROM dbo.Coupon
 	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
 )
+GO
+
+CREATE FUNCTION fnSearchTaiKhoan (@text NVARCHAR(150))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.viewTaiKhoanNhanVien
+	WHERE maNhanVien LIKE  '%' + @text + '%' OR hoTen LIKE  '%' + @text + '%' OR tenDangNhap LIKE  '%' + @text + '%'
+)
+GO
+
+ALTER FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT * FROM dbo.viewLuongNhanVien
+	WHERE (maCaTruc=@maCaTruc OR @maCaTruc IS NULL)
+		AND ((@date >= ngayBatDau AND @date <= ngayKetThuc) OR @date IS NULL)
+		AND (hoTen LIKE  '%' + @hoTen + '%' OR @hoTen IS NULL)
+		AND (maNhanVien=@maNhanVien OR @maNhanVien IS NULL)
+)
+GO
+
+CREATE FUNCTION fnTinhLuongTamTinh(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @soNgayCuaCaTruc INT
+	SELECT @soNgayCuaCaTruc = DATEDIFF(day,ngayBatDau,ngayKetThuc) + 1 
+	FROM dbo.CaTruc 
+	WHERE maCaTruc = @maCaTruc
+
+	DECLARE @heSoLuong FLOAT
+	SELECT @heSoLuong = heSoLuong FROM dbo.NhanVien
+	WHERE maNhanVien = @maNhanVien
+
+	RETURN @heSoLuong * @soNgayCuaCaTruc
+END
 GO
 
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
@@ -1030,4 +1060,40 @@ RETURNS FLOAT AS
 BEGIN
     RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
 END
+GO
+
+CREATE FUNCTION fnDetailLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT v.*, (v.soNgayNghi * v.heSoLuong) biTru FROM dbo.viewLuongNhanVien v
+	WHERE v.maNhanVien = @maNhanVien AND v.maCaTruc = @maCaTruc
+)
+GO 
+
+CREATE FUNCTION fnThongKeLuong (@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.viewLuongNhanVien
+	WHERE ngayKetThuc BETWEEN @ngayBD AND @ngayKT
+)
+GO
+
+CREATE FUNCTION fnThongKeDoanhThuTheoBan(@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT maBan, SUM(soTienThanhToan) soTien FROM dbo.DonHang
+	WHERE CONVERT(DATE, thoiGianCheckIn) BETWEEN @ngayBD AND @ngayKT
+	GROUP BY maBan
+)
+GO
+
+CREATE FUNCTION fnThongKeMonAnBanChay(@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN (
+	SELECT TOP(1) MonAn.maMonAn, tenMonAn, hinhAnh, giaTien FROM dbo.MonAn, dbo.DonHang, dbo.ChiTietDonHang
+	WHERE dbo.MonAn.maMonAn = dbo.ChiTietDonHang.maMonAn AND dbo.DonHang.maDonHang = dbo.ChiTietDonHang.maDonHang
+		AND CONVERT(DATE, thoiGianCheckIn) BETWEEN  @ngayBD AND @ngayKT
+	GROUP BY MonAn.maMonAn, tenMonAn, hinhAnh, MonAn.giaTien
+	ORDER BY SUM(soLuong) DESC
+)
 GO

@@ -26,7 +26,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             try
             {
                 dgvNhanVien.DataSource = bussiness.GetAllNhanVien(ref error);
-                dgvNhanVien.Refresh();
 
                 if (dgvNhanVien.RowCount > 0)
                 {

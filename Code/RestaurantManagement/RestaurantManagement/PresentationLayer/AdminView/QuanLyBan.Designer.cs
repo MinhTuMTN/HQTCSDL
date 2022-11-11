@@ -43,6 +43,7 @@
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.gbCapNhat = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.numSLGheSua = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -72,6 +73,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.gbThem = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.numSLGheTao = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.cbTrangThaiBanTao = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,8 +84,6 @@
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.txtMaBanTao = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvBan = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.numSLGheSua = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.numSLGheTao = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.maBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loaiBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soLuongGheToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,12 +94,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.pnMain.SuspendLayout();
             this.gbCapNhat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSLGheSua)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.gbThem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSLGheSua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSLGheTao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBan)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -272,6 +272,27 @@
             this.gbCapNhat.Size = new System.Drawing.Size(334, 386);
             this.gbCapNhat.TabIndex = 13;
             this.gbCapNhat.Text = "Cập nhật bàn";
+            // 
+            // numSLGheSua
+            // 
+            this.numSLGheSua.BackColor = System.Drawing.Color.Transparent;
+            this.numSLGheSua.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numSLGheSua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.numSLGheSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.numSLGheSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.numSLGheSua.DisabledState.Parent = this.numSLGheSua;
+            this.numSLGheSua.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.numSLGheSua.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.numSLGheSua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.numSLGheSua.FocusedState.Parent = this.numSLGheSua;
+            this.numSLGheSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numSLGheSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.numSLGheSua.Location = new System.Drawing.Point(201, 258);
+            this.numSLGheSua.Name = "numSLGheSua";
+            this.numSLGheSua.ShadowDecoration.Parent = this.numSLGheSua;
+            this.numSLGheSua.Size = new System.Drawing.Size(100, 27);
+            this.numSLGheSua.TabIndex = 44;
+            this.numSLGheSua.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(75)))));
             // 
             // label15
             // 
@@ -871,6 +892,27 @@
             this.gbThem.TabIndex = 12;
             this.gbThem.Text = "Thêm bàn";
             // 
+            // numSLGheTao
+            // 
+            this.numSLGheTao.BackColor = System.Drawing.Color.Transparent;
+            this.numSLGheTao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numSLGheTao.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.numSLGheTao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.numSLGheTao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.numSLGheTao.DisabledState.Parent = this.numSLGheTao;
+            this.numSLGheTao.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.numSLGheTao.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.numSLGheTao.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.numSLGheTao.FocusedState.Parent = this.numSLGheTao;
+            this.numSLGheTao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numSLGheTao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.numSLGheTao.Location = new System.Drawing.Point(207, 255);
+            this.numSLGheTao.Name = "numSLGheTao";
+            this.numSLGheTao.ShadowDecoration.Parent = this.numSLGheTao;
+            this.numSLGheTao.Size = new System.Drawing.Size(100, 30);
+            this.numSLGheTao.TabIndex = 45;
+            this.numSLGheTao.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(75)))));
+            // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1056,7 +1098,11 @@
             // 
             // dgvBan
             // 
+            this.dgvBan.AllowUserToAddRows = false;
+            this.dgvBan.AllowUserToDeleteRows = false;
+            this.dgvBan.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -1068,7 +1114,7 @@
             this.dgvBan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1083,8 +1129,8 @@
             this.xoa});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -1092,21 +1138,23 @@
             this.dgvBan.EnableHeadersVisualStyles = false;
             this.dgvBan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBan.Location = new System.Drawing.Point(9, 16);
+            this.dgvBan.MultiSelect = false;
             this.dgvBan.Name = "dgvBan";
+            this.dgvBan.ReadOnly = true;
             this.dgvBan.RowHeadersVisible = false;
             this.dgvBan.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dgvBan.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvBan.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBan.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvBan.RowTemplate.Height = 24;
+            this.dgvBan.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBan.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvBan.RowTemplate.Height = 40;
             this.dgvBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBan.Size = new System.Drawing.Size(749, 811);
             this.dgvBan.TabIndex = 14;
             this.dgvBan.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvBan.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvBan.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvBan.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBan.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvBan.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvBan.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -1114,61 +1162,19 @@
             this.dgvBan.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBan.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dgvBan.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvBan.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBan.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBan.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvBan.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBan.ThemeStyle.HeaderStyle.Height = 50;
-            this.dgvBan.ThemeStyle.ReadOnly = false;
+            this.dgvBan.ThemeStyle.ReadOnly = true;
             this.dgvBan.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBan.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvBan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Lucida Fax", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBan.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dgvBan.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvBan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBan.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvBan.ThemeStyle.RowsStyle.Height = 40;
             this.dgvBan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBan.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBan_CellClick);
-            // 
-            // numSLGheSua
-            // 
-            this.numSLGheSua.BackColor = System.Drawing.Color.Transparent;
-            this.numSLGheSua.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numSLGheSua.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.numSLGheSua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.numSLGheSua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.numSLGheSua.DisabledState.Parent = this.numSLGheSua;
-            this.numSLGheSua.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.numSLGheSua.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
-            this.numSLGheSua.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.numSLGheSua.FocusedState.Parent = this.numSLGheSua;
-            this.numSLGheSua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numSLGheSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.numSLGheSua.Location = new System.Drawing.Point(201, 258);
-            this.numSLGheSua.Name = "numSLGheSua";
-            this.numSLGheSua.ShadowDecoration.Parent = this.numSLGheSua;
-            this.numSLGheSua.Size = new System.Drawing.Size(100, 27);
-            this.numSLGheSua.TabIndex = 44;
-            this.numSLGheSua.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(75)))));
-            // 
-            // numSLGheTao
-            // 
-            this.numSLGheTao.BackColor = System.Drawing.Color.Transparent;
-            this.numSLGheTao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numSLGheTao.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.numSLGheTao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.numSLGheTao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.numSLGheTao.DisabledState.Parent = this.numSLGheTao;
-            this.numSLGheTao.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.numSLGheTao.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
-            this.numSLGheTao.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.numSLGheTao.FocusedState.Parent = this.numSLGheTao;
-            this.numSLGheTao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numSLGheTao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.numSLGheTao.Location = new System.Drawing.Point(207, 255);
-            this.numSLGheTao.Name = "numSLGheTao";
-            this.numSLGheTao.ShadowDecoration.Parent = this.numSLGheTao;
-            this.numSLGheTao.Size = new System.Drawing.Size(100, 30);
-            this.numSLGheTao.TabIndex = 45;
-            this.numSLGheTao.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(130)))), ((int)(((byte)(75)))));
             // 
             // maBan
             // 
@@ -1176,6 +1182,7 @@
             this.maBan.HeaderText = "Mã bàn";
             this.maBan.MinimumWidth = 6;
             this.maBan.Name = "maBan";
+            this.maBan.ReadOnly = true;
             // 
             // loaiBan
             // 
@@ -1183,6 +1190,7 @@
             this.loaiBan.HeaderText = "Loại bàn";
             this.loaiBan.MinimumWidth = 6;
             this.loaiBan.Name = "loaiBan";
+            this.loaiBan.ReadOnly = true;
             // 
             // soLuongGheToiDa
             // 
@@ -1190,6 +1198,7 @@
             this.soLuongGheToiDa.HeaderText = "Số lượng ghế tối đa";
             this.soLuongGheToiDa.MinimumWidth = 6;
             this.soLuongGheToiDa.Name = "soLuongGheToiDa";
+            this.soLuongGheToiDa.ReadOnly = true;
             // 
             // trangThaiBan
             // 
@@ -1197,12 +1206,16 @@
             this.trangThaiBan.HeaderText = "Trạng thái bàn";
             this.trangThaiBan.MinimumWidth = 6;
             this.trangThaiBan.Name = "trangThaiBan";
+            this.trangThaiBan.ReadOnly = true;
             // 
             // xoa
             // 
-            this.xoa.HeaderText = "Xoá";
+            this.xoa.HeaderText = "Xóa";
             this.xoa.MinimumWidth = 6;
             this.xoa.Name = "xoa";
+            this.xoa.ReadOnly = true;
+            this.xoa.Text = "Xóa";
+            this.xoa.UseColumnTextForButtonValue = true;
             // 
             // QuanLyBan
             // 
@@ -1223,15 +1236,15 @@
             this.pnMain.ResumeLayout(false);
             this.gbCapNhat.ResumeLayout(false);
             this.gbCapNhat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSLGheSua)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
             this.gbThem.ResumeLayout(false);
             this.gbThem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSLGheSua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSLGheTao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1286,7 +1299,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMaBanSua;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvBan;
         private Guna.UI2.WinForms.Guna2NumericUpDown numSLGheSua;
         private Guna.UI2.WinForms.Guna2NumericUpDown numSLGheTao;
         private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
@@ -1294,5 +1306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuongGheToiDa;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThaiBan;
         private System.Windows.Forms.DataGridViewButtonColumn xoa;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvBan;
     }
 }

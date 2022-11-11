@@ -39,5 +39,17 @@ namespace RestaurantManagement.BussinessLayer
             SqlParameter parameter = new SqlParameter("@maMonAn", maMonAn);
             return connection.MyExecuteNonQuery(cmd, CommandType.Text, ref error, parameter);
         }
+
+        public bool UpdateMonAn(MonAn monAn, ref string error)
+        {
+            string cmd = "dbo.spUpdateMonAn";
+            SqlParameter[] parameters = {
+                new SqlParameter("@maMonAn", monAn.MaMonAn),
+                new SqlParameter("@tenMonAn", monAn.TenMonAn),
+                new SqlParameter("@giaTien", monAn.GiaTien),
+                new SqlParameter("@hinhAnh", monAn.HinhAnh)
+            };
+            return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
+        }
     }
 }

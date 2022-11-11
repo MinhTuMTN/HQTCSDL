@@ -11,23 +11,23 @@ namespace RestaurantManagement.DataAccessLayer.Model
         private string tenDangNhap;
         private string matKhau;
         private string trangThaiTaiKhoan;
-        private NhanVien nhanVien;
+        private string maNhanVien;
 
         public TaiKhoan()
         {
         }
 
-        public TaiKhoan(string tenDangNhap, string matKhau, string trangThaiTaiKhoan, NhanVien nhanVien)
+        public TaiKhoan(string tenDangNhap, string matKhau, string trangThaiTaiKhoan, string maNhanVien)
         {
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;
             this.trangThaiTaiKhoan = trangThaiTaiKhoan;
-            this.nhanVien = nhanVien;
+            this.maNhanVien = maNhanVien;
         }
 
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }
         public string TrangThaiTaiKhoan { get => trangThaiTaiKhoan; set => trangThaiTaiKhoan = value; }
-        public NhanVien NhanVien { get => nhanVien; set => nhanVien = value; }
+        public string MaNhanVien { get => maNhanVien; set => maNhanVien = value; }
     }
 }
