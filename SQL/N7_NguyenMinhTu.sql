@@ -1082,7 +1082,7 @@ CREATE FUNCTION fnThongKeDoanhThuTheoBan(@ngayBD DATE, @ngayKT DATE)
 RETURNS TABLE AS
 RETURN(
 	SELECT maBan, SUM(soTienThanhToan) soTien FROM dbo.DonHang
-	WHERE thoiGianCheckIn BETWEEN @ngayBD AND @ngayKT
+	WHERE CONVERT(DATE, thoiGianCheckIn) BETWEEN @ngayBD AND @ngayKT
 	GROUP BY maBan
 )
 GO
