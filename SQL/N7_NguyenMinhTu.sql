@@ -1070,7 +1070,7 @@ RETURN(
 )
 GO 
 
-CREATE FUNCTION spThongKeLuong (@ngayBD DATE, @ngayKT DATE)
+CREATE FUNCTION fnThongKeLuong (@ngayBD DATE, @ngayKT DATE)
 RETURNS TABLE AS
 RETURN(
 	SELECT * FROM dbo.viewLuongNhanVien
