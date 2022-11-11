@@ -103,6 +103,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyNhaHang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MonAnBanChay.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonAnBanChay.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\AdminView\FilterLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +269,17 @@
     </None>
     <None Include="DataAccessLayer\QuanLyNhaHang.xss">
       <DependentUpon>QuanLyNhaHang.xsd</DependentUpon>
+    </None>
+    <None Include="MonAnBanChay.xsc">
+      <DependentUpon>MonAnBanChay.xsd</DependentUpon>
+    </None>
+    <None Include="MonAnBanChay.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MonAnBanChay.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MonAnBanChay.xss">
+      <DependentUpon>MonAnBanChay.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

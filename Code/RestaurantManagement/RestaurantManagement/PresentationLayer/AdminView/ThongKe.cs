@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,21 +39,16 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             DataTable doanhThuTheoBan = business.GetThongKeDoanhThuTheoBan(ngayBD, ngayKT, ref error);
             float tongDoanhThu = business.GetTongDoanhThu(ngayBD, ngayKT, ref error);
 
+            DataTable monAnBanChay = business.GetMonAnBanChay(ngayBD, ngayKT, ref error);
+
             reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
             reportViewer1.LocalReport.ReportPath = "../../PresentationLayer/AdminView/ReportThongKe.rdlc";
 
 
-            float tongLuong = business.GetTongLuong(ngayBD, ngayKT, ref error);
-            ReportParameter[] parameters =
-            {
-                new ReportParameter("pTongLuong",tongLuong.ToString()),
-                new ReportParameter("pNgayBD",ngayBD.Date.ToString()),
-                new ReportParameter("pNgayKT",ngayKT.Date.ToString()),
-                new ReportParameter("pTongDoanhThu",tongDoanhThu.ToString())
-            };
-            reportViewer1.LocalReport.SetParameters(parameters);
+            string foodImage = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug", "")
+                + @"FoodImages\" + monAnBanChay.Rows[0][2];
 
-
+            reportViewer1.LocalReport.EnableExternalImages = true;
             reportViewer1.LocalReport.DataSources.Clear();
 
             ReportDataSource rds = new ReportDataSource();
@@ -64,6 +60,24 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             rds2.Name = "DoanhThuTheoBan";
             rds2.Value = doanhThuTheoBan;
             reportViewer1.LocalReport.DataSources.Add(rds2);
+
+            ReportDataSource rds3 = new ReportDataSource();
+            rds3.Name = "MonAn";
+            rds3.Value = monAnBanChay;
+            reportViewer1.LocalReport.DataSources.Add(rds3);
+
+            float tongLuong = business.GetTongLuong(ngayBD, ngayKT, ref error);
+            ReportParameter[] parameters =
+            {
+                new ReportParameter("pTongLuong",tongLuong.ToString()),
+                new ReportParameter("pNgayBD",ngayBD.Date.ToString()),
+                new ReportParameter("pNgayKT",ngayKT.Date.ToString()),
+                new ReportParameter("pTongDoanhThu",tongDoanhThu.ToString()),
+                new ReportParameter("pFoodImage", foodImage)
+            };
+            reportViewer1.LocalReport.SetParameters(parameters);
+
+            
 
             this.reportViewer1.RefreshReport();
         }

@@ -34,7 +34,7 @@ namespace RestaurantManagement.BussinessLayer
             string cmd = "SELECT * FROM fnThongKeLuong(@ngayBD, @ngayKT)";
 
             InitParameter(ngayBD, ngayKT);
-       
+
             results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
             return results;
         }
@@ -69,6 +69,15 @@ namespace RestaurantManagement.BussinessLayer
 
             float result = (float)(double)connection.MyExecuteScalar(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
             return result;
+        }
+
+        public DataTable GetMonAnBanChay(DateTime ngayBD, DateTime ngayKT, ref string error)
+        {
+            string cmd = "SELECT * FROM fnThongKeMonAnBanChay(@ngayBD, @ngayKT)";
+            InitParameter(ngayBD, ngayKT);
+
+            DataTable results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
+            return results;
         }
     }
 }

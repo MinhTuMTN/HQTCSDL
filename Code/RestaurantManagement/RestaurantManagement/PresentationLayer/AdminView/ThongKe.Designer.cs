@@ -205,7 +205,7 @@
             this.dtNgayBD.ShadowDecoration.Parent = this.dtNgayBD;
             this.dtNgayBD.Size = new System.Drawing.Size(269, 45);
             this.dtNgayBD.TabIndex = 0;
-            this.dtNgayBD.Value = new System.DateTime(2022, 11, 11, 10, 5, 13, 637);
+            this.dtNgayBD.Value = new System.DateTime(2022, 5, 1, 0, 0, 0, 0);
             // 
             // dtNgayKT
             // 
