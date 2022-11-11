@@ -18,11 +18,12 @@ namespace RestaurantManagement.AdminController
         public QuanLyTaiKhoan()
         {
             InitializeComponent();
+            dgvTaiKhoan.AutoGenerateColumns = false;
         }
 
         public void HandleDelete (string maNhanVien)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa bàn này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản này không?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Cancel)
                 return;
             string error = "";

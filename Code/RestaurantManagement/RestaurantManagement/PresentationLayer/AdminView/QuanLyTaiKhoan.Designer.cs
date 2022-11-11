@@ -727,7 +727,7 @@ namespace RestaurantManagement.AdminController
             this.xoa});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -740,6 +740,8 @@ namespace RestaurantManagement.AdminController
             this.dgvTaiKhoan.ReadOnly = true;
             this.dgvTaiKhoan.RowHeadersVisible = false;
             this.dgvTaiKhoan.RowHeadersWidth = 51;
+            this.dgvTaiKhoan.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTaiKhoan.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvTaiKhoan.RowTemplate.Height = 40;
             this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaiKhoan.Size = new System.Drawing.Size(756, 815);
@@ -761,7 +763,7 @@ namespace RestaurantManagement.AdminController
             this.dgvTaiKhoan.ThemeStyle.ReadOnly = true;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvTaiKhoan.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.Height = 40;
             this.dgvTaiKhoan.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -838,7 +840,6 @@ namespace RestaurantManagement.AdminController
         #endregion
         private Guna.UI2.WinForms.Guna2GroupBox gbCapNhat;
         private Guna.UI2.WinForms.Guna2GroupBox gbThem;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvTaiKhoan;
         private Guna.UI2.WinForms.Guna2Panel pnMain;
         private Guna.UI2.WinForms.Guna2ComboBox cbTinhTrangTao;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNhanVienTao;
@@ -869,5 +870,6 @@ namespace RestaurantManagement.AdminController
         private DataGridViewTextBoxColumn tenDangNhap;
         private DataGridViewTextBoxColumn trangThaiTaiKhoan;
         private DataGridViewButtonColumn xoa;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvTaiKhoan;
     }
 }
