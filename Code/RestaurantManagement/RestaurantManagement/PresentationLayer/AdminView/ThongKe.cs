@@ -35,27 +35,35 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             DataTable table = business.GetThongKeLuong(ngayBD, ngayKT, ref error);
 
 
+            DataTable doanhThuTheoBan = business.GetThongKeDoanhThuTheoBan(ngayBD, ngayKT, ref error);
+            float tongDoanhThu = business.GetTongDoanhThu(ngayBD, ngayKT, ref error);
+
             reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
             reportViewer1.LocalReport.ReportPath = "../../PresentationLayer/AdminView/ReportThongKe.rdlc";
 
 
-            //float tamTinh = bussiness.TamTinhLuong(maCaTruc, maNhanVien, ref error);
-            //ReportParameter[] parameters =
-            //{
-            //    new ReportParameter("pTamTinh",tamTinh.ToString())
-            //};
-            //reportViewer1.LocalReport.SetParameters(parameters);
+            float tongLuong = business.GetTongLuong(ngayBD, ngayKT, ref error);
+            ReportParameter[] parameters =
+            {
+                new ReportParameter("pTongLuong",tongLuong.ToString()),
+                new ReportParameter("pNgayBD",ngayBD.Date.ToString()),
+                new ReportParameter("pNgayKT",ngayKT.Date.ToString()),
+                new ReportParameter("pTongDoanhThu",tongDoanhThu.ToString())
+            };
+            reportViewer1.LocalReport.SetParameters(parameters);
 
-            //reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+
+            reportViewer1.LocalReport.DataSources.Clear();
+
             ReportDataSource rds = new ReportDataSource();
             rds.Name = "DataSet1";
             rds.Value = table;
-            //Xóa dữ liệu của báo cáo cũ trong trường hợp người dùng thực hiện câu truy vấn khác
-            reportViewer1.LocalReport.DataSources.Clear();
-            //Add dữ liệu vào báo cáo
             reportViewer1.LocalReport.DataSources.Add(rds);
 
-
+            ReportDataSource rds2 = new ReportDataSource();
+            rds2.Name = "DoanhThuTheoBan";
+            rds2.Value = doanhThuTheoBan;
+            reportViewer1.LocalReport.DataSources.Add(rds2);
 
             this.reportViewer1.RefreshReport();
         }

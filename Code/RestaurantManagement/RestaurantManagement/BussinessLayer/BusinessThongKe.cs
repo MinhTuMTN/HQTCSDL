@@ -13,24 +13,62 @@ namespace RestaurantManagement.BussinessLayer
     {
         DatabaseConnection connection = new DatabaseConnection();
 
-        public DataTable GetThongKeLuong(DateTime ngayBD, DateTime ngayKT, ref string error)
+        SqlParameter parmNgayBD = new SqlParameter();
+        SqlParameter parmNgayKT = new SqlParameter();
+
+        private void InitParameter(DateTime ngayBD, DateTime ngayKT)
         {
-            DataTable results = new DataTable();
-
-            string cmd = "SELECT * FROM spThongKeLuong(@ngayBD, @ngayKT)";
-
-            SqlParameter parmNgayBD = new SqlParameter();
             parmNgayBD.SqlDbType = SqlDbType.Date;
             parmNgayBD.ParameterName = "@ngayBD";
             parmNgayBD.Value = ngayBD.ToString("yyyy-MM-dd");
 
-            SqlParameter parmNgayKT = new SqlParameter();
             parmNgayKT.SqlDbType = SqlDbType.Date;
             parmNgayKT.ParameterName = "@ngayKT";
             parmNgayKT.Value = ngayKT.ToString("yyyy-MM-dd");
+        }
+
+        public DataTable GetThongKeLuong(DateTime ngayBD, DateTime ngayKT, ref string error)
+        {
+            DataTable results = new DataTable();
+
+            string cmd = "SELECT * FROM fnThongKeLuong(@ngayBD, @ngayKT)";
+
+            InitParameter(ngayBD, ngayKT);
+       
+            results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
+            return results;
+        }
+
+        public float GetTongLuong(DateTime ngayBD, DateTime ngayKT, ref string error)
+        {
+            string cmd = "SELECT SUM(tongLuong) FROM fnThongKeLuong(@ngayBD, @ngayKT)";
+
+            InitParameter(ngayBD, ngayKT);
+
+            float result = (float)(double)connection.MyExecuteScalar(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
+            return result;
+        }
+
+        public DataTable GetThongKeDoanhThuTheoBan(DateTime ngayBD, DateTime ngayKT, ref string error)
+        {
+            DataTable results = new DataTable();
+
+            string cmd = "SELECT * FROM fnThongKeDoanhThuTheoBan(@ngayBD, @ngayKT)";
+
+            InitParameter(ngayBD, ngayKT);
 
             results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
             return results;
+        }
+
+        public float GetTongDoanhThu(DateTime ngayBD, DateTime ngayKT, ref string error)
+        {
+            string cmd = "SELECT SUM(soTien) FROM fnThongKeDoanhThuTheoBan(@ngayBD, @ngayKT)";
+
+            InitParameter(ngayBD, ngayKT);
+
+            float result = (float)(double)connection.MyExecuteScalar(cmd, CommandType.Text, ref error, parmNgayBD, parmNgayKT);
+            return result;
         }
     }
 }
