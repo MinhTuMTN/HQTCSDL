@@ -1069,3 +1069,11 @@ RETURN(
 	WHERE v.maNhanVien = @maNhanVien AND v.maCaTruc = @maCaTruc
 )
 GO 
+
+CREATE FUNCTION spThongKeLuong (@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.viewLuongNhanVien
+	WHERE ngayKetThuc BETWEEN @ngayBD AND @ngayKT
+)
+GO
