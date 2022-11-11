@@ -38,11 +38,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.dtNgayBD = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dtNgayKT = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.btnThongKe = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnThongKe = new Guna.UI2.WinForms.Guna2Button();
+            this.dtNgayKT = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtNgayBD = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.txtSearch.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -192,36 +192,26 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1118, 130);
             this.guna2CustomGradientPanel1.TabIndex = 7;
             // 
-            // dtNgayBD
+            // guna2HtmlLabel2
             // 
-            this.dtNgayBD.BorderRadius = 20;
-            this.dtNgayBD.CheckedState.Parent = this.dtNgayBD;
-            this.dtNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtNgayBD.HoverState.Parent = this.dtNgayBD;
-            this.dtNgayBD.Location = new System.Drawing.Point(22, 52);
-            this.dtNgayBD.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtNgayBD.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtNgayBD.Name = "dtNgayBD";
-            this.dtNgayBD.ShadowDecoration.Parent = this.dtNgayBD;
-            this.dtNgayBD.Size = new System.Drawing.Size(269, 45);
-            this.dtNgayBD.TabIndex = 0;
-            this.dtNgayBD.Value = new System.DateTime(2022, 5, 1, 0, 0, 0, 0);
+            this.guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(486, 18);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(129, 30);
+            this.guna2HtmlLabel2.TabIndex = 4;
+            this.guna2HtmlLabel2.Text = "Ngày kết thúc:";
             // 
-            // dtNgayKT
+            // guna2HtmlLabel1
             // 
-            this.dtNgayKT.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dtNgayKT.BorderRadius = 20;
-            this.dtNgayKT.CheckedState.Parent = this.dtNgayKT;
-            this.dtNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtNgayKT.HoverState.Parent = this.dtNgayKT;
-            this.dtNgayKT.Location = new System.Drawing.Point(486, 52);
-            this.dtNgayKT.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtNgayKT.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtNgayKT.Name = "dtNgayKT";
-            this.dtNgayKT.ShadowDecoration.Parent = this.dtNgayKT;
-            this.dtNgayKT.Size = new System.Drawing.Size(269, 45);
-            this.dtNgayKT.TabIndex = 1;
-            this.dtNgayKT.Value = new System.DateTime(2022, 11, 11, 10, 5, 13, 637);
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(22, 18);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(126, 30);
+            this.guna2HtmlLabel1.TabIndex = 3;
+            this.guna2HtmlLabel1.Text = "Ngày bắt đầu:";
             // 
             // btnThongKe
             // 
@@ -240,24 +230,40 @@
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
-            // guna2HtmlLabel1
+            // dtNgayKT
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(22, 18);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(87, 18);
-            this.guna2HtmlLabel1.TabIndex = 3;
-            this.guna2HtmlLabel1.Text = "Ngày bắt đầu:";
+            this.dtNgayKT.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtNgayKT.BorderRadius = 20;
+            this.dtNgayKT.CheckedState.Parent = this.dtNgayKT;
+            this.dtNgayKT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dtNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayKT.HoverState.Parent = this.dtNgayKT;
+            this.dtNgayKT.Location = new System.Drawing.Point(486, 52);
+            this.dtNgayKT.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtNgayKT.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtNgayKT.Name = "dtNgayKT";
+            this.dtNgayKT.ShadowDecoration.Parent = this.dtNgayKT;
+            this.dtNgayKT.Size = new System.Drawing.Size(269, 45);
+            this.dtNgayKT.TabIndex = 1;
+            this.dtNgayKT.Value = new System.DateTime(2022, 11, 11, 10, 5, 13, 637);
             // 
-            // guna2HtmlLabel2
+            // dtNgayBD
             // 
-            this.guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(486, 18);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(87, 18);
-            this.guna2HtmlLabel2.TabIndex = 4;
-            this.guna2HtmlLabel2.Text = "Ngày kết thúc:";
+            this.dtNgayBD.BorderRadius = 20;
+            this.dtNgayBD.CheckedState.Parent = this.dtNgayBD;
+            this.dtNgayBD.FillColor = System.Drawing.Color.PaleTurquoise;
+            this.dtNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayBD.HoverState.Parent = this.dtNgayBD;
+            this.dtNgayBD.Location = new System.Drawing.Point(22, 52);
+            this.dtNgayBD.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtNgayBD.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtNgayBD.Name = "dtNgayBD";
+            this.dtNgayBD.ShadowDecoration.Parent = this.dtNgayBD;
+            this.dtNgayBD.Size = new System.Drawing.Size(269, 45);
+            this.dtNgayBD.TabIndex = 0;
+            this.dtNgayBD.Value = new System.DateTime(2022, 5, 1, 0, 0, 0, 0);
             // 
             // reportViewer1
             // 

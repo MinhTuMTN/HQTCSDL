@@ -40,6 +40,8 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             float tongDoanhThu = business.GetTongDoanhThu(ngayBD, ngayKT, ref error);
 
             DataTable monAnBanChay = business.GetMonAnBanChay(ngayBD, ngayKT, ref error);
+            float tongLuong = business.GetTongLuong(ngayBD, ngayKT, ref error);
+
 
             reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
             reportViewer1.LocalReport.ReportPath = "../../PresentationLayer/AdminView/ReportThongKe.rdlc";
@@ -49,6 +51,10 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 + @"FoodImages\" + monAnBanChay.Rows[0][2];
 
             reportViewer1.LocalReport.EnableExternalImages = true;
+            var setup = reportViewer1.GetPageSettings();
+            setup.Margins = new System.Drawing.Printing.Margins(4, 4, 4, 4);
+            reportViewer1.SetPageSettings(setup);
+
             reportViewer1.LocalReport.DataSources.Clear();
 
             ReportDataSource rds = new ReportDataSource();
@@ -66,7 +72,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             rds3.Value = monAnBanChay;
             reportViewer1.LocalReport.DataSources.Add(rds3);
 
-            float tongLuong = business.GetTongLuong(ngayBD, ngayKT, ref error);
+            
             ReportParameter[] parameters =
             {
                 new ReportParameter("pTongLuong",tongLuong.ToString()),
