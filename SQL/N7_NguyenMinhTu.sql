@@ -1061,3 +1061,11 @@ BEGIN
     RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
 END
 GO
+
+CREATE FUNCTION fnDetailLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT v.*, (v.soNgayNghi * v.heSoLuong) biTru FROM dbo.viewLuongNhanVien v
+	WHERE v.maNhanVien = @maNhanVien AND v.maCaTruc = @maCaTruc
+)
+GO 
