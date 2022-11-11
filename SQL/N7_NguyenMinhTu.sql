@@ -1086,3 +1086,14 @@ RETURN(
 	GROUP BY maBan
 )
 GO
+
+CREATE FUNCTION fnThongKeMonAnBanChay(@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN (
+	SELECT TOP(1) MonAn.maMonAn, tenMonAn, hinhAnh, giaTien FROM dbo.MonAn, dbo.DonHang, dbo.ChiTietDonHang
+	WHERE dbo.MonAn.maMonAn = dbo.ChiTietDonHang.maMonAn AND dbo.DonHang.maDonHang = dbo.ChiTietDonHang.maDonHang
+		AND CONVERT(DATE, thoiGianCheckIn) BETWEEN  @ngayBD AND @ngayKT
+	GROUP BY MonAn.maMonAn, tenMonAn, hinhAnh, MonAn.giaTien
+	ORDER BY SUM(soLuong) DESC
+)
+GO
