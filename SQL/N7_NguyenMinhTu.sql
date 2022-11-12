@@ -174,7 +174,7 @@ GO
 
 ALTER TABLE dbo.DonHang ADD CONSTRAINT check_phuThu CHECK (phuThu >= 0)
 ALTER TABLE dbo.DonHang ADD CONSTRAINT check_thue CHECK (thue > 0)
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan > 0)
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan >= 0)
 GO
 
 ALTER TABLE dbo.ChiTietDonHang ADD CONSTRAINT check_soLuong CHECK (soLuong > 0)
@@ -457,10 +457,10 @@ AS BEGIN
 		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
 	END
 GO
-CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @trangThaiDonHang NVARCHAR(50), @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
+CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
 AS BEGIN
 		INSERT INTO dbo.DonHang
-		VALUES (@maDonHang, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @trangThaiDonHang, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
+		VALUES (@maDonHang, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, N'Chưa thanh toán', @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
 	END
 GO
 
