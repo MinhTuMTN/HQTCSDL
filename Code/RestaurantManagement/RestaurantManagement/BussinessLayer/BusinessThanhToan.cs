@@ -30,11 +30,13 @@ namespace RestaurantManagement.BussinessLayer
             return result;
         }
 
-        public float TienTamTinh (string maBan, ref string error)
+        public DataTable GetCouponById (string maCoupon, ref string error)
         {
-            float result = 0;
-            string cmd = "";
-            return result;
+            DataTable table = new DataTable();
+            string cmd = "SELECT * FROM dbo.Coupon WHERE maCoupon = @maCoupon";
+            SqlParameter sqlParameter = new SqlParameter("@maCoupon", maCoupon);
+            table = conn.MyExecuteQueryDataTable (cmd, CommandType.Text, ref error, sqlParameter);
+            return table;
         }
     }
 }
