@@ -1025,31 +1025,6 @@ BEGIN
 END
 GO
 
-
-CREATE TRIGGER triggerApDungCoupon ON dbo.DonHang
-FOR INSERT, UPDATE AS
-BEGIN
-    DECLARE @maDonHang CHAR(10)
-	DECLARE @maCoupon CHAR(10)
-
-	SELECT @maDonHang=maDonHang, @maCoupon=maCoupon FROM Inserted
-	IF(@maCoupon IS NULL)
-		RETURN
-
-	DECLARE @donToiThieu FLOAT
-	SELECT @donToiThieu = donToiThieu FROM dbo.Coupon
-	WHERE maCoupon = @maCoupon
-
-	DECLARE @giaTriDon FLOAT
-	SELECT @giaTriDon = dbo.fnTinhTamThu(@maDonHang)
-
-	IF (@giaTriDon >= @donToiThieu)
-		RETURN
-	ELSE
-		UPDATE dbo.DonHang SET maCoupon = NULL WHERE maDonHang = @maDonHang
-END
-GO
-
 CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -1084,6 +1059,35 @@ CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
     RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
+END
+GO
+
+
+CREATE TRIGGER triggerApDungCoupon ON dbo.DonHang
+FOR INSERT, UPDATE AS
+BEGIN
+    DECLARE @maDonHang CHAR(10)
+	DECLARE @maCoupon CHAR(10)
+
+	SELECT @maDonHang=maDonHang, @maCoupon=maCoupon FROM Inserted
+	IF(@maCoupon IS NULL)
+		UPDATE dbo.DonHang SET soTienThanhToan = dbo.fnTinhTienDonHang(@maDonHang) WHERE maDonHang = @maDonHang
+
+	DECLARE @donToiThieu FLOAT
+	DECLARE @ngayBatDau DATE
+	DECLARE @ngayKetThuc DATE
+
+	SELECT @donToiThieu = donToiThieu, @ngayBatDau = ngayBatDau, @ngayKetThuc = ngayKetThuc FROM dbo.Coupon
+	WHERE maCoupon = @maCoupon
+
+	DECLARE @giaTriDon FLOAT
+	SELECT @giaTriDon = dbo.fnTinhTamThu(@maDonHang)
+
+	IF (@giaTriDon >= @donToiThieu)
+		    IF (CONVERT(DATE, GETDATE()) BETWEEN @ngayBatDau AND @ngayKetThuc)
+				UPDATE dbo.DonHang SET soTienThanhToan = dbo.fnTinhTienDonHang(@maDonHang) WHERE maDonHang = @maDonHang
+	ELSE
+		UPDATE dbo.DonHang SET maCoupon = NULL WHERE maDonHang = @maDonHang
 END
 GO
 
@@ -1174,5 +1178,16 @@ AS BEGIN
 	 IF @maCoupon IS NOT NULL
 		UPDATE dbo.DonHang SET maCoupon = @maCoupon WHERE maDonHang = @maDonHang
 		
+   END
+GO
+
+CREATE PROCEDURE spApDungCoupon(@maBan CHAR(10), @maCoupon CHAR(10))
+AS BEGIN
+       DECLARE @maDonHang CHAR(10)
+
+	   SELECT @maDonHang = maDonHang FROM dbo.DonHang
+	   WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
+
+	   UPDATE dbo.DonHang SET maCoupon = @maCoupon WHERE maDonHang = @maDonHang
    END
 GO
