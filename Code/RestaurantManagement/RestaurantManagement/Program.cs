@@ -23,7 +23,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new frmMainThuNgan());
             //string error = "";
             //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantManagement.BussinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
 {
     public partial class frmMainThuNgan : Form
     {
+        BusinessThanhToan thanhToan = new BusinessThanhToan();
         public frmMainThuNgan()
         {
             InitializeComponent();
@@ -19,6 +21,14 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
+        {
+            string error = "";
+            string maBan = txtTimKiemThanhToan.Text;
+            dtgChiTietDonHang.DataSource = thanhToan.GetChiTietHoaDon(maBan, ref error);
 
         }
     }
