@@ -20,5 +20,14 @@ namespace RestaurantManagement.BussinessLayer
             dt = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parameter);
             return dt;
         }
+
+        public float GetPhuThu(string maBan, ref string error)
+        {
+            float result = 0;
+            string cmd = "SELECT dbo.fnGetPhuThu(@maBan)";
+            SqlParameter sqlParameter = new SqlParameter("@maBan", maBan);
+            result = (float)(double) conn.MyExecuteScalar(cmd, CommandType.Text, ref error, sqlParameter);
+            return result;
+        }
     }
 }

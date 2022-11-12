@@ -26,9 +26,19 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
         {
-            string error = "";
-            string maBan = txtTimKiemThanhToan.Text;
-            dtgChiTietDonHang.DataSource = thanhToan.GetChiTietHoaDon(maBan, ref error);
+            try
+            {
+                string error = "";
+                string maBan = txtTimKiemThanhToan.Text;
+                dtgChiTietDonHang.DataSource = thanhToan.GetChiTietHoaDon(maBan, ref error);
+                float phuThu = thanhToan.GetPhuThu(maBan, ref error);
+                txtPhuThu.Text = phuThu.ToString();
+            }
+            catch
+            {
+
+            }
+            
 
         }
     }
