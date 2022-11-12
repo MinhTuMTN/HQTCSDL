@@ -17,11 +17,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         public frmMainThuNgan()
         {
             InitializeComponent();
-        }
-
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-
+            txtPhuThuError.Visible = false;
         }
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
@@ -41,6 +37,41 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             }
             
 
+        }
+        /// <summary>
+        /// Tính tạm thu chưa bao gồm phụ thu
+        /// </summary>
+        private float tinhTamThu()
+        {
+            float tamThu = 0;
+
+            DataTable table = (DataTable)dtgChiTietDonHang.DataSource;
+
+            if (table.Rows.Count == 0)
+                return tamThu;
+
+            foreach(DataRow dr in table.Rows)           
+                tamThu = tamThu + float.Parse(dr["soTien"].ToString());
+
+            return tamThu;
+        }
+
+        private void txtPhuThu_TextChanged(object sender, EventArgs e)
+        {
+            txtPhuThuError.Visible = false;
+            float tamThu = tinhTamThu();
+            float phuThu = 0;
+            try
+            {
+                phuThu = float.Parse(txtPhuThu.Text.Trim());
+            }
+            catch
+            {
+                txtPhuThuError.Visible = true;
+                if (txtPhuThu.Text.Trim() == "")
+                    txtPhuThuError.Visible = false;
+            }
+            lblTongTamTinh.Text = (tamThu + phuThu).ToString();
         }
     }
 }

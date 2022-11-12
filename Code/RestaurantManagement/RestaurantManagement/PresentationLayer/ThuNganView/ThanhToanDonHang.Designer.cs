@@ -75,6 +75,7 @@
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtPhuThuError = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tpTiepNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachMonAn)).BeginInit();
             this.gbTimKiem.SuspendLayout();
@@ -421,6 +422,7 @@
             // 
             // guna2GroupBox1
             // 
+            this.guna2GroupBox1.Controls.Add(this.txtPhuThuError);
             this.guna2GroupBox1.Controls.Add(this.txtPhuThu);
             this.guna2GroupBox1.Controls.Add(this.lblTongTamTinh);
             this.guna2GroupBox1.Controls.Add(this.txtMaCoupon);
@@ -460,6 +462,7 @@
             this.txtPhuThu.ShadowDecoration.Parent = this.txtPhuThu;
             this.txtPhuThu.Size = new System.Drawing.Size(505, 37);
             this.txtPhuThu.TabIndex = 7;
+            this.txtPhuThu.TextChanged += new System.EventHandler(this.txtPhuThu_TextChanged);
             // 
             // lblTongTamTinh
             // 
@@ -761,6 +764,15 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "The Moon Restaurant";
             // 
+            // txtPhuThuError
+            // 
+            this.txtPhuThuError.BackColor = System.Drawing.Color.Transparent;
+            this.txtPhuThuError.Location = new System.Drawing.Point(30, 130);
+            this.txtPhuThuError.Name = "txtPhuThuError";
+            this.txtPhuThuError.Size = new System.Drawing.Size(121, 22);
+            this.txtPhuThuError.TabIndex = 8;
+            this.txtPhuThuError.Text = "guna2HtmlLabel1";
+            // 
             // frmMainThuNgan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -834,5 +846,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenMonAn;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhTien;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtPhuThuError;
     }
 }
