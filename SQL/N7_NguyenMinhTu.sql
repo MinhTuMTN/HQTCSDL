@@ -1155,4 +1155,24 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maCoupon CHAR(10), @maNhanVienThuNgan CHAR(10))
+AS BEGIN
+     DECLARE @maDonHang CHAR(10)
+	 
+	 SELECT @maDonHang = maDonHang FROM dbo.DonHang
+	 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
 
+	 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
+	 WHERE maDonHang = @maDonHang
+
+	 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
+
+	 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
+	 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
+							WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
+
+	 IF @maCoupon IS NOT NULL
+		UPDATE dbo.DonHang SET maCoupon = @maCoupon WHERE maDonHang = @maDonHang
+		
+   END
+GO
