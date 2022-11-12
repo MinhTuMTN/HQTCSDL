@@ -930,7 +930,7 @@ RETURN(
 )
 GO
 
-ALTER FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
+CREATE FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
 RETURNS TABLE AS
 RETURN (
 	SELECT * FROM dbo.viewLuongNhanVien
@@ -1133,3 +1133,26 @@ RETURN (
 	ORDER BY SUM(soLuong) DESC
 )
 GO
+
+CREATE FUNCTION fnSearchChiTietHoaDonById(@maBan CHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT MA.tenMonAn, CT.soLuong, CT.soLuong*MA.giaTien soTien FROM dbo.ChiTietDonHang CT, dbo.MonAn MA, dbo.DonHang DH
+	WHERE CT.maDonHang = DH.maDonHang AND MA.maMonAn = CT.maMonAn
+		AND DH.trangThaiDonHang = N'Chưa thanh toán' AND DH.maBan = @maBan
+)
+GO
+
+CREATE FUNCTION fnGetPhuThu(@maBan CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @phuThu FLOAT
+
+    SELECT @phuThu = phuThu FROM dbo.DonHang
+	WHERE trangThaiDonHang = N'Chưa thanh toán' AND maBan = @maBan
+
+	RETURN @phuThu
+END
+GO
+
+
