@@ -18,6 +18,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         {
             InitializeComponent();
             txtPhuThuError.Visible = false;
+            lblSuccess.Visible = false;
         }
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
@@ -72,6 +73,34 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                     txtPhuThuError.Visible = false;
             }
             lblTongTamTinh.Text = (tamThu + phuThu).ToString();
+        }
+
+        
+
+        private bool CheckCoupon(DataTable dataTable)
+        {
+            if (float.Parse(dataTable.Rows[0]["donToiThieu"].ToString()) <= tinhTamThu())
+                return true;
+            return false;
+        }
+
+        private void btnApDung_Click(object sender, EventArgs e)
+        {
+            string maCoupon = txtMaCoupon.Text.Trim();
+            string error = "";
+            DataTable dt = new DataTable();
+            dt = thanhToan.GetCouponById(maCoupon, ref error);
+            if (dt.Rows.Count > 0 && CheckCoupon(dt))
+            {
+                lblSuccess.Text = "*Áp dụng mã coupon thành công.";
+                lblSuccess.Visible = true;
+            }    
+            else
+            {
+                lblSuccess.Text = "*Áp dụng mã coupon thất bại.";
+                lblSuccess.Visible = true;
+            }
+
         }
     }
 }
