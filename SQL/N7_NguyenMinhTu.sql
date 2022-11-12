@@ -457,11 +457,36 @@ AS BEGIN
 		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
 	END
 GO
-CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
+CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
 AS BEGIN
 		INSERT INTO dbo.DonHang
-		VALUES (@maDonHang, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, N'Chưa thanh toán', @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
-	END
+		(
+		    maDonHang,
+		    thoiGianCheckIn,
+		    phuThu,
+		    maCoupon,
+		    soTienThanhToan,
+		    trangThaiDonHang,
+		    maBan,
+		    maKhachHang,
+		    maDauBep,
+		    maNhanVienPhucVu,
+		    maNhanVienThuNgan
+		)
+		VALUES
+		(   @maDonHang,        -- maDonHang - char(10)
+		    @thoiGianCheckIn, -- thoiGianCheckIn - datetime
+		    @phuThu,       -- phuThu - float
+		    NULL,        -- maCoupon - char(10)
+		    0.0,       -- soTienThanhToan - float
+		    N'Chưa thanh toán',       -- trangThaiDonHang - nvarchar(50)
+		    @maBan,        -- maBan - char(10)
+		    @maKhachHang,        -- maKhachHang - char(10)
+		    @maDauBep,        -- maDauBep - char(10)
+		    @maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
+		    NULL         -- maNhanVienThuNgan - char(10)
+		    )
+END
 GO
 
 CREATE PROCEDURE spInsertKhachHang(@maKhachHang char(10), @hoTen nvarchar(150), @soDienThoai char(10), @ngaySinh date, @gioiTinh bit)
