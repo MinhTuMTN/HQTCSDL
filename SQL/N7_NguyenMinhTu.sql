@@ -1108,3 +1108,12 @@ RETURN (
 	ORDER BY SUM(soLuong) DESC
 )
 GO
+
+CREATE FUNCTION fnSearchChiTietHoaDonById(@maBan CHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT MA.tenMonAn, CT.soLuong, CT.soLuong*MA.giaTien soTien FROM dbo.ChiTietDonHang CT, dbo.MonAn MA, dbo.DonHang DH
+	WHERE CT.maDonHang = DH.maDonHang AND MA.maMonAn = CT.maMonAn
+		AND DH.trangThaiDonHang = N'Chưa thanh toán' AND DH.maBan = @maBan
+)
+GO
