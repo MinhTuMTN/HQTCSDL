@@ -905,7 +905,7 @@ RETURN(
 )
 GO
 
-ALTER FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
+CREATE FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
 RETURNS TABLE AS
 RETURN (
 	SELECT * FROM dbo.viewLuongNhanVien
