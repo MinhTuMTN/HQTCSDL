@@ -75,13 +75,16 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             lblTongTamTinh.Text = (tamThu + phuThu).ToString();
         }
 
-        
 
         private bool CheckCoupon(DataTable dataTable)
         {
-            if (float.Parse(dataTable.Rows[0]["donToiThieu"].ToString()) <= tinhTamThu())
-                return true;
-            return false;
+            DateTime today = DateTime.Today.Date;
+            if (float.Parse(dataTable.Rows[0]["donToiThieu"].ToString()) > tinhTamThu())
+                return false;
+            else if (DateTime.Parse(dataTable.Rows[0]["ngayBatDau"].ToString()).Date > today ||
+                DateTime.Parse(dataTable.Rows[0]["ngayKetThuc"].ToString()).Date < today)
+                return false;
+            return true;
         }
 
         private void btnApDung_Click(object sender, EventArgs e)
