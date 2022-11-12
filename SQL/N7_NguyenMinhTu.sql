@@ -1062,6 +1062,17 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER triggerUpdateTongDonHang ON dbo.ChiTietDonHang
+FOR INSERT, UPDATE AS
+BEGIN
+    DECLARE @maDonHang CHAR(10)
+
+	SELECT @maDonHang = Ins.maDonHang FROM Inserted Ins
+
+	UPDATE dbo.DonHang SET soTienThanhToan = dbo.fnTinhTienDonHang(@maDonHang) WHERE maDonHang = @maDonHang
+END
+GO
+
 CREATE FUNCTION fnDetailLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS TABLE AS
 RETURN(
