@@ -33,6 +33,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                 dtgChiTietDonHang.DataSource = thanhToan.GetChiTietHoaDon(maBan, ref error);
                 float phuThu = thanhToan.GetPhuThu(maBan, ref error);
                 txtPhuThu.Text = phuThu.ToString();
+
             }
             catch
             {

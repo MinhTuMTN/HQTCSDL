@@ -29,5 +29,12 @@ namespace RestaurantManagement.BussinessLayer
             result = (float)(double) conn.MyExecuteScalar(cmd, CommandType.Text, ref error, sqlParameter);
             return result;
         }
+
+        public float TienTamTinh (string maBan, ref string error)
+        {
+            float result = 0;
+            string cmd = "";
+            return result;
+        }
     }
 }
