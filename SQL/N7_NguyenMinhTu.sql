@@ -1211,3 +1211,15 @@ AS BEGIN
 	   UPDATE dbo.DonHang SET maCoupon = @maCoupon WHERE maDonHang = @maDonHang
    END
 GO
+
+EXEC sys.sp_addrole @rolename = 'QuanLyRole'
+GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
+
+CREATE LOGIN MinhTu WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+
+CREATE USER MinhTu FOR LOGIN MinhTu
+GO
+
+EXEC sys.sp_addrolemember @rolename = 'QuanLyRole',  -- sysname
+                          @membername = 'MinhTu' -- sysname

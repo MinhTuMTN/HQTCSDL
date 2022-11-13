@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestaurantManagement.AsminController;
+using RestaurantManagement.Properties;
 
 namespace RestaurantManagement
 {
@@ -17,9 +19,17 @@ namespace RestaurantManagement
             InitializeComponent();
         }
 
-        private void rjTextBox2__TextChanged(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            string userName = txtUser.Text.Trim();
+            string userPass = txtPass.Text.Trim();
 
+            Settings.Default.userLoginDb = userName;
+            Settings.Default.passLoginDb = userPass;
+
+            this.Hide();
+            frmMainMenu mainMenu = new frmMainMenu();
+            mainMenu.Show();
         }
     }
 }

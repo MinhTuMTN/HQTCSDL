@@ -87,6 +87,7 @@
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
     <Compile Include="BussinessLayer\BussinessTraLuong.cs" />
     <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
+    <Compile Include="DataAccessLayer\Global.cs" />
     <Compile Include="DataAccessLayer\Model\Ban.cs" />
     <Compile Include="DataAccessLayer\Model\CaTruc.cs" />
     <Compile Include="DataAccessLayer\Model\ChiTietHoaDon.cs" />
@@ -265,7 +266,7 @@
       <DependentUpon>ThanhToanDonHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
