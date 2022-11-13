@@ -121,8 +121,8 @@ GO
 
 -- Thêm Constraint
 ALTER TABLE	dbo.Coupon ADD CONSTRAINT check_phanTramGiam CHECK (phanTramGiam >= 0 AND phanTramGiam <= 1);
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienGiamToiDa CHECK (giamToiDa > 0)
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienToiThieu CHECK (donToiThieu > 0)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienGiamToiDa CHECK (giamToiDa >= 0)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienToiThieu CHECK (donToiThieu >= 0)
 ALTER TABLE dbo.Coupon ADD CONSTRAINT check_ngayBatDauKetThuc CHECK (ngayBatDau <= ngayKetThuc)
 GO
 
@@ -360,21 +360,11 @@ INSERT INTO dbo.DonHang
     maNhanVienThuNgan,
 	trangThaiDonHang
 )
-VALUES
-(   'HD0001',        -- maDonHang - char(10)
-    '20220709', -- thoiGianCheckIn - datetime
-    100000,       -- thue - float
-    50000,       -- phuThu - float
-    'CP10',        -- maCoupon - char(10)
-    1100000,       -- soTienThanhToan - float
-    'BV103',        -- maBan - char(10)
-    'KH01',        -- maKhachHang - char(10)
-    'NV220333',        -- maDauBep - char(10)
-    'NV330103',        -- maNhanVienPhucVu - char(10)
-    'NV440789',         -- maNhanVienThuNgan - char(10)
-	N'Đã thanh toán'
-    )
-GO
+VALUES ('HD0001','20220709', 100000, 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
+, ('HD0002', GETDATE(), 10000.0, 50000.0, NULL, 0.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0003', GETDATE(), 10000.0, 0.0, NULL, 0.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
+, ('HD0004', GETDATE(), 10000.0, 0.0, NULL, 0.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
+, ('HD0005', GETDATE(), 10000.0, 20000.0, NULL, 0.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
 
 INSERT INTO dbo.MonAn
 VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
@@ -395,11 +385,12 @@ VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
 GO
 
 insert into ChiTietDonHang(maDonHang, maMonAn, soLuong )
-values('HD0001', '10003', 2)
-	, ('HD0001', '10005', 2)
-	, ('HD0001', '10007', 2)
-	, ('HD0001', '10012', 1)
-	, ('HD0001', '10013', 2)
+VALUES
+('HD0001', '10003', 2), ('HD0001', '10005', 2), ('HD0001', '10007', 2), ('HD0001', '10012', 1), ('HD0001', '10013', 2),
+('HD0002', '10014', 1), ('HD0002', '10006', 1), ('HD0002', '10012', 1), ('HD0002', '10007', 1), ('HD0002', '10011', 4), ('HD0002', '10013', 1),
+('HD0003', '10003', 1), ('HD0003', '10011', 2), ('HD0003', '10015', 2), ('HD0003', '10001', 1),
+('HD0004', '10013', 1), ('HD0004', '10009', 2), ('HD0004', '10007', 2),
+('HD0005', '10006', 1), ('HD0005', '10004', 1), ('HD0005', '10014', 1), ('HD0005', '10012', 1), ('HD0005', '10010', 1)
 GO
 
 insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
