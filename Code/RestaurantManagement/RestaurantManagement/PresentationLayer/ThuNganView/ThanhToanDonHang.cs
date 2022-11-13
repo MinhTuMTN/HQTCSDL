@@ -14,6 +14,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
     public partial class frmMainThuNgan : Form
     {
         BusinessThanhToan thanhToan = new BusinessThanhToan();
+        BusinessTiepNhan tiepNhan = new BusinessTiepNhan();
         private string maBan;
         private string maNhanVienThuNgan;
 
@@ -22,6 +23,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             InitializeComponent();
             txtPhuThuError.Visible = false;
             lblSuccess.Visible = false;
+            lblMaDatTruoc.Visible = false;
             lblTongTienThanhToan.Text = "0đ";
             maNhanVienThuNgan = "NV440123";
         }
@@ -137,6 +139,49 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                 MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Thanh toán thất bại! Mời thanh toán lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void frmMainThuNgan_Load(object sender, EventArgs e)
+        {
+            string error = "";
+            dgvTiepNhan.DataSource = tiepNhan.GetAllTiepNhan(ref error);
+            if (dgvTiepNhan.Rows.Count>0)
+            {
+                DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
+                dgvTiepNhan_CellClick(sender, ev);
+            }    
+        }
+
+        private void dgvTiepNhan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row < 0)
+                return;
+            lblHoTen.Text = dgvTiepNhan.Rows[row].Cells["hoTen"].Value.ToString();
+            lblNgaySinh.Text = ((DateTime)(dgvTiepNhan.Rows[row].Cells["ngaySinh"].Value)).ToString("dd/MM/yyyy");
+            lblSDT.Text = dgvTiepNhan.Rows[row].Cells["soDienThoai"].Value.ToString();
+            lblSoBan.Text = dgvTiepNhan.Rows[row].Cells["soBan"].Value.ToString();
+            lblSoLuongNguoi.Text = dgvTiepNhan.Rows[row].Cells["soLuongNguoi"].Value.ToString();
+            lblThoiGianDatTruoc.Text = dgvTiepNhan.Rows[row].Cells["thoiGianDatTruoc"].Value.ToString();
+            lblMaDatTruoc.Text = dgvTiepNhan.Rows[row].Cells["maDatTruoc"].Value.ToString();
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            string maDatTruoc = lblMaDatTruoc.Text;
+            tiepNhan.ChapNhanDatTruoc(maDatTruoc, ref error);
+            MessageBox.Show("Tiếp nhận thành công đơn đặt trước.","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmMainThuNgan_Load(null, null);
+        }
+
+        private void btnDeny_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            string maDatTruoc = lblMaDatTruoc.Text;
+            tiepNhan.TuChoiDatTruoc(maDatTruoc, ref error);
+            MessageBox.Show("Từ chối thành công đơn đặt trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmMainThuNgan_Load(null, null);
         }
     }
 }

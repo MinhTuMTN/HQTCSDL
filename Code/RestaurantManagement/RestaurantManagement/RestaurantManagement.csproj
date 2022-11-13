@@ -79,6 +79,7 @@
     <Compile Include="BussinessLayer\BusinessTaiKhoan.cs" />
     <Compile Include="BussinessLayer\BusinessThanhToan.cs" />
     <Compile Include="BussinessLayer\BusinessThongKe.cs" />
+    <Compile Include="BussinessLayer\BusinessTiepNhan.cs" />
     <Compile Include="BussinessLayer\BussinessBan.cs" />
     <Compile Include="BussinessLayer\BussinessCaTruc.cs" />
     <Compile Include="BussinessLayer\BussinessCoupon.cs" />
