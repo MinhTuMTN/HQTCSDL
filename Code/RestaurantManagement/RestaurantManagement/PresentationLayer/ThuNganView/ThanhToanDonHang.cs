@@ -15,12 +15,15 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
     {
         BusinessThanhToan thanhToan = new BusinessThanhToan();
         private string maBan;
+        private string maNhanVienThuNgan;
+
         public frmMainThuNgan()
         {
             InitializeComponent();
             txtPhuThuError.Visible = false;
             lblSuccess.Visible = false;
             lblTongTienThanhToan.Text = "0đ";
+            maNhanVienThuNgan = "NV440123";
         }
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
@@ -32,14 +35,12 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                 dtgChiTietDonHang.DataSource = thanhToan.GetChiTietHoaDon(maBan, ref error);
                 float phuThu = thanhToan.GetPhuThu(maBan, ref error);
                 txtPhuThu.Text = phuThu.ToString();
-                lblTongTienThanhToan.Text = tinhTamThu().ToString();
-
+                lblTongTienThanhToan.Text = lblTongTamTinh.Text;
             }
             catch
             {
 
-            }
-            
+            }  
 
         }
         /// <summary>
@@ -102,6 +103,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                 thanhToan.ApDungCoupon(maBan, maCoupon, ref error);
                 lblSuccess.Text = "*Áp dụng mã coupon thành công.";
                 lblSuccess.Visible = true;
+                lblTongTienThanhToan.Text = thanhToan.TongTienThanhToan(maBan, ref error).ToString();
             }    
             else
             {
@@ -110,6 +112,31 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             }
 
             
+        }
+
+        private void txtTienKhachDua_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                float tienThoi = float.Parse(txtTienKhachDua.Text) - float.Parse(lblTongTienThanhToan.Text);
+                if (tienThoi <= 0)
+                    lblTienThoi.Text = "0";
+                else
+                    lblTienThoi.Text = tienThoi.ToString();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            if (thanhToan.ThucHienThanhToan(maBan, maNhanVienThuNgan, ref error))
+                MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Thanh toán thất bại! Mời thanh toán lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

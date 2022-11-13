@@ -48,12 +48,26 @@ namespace RestaurantManagement.BussinessLayer
             return conn.MyExecuteNonQuery(cmd,CommandType.StoredProcedure,ref error, sqlParameters);
         }
 
-        public float TongTienPhaiThanhToan(string maBan, ref string error)
+        public bool ThucHienThanhToan(string maBan, string maNhanVienThuNgan, ref string error)
+        {
+            string cmd = "dbo.spThanhToan";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@maBan",maBan),
+                new SqlParameter("@maNhanVienThuNgan", maNhanVienThuNgan)
+            };
+            if (conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, sqlParameters))
+                return true;
+            return false;
+        }
+
+        public float TongTienThanhToan (string maBan, ref string error)
         {
             float result = 0;
-            string cmd = "";
+            string cmd = "SELECT dbo.fnTinhTienDonHangTheoMaBan(@maBan)";
+            SqlParameter sqlParameter = new SqlParameter("@maBan",maBan);
+            result = (float)(double)conn.MyExecuteScalar(cmd, CommandType.Text, ref error, sqlParameter);
             return result;
-
         }
     }
 }
