@@ -1055,6 +1055,17 @@ BEGIN
 END
 GO
 
+CREATE FUNCTION fnTinhTienDonHangTheoMaBan(@maBan CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @maDonHang CHAR(10)
+	SELECT @maDonHang=maDonHang FROM dbo.DonHang
+	WHERE maBan=@maBan AND trangThaiDonHang = N'Chưa thanh toán'
+
+	RETURN dbo.fnTinhTienDonHang(@maDonHang)
+END
+GO
+
 
 CREATE TRIGGER triggerApDungCoupon ON dbo.DonHang
 FOR INSERT, UPDATE AS
