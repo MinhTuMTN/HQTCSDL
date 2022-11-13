@@ -4,6 +4,7 @@ GO
 USE QuanLyNhaHang
 GO
 
+-- Tạo bảng NhanVien chứa thông tin của các nhân viên làm việc ở nhà hàng
 CREATE TABLE NhanVien
 (
 	maNhanVien CHAR(10) PRIMARY KEY,
@@ -89,7 +90,6 @@ CREATE TABLE DonHang
 (
 	maDonHang CHAR(10) PRIMARY KEY,
 	thoiGianCheckIn DATETIME,
-	thue FLOAT,
 	phuThu FLOAT,
 	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
 	soTienThanhToan FLOAT,
@@ -173,7 +173,6 @@ ALTER TABLE dbo.Ban ADD CONSTRAINT check_soLuongGheToiDa CHECK (soLuongGheToiDa 
 GO
 
 ALTER TABLE dbo.DonHang ADD CONSTRAINT check_phuThu CHECK (phuThu >= 0)
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_thue CHECK (thue > 0)
 ALTER TABLE dbo.DonHang ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan >= 0)
 GO
 
@@ -351,7 +350,6 @@ INSERT INTO dbo.DonHang
 (
     maDonHang,
     thoiGianCheckIn,
-    thue,
     phuThu,
     maCoupon,
     soTienThanhToan,
@@ -362,11 +360,11 @@ INSERT INTO dbo.DonHang
     maNhanVienThuNgan,
 	trangThaiDonHang
 )
-VALUES ('HD0001','20220709', 100000, 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
-, ('HD0002', GETDATE(), 10000.0, 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
-, ('HD0003', GETDATE(), 10000.0, 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
-, ('HD0004', GETDATE(), 10000.0, 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
-, ('HD0005', GETDATE(), 10000.0, 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
+VALUES ('HD0001','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
+, ('HD0002', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
+, ('HD0004', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
+, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
 
 INSERT INTO dbo.MonAn
 VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
@@ -806,7 +804,6 @@ GO
 CREATE PROC spUpdateDonHang(
 	@maDonHang CHAR(10),
 	@thoiGianCheckIn DATETIME,
-	@thue FLOAT,
 	@phuThu FLOAT,
 	@maCoupon CHAR(10),
 	@maBan CHAR(10),
@@ -817,7 +814,7 @@ CREATE PROC spUpdateDonHang(
 )
 AS
 BEGIN
-    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
+    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
 	WHERE maDonHang=@maDonHang
 
 END
@@ -987,6 +984,7 @@ BEGIN
 END
 GO
 
+-- Lấy giá tiền của một món ăn từ mã món ăn
 CREATE FUNCTION fnGiaTienMonAn(@maMonAn CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -999,7 +997,7 @@ END
 GO
 
 
---Bao gồm món ăn + phụ thu
+--Bao gồm món ăn
 CREATE FUNCTION fnTinhTamThu(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -1014,6 +1012,7 @@ BEGIN
 END
 GO
 
+-- Thực hiện tính toán tiền giảm khi mã coupon được cập nhật
 CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -1023,38 +1022,51 @@ BEGIN
 	DECLARE @phanTramGiam FLOAT
 	DECLARE @tienTamTinh FLOAT
 
+	--Lấy mã coupon đã cập nhật
 	SELECT @maCoupon = maCoupon FROM dbo.DonHang
 	WHERE maDonHang = @maDonHang
 
+	-- Nếu là NULL thì trả về 0 và kết thúc
 	IF(@maCoupon IS NULL)
 		RETURN 0
 
+	-- Lấy các chi tiết của Coupon để kiểm tra
 	SELECT @donToiThieu = donToiThieu, @giamToiDa = giamToiDa, @phanTramGiam = phanTramGiam 
 	FROM dbo.Coupon
 	WHERE maCoupon = @maCoupon
 
+	-- Lấy số tiền món ăn mà khách đã dùng
 	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maDonHang)
 
+	-- Nếu số tiền đó không đáp ứng số tiền tối thiểu thì đơn không được giảm
 	IF(@tienTamTinh < @donToiThieu)
 		RETURN 0
 
+	-- Nếu số tiền giảm vượt quá số tiền giảm tối đa thì trả về số tiền giảm tối đa
 	IF(@giamToiDa < (@tienTamTinh * @phanTramGiam))
 		RETURN @giamToiDa
+
+	-- Ngược lại, trả về số tiền được giảm
 	RETURN @tienTamTinh * @phanTramGiam
 END
 GO
 
+-- Hàm thực hiện tính tổng của một đơn hàng
 CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
+	-- Lấy số tiền phụ thu của đơn hàng
 	DECLARE @phuThu FLOAT
 	SELECT @phuThu = phuThu FROM dbo.DonHang
 	WHERE maDonHang = @maDonHang
 
+	-- Tổng số tiền của một đơn hàng = Số tiền món ăn + Phụ thu - Số tiền đã được giảm
     RETURN dbo.fnTinhTamThu(@maDonHang) + @phuThu - dbo.fnTinhTienGiam(@maDonHang)
 END
 GO
 
+-- Hàm thực hiện lấy giá tiền của một đơn hàng theo mã bàn
+-- Tại một thời điểm một bàn chỉ có 1 hóa đơn chưa được thanh toán (nếu có)
 CREATE FUNCTION fnTinhTienDonHangTheoMaBan(@maBan CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -1142,6 +1154,7 @@ RETURN (
 )
 GO
 
+-- Hàm lấy tất cả các chi tiết hóa đơn dựa trên mã bàn
 CREATE FUNCTION fnSearchChiTietHoaDonById(@maBan CHAR(10))
 RETURNS TABLE AS
 RETURN(
@@ -1151,6 +1164,7 @@ RETURN(
 )
 GO
 
+-- Hàm lấy phụ thu từ đơn hàng dựa trên mã bàn
 CREATE FUNCTION fnGetPhuThu(@maBan CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -1163,31 +1177,37 @@ BEGIN
 END
 GO
 
+-- SP thực hiện khi nhân viên thu ngân thực hiện ấn nút Thanh toán hóa đơn cho khách
 CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maNhanVienThuNgan CHAR(10))
 AS BEGIN
-     DECLARE @maDonHang CHAR(10)
-	 
+	-- Tìm mã đơn hàng từ mã bàn
+     DECLARE @maDonHang CHAR(10)	 
 	 SELECT @maDonHang = maDonHang FROM dbo.DonHang
 	 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
 
+	 -- Cập nhật trạng thái đơn hàng thành Đã thanh toán
 	 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
 	 WHERE maDonHang = @maDonHang
 
+	 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
 	 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
 
+	 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phc
 	 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
 	 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
 							WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
    END
 GO
 
+-- SP áp dụng Coupon cho một bàn đang phục vụ
 CREATE PROCEDURE spApDungCoupon(@maBan CHAR(10), @maCoupon CHAR(10))
 AS BEGIN
+	   -- Thưc hiện tìm mã đơn hàng từ mã bàn
        DECLARE @maDonHang CHAR(10)
-
 	   SELECT @maDonHang = maDonHang FROM dbo.DonHang
 	   WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
 
+	   -- Cập nhật mã coupon cho đơn hàng đó
 	   UPDATE dbo.DonHang SET maCoupon = @maCoupon WHERE maDonHang = @maDonHang
    END
 GO
