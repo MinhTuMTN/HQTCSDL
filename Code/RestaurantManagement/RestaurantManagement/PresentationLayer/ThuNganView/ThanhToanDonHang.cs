@@ -14,11 +14,13 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
     public partial class frmMainThuNgan : Form
     {
         BusinessThanhToan thanhToan = new BusinessThanhToan();
+        private string maBan;
         public frmMainThuNgan()
         {
             InitializeComponent();
             txtPhuThuError.Visible = false;
             lblSuccess.Visible = false;
+            lblTongTienThanhToan.Text = "0đ";
         }
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
@@ -26,10 +28,11 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             try
             {
                 string error = "";
-                string maBan = txtTimKiemThanhToan.Text;
+                maBan = txtTimKiemThanhToan.Text;
                 dtgChiTietDonHang.DataSource = thanhToan.GetChiTietHoaDon(maBan, ref error);
                 float phuThu = thanhToan.GetPhuThu(maBan, ref error);
                 txtPhuThu.Text = phuThu.ToString();
+                lblTongTienThanhToan.Text = tinhTamThu().ToString();
 
             }
             catch
@@ -73,6 +76,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                     txtPhuThuError.Visible = false;
             }
             lblTongTamTinh.Text = (tamThu + phuThu).ToString();
+            lblTongTienThanhToan.Text = lblTongTamTinh.Text;
         }
 
 
@@ -95,6 +99,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             dt = thanhToan.GetCouponById(maCoupon, ref error);
             if (dt.Rows.Count > 0 && CheckCoupon(dt))
             {
+                thanhToan.ApDungCoupon(maBan, maCoupon, ref error);
                 lblSuccess.Text = "*Áp dụng mã coupon thành công.";
                 lblSuccess.Visible = true;
             }    
@@ -104,6 +109,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
                 lblSuccess.Visible = true;
             }
 
+            
         }
     }
 }
