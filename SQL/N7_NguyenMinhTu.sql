@@ -333,10 +333,10 @@ GO
 insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
 values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
 	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
-	, ('DT03', N'Đã yêu cầu', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
-	, ('DT04', N'Hủy bỏ', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
+	, ('DT03', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
+	, ('DT04', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
 	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
-	, ('DT06', N'Bị từ chối', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
+	, ('DT06', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
 GO
 
 INSERT into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
@@ -1223,3 +1223,34 @@ GO
 
 EXEC sys.sp_addrolemember @rolename = 'QuanLyRole',  -- sysname
                           @membername = 'MinhTu' -- sysname
+GO
+
+CREATE FUNCTION fnLayDanhSachTiepNhan()
+RETURNS TABLE AS
+RETURN(
+	SELECT hoTen, soDienThoai, ngaySinh, thoiGianDatTruoc, soLuongNguoi, maBan, maDatTruoc FROM dbo.DatTruoc, dbo.KhachHang
+	WHERE DatTruoc.maKhachHang = KhachHang.maKhachHang AND trangThaiDatTruoc = N'Chờ xác nhận'
+	)
+GO
+
+CREATE PROCEDURE spChapNhanDatTruoc(@maDatTruoc CHAR(10))
+ AS BEGIN
+        UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã xác nhận'
+		WHERE maDatTruoc = @maDatTruoc
+    END
+GO
+
+CREATE PROCEDURE spTuChoiDatTruoc(@maDatTruoc CHAR(10))
+AS
+	BEGIN
+		DECLARE @maBan CHAR(10)
+		SELECT @maBan = maBan FROM dbo.DatTruoc 
+		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Chờ xác nhận'
+
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối'
+		WHERE maDatTruoc = @maDatTruoc
+
+		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
+		WHERE maBan=@maBan
+	END
+GO
