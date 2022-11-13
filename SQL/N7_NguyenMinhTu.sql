@@ -238,27 +238,27 @@ values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã
 GO
 
 insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien)
-values ('tamtranngocql001','110001qltam', N'đang hoạt động', 'NV110001')
-	, ('hauphamphucql002', '110002qlhau', N'đang hoạt động', 'NV110002')
-	, ('nganguyenphuongql003', '110003qlngan', N'đang hoạt động', 'NV110003')
-	, ('dinhtruongquangdb111', '220111dbdinh', N'đang hoạt động', 'NV220111')
-	, ('hoadotodb222', '220222dbhoa', N'đang hoạt động', 'NV220222')
-	, ('minhbuicongdb333', '220333dbminh', N'đang hoạt động', 'NV220333')
-	, ('macdaovandb444', '220444dbmac', N'đang hoạt động', 'NV220444')
-	, ('lannguyenthingocdb555', '220555dbmac', N'đang hoạt động', 'NV220555')
-	, ('huengocampv101', '330101pvhue', N'đang hoạt động', 'NV330101')
-	, ('anhtranthienpv102', '330102pvanh', N'đang hoạt động', 'NV330102')
-	, ('vinhdinhquangpv103', '330103pvvinh', N'đang hoạt động', 'NV330103')
-	, ('hainguyentruongpv104', '330104pvhai', N'đang hoạt động', 'NV330104')
-	, ('tiendangthicampv105', '330105pvtien', N'đang hoạt động', 'NV330105')
-	, ('thuyphamhungpv106', '330106pvthuy', N'đang hoạt động', 'NV330106')
-	, ('namlybacpv107', '330107pvnam', N'đang hoạt động', 'NV330107')
-	, ('nhitrinhhoangyenpv108', '330108pvnhi', N'đang hoạt động', 'NV330108')
-	, ('chauphanhoangpv109', '330109pvchau', N'đang hoạt động', 'NV330109')
-	, ('phulaivanpv110', '330110pvphu', N'đang hoạt động', 'NV330110')
-	, ('thitrantruongtn123', '440123tnthi', N'đang hoạt động', 'NV440123')
-	, ('ngocmaibaotn456', '440456tnngoc', N'đang hoạt động', 'NV440456')
-	, ('ngandohongthaitn789', '440789tnngan', N'đang hoạt động', 'NV440789')
+values ('tamtranngocql001','110001qltam', N'Đang hoạt động', 'NV110001')
+	, ('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
+	, ('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
+	, ('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
+	, ('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
+	, ('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
+	, ('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
+	, ('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
+	, ('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
+	, ('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
+	, ('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
+	, ('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
+	, ('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
+	, ('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
+	, ('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
+	, ('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
+	, ('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
+	, ('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
+	, ('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
+	, ('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
+	, ('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
 GO
 
 insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
@@ -276,7 +276,7 @@ values ('NV220111', 'CT1001')
 	, ('NV220222', 'CT1001')
 	, ('NV220333', 'CT1002')
 	, ('NV220444', 'CT1003')
-	
+
 	, ('NV330101', 'CT1001')
 	, ('NV330102', 'CT1002')
 	, ('NV330103', 'CT1003')
@@ -317,32 +317,34 @@ values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
 GO
 
 insert into Ban(maBan, trangThaiBan, loaiBan, soLuongGheToiDa)
-values ('BV101', N'đã đặt trước', N'VIP', 20)
-	, ('BV102', N'đang phục vụ', N'VIP', 20)
-	, ('BV103', N'đang có sẵn', N'VIP', 10)
-	, ('BV104', N'đang có sẵn', N'VIP', 10)
-	, ('BV105', N'đang có sẵn', N'VIP', 5)
-	, ('BV106', N'đang có sẵn', N'VIP', 5)
-	, ('BT201', N'đang phục vụ', N'Thường', 10)
-	, ('BT202', N'đang phục vụ', N'Thường', 10)
-	, ('BT203', N'đã đặt trước', N'Thường', 10)
-	, ('BT204', N'đang phục vụ', N'Thường', 5)
-	, ('BT205', N'đang có sẵn', N'Thường', 5)
-	, ('BT206', N'đang có sẵn', N'Thường', 5)
+values ('BV101', N'Đã đặt trước', N'VIP', 20)
+	, ('BV102', N'Đang phục vụ', N'VIP', 20)
+	, ('BV103', N'Đang có sẵn', N'VIP', 10)
+	, ('BV104', N'Đang có sẵn', N'VIP', 10)
+	, ('BV105', N'Đang có sẵn', N'VIP', 5)
+	, ('BV106', N'Đang có sẵn', N'VIP', 5)
+	, ('BT201', N'Đang phục vụ', N'Thường', 10)
+	, ('BT202', N'Đang phục vụ', N'Thường', 10)
+	, ('BT203', N'Đã đặt trước', N'Thường', 10)
+	, ('BT204', N'Đang phục vụ', N'Thường', 5)
+	, ('BT205', N'Đang có sẵn', N'Thường', 5)
+	, ('BT206', N'Đang có sẵn', N'Thường', 5)
 GO
 
 insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
-values ('DT01', N'đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
-	, ('DT02', N'đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
-	, ('DT03', N'đã yêu cầu', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
-	, ('DT04', N'hủy bỏ', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
-	, ('DT05', N'đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
-	, ('DT06', N'bị từ chối', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
+values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
+	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
+	, ('DT03', N'Đã yêu cầu', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
+	, ('DT04', N'Hủy bỏ', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
+	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
+	, ('DT06', N'Bị từ chối', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
 GO
 
-insert into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
+INSERT into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
 values ('CP10', '2022-10-01', '2022-10-07' , 0.1 , 200000 , 50000)
 	, ('CP20', '2022-10-08', '2022-10-15', 0.2 , 300000 , 100000)
+	, ('CP30', '2022-11-15', '2022-12-15', 0.15 , 200000 , 100000)
+	, ('CP40', '2022-11-11', '2022-11-30', 0.1 , 100000 , 0)
 GO
 
 INSERT INTO dbo.DonHang
@@ -361,10 +363,10 @@ INSERT INTO dbo.DonHang
 	trangThaiDonHang
 )
 VALUES ('HD0001','20220709', 100000, 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
-, ('HD0002', GETDATE(), 10000.0, 50000.0, NULL, 0.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
-, ('HD0003', GETDATE(), 10000.0, 0.0, NULL, 0.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
-, ('HD0004', GETDATE(), 10000.0, 0.0, NULL, 0.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
-, ('HD0005', GETDATE(), 10000.0, 20000.0, NULL, 0.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0002', GETDATE(), 10000.0, 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0003', GETDATE(), 10000.0, 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
+, ('HD0004', GETDATE(), 10000.0, 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
+, ('HD0005', GETDATE(), 10000.0, 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
 
 INSERT INTO dbo.MonAn
 VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
@@ -1008,10 +1010,6 @@ BEGIN
 	FROM dbo.ChiTietDonHang CT
 	WHERE maDonHang = @maDonHang
 
-	SELECT @tong = @tong + phuThu
-	FROM dbo.DonHang
-	WHERE maDonHang = @maDonHang
-
 	RETURN @tong
 END
 GO
@@ -1049,7 +1047,11 @@ GO
 CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
-    RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
+	DECLARE @phuThu FLOAT
+	SELECT @phuThu = phuThu FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
+
+    RETURN dbo.fnTinhTamThu(@maDonHang) + @phuThu - dbo.fnTinhTienGiam(@maDonHang)
 END
 GO
 
