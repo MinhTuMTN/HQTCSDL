@@ -1216,27 +1216,6 @@ AS BEGIN
    END
 GO
 
-EXEC sys.sp_addrole @rolename = 'QuanLyRole'
-EXEC sys.sp_addrole @rolename = 'NhanVienRole'
-EXEC sys.sp_addrole @rolename = 'ThuNganRole'
-EXEC sys.sp_addrole @rolename = 'PhucVuRole'
-EXEC sys.sp_addrole @rolename = 'KhachHangRole'
-GO
-
-
-CREATE PROCEDURE spAddToRole(@tenRole, 
-GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
-
-CREATE LOGIN MinhTu WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-GO
-
-CREATE USER MinhTu FOR LOGIN MinhTu
-GO
-
-EXEC sys.sp_addrolemember @rolename = 'QuanLyRole',  -- sysname
-                          @membername = 'MinhTu' -- sysname
-GO
-
 CREATE FUNCTION fnLayDanhSachTiepNhan()
 RETURNS TABLE AS
 RETURN(
@@ -1266,3 +1245,49 @@ AS
 		WHERE maBan=@maBan
 	END
 GO
+
+CREATE PROCEDURE spTaoDatTruoc(@maDatTruoc CHAR(10))
+AS
+	BEGIN
+		SELECT * FROM dbo.DatTruoc
+	END
+GO
+
+--- Thực hiện phân quyền
+EXEC sys.sp_addrole @rolename = 'QuanLyRole'
+EXEC sys.sp_addrole @rolename = 'NhanVienRole'
+EXEC sys.sp_addrole @rolename = 'ThuNganRole'
+EXEC sys.sp_addrole @rolename = 'PhucVuRole'
+EXEC sys.sp_addrole @rolename = 'KhachHangRole'
+GO
+
+
+GRANT EXECUTE ON dbo.spTaoDatTruoc TO KhachHangRole
+GO
+
+GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
+GO
+
+GRANT SELECT ON dbo.fnSearchChiTietHoaDonById TO ThuNganRole
+GRANT EXECUTE ON dbo.fnGetPhuThu TO ThuNganRole
+GRANT EXECUTE ON dbo.spApDungCoupon TO ThuNganRole
+GRANT EXECUTE ON dbo.spThanhToan TO ThuNganRole
+GRANT EXECUTE ON dbo.fnTinhTienDonHangTheoMaBan TO ThuNganRole
+GRANT SELECT ON dbo.fnLayDanhSachTiepNhan TO ThuNganRole
+GRANT EXECUTE ON dbo.spChapNhanDatTruoc TO ThuNganRole
+GRANT EXECUTE ON dbo.spTuChoiDatTruoc TO ThuNganRole
+GO
+
+
+CREATE LOGIN QuanLy WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+CREATE LOGIN ThuNgan WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+
+CREATE USER QuanLy FOR LOGIN QuanLy
+CREATE USER ThuNgan FOR LOGIN ThuNgan
+GO
+
+EXEC sys.sp_addrolemember @rolename = 'QuanLyRole',  -- sysname
+                          @membername = 'QuanLy' -- sysname
+EXEC sys.sp_addrolemember @rolename = 'ThuNganRole',  -- sysname
+                          @membername = 'ThuNgan' -- sysname

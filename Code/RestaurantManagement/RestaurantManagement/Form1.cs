@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestaurantManagement.AsminController;
+using RestaurantManagement.PresentationLayer.ThuNganView;
 using RestaurantManagement.Properties;
 
 namespace RestaurantManagement
@@ -28,7 +29,7 @@ namespace RestaurantManagement
             Settings.Default.passLoginDb = userPass;
 
             this.Hide();
-            frmMainMenu mainMenu = new frmMainMenu();
+            frmMainThuNgan mainMenu = new frmMainThuNgan();
             mainMenu.Show();
         }
     }
