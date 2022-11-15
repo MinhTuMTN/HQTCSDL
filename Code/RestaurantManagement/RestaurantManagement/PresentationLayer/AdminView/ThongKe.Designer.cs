@@ -37,9 +37,17 @@
             this.lblChucNang = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnThongKe = new Guna.UI2.WinForms.Guna2Button();
+            this.dtNgayKT = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtNgayBD = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.txtSearch.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -169,20 +177,124 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(502, 44);
             this.guna2TextBox1.TabIndex = 8;
             // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnThongKe);
+            this.guna2CustomGradientPanel1.Controls.Add(this.dtNgayKT);
+            this.guna2CustomGradientPanel1.Controls.Add(this.dtNgayBD);
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(6, 118);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1118, 130);
+            this.guna2CustomGradientPanel1.TabIndex = 7;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(486, 18);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(129, 30);
+            this.guna2HtmlLabel2.TabIndex = 4;
+            this.guna2HtmlLabel2.Text = "Ngày kết thúc:";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(22, 18);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(126, 30);
+            this.guna2HtmlLabel1.TabIndex = 3;
+            this.guna2HtmlLabel1.Text = "Ngày bắt đầu:";
+            // 
+            // btnThongKe
+            // 
+            this.btnThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThongKe.BorderRadius = 20;
+            this.btnThongKe.CheckedState.Parent = this.btnThongKe;
+            this.btnThongKe.CustomImages.Parent = this.btnThongKe;
+            this.btnThongKe.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThongKe.ForeColor = System.Drawing.Color.White;
+            this.btnThongKe.HoverState.Parent = this.btnThongKe;
+            this.btnThongKe.Location = new System.Drawing.Point(916, 52);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.ShadowDecoration.Parent = this.btnThongKe;
+            this.btnThongKe.Size = new System.Drawing.Size(180, 45);
+            this.btnThongKe.TabIndex = 2;
+            this.btnThongKe.Text = "Thống kê";
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
+            // dtNgayKT
+            // 
+            this.dtNgayKT.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtNgayKT.BorderRadius = 20;
+            this.dtNgayKT.CheckedState.Parent = this.dtNgayKT;
+            this.dtNgayKT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dtNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayKT.HoverState.Parent = this.dtNgayKT;
+            this.dtNgayKT.Location = new System.Drawing.Point(486, 52);
+            this.dtNgayKT.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtNgayKT.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtNgayKT.Name = "dtNgayKT";
+            this.dtNgayKT.ShadowDecoration.Parent = this.dtNgayKT;
+            this.dtNgayKT.Size = new System.Drawing.Size(269, 45);
+            this.dtNgayKT.TabIndex = 1;
+            this.dtNgayKT.Value = new System.DateTime(2022, 11, 11, 10, 5, 13, 637);
+            // 
+            // dtNgayBD
+            // 
+            this.dtNgayBD.BorderRadius = 20;
+            this.dtNgayBD.CheckedState.Parent = this.dtNgayBD;
+            this.dtNgayBD.FillColor = System.Drawing.Color.PaleTurquoise;
+            this.dtNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayBD.HoverState.Parent = this.dtNgayBD;
+            this.dtNgayBD.Location = new System.Drawing.Point(22, 52);
+            this.dtNgayBD.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtNgayBD.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtNgayBD.Name = "dtNgayBD";
+            this.dtNgayBD.ShadowDecoration.Parent = this.dtNgayBD;
+            this.dtNgayBD.Size = new System.Drawing.Size(269, 45);
+            this.dtNgayBD.TabIndex = 0;
+            this.dtNgayBD.Value = new System.DateTime(2022, 5, 1, 0, 0, 0, 0);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "RestaurantManagement.PresentationLayer.AdminView.ReportThongKe.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(6, 272);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1110, 691);
+            this.reportViewer1.TabIndex = 8;
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 975);
+            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.txtSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThongKe";
             this.Text = "ThongKe";
+            this.Load += new System.EventHandler(this.ThongKe_Load);
             this.txtSearch.ResumeLayout(false);
             this.txtSearch.PerformLayout();
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -197,5 +309,12 @@
         private System.Windows.Forms.Label lblChucNang;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2Button btnThongKe;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtNgayKT;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtNgayBD;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

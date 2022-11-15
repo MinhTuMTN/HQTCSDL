@@ -4,6 +4,7 @@ using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer;
 using RestaurantManagement.PresentationLayer.AdminView;
 using RestaurantManagement.PresentationLayer.StaffView;
+using RestaurantManagement.PresentationLayer.ThuNganView;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,6 +28,11 @@ namespace RestaurantManagement
             //Application.Run(new frmMainMenu());
             //string error = "";
             //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
+
+            BussinessKhachHang donHang = new BussinessKhachHang();
+            donHang.CreateMaKhachHang(ref error);
+
+            new BusinessDonHang().CreateMaDonHang(ref error);
         }
     }
 }

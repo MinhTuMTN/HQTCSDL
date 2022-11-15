@@ -4,6 +4,7 @@ GO
 USE QuanLyNhaHang
 GO
 
+-- Tạo bảng NhanVien chứa thông tin của các nhân viên làm việc ở nhà hàng
 CREATE TABLE NhanVien
 (
 	maNhanVien CHAR(10) PRIMARY KEY,
@@ -89,7 +90,6 @@ CREATE TABLE DonHang
 (
 	maDonHang CHAR(10) PRIMARY KEY,
 	thoiGianCheckIn DATETIME,
-	thue FLOAT,
 	phuThu FLOAT,
 	maCoupon CHAR(10) REFERENCES dbo.Coupon(maCoupon),
 	soTienThanhToan FLOAT,
@@ -121,8 +121,8 @@ GO
 
 -- Thêm Constraint
 ALTER TABLE	dbo.Coupon ADD CONSTRAINT check_phanTramGiam CHECK (phanTramGiam >= 0 AND phanTramGiam <= 1);
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienGiamToiDa CHECK (giamToiDa > 0)
-ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienToiThieu CHECK (donToiThieu > 0)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienGiamToiDa CHECK (giamToiDa >= 0)
+ALTER TABLE dbo.Coupon ADD CONSTRAINT check_soTienToiThieu CHECK (donToiThieu >= 0)
 ALTER TABLE dbo.Coupon ADD CONSTRAINT check_ngayBatDauKetThuc CHECK (ngayBatDau <= ngayKetThuc)
 GO
 
@@ -173,8 +173,7 @@ ALTER TABLE dbo.Ban ADD CONSTRAINT check_soLuongGheToiDa CHECK (soLuongGheToiDa 
 GO
 
 ALTER TABLE dbo.DonHang ADD CONSTRAINT check_phuThu CHECK (phuThu >= 0)
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_thue CHECK (thue > 0)
-ALTER TABLE dbo.DonHang ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan > 0)
+ALTER TABLE dbo.DonHang ADD CONSTRAINT check_soTienThanhToan CHECK (soTienThanhToan >= 0)
 GO
 
 ALTER TABLE dbo.ChiTietDonHang ADD CONSTRAINT check_soLuong CHECK (soLuong > 0)
@@ -238,27 +237,27 @@ values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã
 GO
 
 insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien)
-values ('tamtranngocql001','110001qltam', N'đang hoạt động', 'NV110001')
-	, ('hauphamphucql002', '110002qlhau', N'đang hoạt động', 'NV110002')
-	, ('nganguyenphuongql003', '110003qlngan', N'đang hoạt động', 'NV110003')
-	, ('dinhtruongquangdb111', '220111dbdinh', N'đang hoạt động', 'NV220111')
-	, ('hoadotodb222', '220222dbhoa', N'đang hoạt động', 'NV220222')
-	, ('minhbuicongdb333', '220333dbminh', N'đang hoạt động', 'NV220333')
-	, ('macdaovandb444', '220444dbmac', N'đang hoạt động', 'NV220444')
-	, ('lannguyenthingocdb555', '220555dbmac', N'đang hoạt động', 'NV220555')
-	, ('huengocampv101', '330101pvhue', N'đang hoạt động', 'NV330101')
-	, ('anhtranthienpv102', '330102pvanh', N'đang hoạt động', 'NV330102')
-	, ('vinhdinhquangpv103', '330103pvvinh', N'đang hoạt động', 'NV330103')
-	, ('hainguyentruongpv104', '330104pvhai', N'đang hoạt động', 'NV330104')
-	, ('tiendangthicampv105', '330105pvtien', N'đang hoạt động', 'NV330105')
-	, ('thuyphamhungpv106', '330106pvthuy', N'đang hoạt động', 'NV330106')
-	, ('namlybacpv107', '330107pvnam', N'đang hoạt động', 'NV330107')
-	, ('nhitrinhhoangyenpv108', '330108pvnhi', N'đang hoạt động', 'NV330108')
-	, ('chauphanhoangpv109', '330109pvchau', N'đang hoạt động', 'NV330109')
-	, ('phulaivanpv110', '330110pvphu', N'đang hoạt động', 'NV330110')
-	, ('thitrantruongtn123', '440123tnthi', N'đang hoạt động', 'NV440123')
-	, ('ngocmaibaotn456', '440456tnngoc', N'đang hoạt động', 'NV440456')
-	, ('ngandohongthaitn789', '440789tnngan', N'đang hoạt động', 'NV440789')
+values ('tamtranngocql001','110001qltam', N'Đang hoạt động', 'NV110001')
+	, ('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
+	, ('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
+	, ('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
+	, ('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
+	, ('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
+	, ('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
+	, ('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
+	, ('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
+	, ('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
+	, ('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
+	, ('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
+	, ('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
+	, ('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
+	, ('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
+	, ('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
+	, ('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
+	, ('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
+	, ('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
+	, ('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
+	, ('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
 GO
 
 insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
@@ -276,7 +275,7 @@ values ('NV220111', 'CT1001')
 	, ('NV220222', 'CT1001')
 	, ('NV220333', 'CT1002')
 	, ('NV220444', 'CT1003')
-	
+
 	, ('NV330101', 'CT1001')
 	, ('NV330102', 'CT1002')
 	, ('NV330103', 'CT1003')
@@ -317,39 +316,40 @@ values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
 GO
 
 insert into Ban(maBan, trangThaiBan, loaiBan, soLuongGheToiDa)
-values ('BV101', N'đã đặt trước', N'VIP', 20)
-	, ('BV102', N'đang phục vụ', N'VIP', 20)
-	, ('BV103', N'đang có sẵn', N'VIP', 10)
-	, ('BV104', N'đang có sẵn', N'VIP', 10)
-	, ('BV105', N'đang có sẵn', N'VIP', 5)
-	, ('BV106', N'đang có sẵn', N'VIP', 5)
-	, ('BT201', N'đang phục vụ', N'Thường', 10)
-	, ('BT202', N'đang phục vụ', N'Thường', 10)
-	, ('BT203', N'đã đặt trước', N'Thường', 10)
-	, ('BT204', N'đang phục vụ', N'Thường', 5)
-	, ('BT205', N'đang có sẵn', N'Thường', 5)
-	, ('BT206', N'đang có sẵn', N'Thường', 5)
+values ('BV101', N'Đã đặt trước', N'VIP', 20)
+	, ('BV102', N'Đang phục vụ', N'VIP', 20)
+	, ('BV103', N'Đang có sẵn', N'VIP', 10)
+	, ('BV104', N'Đang có sẵn', N'VIP', 10)
+	, ('BV105', N'Đang có sẵn', N'VIP', 5)
+	, ('BV106', N'Đang có sẵn', N'VIP', 5)
+	, ('BT201', N'Đang phục vụ', N'Thường', 10)
+	, ('BT202', N'Đang phục vụ', N'Thường', 10)
+	, ('BT203', N'Đã đặt trước', N'Thường', 10)
+	, ('BT204', N'Đang phục vụ', N'Thường', 5)
+	, ('BT205', N'Đang có sẵn', N'Thường', 5)
+	, ('BT206', N'Đang có sẵn', N'Thường', 5)
 GO
 
 insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
-values ('DT01', N'đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
-	, ('DT02', N'đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
-	, ('DT03', N'đã yêu cầu', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
-	, ('DT04', N'hủy bỏ', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
-	, ('DT05', N'đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
-	, ('DT06', N'bị từ chối', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
+values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
+	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
+	, ('DT03', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
+	, ('DT04', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
+	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
+	, ('DT06', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
 GO
 
-insert into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
+INSERT into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
 values ('CP10', '2022-10-01', '2022-10-07' , 0.1 , 200000 , 50000)
 	, ('CP20', '2022-10-08', '2022-10-15', 0.2 , 300000 , 100000)
+	, ('CP30', '2022-11-15', '2022-12-15', 0.15 , 200000 , 100000)
+	, ('CP40', '2022-11-11', '2022-11-30', 0.1 , 100000 , 0)
 GO
 
 INSERT INTO dbo.DonHang
 (
     maDonHang,
     thoiGianCheckIn,
-    thue,
     phuThu,
     maCoupon,
     soTienThanhToan,
@@ -360,21 +360,11 @@ INSERT INTO dbo.DonHang
     maNhanVienThuNgan,
 	trangThaiDonHang
 )
-VALUES
-(   'HD0001',        -- maDonHang - char(10)
-    '20220709', -- thoiGianCheckIn - datetime
-    100000,       -- thue - float
-    50000,       -- phuThu - float
-    'CP10',        -- maCoupon - char(10)
-    1100000,       -- soTienThanhToan - float
-    'BV103',        -- maBan - char(10)
-    'KH01',        -- maKhachHang - char(10)
-    'NV220333',        -- maDauBep - char(10)
-    'NV330103',        -- maNhanVienPhucVu - char(10)
-    'NV440789',         -- maNhanVienThuNgan - char(10)
-	N'Đã thanh toán'
-    )
-GO
+VALUES ('HD0001','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
+, ('HD0002', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
+, ('HD0004', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
+, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
 
 INSERT INTO dbo.MonAn
 VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
@@ -395,11 +385,12 @@ VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
 GO
 
 insert into ChiTietDonHang(maDonHang, maMonAn, soLuong )
-values('HD0001', '10003', 2)
-	, ('HD0001', '10005', 2)
-	, ('HD0001', '10007', 2)
-	, ('HD0001', '10012', 1)
-	, ('HD0001', '10013', 2)
+VALUES
+('HD0001', '10003', 2), ('HD0001', '10005', 2), ('HD0001', '10007', 2), ('HD0001', '10012', 1), ('HD0001', '10013', 2),
+('HD0002', '10014', 1), ('HD0002', '10006', 1), ('HD0002', '10012', 1), ('HD0002', '10007', 1), ('HD0002', '10011', 4), ('HD0002', '10013', 1),
+('HD0003', '10003', 1), ('HD0003', '10011', 2), ('HD0003', '10015', 2), ('HD0003', '10001', 1),
+('HD0004', '10013', 1), ('HD0004', '10009', 2), ('HD0004', '10007', 2),
+('HD0005', '10006', 1), ('HD0005', '10004', 1), ('HD0005', '10014', 1), ('HD0005', '10012', 1), ('HD0005', '10010', 1)
 GO
 
 insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
@@ -457,11 +448,36 @@ AS BEGIN
 		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
 	END
 GO
-CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @thue float, @phuThu float, @maCoupon char(10), @soTienThanhToan float, @trangThaiDonHang NVARCHAR(50), @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10), @maNhanVienThuNgan char(10))
+CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
 AS BEGIN
 		INSERT INTO dbo.DonHang
-		VALUES (@maDonHang, @thoiGianCheckIn, @thue, @phuThu, @maCoupon, @soTienThanhToan, @trangThaiDonHang, @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, @maNhanVienThuNgan)
-	END
+		(
+		    maDonHang,
+		    thoiGianCheckIn,
+		    phuThu,
+		    maCoupon,
+		    soTienThanhToan,
+		    trangThaiDonHang,
+		    maBan,
+		    maKhachHang,
+		    maDauBep,
+		    maNhanVienPhucVu,
+		    maNhanVienThuNgan
+		)
+		VALUES
+		(   @maDonHang,        -- maDonHang - char(10)
+		    @thoiGianCheckIn, -- thoiGianCheckIn - datetime
+		    @phuThu,       -- phuThu - float
+		    NULL,        -- maCoupon - char(10)
+		    0.0,       -- soTienThanhToan - float
+		    N'Chưa thanh toán',       -- trangThaiDonHang - nvarchar(50)
+		    @maBan,        -- maBan - char(10)
+		    @maKhachHang,        -- maKhachHang - char(10)
+		    @maDauBep,        -- maDauBep - char(10)
+		    @maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
+		    NULL         -- maNhanVienThuNgan - char(10)
+		    )
+END
 GO
 
 CREATE PROCEDURE spInsertKhachHang(@maKhachHang char(10), @hoTen nvarchar(150), @soDienThoai char(10), @ngaySinh date, @gioiTinh bit)
@@ -489,6 +505,8 @@ CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh da
 AS BEGIN
 		INSERT INTO dbo.NhanVien
 		VALUES (@ma,@ten,@ngaysinh,@gioitinh,@diachi,@SDT,@heSoLuong,@loaiNhanVien)
+
+		EXEC sp
 	END
 GO
 
@@ -496,6 +514,8 @@ CREATE PROCEDURE spInsertTaiKhoan(@tenDangNhap varchar(50), @matKhau varchar(50)
 AS BEGIN
 		INSERT INTO dbo.TaiKhoan
 		VALUES (@tenDangNhap, @matKhau, @trangThaiTaiKhoan, @maNhanVien)
+
+
 	END
 GO
 
@@ -724,17 +744,6 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateLuong(
-	@maNhanVien CHAR(10),
-	@maCaTruc CHAR(10),
-	@soNgayNghi INT
-)
-AS
-BEGIN
-    UPDATE dbo.Luong SET soNgayNghi=@soNgayNghi
-	WHERE maNhanVien=@maNhanVien AND maCaTruc=@maCaTruc
-END
-GO
 
 CREATE PROC spUpdateKhachHang (
 	@maKhachHang CHAR(10),
@@ -799,7 +808,6 @@ GO
 CREATE PROC spUpdateDonHang(
 	@maDonHang CHAR(10),
 	@thoiGianCheckIn DATETIME,
-	@thue FLOAT,
 	@phuThu FLOAT,
 	@maCoupon CHAR(10),
 	@maBan CHAR(10),
@@ -810,7 +818,7 @@ CREATE PROC spUpdateDonHang(
 )
 AS
 BEGIN
-    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, thue=@thue, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
+    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
 	WHERE maDonHang=@maDonHang
 
 END
@@ -855,7 +863,7 @@ WHERE ChiTietDonHang.maDonHang = DonHang.maDonHang AND ChiTietDonHang.maMonAn = 
 GO
 
 CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
-AS SELECT CaTruc.maCaTruc, hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
+AS SELECT CaTruc.maCaTruc, Luong.maNhanVien , hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
 FROM dbo.Luong, dbo.CaTruc, dbo.NhanVien
 WHERE Luong.maCaTruc=CaTruc.maCaTruc AND NhanVien.maNhanVien = Luong.maNhanVien
 GO
@@ -916,6 +924,17 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchLuong(@maCaTruc CHAR(10), @date DATE, @hoTen NVARCHAR(100), @maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT * FROM dbo.viewLuongNhanVien
+	WHERE (maCaTruc=@maCaTruc OR @maCaTruc IS NULL)
+		AND ((@date >= ngayBatDau AND @date <= ngayKetThuc) OR @date IS NULL)
+		AND (hoTen LIKE  '%' + @hoTen + '%' OR @hoTen IS NULL)
+		AND (maNhanVien=@maNhanVien OR @maNhanVien IS NULL)
+)
+GO
+
 CREATE FUNCTION fnTinhLuongTamTinh(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -969,6 +988,7 @@ BEGIN
 END
 GO
 
+-- Lấy giá tiền của một món ăn từ mã món ăn
 CREATE FUNCTION fnGiaTienMonAn(@maMonAn CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -981,7 +1001,7 @@ END
 GO
 
 
---Bao gồm món ăn + phụ thu
+--Bao gồm món ăn
 CREATE FUNCTION fnTinhTamThu(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -992,11 +1012,73 @@ BEGIN
 	FROM dbo.ChiTietDonHang CT
 	WHERE maDonHang = @maDonHang
 
-	SELECT @tong = @tong + phuThu
-	FROM dbo.DonHang
+	RETURN @tong
+END
+GO
+
+-- Thực hiện tính toán tiền giảm khi mã coupon được cập nhật
+CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @maCoupon CHAR(10)
+	DECLARE @donToiThieu FLOAT 
+	DECLARE @giamToiDa FLOAT
+	DECLARE @phanTramGiam FLOAT
+	DECLARE @tienTamTinh FLOAT
+
+	--Lấy mã coupon đã cập nhật
+	SELECT @maCoupon = maCoupon FROM dbo.DonHang
 	WHERE maDonHang = @maDonHang
 
-	RETURN @tong
+	-- Nếu là NULL thì trả về 0 và kết thúc
+	IF(@maCoupon IS NULL)
+		RETURN 0
+
+	-- Lấy các chi tiết của Coupon để kiểm tra
+	SELECT @donToiThieu = donToiThieu, @giamToiDa = giamToiDa, @phanTramGiam = phanTramGiam 
+	FROM dbo.Coupon
+	WHERE maCoupon = @maCoupon
+
+	-- Lấy số tiền món ăn mà khách đã dùng
+	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maDonHang)
+
+	-- Nếu số tiền đó không đáp ứng số tiền tối thiểu thì đơn không được giảm
+	IF(@tienTamTinh < @donToiThieu)
+		RETURN 0
+
+	-- Nếu số tiền giảm vượt quá số tiền giảm tối đa thì trả về số tiền giảm tối đa
+	IF(@giamToiDa < (@tienTamTinh * @phanTramGiam))
+		RETURN @giamToiDa
+
+	-- Ngược lại, trả về số tiền được giảm
+	RETURN @tienTamTinh * @phanTramGiam
+END
+GO
+
+-- Hàm thực hiện tính tổng của một đơn hàng
+CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+	-- Lấy số tiền phụ thu của đơn hàng
+	DECLARE @phuThu FLOAT
+	SELECT @phuThu = phuThu FROM dbo.DonHang
+	WHERE maDonHang = @maDonHang
+
+	-- Tổng số tiền của một đơn hàng = Số tiền món ăn + Phụ thu - Số tiền đã được giảm
+    RETURN dbo.fnTinhTamThu(@maDonHang) + @phuThu - dbo.fnTinhTienGiam(@maDonHang)
+END
+GO
+
+-- Hàm thực hiện lấy giá tiền của một đơn hàng theo mã bàn
+-- Tại một thời điểm một bàn chỉ có 1 hóa đơn chưa được thanh toán (nếu có)
+CREATE FUNCTION fnTinhTienDonHangTheoMaBan(@maBan CHAR(10))
+RETURNS FLOAT AS
+BEGIN
+    DECLARE @maDonHang CHAR(10)
+	SELECT @maDonHang=maDonHang FROM dbo.DonHang
+	WHERE maBan=@maBan AND trangThaiDonHang = N'Chưa thanh toán'
+
+	RETURN dbo.fnTinhTienDonHang(@maDonHang)
 END
 GO
 
@@ -1009,55 +1091,178 @@ BEGIN
 
 	SELECT @maDonHang=maDonHang, @maCoupon=maCoupon FROM Inserted
 	IF(@maCoupon IS NULL)
-		RETURN
+		UPDATE dbo.DonHang SET soTienThanhToan = dbo.fnTinhTienDonHang(@maDonHang) WHERE maDonHang = @maDonHang
 
 	DECLARE @donToiThieu FLOAT
-	SELECT @donToiThieu = donToiThieu FROM dbo.Coupon
+	DECLARE @ngayBatDau DATE
+	DECLARE @ngayKetThuc DATE
+
+	SELECT @donToiThieu = donToiThieu, @ngayBatDau = ngayBatDau, @ngayKetThuc = ngayKetThuc FROM dbo.Coupon
 	WHERE maCoupon = @maCoupon
 
 	DECLARE @giaTriDon FLOAT
 	SELECT @giaTriDon = dbo.fnTinhTamThu(@maDonHang)
 
 	IF (@giaTriDon >= @donToiThieu)
-		RETURN
+		    IF (CONVERT(DATE, GETDATE()) BETWEEN @ngayBatDau AND @ngayKetThuc)
+				UPDATE dbo.DonHang SET soTienThanhToan = dbo.fnTinhTienDonHang(@maDonHang) WHERE maDonHang = @maDonHang
 	ELSE
 		UPDATE dbo.DonHang SET maCoupon = NULL WHERE maDonHang = @maDonHang
 END
 GO
 
-CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
-RETURNS FLOAT AS
+CREATE TRIGGER triggerUpdateTongDonHang ON dbo.ChiTietDonHang
+FOR INSERT, UPDATE AS
 BEGIN
-	DECLARE @maCoupon CHAR(10)
-	DECLARE @donToiThieu FLOAT 
-	DECLARE @giamToiDa FLOAT
-	DECLARE @phanTramGiam FLOAT
-	DECLARE @tienTamTinh FLOAT
+    DECLARE @maDonHang CHAR(10)
 
-	SELECT @maCoupon = maCoupon FROM dbo.DonHang
-	WHERE maDonHang = @maDonHang
+	SELECT @maDonHang = Ins.maDonHang FROM Inserted Ins
 
-	IF(@maCoupon IS NULL)
-		RETURN 0
-
-	SELECT @donToiThieu = donToiThieu, @giamToiDa = giamToiDa, @phanTramGiam = phanTramGiam 
-	FROM dbo.Coupon
-	WHERE maCoupon = @maCoupon
-
-	SELECT @tienTamTinh = dbo.fnTinhTamThu(@maDonHang)
-
-	IF(@tienTamTinh < @donToiThieu)
-		RETURN 0
-
-	IF(@giamToiDa < (@tienTamTinh * @phanTramGiam))
-		RETURN @giamToiDa
-	RETURN @tienTamTinh * @phanTramGiam
+	UPDATE dbo.DonHang SET soTienThanhToan = dbo.fnTinhTienDonHang(@maDonHang) WHERE maDonHang = @maDonHang
 END
 GO
 
-CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
+CREATE FUNCTION fnDetailLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT v.*, (v.soNgayNghi * v.heSoLuong) biTru FROM dbo.viewLuongNhanVien v
+	WHERE v.maNhanVien = @maNhanVien AND v.maCaTruc = @maCaTruc
+)
+GO 
+
+CREATE FUNCTION fnThongKeLuong (@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.viewLuongNhanVien
+	WHERE ngayKetThuc BETWEEN @ngayBD AND @ngayKT
+)
+GO
+
+CREATE FUNCTION fnThongKeDoanhThuTheoBan(@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT maBan, SUM(soTienThanhToan) soTien FROM dbo.DonHang
+	WHERE CONVERT(DATE, thoiGianCheckIn) BETWEEN @ngayBD AND @ngayKT
+	GROUP BY maBan
+)
+GO
+
+CREATE FUNCTION fnThongKeMonAnBanChay(@ngayBD DATE, @ngayKT DATE)
+RETURNS TABLE AS
+RETURN (
+	SELECT TOP(1) MonAn.maMonAn, tenMonAn, hinhAnh, giaTien FROM dbo.MonAn, dbo.DonHang, dbo.ChiTietDonHang
+	WHERE dbo.MonAn.maMonAn = dbo.ChiTietDonHang.maMonAn AND dbo.DonHang.maDonHang = dbo.ChiTietDonHang.maDonHang
+		AND CONVERT(DATE, thoiGianCheckIn) BETWEEN  @ngayBD AND @ngayKT
+	GROUP BY MonAn.maMonAn, tenMonAn, hinhAnh, MonAn.giaTien
+	ORDER BY SUM(soLuong) DESC
+)
+GO
+
+-- Hàm lấy tất cả các chi tiết hóa đơn dựa trên mã bàn
+CREATE FUNCTION fnSearchChiTietHoaDonById(@maBan CHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT MA.tenMonAn, CT.soLuong, MA.giaTien, CT.soLuong*MA.giaTien soTien FROM dbo.ChiTietDonHang CT, dbo.MonAn MA, dbo.DonHang DH
+	WHERE CT.maDonHang = DH.maDonHang AND MA.maMonAn = CT.maMonAn
+		AND DH.trangThaiDonHang = N'Chưa thanh toán' AND DH.maBan = @maBan
+)
+GO
+
+-- Hàm lấy phụ thu từ đơn hàng dựa trên mã bàn
+CREATE FUNCTION fnGetPhuThu(@maBan CHAR(10))
 RETURNS FLOAT AS
 BEGIN
-    RETURN dbo.fnTinhTamThu(@maDonHang) - dbo.fnTinhTienGiam(@maDonHang)
+	DECLARE @phuThu FLOAT
+
+    SELECT @phuThu = phuThu FROM dbo.DonHang
+	WHERE trangThaiDonHang = N'Chưa thanh toán' AND maBan = @maBan
+
+	RETURN @phuThu
 END
+GO
+
+-- SP thực hiện khi nhân viên thu ngân thực hiện ấn nút Thanh toán hóa đơn cho khách
+CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maNhanVienThuNgan CHAR(10))
+AS BEGIN
+	-- Tìm mã đơn hàng từ mã bàn
+     DECLARE @maDonHang CHAR(10)	 
+	 SELECT @maDonHang = maDonHang FROM dbo.DonHang
+	 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
+
+	 -- Cập nhật trạng thái đơn hàng thành Đã thanh toán
+	 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
+	 WHERE maDonHang = @maDonHang
+
+	 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
+	 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
+
+	 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phc
+	 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
+	 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
+							WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
+   END
+GO
+
+-- SP áp dụng Coupon cho một bàn đang phục vụ
+CREATE PROCEDURE spApDungCoupon(@maBan CHAR(10), @maCoupon CHAR(10))
+AS BEGIN
+	   -- Thưc hiện tìm mã đơn hàng từ mã bàn
+       DECLARE @maDonHang CHAR(10)
+	   SELECT @maDonHang = maDonHang FROM dbo.DonHang
+	   WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
+
+	   -- Cập nhật mã coupon cho đơn hàng đó
+	   UPDATE dbo.DonHang SET maCoupon = @maCoupon WHERE maDonHang = @maDonHang
+   END
+GO
+
+EXEC sys.sp_addrole @rolename = 'QuanLyRole'
+EXEC sys.sp_addrole @rolename = 'NhanVienRole'
+EXEC sys.sp_addrole @rolename = 'ThuNganRole'
+EXEC sys.sp_addrole @rolename = 'PhucVuRole'
+EXEC sys.sp_addrole @rolename = 'KhachHangRole'
+GO
+
+
+CREATE PROCEDURE spAddToRole(@tenRole, 
+GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
+
+CREATE LOGIN MinhTu WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+
+CREATE USER MinhTu FOR LOGIN MinhTu
+GO
+
+EXEC sys.sp_addrolemember @rolename = 'QuanLyRole',  -- sysname
+                          @membername = 'MinhTu' -- sysname
+GO
+
+CREATE FUNCTION fnLayDanhSachTiepNhan()
+RETURNS TABLE AS
+RETURN(
+	SELECT hoTen, soDienThoai, ngaySinh, thoiGianDatTruoc, soLuongNguoi, maBan, maDatTruoc FROM dbo.DatTruoc, dbo.KhachHang
+	WHERE DatTruoc.maKhachHang = KhachHang.maKhachHang AND trangThaiDatTruoc = N'Chờ xác nhận'
+	)
+GO
+
+CREATE PROCEDURE spChapNhanDatTruoc(@maDatTruoc CHAR(10))
+ AS BEGIN
+        UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã xác nhận'
+		WHERE maDatTruoc = @maDatTruoc
+    END
+GO
+
+CREATE PROCEDURE spTuChoiDatTruoc(@maDatTruoc CHAR(10))
+AS
+	BEGIN
+		DECLARE @maBan CHAR(10)
+		SELECT @maBan = maBan FROM dbo.DatTruoc 
+		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Chờ xác nhận'
+
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối'
+		WHERE maDatTruoc = @maDatTruoc
+
+		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
+		WHERE maBan=@maBan
+	END
 GO

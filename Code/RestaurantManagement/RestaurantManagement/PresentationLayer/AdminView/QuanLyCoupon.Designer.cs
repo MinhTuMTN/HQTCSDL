@@ -483,7 +483,7 @@
             this.dtgCoupon.ReadOnly = true;
             this.dtgCoupon.RowHeadersVisible = false;
             this.dtgCoupon.RowHeadersWidth = 51;
-            this.dtgCoupon.RowTemplate.Height = 24;
+            this.dtgCoupon.RowTemplate.Height = 40;
             this.dtgCoupon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgCoupon.Size = new System.Drawing.Size(596, 815);
             this.dtgCoupon.TabIndex = 1;
@@ -506,7 +506,7 @@
             this.dtgCoupon.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgCoupon.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dtgCoupon.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgCoupon.ThemeStyle.RowsStyle.Height = 24;
+            this.dtgCoupon.ThemeStyle.RowsStyle.Height = 40;
             this.dtgCoupon.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgCoupon.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgCoupon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCoupon_CellClick);

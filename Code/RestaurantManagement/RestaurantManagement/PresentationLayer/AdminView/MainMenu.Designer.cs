@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.btnMonAn = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.btnBan = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.btnCaTruc = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnThongKe = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnTraLuong = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnCoupon = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnKhachHang = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.btnMonAn = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnTaiKhoan = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.btnQuanLyNhanVien = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.pnMain = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btnBan = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,64 @@
             this.gunaPanel1.Name = "gunaPanel1";
             this.gunaPanel1.Size = new System.Drawing.Size(133, 983);
             this.gunaPanel1.TabIndex = 0;
+            // 
+            // btnMonAn
+            // 
+            this.btnMonAn.BackColor = System.Drawing.Color.Transparent;
+            this.btnMonAn.BorderRadius = 20;
+            this.btnMonAn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMonAn.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnMonAn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnMonAn.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
+            this.btnMonAn.CheckedState.Parent = this.btnMonAn;
+            this.btnMonAn.CustomImages.Parent = this.btnMonAn;
+            this.btnMonAn.FillColor = System.Drawing.Color.Transparent;
+            this.btnMonAn.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnMonAn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonAn.ForeColor = System.Drawing.Color.Silver;
+            this.btnMonAn.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnMonAn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnMonAn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnMonAn.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
+            this.btnMonAn.HoverState.Parent = this.btnMonAn;
+            this.btnMonAn.Image = ((System.Drawing.Image)(resources.GetObject("btnMonAn.Image")));
+            this.btnMonAn.ImageSize = new System.Drawing.Size(52, 52);
+            this.btnMonAn.Location = new System.Drawing.Point(15, 347);
+            this.btnMonAn.Name = "btnMonAn";
+            this.btnMonAn.ShadowDecoration.Parent = this.btnMonAn;
+            this.btnMonAn.Size = new System.Drawing.Size(109, 88);
+            this.btnMonAn.TabIndex = 3;
+            this.btnMonAn.Text = "Foods";
+            this.btnMonAn.Click += new System.EventHandler(this.btnMonAn_Click);
+            // 
+            // btnBan
+            // 
+            this.btnBan.BackColor = System.Drawing.Color.Transparent;
+            this.btnBan.BorderRadius = 20;
+            this.btnBan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnBan.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnBan.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
+            this.btnBan.CheckedState.Parent = this.btnBan;
+            this.btnBan.CustomImages.Parent = this.btnBan;
+            this.btnBan.FillColor = System.Drawing.Color.Transparent;
+            this.btnBan.FillColor2 = System.Drawing.Color.Transparent;
+            this.btnBan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBan.ForeColor = System.Drawing.Color.Silver;
+            this.btnBan.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.btnBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
+            this.btnBan.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
+            this.btnBan.HoverState.Parent = this.btnBan;
+            this.btnBan.Image = ((System.Drawing.Image)(resources.GetObject("btnBan.Image")));
+            this.btnBan.ImageSize = new System.Drawing.Size(52, 52);
+            this.btnBan.Location = new System.Drawing.Point(15, 441);
+            this.btnBan.Name = "btnBan";
+            this.btnBan.ShadowDecoration.Parent = this.btnBan;
+            this.btnBan.Size = new System.Drawing.Size(109, 96);
+            this.btnBan.TabIndex = 10;
+            this.btnBan.Text = "Tables";
+            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
             // 
             // guna2Separator1
             // 
@@ -218,35 +276,6 @@
             this.btnKhachHang.Text = "Customers";
             this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
             // 
-            // btnMonAn
-            // 
-            this.btnMonAn.BackColor = System.Drawing.Color.Transparent;
-            this.btnMonAn.BorderRadius = 20;
-            this.btnMonAn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnMonAn.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnMonAn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnMonAn.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
-            this.btnMonAn.CheckedState.Parent = this.btnMonAn;
-            this.btnMonAn.CustomImages.Parent = this.btnMonAn;
-            this.btnMonAn.FillColor = System.Drawing.Color.Transparent;
-            this.btnMonAn.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnMonAn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonAn.ForeColor = System.Drawing.Color.Silver;
-            this.btnMonAn.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnMonAn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnMonAn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnMonAn.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
-            this.btnMonAn.HoverState.Parent = this.btnMonAn;
-            this.btnMonAn.Image = ((System.Drawing.Image)(resources.GetObject("btnMonAn.Image")));
-            this.btnMonAn.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnMonAn.Location = new System.Drawing.Point(15, 347);
-            this.btnMonAn.Name = "btnMonAn";
-            this.btnMonAn.ShadowDecoration.Parent = this.btnMonAn;
-            this.btnMonAn.Size = new System.Drawing.Size(109, 88);
-            this.btnMonAn.TabIndex = 3;
-            this.btnMonAn.Text = "Foods";
-            this.btnMonAn.Click += new System.EventHandler(this.btnMonAn_Click);
-            // 
             // btnTaiKhoan
             // 
             this.btnTaiKhoan.BackColor = System.Drawing.Color.Transparent;
@@ -320,35 +349,6 @@
             this.pnMain.TabIndex = 3;
             this.pnMain.Resize += new System.EventHandler(this.pnMain_Resize);
             // 
-            // btnBan
-            // 
-            this.btnBan.BackColor = System.Drawing.Color.Transparent;
-            this.btnBan.BorderRadius = 20;
-            this.btnBan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnBan.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnBan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnBan.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
-            this.btnBan.CheckedState.Parent = this.btnBan;
-            this.btnBan.CustomImages.Parent = this.btnBan;
-            this.btnBan.FillColor = System.Drawing.Color.Transparent;
-            this.btnBan.FillColor2 = System.Drawing.Color.Transparent;
-            this.btnBan.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBan.ForeColor = System.Drawing.Color.Silver;
-            this.btnBan.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.btnBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnBan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.btnBan.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(32)))), ((int)(((byte)(115)))));
-            this.btnBan.HoverState.Parent = this.btnBan;
-            this.btnBan.Image = ((System.Drawing.Image)(resources.GetObject("btnBan.Image")));
-            this.btnBan.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnBan.Location = new System.Drawing.Point(15, 441);
-            this.btnBan.Name = "btnBan";
-            this.btnBan.ShadowDecoration.Parent = this.btnBan;
-            this.btnBan.Size = new System.Drawing.Size(109, 96);
-            this.btnBan.TabIndex = 10;
-            this.btnBan.Text = "Tables";
-            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
-            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,6 +364,7 @@
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.gunaPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -20,7 +20,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
         {
             InitializeComponent();
             dgvBan.AutoGenerateColumns = false;
-
         }
 
         private void cbLoaiBan_SelectedIndexChanged(object sender, EventArgs e)
