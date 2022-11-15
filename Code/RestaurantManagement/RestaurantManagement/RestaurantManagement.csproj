@@ -36,10 +36,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Guna.UI">
+    <Reference Include="Guna.UI, Version=1.9.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Guna.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2">
+    <Reference Include="Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
@@ -62,6 +64,7 @@
     <Compile Include="BussinessLayer\BussinessBan.cs" />
     <Compile Include="BussinessLayer\BussinessCaTruc.cs" />
     <Compile Include="BussinessLayer\BussinessCoupon.cs" />
+    <Compile Include="BussinessLayer\BussinessDonHang.cs" />
     <Compile Include="BussinessLayer\BussinessKhachHang.cs" />
     <Compile Include="BussinessLayer\BussinessMonAn.cs" />
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
@@ -157,6 +160,18 @@
     <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.Designer.cs">
+      <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.Designer.cs">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\AdminView\MainMenu.resx">
@@ -194,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\ChiTietDonHang.resx">
+      <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\QuanLyBanHang.resx">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

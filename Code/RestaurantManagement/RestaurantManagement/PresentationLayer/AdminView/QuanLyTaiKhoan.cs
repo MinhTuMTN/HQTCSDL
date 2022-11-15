@@ -63,7 +63,7 @@ namespace RestaurantManagement.AdminController
         private void btnThem_Click(object sender, EventArgs e)
         {
             string error = "";
-            TaiKhoan taiKhoan = new TaiKhoan(txtTaiKhoanTao.Text.Trim(),
+            DonHang taiKhoan = new DonHang(txtTaiKhoanTao.Text.Trim(),
                                              txtMatKhauTao.Text.Trim(),
                                              cbTinhTrangTao.Text,
                                              txtMaNhanVienTao.Text.Trim());
@@ -77,7 +77,7 @@ namespace RestaurantManagement.AdminController
         private void btnSua_Click(object sender, EventArgs e)
         {
             string error = "";
-            TaiKhoan taiKhoan = new TaiKhoan(txtTaiKhoanSua.Text.Trim(),
+            DonHang taiKhoan = new DonHang(txtTaiKhoanSua.Text.Trim(),
                                              txtMatKhauSua.Text.Trim(),
                                              cbTinhTrangSua.Text,
                                              txtMaNhanVienSua.Text.Trim());

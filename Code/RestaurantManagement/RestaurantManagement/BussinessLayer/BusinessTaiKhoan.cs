@@ -21,7 +21,7 @@ namespace RestaurantManagement.BussinessLayer
             return result;
         }
 
-        public bool AddTaiKhoan (TaiKhoan taiKhoan, ref string error)
+        public bool AddTaiKhoan (DonHang taiKhoan, ref string error)
         {
             string cmd = "dbo.spInsertTaiKhoan";
             SqlParameter[] parameters =
@@ -34,7 +34,7 @@ namespace RestaurantManagement.BussinessLayer
             return conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
         }
 
-        public bool UpdateTaiKhoan (TaiKhoan taiKhoan, ref string error)
+        public bool UpdateTaiKhoan (DonHang taiKhoan, ref string error)
         {
             string cmd = "dbo.spUpdateTaiKhoan";
             SqlParameter[] parameters =
