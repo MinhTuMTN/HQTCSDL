@@ -505,6 +505,8 @@ CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh da
 AS BEGIN
 		INSERT INTO dbo.NhanVien
 		VALUES (@ma,@ten,@ngaysinh,@gioitinh,@diachi,@SDT,@heSoLuong,@loaiNhanVien)
+
+		EXEC sp
 	END
 GO
 
@@ -512,6 +514,8 @@ CREATE PROCEDURE spInsertTaiKhoan(@tenDangNhap varchar(50), @matKhau varchar(50)
 AS BEGIN
 		INSERT INTO dbo.TaiKhoan
 		VALUES (@tenDangNhap, @matKhau, @trangThaiTaiKhoan, @maNhanVien)
+
+
 	END
 GO
 
@@ -1213,6 +1217,14 @@ AS BEGIN
 GO
 
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
+EXEC sys.sp_addrole @rolename = 'NhanVienRole'
+EXEC sys.sp_addrole @rolename = 'ThuNganRole'
+EXEC sys.sp_addrole @rolename = 'PhucVuRole'
+EXEC sys.sp_addrole @rolename = 'KhachHangRole'
+GO
+
+
+CREATE PROCEDURE spAddToRole(@tenRole, 
 GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
 
 CREATE LOGIN MinhTu WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF

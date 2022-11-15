@@ -21,11 +21,17 @@ namespace RestaurantManagement
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
-            //string error = "";
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new frmDangNhap());
+
+            string error = "";
             //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
+
+            BussinessKhachHang donHang = new BussinessKhachHang();
+            donHang.CreateMaKhachHang(ref error);
+
+            new BusinessDonHang().CreateMaDonHang(ref error);
         }
     }
 }
