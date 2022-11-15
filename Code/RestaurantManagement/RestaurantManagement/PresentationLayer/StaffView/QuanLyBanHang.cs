@@ -84,7 +84,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
 
                 float phuThu = 0;
                 if (cbMaBan.Text.Trim()[1] == 'V')
-                    phuThu = 500000;
+                    phuThu = 50000;
 
                 Random random = new Random();
                 string maDauBep = "";
@@ -99,7 +99,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                 maDauBep = listDauBep[indexDauBep];
 
                 //string maNhanVienThuNgan = null;
-                string maCoupon = null;
+                //string maCoupon = null;
                 //string trangThaiDonHang = "Đang chuẩn bị";
                 string maNhanVienPhucVu = "NV330103";
                 string maBan = cbMaBan.Text.Trim();

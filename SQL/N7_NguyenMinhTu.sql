@@ -332,10 +332,10 @@ GO
 
 insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
 values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
-	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
+	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT203', 'NV440456')
 	, ('DT03', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
 	, ('DT04', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
-	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
+	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV101', 'NV440789')
 	, ('DT06', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
 GO
 
@@ -790,6 +790,15 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE spUpdateTrangThaiBan (
+	@maBan CHAR(10)
+)
+AS
+BEGIN
+    UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
+	WHERE maBan=@maBan
+END
+
 CREATE PROC spUpdateCoupon(
 	@maCoupon CHAR(10),
 	@ngayBatDau DATE,
@@ -907,6 +916,13 @@ RETURN(
 	WHERE maCoupon LIKE '%' + @maCoupon + '%'
 )
 GO
+
+CREATE FUNCTION fnSearchDonHang (@text NVARCHAR(150))
+RETURNS TABLE AS
+RETURN (
+	SELECT * FROM dbo.DonHang
+	WHERE maDonHang LIKE  '%' + @text + '%'
+)
 
 CREATE FUNCTION fnSearchCouponByDate(@date DATE)
 RETURNS TABLE AS

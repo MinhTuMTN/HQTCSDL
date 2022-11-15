@@ -46,18 +46,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnReset = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDonHang = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.maDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoiGianCheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phuThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maCoupon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soTienThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangThaiDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maDauBep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maNhanVienPhucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maNhanVienThuNgan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -67,6 +55,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
+            this.maDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thoiGianCheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phuThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maCoupon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soTienThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangThaiDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maDauBep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maNhanVienPhucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maNhanVienThuNgan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbThemDonHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
             this.txtSearch.SuspendLayout();
@@ -324,7 +323,6 @@
             this.dgvDonHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maDonHang,
             this.thoiGianCheckIn,
-            this.thue,
             this.phuThu,
             this.maCoupon,
             this.soTienThanhToan,
@@ -382,102 +380,6 @@
             this.dgvDonHang.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDonHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDonHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // maDonHang
-            // 
-            this.maDonHang.DataPropertyName = "maDonHang";
-            this.maDonHang.HeaderText = "Mã đơn hàng";
-            this.maDonHang.MinimumWidth = 6;
-            this.maDonHang.Name = "maDonHang";
-            this.maDonHang.ReadOnly = true;
-            // 
-            // thoiGianCheckIn
-            // 
-            this.thoiGianCheckIn.DataPropertyName = "thoiGianCheckIn";
-            this.thoiGianCheckIn.HeaderText = "Thời gian check-in";
-            this.thoiGianCheckIn.MinimumWidth = 6;
-            this.thoiGianCheckIn.Name = "thoiGianCheckIn";
-            this.thoiGianCheckIn.ReadOnly = true;
-            // 
-            // thue
-            // 
-            this.thue.DataPropertyName = "thue";
-            this.thue.HeaderText = "Thuế";
-            this.thue.MinimumWidth = 6;
-            this.thue.Name = "thue";
-            this.thue.ReadOnly = true;
-            // 
-            // phuThu
-            // 
-            this.phuThu.DataPropertyName = "phuThu";
-            this.phuThu.HeaderText = "Phụ thu";
-            this.phuThu.MinimumWidth = 6;
-            this.phuThu.Name = "phuThu";
-            this.phuThu.ReadOnly = true;
-            // 
-            // maCoupon
-            // 
-            this.maCoupon.DataPropertyName = "maCoupon";
-            this.maCoupon.HeaderText = "Mã coupon";
-            this.maCoupon.MinimumWidth = 6;
-            this.maCoupon.Name = "maCoupon";
-            this.maCoupon.ReadOnly = true;
-            // 
-            // soTienThanhToan
-            // 
-            this.soTienThanhToan.DataPropertyName = "soTienThanhToan";
-            this.soTienThanhToan.HeaderText = "Số tiền thanh toán";
-            this.soTienThanhToan.MinimumWidth = 6;
-            this.soTienThanhToan.Name = "soTienThanhToan";
-            this.soTienThanhToan.ReadOnly = true;
-            // 
-            // trangThaiDonHang
-            // 
-            this.trangThaiDonHang.DataPropertyName = "trangThaiDonHang";
-            this.trangThaiDonHang.HeaderText = "Trạng thái đơn hàng";
-            this.trangThaiDonHang.MinimumWidth = 6;
-            this.trangThaiDonHang.Name = "trangThaiDonHang";
-            this.trangThaiDonHang.ReadOnly = true;
-            // 
-            // maBan
-            // 
-            this.maBan.DataPropertyName = "maBan";
-            this.maBan.HeaderText = "Mã bàn";
-            this.maBan.MinimumWidth = 6;
-            this.maBan.Name = "maBan";
-            this.maBan.ReadOnly = true;
-            // 
-            // maKhachHang
-            // 
-            this.maKhachHang.DataPropertyName = "maKhachHang";
-            this.maKhachHang.HeaderText = "Mã khách hàng";
-            this.maKhachHang.MinimumWidth = 6;
-            this.maKhachHang.Name = "maKhachHang";
-            this.maKhachHang.ReadOnly = true;
-            // 
-            // maDauBep
-            // 
-            this.maDauBep.DataPropertyName = "maDauBep";
-            this.maDauBep.HeaderText = "Mã đầu bếp";
-            this.maDauBep.MinimumWidth = 6;
-            this.maDauBep.Name = "maDauBep";
-            this.maDauBep.ReadOnly = true;
-            // 
-            // maNhanVienPhucVu
-            // 
-            this.maNhanVienPhucVu.DataPropertyName = "maNhanVienPhucVu";
-            this.maNhanVienPhucVu.HeaderText = "Mã nhân viên phục vụ";
-            this.maNhanVienPhucVu.MinimumWidth = 6;
-            this.maNhanVienPhucVu.Name = "maNhanVienPhucVu";
-            this.maNhanVienPhucVu.ReadOnly = true;
-            // 
-            // maNhanVienThuNgan
-            // 
-            this.maNhanVienThuNgan.DataPropertyName = "maNhanVienThuNgan";
-            this.maNhanVienThuNgan.HeaderText = "Mã nhân viên thu ngân";
-            this.maNhanVienThuNgan.MinimumWidth = 6;
-            this.maNhanVienThuNgan.Name = "maNhanVienThuNgan";
-            this.maNhanVienThuNgan.ReadOnly = true;
             // 
             // txtSearch
             // 
@@ -625,6 +527,94 @@
             this.pnMain.Size = new System.Drawing.Size(1531, 748);
             this.pnMain.TabIndex = 20;
             // 
+            // maDonHang
+            // 
+            this.maDonHang.DataPropertyName = "maDonHang";
+            this.maDonHang.HeaderText = "Mã đơn hàng";
+            this.maDonHang.MinimumWidth = 6;
+            this.maDonHang.Name = "maDonHang";
+            this.maDonHang.ReadOnly = true;
+            // 
+            // thoiGianCheckIn
+            // 
+            this.thoiGianCheckIn.DataPropertyName = "thoiGianCheckIn";
+            this.thoiGianCheckIn.HeaderText = "Thời gian check-in";
+            this.thoiGianCheckIn.MinimumWidth = 6;
+            this.thoiGianCheckIn.Name = "thoiGianCheckIn";
+            this.thoiGianCheckIn.ReadOnly = true;
+            // 
+            // phuThu
+            // 
+            this.phuThu.DataPropertyName = "phuThu";
+            this.phuThu.HeaderText = "Phụ thu";
+            this.phuThu.MinimumWidth = 6;
+            this.phuThu.Name = "phuThu";
+            this.phuThu.ReadOnly = true;
+            // 
+            // maCoupon
+            // 
+            this.maCoupon.DataPropertyName = "maCoupon";
+            this.maCoupon.HeaderText = "Mã coupon";
+            this.maCoupon.MinimumWidth = 6;
+            this.maCoupon.Name = "maCoupon";
+            this.maCoupon.ReadOnly = true;
+            // 
+            // soTienThanhToan
+            // 
+            this.soTienThanhToan.DataPropertyName = "soTienThanhToan";
+            this.soTienThanhToan.HeaderText = "Số tiền thanh toán";
+            this.soTienThanhToan.MinimumWidth = 6;
+            this.soTienThanhToan.Name = "soTienThanhToan";
+            this.soTienThanhToan.ReadOnly = true;
+            // 
+            // trangThaiDonHang
+            // 
+            this.trangThaiDonHang.DataPropertyName = "trangThaiDonHang";
+            this.trangThaiDonHang.HeaderText = "Trạng thái đơn hàng";
+            this.trangThaiDonHang.MinimumWidth = 6;
+            this.trangThaiDonHang.Name = "trangThaiDonHang";
+            this.trangThaiDonHang.ReadOnly = true;
+            // 
+            // maBan
+            // 
+            this.maBan.DataPropertyName = "maBan";
+            this.maBan.HeaderText = "Mã bàn";
+            this.maBan.MinimumWidth = 6;
+            this.maBan.Name = "maBan";
+            this.maBan.ReadOnly = true;
+            // 
+            // maKhachHang
+            // 
+            this.maKhachHang.DataPropertyName = "maKhachHang";
+            this.maKhachHang.HeaderText = "Mã khách hàng";
+            this.maKhachHang.MinimumWidth = 6;
+            this.maKhachHang.Name = "maKhachHang";
+            this.maKhachHang.ReadOnly = true;
+            // 
+            // maDauBep
+            // 
+            this.maDauBep.DataPropertyName = "maDauBep";
+            this.maDauBep.HeaderText = "Mã đầu bếp";
+            this.maDauBep.MinimumWidth = 6;
+            this.maDauBep.Name = "maDauBep";
+            this.maDauBep.ReadOnly = true;
+            // 
+            // maNhanVienPhucVu
+            // 
+            this.maNhanVienPhucVu.DataPropertyName = "maNhanVienPhucVu";
+            this.maNhanVienPhucVu.HeaderText = "Mã nhân viên phục vụ";
+            this.maNhanVienPhucVu.MinimumWidth = 6;
+            this.maNhanVienPhucVu.Name = "maNhanVienPhucVu";
+            this.maNhanVienPhucVu.ReadOnly = true;
+            // 
+            // maNhanVienThuNgan
+            // 
+            this.maNhanVienThuNgan.DataPropertyName = "maNhanVienThuNgan";
+            this.maNhanVienThuNgan.HeaderText = "Mã nhân viên thu ngân";
+            this.maNhanVienThuNgan.MinimumWidth = 6;
+            this.maNhanVienThuNgan.Name = "maNhanVienThuNgan";
+            this.maNhanVienThuNgan.ReadOnly = true;
+            // 
             // frmQuanLyBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -668,18 +658,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private Guna.UI2.WinForms.Guna2Panel pnMain;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maDonHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianCheckIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phuThu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maCoupon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soTienThanhToan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trangThaiDonHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maKhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maDauBep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVienPhucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVienThuNgan;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
@@ -689,5 +667,16 @@
         private Guna.UI2.WinForms.Guna2RadioButton rdbThuong;
         private Guna.UI2.WinForms.Guna2ComboBox cbMaBan;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maDonHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianCheckIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phuThu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maCoupon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soTienThanhToan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trangThaiDonHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maDauBep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVienPhucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maNhanVienThuNgan;
     }
 }
