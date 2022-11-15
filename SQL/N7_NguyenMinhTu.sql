@@ -1193,16 +1193,30 @@ BEGIN
 	SELECT @tenDangNhap=TK.tenDangNhap FROM dbo.NhanVien NV, dbo.TaiKhoan TK
 	WHERE NV.maNhanVien = TK.maNhanVien AND NV.maNhanVien = @maNhanVien
 
-	DECLARE @T VARCHAR(400)
-	IF (@oldPass != @newPass)
-	BEGIN
-		SET @t = N'ALTER LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@newPass, '''')
-		EXEC(@t)	    
-	END
+	DECLARE @myrolename VARCHAR(20)
+	IF (@oldPosition = N'Quản Lý')
+		SET @myrolename='QuanLyRole'
+    ELSE IF (@oldPosition = N'Thu Ngân')
+		SET @myrolename='ThuNganRole'
+	ELSE IF (@oldPosition = N'Phục Vụ')
+		SET @myrolename='PhucVuRole'
+	EXEC sys.sp_droprolemember @rolename = @myrolename,  -- sysname
+	                           @membername = @tenDangNhap -- sysname
+
+	IF (@newPosition = N'Quản Lý')
+		SET @myrolename='QuanLyRole'
+    ELSE IF (@newPosition = N'Thu Ngân')
+		SET @myrolename='ThuNganRole'
+	ELSE IF (@newPosition = N'Phục Vụ')
+		SET @myrolename='PhucVuRole'
+	EXEC sys.sp_addrolemember @rolename = @myrolename,  -- sysname
+	                     @membername = @tenDangNhap -- sysname	
 END
 GO
 
-INSERT INTO dbo.NhanVien
+
+------Insert
+-- Chèn dữ liệu mẫuINSERT INTO dbo.NhanVien
 (
     maNhanVien,
     hoTen,
@@ -1239,8 +1253,6 @@ VALUES
     )
 GO
 
-------Insert
--- Chèn dữ liệu mẫu
 insert into NhanVien(maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien)
 values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
 	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 0, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
