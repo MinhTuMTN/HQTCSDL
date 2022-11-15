@@ -36,12 +36,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Guna.UI, Version=1.9.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Guna.UI">
       <HintPath>..\..\Guna.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Guna.UI2">
       <HintPath>..\..\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -86,7 +84,6 @@
     <Compile Include="BussinessLayer\BussinessBan.cs" />
     <Compile Include="BussinessLayer\BussinessCaTruc.cs" />
     <Compile Include="BussinessLayer\BussinessCoupon.cs" />
-    <Compile Include="BussinessLayer\BussinessDonHang.cs" />
     <Compile Include="BussinessLayer\BussinessKhachHang.cs" />
     <Compile Include="BussinessLayer\BussinessMonAn.cs" />
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
@@ -205,6 +202,7 @@
     <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +220,8 @@
     <Compile Include="PresentationLayer\ThuNganView\ThanhToanDonHang.Designer.cs">
       <DependentUpon>ThanhToanDonHang.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> parent of 43cabf5 (...)
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyNhaHangDataSet.Designer.cs">
@@ -278,6 +278,7 @@
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="PresentationLayer\StaffView\ChiTietDonHang.resx">
       <DependentUpon>ChiTietDonHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +287,8 @@
     <EmbeddedResource Include="PresentationLayer\ThuNganView\ThanhToanDonHang.resx">
       <DependentUpon>ThanhToanDonHang.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> parent of 43cabf5 (...)
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

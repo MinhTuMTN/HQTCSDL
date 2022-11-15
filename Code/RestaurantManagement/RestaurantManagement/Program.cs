@@ -3,8 +3,11 @@ using RestaurantManagement.AsminController;
 using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer;
 using RestaurantManagement.PresentationLayer.AdminView;
+<<<<<<< HEAD
 using RestaurantManagement.PresentationLayer.StaffView;
 using RestaurantManagement.PresentationLayer.ThuNganView;
+=======
+>>>>>>> parent of 43cabf5 (...)
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,8 +27,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmQuanLyBanHang());
-            //Application.Run(new frmMainMenu());
+            Application.Run(new frmMainMenu());
             //string error = "";
             //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
 

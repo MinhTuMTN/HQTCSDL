@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.DataAccessLayer.Model
 {
-    public class DonHang
+    public class TaiKhoan
     {
         private string tenDangNhap;
         private string matKhau;
         private string trangThaiTaiKhoan;
         private string maNhanVien;
 
-        public DonHang()
+        public TaiKhoan()
         {
         }
 
-        public DonHang(string tenDangNhap, string matKhau, string trangThaiTaiKhoan, string maNhanVien)
+        public TaiKhoan(string tenDangNhap, string matKhau, string trangThaiTaiKhoan, string maNhanVien)
         {
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;

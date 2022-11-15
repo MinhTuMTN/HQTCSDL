@@ -64,7 +64,7 @@ namespace RestaurantManagement.AdminController
         private void btnThem_Click(object sender, EventArgs e)
         {
             string error = "";
-            DonHang taiKhoan = new DonHang(txtTaiKhoanTao.Text.Trim(),
+            TaiKhoan taiKhoan = new TaiKhoan(txtTaiKhoanTao.Text.Trim(),
                                              txtMatKhauTao.Text.Trim(),
                                              cbTinhTrangTao.Text,
                                              txtMaNhanVienTao.Text.Trim());
@@ -78,7 +78,7 @@ namespace RestaurantManagement.AdminController
         private void btnSua_Click(object sender, EventArgs e)
         {
             string error = "";
-            DonHang taiKhoan = new DonHang(txtTaiKhoanSua.Text.Trim(),
+            TaiKhoan taiKhoan = new TaiKhoan(txtTaiKhoanSua.Text.Trim(),
                                              txtMatKhauSua.Text.Trim(),
                                              cbTinhTrangSua.Text,
                                              txtMaNhanVienSua.Text.Trim());
