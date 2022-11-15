@@ -61,5 +61,19 @@ namespace RestaurantManagement.BussinessLayer
             SqlParameter parameter = new SqlParameter("@maNhanVien", maNhanVien);
             return conn.MyExecuteNonQuery(cmd,CommandType.Text, ref error, parameter);
         }
+
+        public object GetNhanVienByTaiKhoan(string tenDangNhap, string matKhau, ref string error)
+        {
+            string cmd = "dbo.spGetNhanVienByTaiKhoan";
+            SqlParameter[] parameters = new SqlParameter[] {
+                new SqlParameter("@tenDangNhap", tenDangNhap),
+                new SqlParameter("@matKhau", matKhau)
+            };
+            DataTable result = conn.MyExecuteQueryDataTable(cmd, CommandType.StoredProcedure, ref error, parameters);
+            if (result.Rows.Count == 0)
+                return null;
+
+            return new { maNhanVien = result.Rows[0][0], loaiNhanVien = result.Rows[0][1] };
+        }
     }
 }

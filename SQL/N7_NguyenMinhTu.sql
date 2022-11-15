@@ -1253,6 +1253,16 @@ AS
 	END
 GO
 
+CREATE PROCEDURE spGetNhanVienByTaiKhoan(@tenDangNhap varchar(50), @matKhau varchar(50))
+AS
+BEGIN
+PRINT(@tenDangNhap)
+    SELECT N.maNhanVien, N.loaiNhanVien FROM dbo.NhanVien N, dbo.TaiKhoan T
+	WHERE N.maNhanVien = T.maNhanVien AND T.tenDangNhap = @tenDangNhap AND T.matKhau = @matKhau
+END
+GO
+
+
 --- Thực hiện phân quyền
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
 EXEC sys.sp_addrole @rolename = 'NhanVienRole'
@@ -1261,15 +1271,18 @@ EXEC sys.sp_addrole @rolename = 'PhucVuRole'
 EXEC sys.sp_addrole @rolename = 'KhachHangRole'
 GO
 
-
+-- Khách hàng chỉ có thể tạo các đơn đặt trước
 GRANT EXECUTE ON dbo.spTaoDatTruoc TO KhachHangRole
 GO
 
+-- Quản lý có toàn quyền(truy vấn) tất cả đối tượng trong CSDL
 GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
 GO
 
+-- Cấp các quyền truy cập cần thiết cho Thu Ngân
 GRANT SELECT ON dbo.fnSearchChiTietHoaDonById TO ThuNganRole
 GRANT EXECUTE ON dbo.fnGetPhuThu TO ThuNganRole
+GRANT SELECT ON dbo.Coupon TO ThuNganRole
 GRANT EXECUTE ON dbo.spApDungCoupon TO ThuNganRole
 GRANT EXECUTE ON dbo.spThanhToan TO ThuNganRole
 GRANT EXECUTE ON dbo.fnTinhTienDonHangTheoMaBan TO ThuNganRole
@@ -1278,16 +1291,85 @@ GRANT EXECUTE ON dbo.spChapNhanDatTruoc TO ThuNganRole
 GRANT EXECUTE ON dbo.spTuChoiDatTruoc TO ThuNganRole
 GO
 
+-- Quyền của toàn bộ nhân viên
+GRANT EXECUTE ON dbo.spGetNhanVienByTaiKhoan TO NhanVienRole
+GO
 
-CREATE LOGIN QuanLy WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+
+CREATE LOGIN thitrantruongtn123 WITH PASSWORD='440123tnthi', DEFAULT_DATABASE=QuanLyNhaHang, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
 CREATE LOGIN ThuNgan WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
 GO
 
 CREATE USER QuanLy FOR LOGIN QuanLy
-CREATE USER ThuNgan FOR LOGIN ThuNgan
+CREATE USER thitrantruongtn123 FOR LOGIN thitrantruongtn123
 GO
 
-EXEC sys.sp_addrolemember @rolename = 'QuanLyRole',  -- sysname
-                          @membername = 'QuanLy' -- sysname
-EXEC sys.sp_addrolemember @rolename = 'ThuNganRole',  -- sysname
-                          @membername = 'ThuNgan' -- sysname
+CREATE TRIGGER trigger_CreateUserDb ON dbo.TaiKhoan
+FOR INSERT AS
+BEGIN
+    DECLARE @tenDangNhap VARCHAR(50)
+	DECLARE @matKhau VARCHAR(50)
+	DECLARE @maNhanVien CHAR(10)
+	DECLARE @loaiNhanVien NVARCHAR(20)
+
+	SELECT @tenDangNhap=Ins.tenDangNhap, @matKhau=Ins.matKhau, @maNhanVien=Ins.maNhanVien FROM Inserted Ins
+
+	SELECT N.loaiNhanVien FROM dbo.NhanVien N, dbo.TaiKhoan T
+	WHERE N.maNhanVien = T.maNhanVien AND T.maNhanVien = @maNhanVien
+
+	EXEC sys.sp_addlogin @loginame = @tenDangNhap,    -- sysname
+	                     @passwd = @matKhau,      -- sysname
+	                     @defdb = QuanLyNhaHang       -- sysname
+	EXEC sys.sp_adduser @loginame = @tenDangNhap,   -- sysname
+	                    @name_in_db = @tenDangNhap -- sysname
+	
+
+	IF (@loaiNhanVien = N'Quản Lý')
+	BEGIN
+	    EXEC sys.sp_addrolemember @rolename = QuanLyRole,  -- sysname
+		                          @membername = @tenDangNhap -- sysname
+	END
+		
+    
+	EXEC sys.sp_addrolemember @rolename = NhanVienRole,  -- sysname
+	                     @membername = @tenDangNhap -- sysname
+	
+		
+END
+GO
+
+INSERT INTO dbo.NhanVien
+(
+    maNhanVien,
+    hoTen,
+    ngaySinh,
+    gioiTinh,
+    diaChi,
+    soDienThoai,
+    heSoLuong,
+    loaiNhanVien
+)
+VALUES
+(   'NV110004',        -- maNhanVien - char(10)
+    N'Quản lý',       -- hoTen - nvarchar(100)
+    '20001212', -- ngaySinh - date
+    1,      -- gioiTinh - bit
+    N'abc',       -- diaChi - nvarchar(150)
+    '0987223761',        -- soDienThoai - char(10)
+    500000,       -- heSoLuong - float
+    N'Quản Lý'        -- loaiNhanVien - nvarchar(20)
+    )
+GO
+INSERT INTO dbo.TaiKhoan
+(
+    tenDangNhap,
+    matKhau,
+    trangThaiTaiKhoan,
+    maNhanVien
+)
+VALUES
+(   'QuanLy',  -- tenDangNhap - varchar(50)
+    '123',  -- matKhau - varchar(50)
+    N'Đang hoạt động', -- trangThaiTaiKhoan - nvarchar(20)
+    'NV110004'   -- maNhanVien - char(10)
+    )

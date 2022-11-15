@@ -18,14 +18,14 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         private string maBan;
         private string maNhanVienThuNgan;
 
-        public frmMainThuNgan()
+        public frmMainThuNgan(string maNhanVienThuNgan)
         {
             InitializeComponent();
             txtPhuThuError.Visible = false;
             lblSuccess.Visible = false;
             lblMaDatTruoc.Visible = false;
             lblTongTienThanhToan.Text = "0đ";
-            maNhanVienThuNgan = "NV440123";
+            this.maNhanVienThuNgan = maNhanVienThuNgan;
         }
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
@@ -182,6 +182,20 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             tiepNhan.TuChoiDatTruoc(maDatTruoc, ref error);
             MessageBox.Show("Từ chối thành công đơn đặt trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmMainThuNgan_Load(null, null);
+        }
+
+        private void frmMainThuNgan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                return;
+
+            e.Cancel = true;
+        }
+
+        private void frmMainThuNgan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
