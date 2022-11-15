@@ -1158,6 +1158,50 @@ BEGIN
 END
 GO
 
+
+CREATE TRIGGER trigger_UpdatePasswordUserDb ON dbo.TaiKhoan
+FOR UPDATE AS
+BEGIN
+    DECLARE @tenDangNhap VARCHAR(20)
+	DECLARE @oldPass NVARCHAR(20)
+	DECLARE @newPass NVARCHAR(20)
+
+	SELECT @tenDangNhap=D.tenDangNhap, @oldPass=D.matKhau, @newPass=I.matKhau FROM Deleted D, Inserted I
+
+	DECLARE @T VARCHAR(400)
+	IF (@oldPass != @newPass)
+	BEGIN
+		SET @t = N'ALTER LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@newPass, '''')
+		EXEC(@t)	    
+	END
+END
+GO
+
+CREATE TRIGGER trigger_UpdateRoleUserDb ON dbo.NhanVien
+FOR UPDATE AS
+BEGIN
+    DECLARE @tenDangNhap VARCHAR(20)
+	DECLARE @maNhanVien CHAR(10)
+	DECLARE @oldPosition NVARCHAR(20)
+	DECLARE @newPosition NVARCHAR(20)
+
+	SELECT @maNhanVien=I.maNhanVien, @oldPosition=D.loaiNhanVien, @newPosition=I.loaiNhanVien FROM Inserted I, Deleted D
+
+	IF(@newPosition = @oldPosition)
+		RETURN
+
+	SELECT @tenDangNhap=TK.tenDangNhap FROM dbo.NhanVien NV, dbo.TaiKhoan TK
+	WHERE NV.maNhanVien = TK.maNhanVien AND NV.maNhanVien = @maNhanVien
+
+	DECLARE @T VARCHAR(400)
+	IF (@oldPass != @newPass)
+	BEGIN
+		SET @t = N'ALTER LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@newPass, '''')
+		EXEC(@t)	    
+	END
+END
+GO
+
 INSERT INTO dbo.NhanVien
 (
     maNhanVien,
@@ -1193,7 +1237,7 @@ VALUES
     N'Đang hoạt động', -- trangThaiTaiKhoan - nvarchar(20)
     'NV110004'   -- maNhanVien - char(10)
     )
-
+GO
 
 ------Insert
 -- Chèn dữ liệu mẫu
