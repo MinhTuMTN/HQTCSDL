@@ -90,7 +90,7 @@ namespace RestaurantManagement.PresentationLayer.AdminView
 
             txtMaKhachHang.Text = dgvKhachHang.Rows[row].Cells["maKhachHang"].Value.ToString();
             txtHoTen.Text = dgvKhachHang.Rows[row].Cells["hoTen"].Value.ToString();
-            dtpNgaySinh.Value = (DateTime)dgvKhachHang.Rows[row].Cells["ngaySinh"].Value;
+            dtpNgaySinh.Value = (DateTime)(dgvKhachHang.Rows[row].Cells["ngaySinh"].Value);
             txtSDT.Text = dgvKhachHang.Rows[row].Cells["soDienThoai"].Value.ToString();
 
         }
@@ -108,7 +108,6 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                     DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
                     dgvKhachHang_CellClick(sender, ev);
                 }
-
             }
             catch
             {

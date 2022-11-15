@@ -18,5 +18,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=MINHTUNGUYEN\MINHTU_SERVER;Initial Catalog=QuanLyNhaHang;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="userLoginDb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sa</Value>
+    </Setting>
+    <Setting Name="passLoginDb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3052</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

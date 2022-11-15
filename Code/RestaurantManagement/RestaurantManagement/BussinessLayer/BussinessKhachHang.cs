@@ -14,6 +14,17 @@ namespace RestaurantManagement.BussinessLayer
     {
         DatabaseConnection connection = new DatabaseConnection();
 
+        public string CreateMaKhachHang(ref string error)
+        {
+            string cmd = "SELECT TOP(1) maKhachHang FROM dbo.KhachHang ORDER BY maKhachHang DESC";
+            string maKhachHangMoiNhat = (string)connection.MyExecuteScalar(cmd, System.Data.CommandType.Text, ref error, null);
+
+            int number = int.Parse(maKhachHangMoiNhat.Substring(2, maKhachHangMoiNhat.Length - 2)) + 1;
+
+            string result = "KH" + number.ToString();
+            return result;
+        }
+
         public DataTable GetAllKhachHang(ref string error)
         {
             DataTable results = new DataTable();
