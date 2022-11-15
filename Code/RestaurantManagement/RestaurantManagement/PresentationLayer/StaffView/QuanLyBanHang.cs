@@ -177,10 +177,13 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             if (hoaDon == null)
                 return;
             if (businessDonHang.AddHoaDon(hoaDon, ref error))
+            {
                 MessageBox.Show("Thêm hóa đơn thành công");
+                SuaTrangThaiBan(hoaDon.MaBan);
+            }
             else
                 MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
-            SuaTrangThaiBan(hoaDon.MaBan);
+ 
             QuanLyBanHang_Load(null, null);
         }
 

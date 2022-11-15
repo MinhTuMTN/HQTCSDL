@@ -480,10 +480,10 @@ AS BEGIN
 END
 GO
 
-CREATE PROCEDURE spInsertKhachHang(@maKhachHang char(10), @hoTen nvarchar(150), @soDienThoai char(10), @ngaySinh date, @gioiTinh bit)
+CREATE PROCEDURE spInsertKhachHang(@maKhachHang char(10))
 AS BEGIN
 		INSERT INTO dbo.KhachHang
-		VALUES (@maKhachHang, @hoTen, @soDienThoai, @ngaySinh, @gioiTinh)
+		VALUES (@maKhachHang, null, null, null, null)
 	END
 GO
 
@@ -798,6 +798,7 @@ BEGIN
     UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
 	WHERE maBan=@maBan
 END
+GO
 
 CREATE PROC spUpdateCoupon(
 	@maCoupon CHAR(10),
@@ -923,6 +924,7 @@ RETURN (
 	SELECT * FROM dbo.DonHang
 	WHERE maDonHang LIKE  '%' + @text + '%'
 )
+GO
 
 CREATE FUNCTION fnSearchCouponByDate(@date DATE)
 RETURNS TABLE AS
