@@ -202,6 +202,18 @@
     <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.Designer.cs">
+      <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.Designer.cs">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\ThuNganView\ThanhToanDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +275,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\ChiTietDonHang.resx">
+      <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\QuanLyBanHang.resx">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\ThuNganView\ThanhToanDonHang.resx">
       <DependentUpon>ThanhToanDonHang.cs</DependentUpon>

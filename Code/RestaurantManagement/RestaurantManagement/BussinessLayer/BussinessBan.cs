@@ -22,6 +22,22 @@ namespace RestaurantManagement.BussinessLayer
             return table;
         }
 
+        public DataTable GetMaBanThuong(ref string error)
+        {
+            DataTable table = new DataTable();
+            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'đang có sẵn'";
+            table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return table;
+        }
+
+        public DataTable GetMaBanDatTruoc(ref string error)
+        {
+            DataTable table = new DataTable();
+            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'đã đặt trước'";
+            table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return table;
+        }
+
         public DataTable FindBan (string text, ref string error)
         {
             DataTable table = new DataTable();
@@ -55,6 +71,16 @@ namespace RestaurantManagement.BussinessLayer
                 new SqlParameter("@soLuongGheToiDa", ban.SoLuongGheToiDa)
             };
             return conn.MyExecuteNonQuery(cmd,CommandType.StoredProcedure, ref error, parameters);
+        }
+
+        public bool UpdateTrangThaiBan(Ban ban, ref string error)
+        {
+            string cmd = "dbo.spUpdateTrangThaiBan";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@maBan", ban.MaBan),
+            };
+            return conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
         }
 
         public bool DeleteBan(string maBan, ref string error)

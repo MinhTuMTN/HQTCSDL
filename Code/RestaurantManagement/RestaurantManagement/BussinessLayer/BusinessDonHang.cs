@@ -1,6 +1,9 @@
 ﻿using RestaurantManagement.DataAccessLayer;
+using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,5 +25,45 @@ namespace RestaurantManagement.BussinessLayer
             string result = "HD" + number.ToString();
             return result;
         }
+        public DataTable GetAllHoaDon(ref string error)
+        {
+            DataTable result = new DataTable();
+            string cmd = "SELECT* FROM dbo.DonHang";
+            result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return result;
+        }
+        public bool AddHoaDon(HoaDon hoaDon, ref string error)
+        {
+            string cmd = "dbo.spInsertDonHang";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@maDonHang", hoaDon.MaHoaDon),
+                new SqlParameter("@thoiGianCheckIn", hoaDon.ThoiGianCheckIn),
+                new SqlParameter("@phuThu", hoaDon.PhuThu),
+                new SqlParameter("@maBan", hoaDon.MaBan),
+                new SqlParameter("@maKhachHang", hoaDon.MaKhachHang),
+                new SqlParameter("@maDauBep", hoaDon.MaDauBep),
+                new SqlParameter("@maNhanVienPhucVu", hoaDon.MaNhanVienPhucVu)
+            };
+            return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
+        }
+        public DataTable FindHoaDon(ref string error, string text)
+        {
+            DataTable result = new DataTable();
+            string cmd = "SELECT * FROM dbo.fnSearchDonHang(@text)";
+            SqlParameter sqlParameter = new SqlParameter("@text", text);
+            result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, sqlParameter);
+            return result;
+        }
+
+      /*  public bool AddDonHang(HoaDon hoaDon, ref string error)
+        {
+            string cmd = "dbo.spInsertDonHang";
+            SqlParameter[] parameters =
+            {
+
+            };
+            return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
+        }*/
     }
 }
