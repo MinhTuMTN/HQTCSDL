@@ -210,198 +210,6 @@ BEGIN
 END
 GO
 
--- Chèn dữ liệu mẫu
-insert into NhanVien(maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien)
-values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
-	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 0, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
-	, ('NV110003', N'Nguyễn Phương Nga', '1990-07-25', 1, N'8, Ấp Bình Văn, Phường 50, Huyện Nhữ Vỹ Châu Vĩnh Phúc', '0199322097', 400000, N'Quản Lý')
-	, ('NV220111', N'Trương Quang Định', '1993-08-24', 0, N'1456 Phố Nhạn, Ấp Phong Đàn, Quận Mai Mộc Quảng Ngãi', '0685598384', 380000, N'Đầu Bếp')
-	, ('NV220222', N'Đỗ Tố Hoa', '1996-12-01', 1, N'371, Ấp Trưng, Xã Bắc Đôn, Quận Giang Lô Phú Yên', '0467206578', 380000, N'Đầu Bếp')
-	, ('NV220333', N'Bùi Công Minh', '1994-05-09', 0, N'45 Võ Thị Sáu, P.Đa Kao. Trung tâm Quận 1, TP HCM','0671543545',380000, N'Đầu Bếp')
-	, ('NV220444', N'Đào Văn Mác', '1994-06-17', 0, N'98 Phố Tăng Dân Giao, Ấp Nghị Thiên, Quận Khoát Từ Đồng Tháp','0581080331', 380000, N'Đầu Bếp')
-	, ('NV220555', N'Nguyễn Thị Ngọc Lan', '1997-10-28', 1, N'14, Thôn Thủy Trạch, Xã 9, Quận Đàn Tiền Giang','0281160318', 380000, N'Đầu Bếp')
-	, ('NV330101', N'Ngô Cẩm Huệ', '1999-02-21', 1, N'512 Phố Phạm Thục Thông, Thôn Cát Đàn, Quận Âu Cà Mau','0186388645', 380000, N'Phục Vụ')
-	, ('NV330102', N'Trần Thiên Anh','2000-10-13', 0, N'7881 Phố Chung, Xã Chiến, Quận Cát Thái Nguyên','0984950567', 330000, N'Phục Vụ')
-	, ('NV330103', N'Đinh Quang Vinh', '2000-11-09', 0, N'840, Thôn Thập Xuân Khoát, Ấp Chiểu Anh, Quận Đình Khánh Hòa','0979873572', 330000, N'Phục Vụ')
-	, ('NV330104', N'Nguyễn Trường Hải', '2001-07-16', 0, N'5259 Phố Nhiên, Xã Kha, Huyện 16 Bình Phước','0682122957', 330000, N'Phục Vụ')
-	, ('NV330105', N'Đặng Thị Cẩm Tiên', '2002-08-15', 1, N'3 Phố Âu Phương Trực, Phường Bắc Thịnh, Quận Đăng Đà Nẵng','0351091857', 330000, N'Phục Vụ')
-	, ('NV330106', N'Phạm Hùng Thủy', '2001-04-25', 0, N'7933 Phố Lê Lập Đoan, Thôn Chương Cảnh, Quận Thục Lào Cai','0741419362', 330000, N'Phục Vụ')
-	, ('NV330107', N'Lý Bắc Nam', '2001-09-10', 0, N'554, Thôn Thôi Linh, Phường Định Lam, Quận Bồ Diệp Cà Mau','0713923079', 330000, N'Phục Vụ')
-	, ('NV330108', N'Trịnh Hoàng Yến Nhi', '2002-06-29', 1, N'3 Phố Đan Dao Khuyên, Phường Hoàn Hiển, Huyện Khánh Ý Vĩnh Phúc','0158769212', 330000, N'Phục Vụ')
-	, ('NV330109', N'Phan Hoàng Châu', '1999-03-08', 1, N'7704, Thôn Ái Đôn, Phường 64, Quận Hoan Ngô Thừa Thiên Huế','0851882959', 330000, N'Phục Vụ')
-	, ('NV330110', N'Lại Văn Phú','2001-07-14', 0, N'20 Phố Diệp Lực Liên, Phường Nhân Lạc, Huyện Kha Điện Biên','0126892148', 330000, N'Phục Vụ')
-	, ('NV440123', N'Trần Trường Thi', '2000-08-22', 0, N'2 Phố Nhiên, Phường Thu Kiều, Huyện 6 Cao Bằng','0775783212', 270000, N'Thu Ngân')
-	, ('NV440456', N'Mai Bảo Ngọc','1998-04-12', 1, N'20 Phố Đàm Trung Sơn, Thôn Đăng Hạ, Quận Phương Trác Tuyên Quang','0874588175', 270000, N'Thu Ngân')
-	, ('NV440789', N'Đỗ Hồng Thái Ngân', '1999-01-30', 1, N'5 Phố Hồng Yên Kiên, Phường Sinh Tiến, Huyện Bồ Diệp Quân Khánh Hòa','0679242119', 270000, N'Thu Ngân')
-
-GO
-
-insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien)
-values ('tamtranngocql001','110001qltam', N'Đang hoạt động', 'NV110001')
-	, ('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
-	, ('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
-	, ('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
-	, ('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
-	, ('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
-	, ('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
-	, ('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
-	, ('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
-	, ('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
-	, ('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
-	, ('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
-	, ('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
-	, ('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
-	, ('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
-	, ('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
-	, ('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
-	, ('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
-	, ('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
-	, ('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
-	, ('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
-GO
-
-insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
-values ('CT1001', '2022-09-26', '2022-09-28')
-	, ('CT1002', '2022-09-29', '2022-09-30')
-	, ('CT1003', '2022-10-01', '2022-10-02')
-GO
-insert into DangKyCaTruc(maNhanVien, maCaTruc)
-values ('NV220111', 'CT1001')
-	, ('NV220222', 'CT1002')
-	, ('NV220333', 'CT1003')
-	, ('NV220444', 'CT1001')
-	, ('NV220555', 'CT1002')
-	, ('NV220111', 'CT1003')
-	, ('NV220222', 'CT1001')
-	, ('NV220333', 'CT1002')
-	, ('NV220444', 'CT1003')
-
-	, ('NV330101', 'CT1001')
-	, ('NV330102', 'CT1002')
-	, ('NV330103', 'CT1003')
-	, ('NV330104', 'CT1001')
-	, ('NV330105', 'CT1002')
-	, ('NV330106', 'CT1003')
-	, ('NV330107', 'CT1001')
-	, ('NV330108', 'CT1002')
-	, ('NV330109', 'CT1003')
-	, ('NV330110', 'CT1001')
-	, ('NV330101', 'CT1002')
-	, ('NV330102', 'CT1003')
-	, ('NV330103', 'CT1001')
-	, ('NV330104', 'CT1002')
-	, ('NV330105', 'CT1003')
-	, ('NV330106', 'CT1001')
-	, ('NV330107', 'CT1002')
-	, ('NV330108', 'CT1003')
-	, ('NV330109', 'CT1001')
-	, ('NV330110', 'CT1002')
-	, ('NV330101', 'CT1003')
-	
-	, ('NV440123', 'CT1001')
-	, ('NV440789', 'CT1003')
-	, ('NV440123', 'CT1003')
-	, ('NV440456', 'CT1002')
-	, ('NV440789', 'CT1001')	
-GO
-
-insert into KhachHang(maKhachHang, hoTen, soDienThoai, ngaySinh, gioiTinh)
-values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
-	, ('KH02', N'Nguyễn Xuân Lan', '0510502106', '1992-05-17', 1)
-	, ('KH03', N'Bùi Ngọc Ánh', '0513341746', '1998-12-12', 1)
-	, ('KH04', N'Võ Xuân Hiển', '0759614456', '2002-02-19', 0)
-	, ('KH05', N'Trần Đình Nam', '0743563676', '1985-04-20', 0)
-	, ('KH06', N'Phan Mạnh Quỳnh', '0753120822', '2000-07-22', 0)
-
-GO
-
-insert into Ban(maBan, trangThaiBan, loaiBan, soLuongGheToiDa)
-values ('BV101', N'Đã đặt trước', N'VIP', 20)
-	, ('BV102', N'Đang phục vụ', N'VIP', 20)
-	, ('BV103', N'Đang có sẵn', N'VIP', 10)
-	, ('BV104', N'Đang có sẵn', N'VIP', 10)
-	, ('BV105', N'Đang có sẵn', N'VIP', 5)
-	, ('BV106', N'Đang có sẵn', N'VIP', 5)
-	, ('BT201', N'Đang phục vụ', N'Thường', 10)
-	, ('BT202', N'Đang phục vụ', N'Thường', 10)
-	, ('BT203', N'Đã đặt trước', N'Thường', 10)
-	, ('BT204', N'Đang phục vụ', N'Thường', 5)
-	, ('BT205', N'Đang có sẵn', N'Thường', 5)
-	, ('BT206', N'Đang có sẵn', N'Thường', 5)
-GO
-
-insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
-values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
-	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
-	, ('DT03', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
-	, ('DT04', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
-	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
-	, ('DT06', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
-GO
-
-INSERT into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
-values ('CP10', '2022-10-01', '2022-10-07' , 0.1 , 200000 , 50000)
-	, ('CP20', '2022-10-08', '2022-10-15', 0.2 , 300000 , 100000)
-	, ('CP30', '2022-11-15', '2022-12-15', 0.15 , 200000 , 100000)
-	, ('CP40', '2022-11-11', '2022-11-30', 0.1 , 100000 , 0)
-GO
-
-INSERT INTO dbo.DonHang
-(
-    maDonHang,
-    thoiGianCheckIn,
-    phuThu,
-    maCoupon,
-    soTienThanhToan,
-    maBan,
-    maKhachHang,
-    maDauBep,
-    maNhanVienPhucVu,
-    maNhanVienThuNgan,
-	trangThaiDonHang
-)
-VALUES ('HD0001','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
-, ('HD0002', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
-, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
-, ('HD0004', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
-, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
-
-INSERT INTO dbo.MonAn
-VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
-, ('10002', N'Phùng Trảo Thủ', 62000, 'phung-trao-thu.png')
-, ('10003', N'Há Cảo Sò Điệp', 72000, 'ha-cao-so-diep.png')
-, ('10004', N'Bánh Bao Thượng Hải', 65000, 'banh-bao-thuong-hai.png')
-, ('10005', N'Xíu Mại Trứng Tôm', 70000, 'xiu-mai-trung-tom.png')
-, ('10006', N'Bánh Bao Than Trúc Kim Sa', 65000, 'banh-bao-than-truc-kim-sa.png')
-, ('10007', N'Bánh Sầu Riêng Ngàn Lớp', 72000, 'banh-sau-rieng-ngan-lop.png')
-, ('10008', N'Hoành Thánh Tôm Chiên', 72000, 'hoanh-thanh-tom-chien.png')
-, ('10009', N'Cảo Bò Nấm Truffle', 80000, 'cao-bo-nam-truffle.png')
-, ('10010', N'Thanh Cua Cuộn Rong Biển', 75000, 'thanh-cua-cuon-rong-bien.png')
-, ('10011', N'Canh Sen Đen', 92000, 'canh-sen-den.png')
-, ('10012', N'Canh Bào Ngư Thượng Hạng', 498000, 'canh-bao-ngu-thuong-hang.png')
-, ('10013', N'Heo Quay Da Giòn', 178000, 'heo-quay-da-gion.png')
-, ('10014', N'Hải Sản Đậu Hủ Tay Cầm', 238000, 'hai-san-dau-hu-tay-cam.png')
-, ('10015', N'Sò Điệp Xào Măng Tây', 298000, 'so-diep-xao-mang-tay.png')
-GO
-
-insert into ChiTietDonHang(maDonHang, maMonAn, soLuong )
-VALUES
-('HD0001', '10003', 2), ('HD0001', '10005', 2), ('HD0001', '10007', 2), ('HD0001', '10012', 1), ('HD0001', '10013', 2),
-('HD0002', '10014', 1), ('HD0002', '10006', 1), ('HD0002', '10012', 1), ('HD0002', '10007', 1), ('HD0002', '10011', 4), ('HD0002', '10013', 1),
-('HD0003', '10003', 1), ('HD0003', '10011', 2), ('HD0003', '10015', 2), ('HD0003', '10001', 1),
-('HD0004', '10013', 1), ('HD0004', '10009', 2), ('HD0004', '10007', 2),
-('HD0005', '10006', 1), ('HD0005', '10004', 1), ('HD0005', '10014', 1), ('HD0005', '10012', 1), ('HD0005', '10010', 1)
-GO
-
-insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
-values ('NV110001', 'CT1001', 0, 1200000 )
-	, ('NV220111', 'CT1001', 1, 760000)
-	, ('NV220111', 'CT1003', 0, 760000)
-	, ('NV330101', 'CT1001', 2, 330000)
-	, ('NV330101', 'CT1002', 0, 660000)
-	, ('NV330101', 'CT1003', 0, 660000)
-	, ('NV440123', 'CT1001', 0, 810000)
-	, ('NV440123', 'CT1003', 1, 270000)
 
 use QuanLyNhaHang
 go
@@ -505,8 +313,6 @@ CREATE PROCEDURE spInsertNhanVien(@ma char(10), @ten nvarchar(100), @ngaysinh da
 AS BEGIN
 		INSERT INTO dbo.NhanVien
 		VALUES (@ma,@ten,@ngaysinh,@gioitinh,@diachi,@SDT,@heSoLuong,@loaiNhanVien)
-
-		EXEC sp
 	END
 GO
 
@@ -1295,15 +1101,6 @@ GO
 GRANT EXECUTE ON dbo.spGetNhanVienByTaiKhoan TO NhanVienRole
 GO
 
-
-CREATE LOGIN thitrantruongtn123 WITH PASSWORD='440123tnthi', DEFAULT_DATABASE=QuanLyNhaHang, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-CREATE LOGIN ThuNgan WITH PASSWORD='123', DEFAULT_DATABASE=BT_KetNoiSQL, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-GO
-
-CREATE USER QuanLy FOR LOGIN QuanLy
-CREATE USER thitrantruongtn123 FOR LOGIN thitrantruongtn123
-GO
-
 CREATE TRIGGER trigger_CreateUserDb ON dbo.TaiKhoan
 FOR INSERT AS
 BEGIN
@@ -1314,27 +1111,50 @@ BEGIN
 
 	SELECT @tenDangNhap=Ins.tenDangNhap, @matKhau=Ins.matKhau, @maNhanVien=Ins.maNhanVien FROM Inserted Ins
 
-	SELECT N.loaiNhanVien FROM dbo.NhanVien N, dbo.TaiKhoan T
+	SELECT @loaiNhanVien=N.loaiNhanVien FROM dbo.NhanVien N, dbo.TaiKhoan T
 	WHERE N.maNhanVien = T.maNhanVien AND T.maNhanVien = @maNhanVien
 
-	EXEC sys.sp_addlogin @loginame = @tenDangNhap,    -- sysname
-	                     @passwd = @matKhau,      -- sysname
-	                     @defdb = QuanLyNhaHang       -- sysname
-	EXEC sys.sp_adduser @loginame = @tenDangNhap,   -- sysname
-	                    @name_in_db = @tenDangNhap -- sysname
-	
+	DECLARE @t nvarchar(4000)
+	SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
+	EXEC(@t)
+
+	SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
+	EXEC(@t)
 
 	IF (@loaiNhanVien = N'Quản Lý')
-	BEGIN
 	    EXEC sys.sp_addrolemember @rolename = QuanLyRole,  -- sysname
-		                          @membername = @tenDangNhap -- sysname
-	END
-		
-    
+                          @membername = @tenDangNhap -- sysname
+    ELSE IF (@loaiNhanVien = N'Thu Ngân')
+		EXEC sys.sp_addrolemember @rolename = ThuNganRole,  -- sysname
+                          @membername = @tenDangNhap -- sysname
+	ELSE IF (@loaiNhanVien = N'Phục Vụ')
+		EXEC sys.sp_addrolemember @rolename = PhucVuRole,  -- sysname
+                          @membername = @tenDangNhap -- sysname
 	EXEC sys.sp_addrolemember @rolename = NhanVienRole,  -- sysname
-	                     @membername = @tenDangNhap -- sysname
-	
-		
+	                     @membername = @tenDangNhap -- sysname		
+END
+GO
+
+CREATE TRIGGER trigger_DropUserDb ON dbo.TaiKhoan
+FOR DELETE AS
+BEGIN
+    DECLARE @tenDangNhap VARCHAR(20)
+	SELECT @tenDangNhap =  D.tenDangNhap FROM Deleted D
+
+	DECLARE @T VARCHAR(400)
+	IF (select COUNT(*) from sys.database_principals 
+				WHERE name = @tenDangNhap AND type='S') > 0
+	BEGIN
+		SET @t = N'DROP USER ' + QUOTENAME(@tenDangNhap)
+		EXEC(@t)	    
+	END
+
+	IF (select COUNT(*) FROM master.dbo.syslogins
+				WHERE name = @tenDangNhap ) > 0
+	BEGIN
+		SET @t = N'DROP LOGIN ' + QUOTENAME(@tenDangNhap)
+		EXEC(@t)	    
+	END
 END
 GO
 
@@ -1373,3 +1193,198 @@ VALUES
     N'Đang hoạt động', -- trangThaiTaiKhoan - nvarchar(20)
     'NV110004'   -- maNhanVien - char(10)
     )
+
+
+------Insert
+-- Chèn dữ liệu mẫu
+insert into NhanVien(maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien)
+values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
+	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 0, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
+	, ('NV110003', N'Nguyễn Phương Nga', '1990-07-25', 1, N'8, Ấp Bình Văn, Phường 50, Huyện Nhữ Vỹ Châu Vĩnh Phúc', '0199322097', 400000, N'Quản Lý')
+	, ('NV220111', N'Trương Quang Định', '1993-08-24', 0, N'1456 Phố Nhạn, Ấp Phong Đàn, Quận Mai Mộc Quảng Ngãi', '0685598384', 380000, N'Đầu Bếp')
+	, ('NV220222', N'Đỗ Tố Hoa', '1996-12-01', 1, N'371, Ấp Trưng, Xã Bắc Đôn, Quận Giang Lô Phú Yên', '0467206578', 380000, N'Đầu Bếp')
+	, ('NV220333', N'Bùi Công Minh', '1994-05-09', 0, N'45 Võ Thị Sáu, P.Đa Kao. Trung tâm Quận 1, TP HCM','0671543545',380000, N'Đầu Bếp')
+	, ('NV220444', N'Đào Văn Mác', '1994-06-17', 0, N'98 Phố Tăng Dân Giao, Ấp Nghị Thiên, Quận Khoát Từ Đồng Tháp','0581080331', 380000, N'Đầu Bếp')
+	, ('NV220555', N'Nguyễn Thị Ngọc Lan', '1997-10-28', 1, N'14, Thôn Thủy Trạch, Xã 9, Quận Đàn Tiền Giang','0281160318', 380000, N'Đầu Bếp')
+	, ('NV330101', N'Ngô Cẩm Huệ', '1999-02-21', 1, N'512 Phố Phạm Thục Thông, Thôn Cát Đàn, Quận Âu Cà Mau','0186388645', 380000, N'Phục Vụ')
+	, ('NV330102', N'Trần Thiên Anh','2000-10-13', 0, N'7881 Phố Chung, Xã Chiến, Quận Cát Thái Nguyên','0984950567', 330000, N'Phục Vụ')
+	, ('NV330103', N'Đinh Quang Vinh', '2000-11-09', 0, N'840, Thôn Thập Xuân Khoát, Ấp Chiểu Anh, Quận Đình Khánh Hòa','0979873572', 330000, N'Phục Vụ')
+	, ('NV330104', N'Nguyễn Trường Hải', '2001-07-16', 0, N'5259 Phố Nhiên, Xã Kha, Huyện 16 Bình Phước','0682122957', 330000, N'Phục Vụ')
+	, ('NV330105', N'Đặng Thị Cẩm Tiên', '2002-08-15', 1, N'3 Phố Âu Phương Trực, Phường Bắc Thịnh, Quận Đăng Đà Nẵng','0351091857', 330000, N'Phục Vụ')
+	, ('NV330106', N'Phạm Hùng Thủy', '2001-04-25', 0, N'7933 Phố Lê Lập Đoan, Thôn Chương Cảnh, Quận Thục Lào Cai','0741419362', 330000, N'Phục Vụ')
+	, ('NV330107', N'Lý Bắc Nam', '2001-09-10', 0, N'554, Thôn Thôi Linh, Phường Định Lam, Quận Bồ Diệp Cà Mau','0713923079', 330000, N'Phục Vụ')
+	, ('NV330108', N'Trịnh Hoàng Yến Nhi', '2002-06-29', 1, N'3 Phố Đan Dao Khuyên, Phường Hoàn Hiển, Huyện Khánh Ý Vĩnh Phúc','0158769212', 330000, N'Phục Vụ')
+	, ('NV330109', N'Phan Hoàng Châu', '1999-03-08', 1, N'7704, Thôn Ái Đôn, Phường 64, Quận Hoan Ngô Thừa Thiên Huế','0851882959', 330000, N'Phục Vụ')
+	, ('NV330110', N'Lại Văn Phú','2001-07-14', 0, N'20 Phố Diệp Lực Liên, Phường Nhân Lạc, Huyện Kha Điện Biên','0126892148', 330000, N'Phục Vụ')
+	, ('NV440123', N'Trần Trường Thi', '2000-08-22', 0, N'2 Phố Nhiên, Phường Thu Kiều, Huyện 6 Cao Bằng','0775783212', 270000, N'Thu Ngân')
+	, ('NV440456', N'Mai Bảo Ngọc','1998-04-12', 1, N'20 Phố Đàm Trung Sơn, Thôn Đăng Hạ, Quận Phương Trác Tuyên Quang','0874588175', 270000, N'Thu Ngân')
+	, ('NV440789', N'Đỗ Hồng Thái Ngân', '1999-01-30', 1, N'5 Phố Hồng Yên Kiên, Phường Sinh Tiến, Huyện Bồ Diệp Quân Khánh Hòa','0679242119', 270000, N'Thu Ngân')
+
+GO
+
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien)
+values ('tamtranngocql001','110001qltam', N'Đang hoạt động', 'NV110001')
+insert into TaiKhoan VALUES('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
+insert into TaiKhoan VALUES('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
+insert into TaiKhoan VALUES('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
+insert into TaiKhoan VALUES('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
+insert into TaiKhoan VALUES('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
+insert into TaiKhoan VALUES('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
+insert into TaiKhoan VALUES('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
+insert into TaiKhoan VALUES('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
+insert into TaiKhoan VALUES('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
+insert into TaiKhoan VALUES('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
+insert into TaiKhoan VALUES('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
+insert into TaiKhoan VALUES('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
+insert into TaiKhoan VALUES('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
+insert into TaiKhoan VALUES('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
+insert into TaiKhoan VALUES('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
+insert into TaiKhoan VALUES('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
+insert into TaiKhoan VALUES('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
+insert into TaiKhoan VALUES('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
+insert into TaiKhoan VALUES('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
+insert into TaiKhoan VALUES('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
+GO
+
+insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
+values ('CT1001', '2022-09-26', '2022-09-28')
+	, ('CT1002', '2022-09-29', '2022-09-30')
+	, ('CT1003', '2022-10-01', '2022-10-02')
+GO
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220111', 'CT1001')
+	, ('NV220222', 'CT1002')
+	, ('NV220333', 'CT1003')
+	, ('NV220444', 'CT1001')
+	, ('NV220555', 'CT1002')
+	, ('NV220111', 'CT1003')
+	, ('NV220222', 'CT1001')
+	, ('NV220333', 'CT1002')
+	, ('NV220444', 'CT1003')
+
+	, ('NV330101', 'CT1001')
+	, ('NV330102', 'CT1002')
+	, ('NV330103', 'CT1003')
+	, ('NV330104', 'CT1001')
+	, ('NV330105', 'CT1002')
+	, ('NV330106', 'CT1003')
+	, ('NV330107', 'CT1001')
+	, ('NV330108', 'CT1002')
+	, ('NV330109', 'CT1003')
+	, ('NV330110', 'CT1001')
+	, ('NV330101', 'CT1002')
+	, ('NV330102', 'CT1003')
+	, ('NV330103', 'CT1001')
+	, ('NV330104', 'CT1002')
+	, ('NV330105', 'CT1003')
+	, ('NV330106', 'CT1001')
+	, ('NV330107', 'CT1002')
+	, ('NV330108', 'CT1003')
+	, ('NV330109', 'CT1001')
+	, ('NV330110', 'CT1002')
+	, ('NV330101', 'CT1003')
+	
+	, ('NV440123', 'CT1001')
+	, ('NV440789', 'CT1003')
+	, ('NV440123', 'CT1003')
+	, ('NV440456', 'CT1002')
+	, ('NV440789', 'CT1001')	
+GO
+
+insert into KhachHang(maKhachHang, hoTen, soDienThoai, ngaySinh, gioiTinh)
+values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
+	, ('KH02', N'Nguyễn Xuân Lan', '0510502106', '1992-05-17', 1)
+	, ('KH03', N'Bùi Ngọc Ánh', '0513341746', '1998-12-12', 1)
+	, ('KH04', N'Võ Xuân Hiển', '0759614456', '2002-02-19', 0)
+	, ('KH05', N'Trần Đình Nam', '0743563676', '1985-04-20', 0)
+	, ('KH06', N'Phan Mạnh Quỳnh', '0753120822', '2000-07-22', 0)
+
+GO
+
+insert into Ban(maBan, trangThaiBan, loaiBan, soLuongGheToiDa)
+values ('BV101', N'Đã đặt trước', N'VIP', 20)
+	, ('BV102', N'Đang phục vụ', N'VIP', 20)
+	, ('BV103', N'Đang có sẵn', N'VIP', 10)
+	, ('BV104', N'Đang có sẵn', N'VIP', 10)
+	, ('BV105', N'Đang có sẵn', N'VIP', 5)
+	, ('BV106', N'Đang có sẵn', N'VIP', 5)
+	, ('BT201', N'Đang phục vụ', N'Thường', 10)
+	, ('BT202', N'Đang phục vụ', N'Thường', 10)
+	, ('BT203', N'Đã đặt trước', N'Thường', 10)
+	, ('BT204', N'Đang phục vụ', N'Thường', 5)
+	, ('BT205', N'Đang có sẵn', N'Thường', 5)
+	, ('BT206', N'Đang có sẵn', N'Thường', 5)
+GO
+
+insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
+values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
+	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT205', 'NV440456')
+	, ('DT03', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
+	, ('DT04', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
+	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV104', 'NV440789')
+	, ('DT06', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
+GO
+
+INSERT into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
+values ('CP10', '2022-10-01', '2022-10-07' , 0.1 , 200000 , 50000)
+	, ('CP20', '2022-10-08', '2022-10-15', 0.2 , 300000 , 100000)
+	, ('CP30', '2022-11-15', '2022-12-15', 0.15 , 200000 , 100000)
+	, ('CP40', '2022-11-11', '2022-11-30', 0.1 , 100000 , 0)
+GO
+
+INSERT INTO dbo.DonHang
+(
+    maDonHang,
+    thoiGianCheckIn,
+    phuThu,
+    maCoupon,
+    soTienThanhToan,
+    maBan,
+    maKhachHang,
+    maDauBep,
+    maNhanVienPhucVu,
+    maNhanVienThuNgan,
+	trangThaiDonHang
+)
+VALUES ('HD0001','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
+, ('HD0002', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
+, ('HD0004', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
+, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
+
+INSERT INTO dbo.MonAn
+VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
+, ('10002', N'Phùng Trảo Thủ', 62000, 'phung-trao-thu.png')
+, ('10003', N'Há Cảo Sò Điệp', 72000, 'ha-cao-so-diep.png')
+, ('10004', N'Bánh Bao Thượng Hải', 65000, 'banh-bao-thuong-hai.png')
+, ('10005', N'Xíu Mại Trứng Tôm', 70000, 'xiu-mai-trung-tom.png')
+, ('10006', N'Bánh Bao Than Trúc Kim Sa', 65000, 'banh-bao-than-truc-kim-sa.png')
+, ('10007', N'Bánh Sầu Riêng Ngàn Lớp', 72000, 'banh-sau-rieng-ngan-lop.png')
+, ('10008', N'Hoành Thánh Tôm Chiên', 72000, 'hoanh-thanh-tom-chien.png')
+, ('10009', N'Cảo Bò Nấm Truffle', 80000, 'cao-bo-nam-truffle.png')
+, ('10010', N'Thanh Cua Cuộn Rong Biển', 75000, 'thanh-cua-cuon-rong-bien.png')
+, ('10011', N'Canh Sen Đen', 92000, 'canh-sen-den.png')
+, ('10012', N'Canh Bào Ngư Thượng Hạng', 498000, 'canh-bao-ngu-thuong-hang.png')
+, ('10013', N'Heo Quay Da Giòn', 178000, 'heo-quay-da-gion.png')
+, ('10014', N'Hải Sản Đậu Hủ Tay Cầm', 238000, 'hai-san-dau-hu-tay-cam.png')
+, ('10015', N'Sò Điệp Xào Măng Tây', 298000, 'so-diep-xao-mang-tay.png')
+GO
+
+insert into ChiTietDonHang(maDonHang, maMonAn, soLuong )
+VALUES
+('HD0001', '10003', 2), ('HD0001', '10005', 2), ('HD0001', '10007', 2), ('HD0001', '10012', 1), ('HD0001', '10013', 2),
+('HD0002', '10014', 1), ('HD0002', '10006', 1), ('HD0002', '10012', 1), ('HD0002', '10007', 1), ('HD0002', '10011', 4), ('HD0002', '10013', 1),
+('HD0003', '10003', 1), ('HD0003', '10011', 2), ('HD0003', '10015', 2), ('HD0003', '10001', 1),
+('HD0004', '10013', 1), ('HD0004', '10009', 2), ('HD0004', '10007', 2),
+('HD0005', '10006', 1), ('HD0005', '10004', 1), ('HD0005', '10014', 1), ('HD0005', '10012', 1), ('HD0005', '10010', 1)
+GO
+
+insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
+values ('NV110001', 'CT1001', 0, 1200000 )
+	, ('NV220111', 'CT1001', 1, 760000)
+	, ('NV220111', 'CT1003', 0, 760000)
+	, ('NV330101', 'CT1001', 2, 330000)
+	, ('NV330101', 'CT1002', 0, 660000)
+	, ('NV330101', 'CT1003', 0, 660000)
+	, ('NV440123', 'CT1001', 0, 810000)
+	, ('NV440123', 'CT1003', 1, 270000)
