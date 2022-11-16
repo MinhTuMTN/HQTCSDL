@@ -1167,8 +1167,8 @@ BEGIN
 	WHERE N.maNhanVien = T.maNhanVien AND T.maNhanVien = @maNhanVien
 
 	DECLARE @t nvarchar(4000)
-	SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
-	EXEC(@t)
+	--SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
+	--EXEC(@t)
 
 	SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
 	EXEC(@t)
@@ -1305,7 +1305,7 @@ VALUES
     'NV110004'   -- maNhanVien - char(10)
     )
 GO
-	--------------------------------------------------------
+
 insert into NhanVien(maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien)
 values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
 	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 0, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
