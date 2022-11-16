@@ -20,6 +20,13 @@ namespace RestaurantManagement.BussinessLayer
             results = connection.MyExecuteQueryDataTable("SELECT * FROM NhanVien", CommandType.Text, ref error);
             return results;
         }
+        public DataTable GetMaDauBep(ref string error)
+        {
+            DataTable table = new DataTable();
+            string cmd = "SELECT maNhanVien FROM dbo.NhanVien WHERE loaiNhanVien = N'Đầu Bếp'";
+            table = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return table;
+        }
 
         public DataTable FindNhanVien(string text, ref string error)
         {

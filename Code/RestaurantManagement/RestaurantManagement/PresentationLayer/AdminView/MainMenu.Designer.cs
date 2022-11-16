@@ -365,6 +365,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMainMenu_FormClosed);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.gunaPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

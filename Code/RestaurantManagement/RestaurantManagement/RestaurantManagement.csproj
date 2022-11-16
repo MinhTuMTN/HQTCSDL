@@ -76,9 +76,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessLayer\BusinessChiTietDonHang.cs" />
+    <Compile Include="BussinessLayer\BusinessDonHang.cs" />
     <Compile Include="BussinessLayer\BusinessTaiKhoan.cs" />
     <Compile Include="BussinessLayer\BusinessThanhToan.cs" />
     <Compile Include="BussinessLayer\BusinessThongKe.cs" />
+    <Compile Include="BussinessLayer\BusinessTiepNhan.cs" />
     <Compile Include="BussinessLayer\BussinessBan.cs" />
     <Compile Include="BussinessLayer\BussinessCaTruc.cs" />
     <Compile Include="BussinessLayer\BussinessCoupon.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="BussinessLayer\BussinessNhanVien.cs" />
     <Compile Include="BussinessLayer\BussinessTraLuong.cs" />
     <Compile Include="DataAccessLayer\DatabaseConnection.cs" />
+    <Compile Include="DataAccessLayer\Global.cs" />
     <Compile Include="DataAccessLayer\Model\Ban.cs" />
     <Compile Include="DataAccessLayer\Model\CaTruc.cs" />
     <Compile Include="DataAccessLayer\Model\ChiTietHoaDon.cs" />
@@ -199,6 +203,30 @@
     <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienChiTietDonHang.Designer.cs">
+      <DependentUpon>ThucHienChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienDonHang.Designer.cs">
+      <DependentUpon>ThucHienDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.Designer.cs">
+      <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.Designer.cs">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\NhanVienView\DangKyCaTruc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,11 +295,23 @@
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DauBepView\ThucHienChiTietDonHang.resx">
+      <DependentUpon>ThucHienChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DauBepView\ThucHienDonHang.resx">
+      <DependentUpon>ThucHienDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\ChiTietDonHang.resx">
+      <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\QuanLyBanHang.resx">
+      <DependentUpon>QuanLyBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\ThuNganView\ThanhToanDonHang.resx">
       <DependentUpon>ThanhToanDonHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>

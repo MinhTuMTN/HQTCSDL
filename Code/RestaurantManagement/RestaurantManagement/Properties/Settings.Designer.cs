@@ -44,5 +44,29 @@ namespace RestaurantManagement.Properties {
                 return ((string)(this["QuanLyNhaHangConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sa")]
+        public string userLoginDb {
+            get {
+                return ((string)(this["userLoginDb"]));
+            }
+            set {
+                this["userLoginDb"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3052")]
+        public string passLoginDb {
+            get {
+                return ((string)(this["passLoginDb"]));
+            }
+            set {
+                this["passLoginDb"] = value;
+            }
+        }
     }
 }
