@@ -1,5 +1,4 @@
-﻿using Guna.UI2.WinForms;
-using RestaurantManagement.BussinessLayer;
+﻿using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
@@ -19,13 +18,16 @@ namespace RestaurantManagement.PresentationLayer.StaffView
         BussinessBan businessBan = new BussinessBan();
         BussinessKhachHang businessKhachHang = new BussinessKhachHang();
         BussinessNhanVien businessNhanVien = new BussinessNhanVien();
+
+        private string maPhucVu;
         public frmQuanLyBanHang()
         {
             InitializeComponent();
             rdbThuong.Checked = true;
+            maPhucVu = "NV330103";
         }
 
-        public void RefeshDgv()
+        public void RefeshDgvDonHang()
         {
             string error = "";
             try
@@ -98,7 +100,6 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                 int indexDauBep = random.Next(listDauBep.Count);
                 maDauBep = listDauBep[indexDauBep];
 
-                string maNhanVienPhucVu = "NV330103";
                 string maBan = cbMaBan.Text.Trim();
                 string maDonHang = businessDonHang.CreateMaDonHang(ref error);
                 string maKhachHang = "";
@@ -112,7 +113,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                     ThemKhachHangThuong(maKhachHang);
 
                 }
-                HoaDon hoaDon = new HoaDon(maDonHang, thoiGianCheckIn, phuThu, maBan, maNhanVienPhucVu, maDauBep, maKhachHang);
+                HoaDon hoaDon = new HoaDon(maDonHang, thoiGianCheckIn, phuThu, maBan, maPhucVu, maDauBep, maKhachHang);
                 return hoaDon;
 
             }
@@ -152,8 +153,6 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             maDonHang = dgvDonHang.CurrentRow.Cells["maDonHang"].Value.ToString();
 
             frmChiTietDonHang newForm = new frmChiTietDonHang(maDonHang, this);
-
-            newForm.StartPosition = FormStartPosition.CenterScreen;
 
             newForm.Show(this);
         }

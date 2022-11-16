@@ -362,9 +362,9 @@ INSERT INTO dbo.DonHang
 )
 VALUES ('HD0001','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
 , ('HD0002', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
-, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220444', 'NV330107','NV440789', N'Chưa thanh toán')
+, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220333', 'NV330107','NV440789', N'Đang chuẩn bị')
 , ('HD0004', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
-, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Đang chuẩn bị')
 
 INSERT INTO dbo.MonAn
 VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
@@ -470,7 +470,7 @@ AS BEGIN
 		    @phuThu,       -- phuThu - float
 		    NULL,        -- maCoupon - char(10)
 		    0.0,       -- soTienThanhToan - float
-		    N'Chưa thanh toán',       -- trangThaiDonHang - nvarchar(50)
+		    N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
 		    @maBan,        -- maBan - char(10)
 		    @maKhachHang,        -- maKhachHang - char(10)
 		    @maDauBep,        -- maDauBep - char(10)
@@ -852,6 +852,14 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE spUpdateTrangThaiDonHang (@maDonHang CHAR(10))
+AS
+BEGIN
+	UPDATE dbo.DonHang SET trangThaiDonHang = N'Chưa thanh toán'
+	WHERE maDonHang = @maDonHang
+END
+GO
+
 -- Tạo views
 CREATE VIEW viewNhanVienDangKyCaTruc -- Thông tin các nhân viên đăng ký các ca trực
 AS SELECT NhanVien.maNhanVien, CaTruc.maCaTruc, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien
@@ -903,6 +911,14 @@ RETURN(
 )
 GO
 
+CREATE FUNCTION fnSearchDonHangDauBep (@text NVARCHAR(150), @maDauBep CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT * FROM dbo.DonHang
+	WHERE maDonHang LIKE  '%' + @text + '%' AND maDauBep = @maDauBep AND trangThaiDonHang = N'Đang chuẩn bị'
+)
+GO
+
 CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
 RETURNS TABLE AS
 RETURN(
@@ -951,6 +967,13 @@ RETURN (
 		AND ((@date >= ngayBatDau AND @date <= ngayKetThuc) OR @date IS NULL)
 		AND (hoTen LIKE  '%' + @hoTen + '%' OR @hoTen IS NULL)
 		AND (maNhanVien=@maNhanVien OR @maNhanVien IS NULL)
+)
+GO
+
+CREATE FUNCTION fnLayDanhSachDonHangDauBep (@maDauBep CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT * FROM dbo.DonHang WHERE maDauBep = @maDauBep AND trangThaiDonHang = N'Đang chuẩn bị'
 )
 GO
 

@@ -17,6 +17,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
     {
         BusinessChiTietDonHang businessChiTietDonHang = new BusinessChiTietDonHang();
         BusinessDonHang businessDonHang = new BusinessDonHang();
+
         string imagesFolderPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug", "") + @"FoodImages\";
         
         private string maDonHang = "";
@@ -65,6 +66,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                     picMonAn.Load(imagesFolderPath + "food.png");
                 }
 
+                numSoLuongMonAnCapNhat.Minimum = (int)dgvChiTietDonHang.Rows[row].Cells["soLuong"].Value;
                 numSoLuongMonAnCapNhat.Value = (int)dgvChiTietDonHang.Rows[row].Cells["soLuong"].Value;
 
             }
@@ -169,7 +171,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             string error = "";
             try
             {
-                owner.RefeshDgv();
+                owner.RefeshDgvDonHang();
             }
             catch
             {

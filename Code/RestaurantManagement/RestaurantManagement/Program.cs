@@ -5,6 +5,7 @@ using RestaurantManagement.DataAccessLayer;
 using RestaurantManagement.PresentationLayer.AdminView;
 using RestaurantManagement.PresentationLayer.StaffView;
 using RestaurantManagement.PresentationLayer.ThuNganView;
+using RestaurantManagement.PresentationLayer.DauBepView;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,13 +27,14 @@ namespace RestaurantManagement
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmDangNhap());
             //Application.Run(new frmMainMenu());
-            Application.Run(new frmQuanLyBanHang());
+            //Application.Run(new frmQuanLyBanHang());
+            Application.Run(new frmThucHienDonHang());
 
             //string error = "";
             //DataTable table = new BussinessNhanVien().FindNhanVien("NV", ref error);
 
             //BussinessKhachHang donHang = new BussinessKhachHang();
-            
+
             //Console.WriteLine(donHang.CreateMaKhachHang(ref error));
             //new BusinessDonHang().CreateMaDonHang(ref error);
         }

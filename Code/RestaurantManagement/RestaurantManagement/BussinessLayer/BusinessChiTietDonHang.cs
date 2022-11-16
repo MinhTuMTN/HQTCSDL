@@ -66,5 +66,12 @@ namespace RestaurantManagement.BussinessLayer
             };
             return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
         }
+
+        public bool UpdateTrangThaiDonHang(string maDonHang, ref string error)
+        {
+            string cmd = "dbo.spUpdateTrangThaiDonHang";
+            SqlParameter sqlParameter = new SqlParameter("@maDonHang", maDonHang);
+            return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, sqlParameter);
+        }
     }
 }

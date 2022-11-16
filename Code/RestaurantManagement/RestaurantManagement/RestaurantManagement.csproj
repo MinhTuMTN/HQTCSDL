@@ -203,6 +203,18 @@
     <Compile Include="PresentationLayer\Control\RJTextBox.designer.cs">
       <DependentUpon>RJTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienChiTietDonHang.Designer.cs">
+      <DependentUpon>ThucHienChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\DauBepView\ThucHienDonHang.Designer.cs">
+      <DependentUpon>ThucHienDonHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +288,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Control\RJTextBox.resx">
       <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DauBepView\ThucHienChiTietDonHang.resx">
+      <DependentUpon>ThucHienChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\DauBepView\ThucHienDonHang.resx">
+      <DependentUpon>ThucHienDonHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\StaffView\ChiTietDonHang.resx">
       <DependentUpon>ChiTietDonHang.cs</DependentUpon>

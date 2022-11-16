@@ -156,6 +156,7 @@
             // 
             // picMonAn
             // 
+            this.picMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.picMonAn.BackColor = System.Drawing.Color.Transparent;
             this.picMonAn.Image = ((System.Drawing.Image)(resources.GetObject("picMonAn.Image")));
             this.picMonAn.Location = new System.Drawing.Point(1231, 6);
@@ -169,8 +170,7 @@
             // 
             // gbCapNhatMonAn
             // 
-            this.gbCapNhatMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbCapNhatMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbCapNhatMonAn.BackColor = System.Drawing.Color.Transparent;
             this.gbCapNhatMonAn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
@@ -335,8 +335,7 @@
             // 
             // gbThemMonAn
             // 
-            this.gbThemMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbThemMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbThemMonAn.BackColor = System.Drawing.Color.Transparent;
             this.gbThemMonAn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
@@ -747,6 +746,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChiTietDonHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmChiTietDonHang_FormClosing);
             this.Load += new System.EventHandler(this.frmChiTietDonHang_Load);

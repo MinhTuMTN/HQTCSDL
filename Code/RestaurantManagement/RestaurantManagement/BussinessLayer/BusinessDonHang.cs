@@ -32,6 +32,16 @@ namespace RestaurantManagement.BussinessLayer
             result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
             return result;
         }
+
+        public DataTable GetHoaDonDauBep(string maDauBep, ref string error)
+        {
+            DataTable result = new DataTable();
+            string cmd = "SELECT* FROM dbo.fnLayDanhSachDonHangDauBep(@maDauBep)";
+            SqlParameter sqlParameter = new SqlParameter("@maDauBep", maDauBep);
+            result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, sqlParameter);
+            return result;
+        }
+
         public bool AddHoaDon(HoaDon hoaDon, ref string error)
         {
             string cmd = "dbo.spInsertDonHang";
@@ -53,6 +63,19 @@ namespace RestaurantManagement.BussinessLayer
             string cmd = "SELECT * FROM dbo.fnSearchDonHang(@text)";
             SqlParameter sqlParameter = new SqlParameter("@text", text);
             result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, sqlParameter);
+            return result;
+        }
+
+        public DataTable FindHoaDonDauBep(ref string error, string text, string maDauBep)
+        {
+            DataTable result = new DataTable();
+            string cmd = "SELECT * FROM dbo.fnSearchDonHangDauBep(@text, @maDauBep)";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@text", text),
+                new SqlParameter("@maDauBep", maDauBep)
+            };
+            result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parameters);
             return result;
         }
     }
