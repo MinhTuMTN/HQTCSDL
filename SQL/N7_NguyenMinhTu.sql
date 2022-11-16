@@ -1083,6 +1083,10 @@ GO
 
 -- Quản lý có toàn quyền(truy vấn) tất cả đối tượng trong CSDL
 GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
+GRANT ALTER ON ROLE::QuanLyRole TO QuanLyRole
+GRANT ALTER ON ROLE::PhucVuRole TO QuanLyRole
+GRANT ALTER ON ROLE::NhanVienRole TO QuanLyRole
+GRANT ALTER ON ROLE::ThuNganRole TO QuanLyRole
 GO
 
 -- Cấp các quyền truy cập cần thiết cho Thu Ngân
