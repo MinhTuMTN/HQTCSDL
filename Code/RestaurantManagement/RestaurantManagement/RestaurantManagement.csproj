@@ -378,6 +378,7 @@
     <None Include="PresentationLayer\Images\Logo\manager_96px.png" />
     <None Include="PresentationLayer\Images\Logo\add_user_male_96px.png" />
     <None Include="PresentationLayer\Images\Logo\edit_user_96px.png" />
+    <None Include="PresentationLayer\Images\Logo\Food Donor_100px.png" />
     <Content Include="PresentationLayer\Images\Logo\icons8_denied_96px_3.png" />
     <Content Include="PresentationLayer\Images\Logo\icons8_filter_208px_1.png" />
     <Content Include="PresentationLayer\Images\Logo\icons8_filter_208px_3.png" />

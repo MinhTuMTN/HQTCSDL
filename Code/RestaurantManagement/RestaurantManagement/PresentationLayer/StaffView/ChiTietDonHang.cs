@@ -184,9 +184,10 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             numSoLuongMonAnTao.Value = 1;
         }
 
-        private void btnResetTao_Click(object sender, EventArgs e)
+        private void btnResetCapNhat_Click(object sender, EventArgs e)
         {
-            numSoLuongMonAnCapNhat.Value = 1;
+            numSoLuongMonAnCapNhat.Minimum = (int)dgvChiTietDonHang.CurrentRow.Cells["soLuong"].Value;
+            numSoLuongMonAnCapNhat.Value = (int)dgvChiTietDonHang.CurrentRow.Cells["soLuong"].Value;
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
