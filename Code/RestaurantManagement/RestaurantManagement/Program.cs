@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestaurantManagement.PresentationLayer.NhanVienView;
 
 namespace RestaurantManagement
 {
@@ -26,7 +27,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
+            Application.Run(new DangKyCaTruc());
 
            
         }
