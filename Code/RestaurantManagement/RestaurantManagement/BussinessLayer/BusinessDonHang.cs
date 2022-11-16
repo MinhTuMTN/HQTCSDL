@@ -17,7 +17,7 @@ namespace RestaurantManagement.BussinessLayer
 
         public string CreateMaDonHang(ref string error)
         {
-            string cmd = "SELECT TOP(1) maDonHang FROM dbo.DonHang ORDER BY SUBSTRING(maDonHang, 3, LEN(maDonHang) - 2) DESC";
+            string cmd = "SELECT TOP(1) maDonHang FROM dbo.DonHang ORDER BY CONVERT(INT, SUBSTRING(maDonHang, 3, LEN(maDonHang) - 2)) DESC";
             string maDonHangMoiNhat = (string)connection.MyExecuteScalar(cmd, System.Data.CommandType.Text, ref error, null);
 
             int number = int.Parse(maDonHangMoiNhat.Substring(2, maDonHangMoiNhat.Length - 2)) + 1;
