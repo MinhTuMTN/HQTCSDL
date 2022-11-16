@@ -1184,8 +1184,12 @@ BEGIN
 	WHERE N.maNhanVien = T.maNhanVien AND T.maNhanVien = @maNhanVien
 
 	DECLARE @t nvarchar(4000)
-	--SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
-	--EXEC(@t)
+	IF NOT EXISTS 
+    (SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = @tenDangNhap)
+	SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
+	EXEC(@t)
 
 	SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
 	EXEC(@t)
@@ -1418,12 +1422,12 @@ values ('NV220111', 'CT1001')
 GO
 
 insert into KhachHang(maKhachHang, hoTen, soDienThoai, ngaySinh, gioiTinh)
-values ('KH01', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
-	, ('KH02', N'Nguyễn Xuân Lan', '0510502106', '1992-05-17', 1)
-	, ('KH03', N'Bùi Ngọc Ánh', '0513341746', '1998-12-12', 1)
-	, ('KH04', N'Võ Xuân Hiển', '0759614456', '2002-02-19', 0)
-	, ('KH05', N'Trần Đình Nam', '0743563676', '1985-04-20', 0)
-	, ('KH06', N'Phan Mạnh Quỳnh', '0753120822', '2000-07-22', 0)
+values ('KH1', N'Trịnh Đình Trọng', '0760153349', '1988-03-24', 0)
+	, ('KH2', N'Nguyễn Xuân Lan', '0510502106', '1992-05-17', 1)
+	, ('KH3', N'Bùi Ngọc Ánh', '0513341746', '1998-12-12', 1)
+	, ('KH4', N'Võ Xuân Hiển', '0759614456', '2002-02-19', 0)
+	, ('KH5', N'Trần Đình Nam', '0743563676', '1985-04-20', 0)
+	, ('KH6', N'Phan Mạnh Quỳnh', '0753120822', '2000-07-22', 0)
 
 GO
 
@@ -1443,12 +1447,12 @@ values ('BV101', N'Đã đặt trước', N'VIP', 20)
 GO
 
 insert into DatTruoc(maDatTruoc, trangThaiDatTruoc, thoiGianCheckIn, thoiGianDatTruoc, soLuongNguoi, maKhachHang, maBan, maNhanVienTiepNhan)
-values ('DT01', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH01', 'BV103', 'NV440456')
-	, ('DT02', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH02', 'BT203', 'NV440456')
-	, ('DT03', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH03', 'BV104', 'NV440789')
-	, ('DT04', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH04', 'BT206', 'NV440789')
-	, ('DT05', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH05', 'BV101', 'NV440789')
-	, ('DT06', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH06', 'BV104', 'NV440789')
+values ('DT1', N'Đã check-in', '2022-10-02', '2022-09-29', 9, 'KH1', 'BV103', 'NV440456')
+	, ('DT2', N'Đã xác nhận', '2022-10-02', '2022-09-30', 5, 'KH2', 'BT203', 'NV440456')
+	, ('DT3', N'Chờ xác nhận', '2022-10-07', '2022-10-01', 10, 'KH3', 'BV104', 'NV440789')
+	, ('DT4', N'Từ chối', '2022-10-08', '2022-10-01', 4, 'KH4', 'BT206', 'NV440789')
+	, ('DT5', N'Đã xác nhận', '2022-10-08', '2022-10-01', 10 , 'KH5', 'BV101', 'NV440789')
+	, ('DT6', N'Chờ xác nhận', '2022-10-08', '2022-10-01',10 , 'KH6', 'BV104', 'NV440789')
 GO
 
 INSERT into Coupon(maCoupon, ngayBatDau, ngayKetThuc, phanTramGiam, giamToiDa, donToiThieu)
@@ -1472,11 +1476,11 @@ INSERT INTO dbo.DonHang
     maNhanVienThuNgan,
 	trangThaiDonHang
 )
-VALUES ('HD0001','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH01', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
-, ('HD0002', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH04','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
-, ('HD0003', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH02','NV220333', 'NV330107','NV440789', N'Đang chuẩn bị')
-, ('HD0004', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH03','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
-, ('HD0005', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH05','NV220333', 'NV330101','NV440456', N'Đang chuẩn bị')
+VALUES ('HD1','20220709', 50000, 'CP10', 1100000, 'BV103', 'KH1', 'NV220333', 'NV330103', 'NV440789', N'Đã thanh toán')
+, ('HD2', GETDATE(), 50000.0, NULL, 1469000.0, 'BV102','KH4','NV220111', 'NV330101','NV440456', N'Chưa thanh toán')
+, ('HD3', GETDATE(), 0.0, NULL, 924000.0, 'BT201','KH2','NV220333', 'NV330107','NV440789', N'Đang chuẩn bị')
+, ('HD4', GETDATE(), 0.0, NULL, 482000.0, 'BT202','KH3','NV220555', 'NV330104','NV440789', N'Chưa thanh toán')
+, ('HD5', GETDATE(), 20000.0, NULL, 961000.0, 'BT204','KH5','NV220333', 'NV330101','NV440456', N'Đang chuẩn bị')
 
 INSERT INTO dbo.MonAn
 VALUES ('10001', N'Cảo Tôm Phúc Lục', 72000, 'cao-tom-phuc-luc.png')
@@ -1498,11 +1502,11 @@ GO
 
 insert into ChiTietDonHang(maDonHang, maMonAn, soLuong )
 VALUES
-('HD0001', '10003', 2), ('HD0001', '10005', 2), ('HD0001', '10007', 2), ('HD0001', '10012', 1), ('HD0001', '10013', 2),
-('HD0002', '10014', 1), ('HD0002', '10006', 1), ('HD0002', '10012', 1), ('HD0002', '10007', 1), ('HD0002', '10011', 4), ('HD0002', '10013', 1),
-('HD0003', '10003', 1), ('HD0003', '10011', 2), ('HD0003', '10015', 2), ('HD0003', '10001', 1),
-('HD0004', '10013', 1), ('HD0004', '10009', 2), ('HD0004', '10007', 2),
-('HD0005', '10006', 1), ('HD0005', '10004', 1), ('HD0005', '10014', 1), ('HD0005', '10012', 1), ('HD0005', '10010', 1)
+('HD1', '10003', 2), ('HD1', '10005', 2), ('HD1', '10007', 2), ('HD1', '10012', 1), ('HD1', '10013', 2),
+('HD2', '10014', 1), ('HD2', '10006', 1), ('HD2', '10012', 1), ('HD2', '10007', 1), ('HD2', '10011', 4), ('HD2', '10013', 1),
+('HD3', '10003', 1), ('HD3', '10011', 2), ('HD3', '10015', 2), ('HD3', '10001', 1),
+('HD4', '10013', 1), ('HD4', '10009', 2), ('HD4', '10007', 2),
+('HD5', '10006', 1), ('HD5', '10004', 1), ('HD5', '10014', 1), ('HD5', '10012', 1), ('HD5', '10010', 1)
 GO
 
 insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)

@@ -16,7 +16,7 @@ namespace RestaurantManagement.BussinessLayer
 
         public string CreateMaKhachHang(ref string error)
         {
-            string cmd = "SELECT TOP(1) maKhachHang FROM dbo.KhachHang ORDER BY maKhachHang DESC";
+            string cmd = "SELECT TOP(1) maKhachHang FROM dbo.KhachHang ORDER BY SUBSTRING(maKhachHang, 3, LEN(maKhachHang) - 2) DESC";
             string maKhachHangMoiNhat = (string)connection.MyExecuteScalar(cmd, System.Data.CommandType.Text, ref error, null);
 
             int number = int.Parse(maKhachHangMoiNhat.Substring(2, maKhachHangMoiNhat.Length - 2)) + 1;
