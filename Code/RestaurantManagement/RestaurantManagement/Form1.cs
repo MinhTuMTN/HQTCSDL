@@ -13,6 +13,8 @@ using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer;
 using RestaurantManagement.DataAccessLayer.Model;
 using RestaurantManagement.PresentationLayer.ThuNganView;
+using RestaurantManagement.PresentationLayer.StaffView;
+using RestaurantManagement.PresentationLayer.DauBepView;
 using RestaurantManagement.Properties;
 
 namespace RestaurantManagement
@@ -60,10 +62,13 @@ namespace RestaurantManagement
                     mainMenu.Show();
                 }else if (loaiNhanVien == "Phục Vụ")
                 {
-                    
-                }else
+                    frmQuanLyBanHang mainMenu = new frmQuanLyBanHang(maNhanVien);
+                    mainMenu.Show();
+                }
+                else if (loaiNhanVien == "Đầu Bếp")
                 {
-
+                    frmThucHienDonHang mainMenu = new frmThucHienDonHang(maNhanVien);
+                    mainMenu.Show();
                 }
             }
             else

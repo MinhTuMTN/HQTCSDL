@@ -3,7 +3,9 @@ using RestaurantManagement.AsminController;
 using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer;
 using RestaurantManagement.PresentationLayer.AdminView;
+using RestaurantManagement.PresentationLayer.StaffView;
 using RestaurantManagement.PresentationLayer.ThuNganView;
+using RestaurantManagement.PresentationLayer.DauBepView;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,15 +29,12 @@ namespace RestaurantManagement
             //Application.Run(new frmDangNhap());
 
             string error = "";
-            DatabaseConnection connection = new DatabaseConnection();
-            string cmd = "SELECT * FROM dbo.fnSearchMonAnTrongDonHang(@text, @maDonHang)";
-            SqlParameter[] parameters =
-            {
-                new SqlParameter("@text", "Há Cảo"),
-                new SqlParameter("@maDonHang", "HD0001")
-            };
-            DataTable table = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error,parameters);
-            table.Reset();
+            //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
+
+            BussinessKhachHang donHang = new BussinessKhachHang();
+            donHang.CreateMaKhachHang(ref error);
+
+            new BusinessDonHang().CreateMaDonHang(ref error);
         }
     }
 }
