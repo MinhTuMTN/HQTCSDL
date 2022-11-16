@@ -21,18 +21,20 @@ namespace RestaurantManagement.BussinessLayer
             return result;
         }
 
-        public void ChapNhanDatTruoc(string maDatTruoc, ref string error)
+        public void ChapNhanDatTruoc(string maDatTruoc, string maNhanVien, ref string error)
         {
             string cmd = "spChapNhanDatTruoc";
-            SqlParameter parameter = new SqlParameter("@maDatTruoc",maDatTruoc);
-            conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameter);  
+            SqlParameter parameter = new SqlParameter("@maDatTruoc", maDatTruoc);
+            SqlParameter parameter2 = new SqlParameter("@maNhanVien", maNhanVien);
+            conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameter, parameter2);  
         }
 
-        public void TuChoiDatTruoc(string maDatTruoc, ref string error)
+        public void TuChoiDatTruoc(string maDatTruoc, string maNhanVien, ref string error)
         {
             string cmd = "spTuChoiDatTruoc";
             SqlParameter parameter = new SqlParameter("@maDatTruoc", maDatTruoc);
-            conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameter);
+            SqlParameter parameter2 = new SqlParameter("@maNhanVien", maNhanVien);
+            conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameter, parameter2);
         }
     }
 }

@@ -170,7 +170,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         {
             string error = "";
             string maDatTruoc = lblMaDatTruoc.Text;
-            tiepNhan.ChapNhanDatTruoc(maDatTruoc, ref error);
+            tiepNhan.ChapNhanDatTruoc(maDatTruoc, maNhanVienThuNgan, ref error);
             MessageBox.Show("Tiếp nhận thành công đơn đặt trước.","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmMainThuNgan_Load(null, null);
         }
@@ -179,7 +179,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         {
             string error = "";
             string maDatTruoc = lblMaDatTruoc.Text;
-            tiepNhan.TuChoiDatTruoc(maDatTruoc, ref error);
+            tiepNhan.TuChoiDatTruoc(maDatTruoc, maNhanVienThuNgan, ref error);
             MessageBox.Show("Từ chối thành công đơn đặt trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmMainThuNgan_Load(null, null);
         }
