@@ -1,4 +1,5 @@
-﻿using RestaurantManagement.BussinessLayer;
+﻿using Guna.UI2.WinForms;
+using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer.Model;
 using System;
 using System.Collections.Generic;
@@ -24,23 +25,29 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             rdbThuong.Checked = true;
         }
 
-        private void QuanLyBanHang_Load(object sender, EventArgs e)
+        public void RefeshDgv()
         {
             string error = "";
             try
             {
                 dgvDonHang.DataSource = businessDonHang.GetAllHoaDon(ref error);
-
             }
             catch
             {
                 MessageBox.Show("Lỗi", error);
             }
         }
-
-        private void dgvDonHang_CellClick(object sender, DataGridViewCellEventArgs ev)
+        private void frmQuanLyBanHang_Load(object sender, EventArgs e)
         {
-
+            string error = "";
+            try
+            {
+                dgvDonHang.DataSource = businessDonHang.GetAllHoaDon(ref error);
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi", error);
+            }
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -50,13 +57,6 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             {
                 string text = txtTimKiem.Text.Trim();
                 dgvDonHang.DataSource = businessDonHang.FindHoaDon(ref error, text);
-
-                /*if (dgvDonHang.RowCount > 0)
-                {
-                    DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
-                    dgvDonHang_CellClick(sender, ev);
-                }*/
-
             }
             catch
             {
@@ -98,13 +98,8 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                 int indexDauBep = random.Next(listDauBep.Count);
                 maDauBep = listDauBep[indexDauBep];
 
-                //string maNhanVienThuNgan = null;
-                //string maCoupon = null;
-                //string trangThaiDonHang = "Đang chuẩn bị";
                 string maNhanVienPhucVu = "NV330103";
                 string maBan = cbMaBan.Text.Trim();
-                //float thue = 10000;
-                //float soTienThanhToan = 0;
                 string maDonHang = businessDonHang.CreateMaDonHang(ref error);
                 string maKhachHang = "";
                 if (rdbDatTruoc.Checked)
@@ -128,7 +123,42 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             return null;
         }
 
-        private void cbMaBan_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            HoaDon hoaDon = GetHoaDonFromControls();
+            if (hoaDon == null)
+                return;
+            if (businessDonHang.AddHoaDon(hoaDon, ref error))
+            {
+                MessageBox.Show("Thêm hóa đơn thành công");
+            }
+            else
+                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
+
+            rdbThuong_CheckedChanged(null, null);
+
+            frmQuanLyBanHang_Load(null, null);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            rdbThuong.Checked = true;
+        }
+
+        private void dgvDonHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string maDonHang;
+            maDonHang = dgvDonHang.CurrentRow.Cells["maDonHang"].Value.ToString();
+
+            frmChiTietDonHang newForm = new frmChiTietDonHang(maDonHang, this);
+
+            newForm.StartPosition = FormStartPosition.CenterScreen;
+
+            newForm.Show(this);
+        }
+
+        private void rdbThuong_CheckedChanged(object sender, EventArgs e)
         {
             string error = "";
             try
@@ -140,7 +170,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                     List<string> list = new List<string>();
                     foreach (DataRow dr in dt.Rows)
                     {
-                        list.Add(dr[0].ToString());
+                        list.Add(dr["maBan"].ToString());
                     }
                     cbMaBan.DataSource = list;
                 }
@@ -151,7 +181,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                     List<string> list = new List<string>();
                     foreach (DataRow dr in dt.Rows)
                     {
-                        list.Add(dr[0].ToString());
+                        list.Add(dr["maBan"].ToString());
                     }
                     cbMaBan.DataSource = list;
                 }
@@ -160,36 +190,6 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             {
                 MessageBox.Show("Lỗi", error);
             }
-        }
-        private void SuaTrangThaiBan(string maBan)
-        {
-            string error = "";
-            Ban ban = new Ban(maBan);
-            if (businessBan.UpdateTrangThaiBan(ban, ref error))
-                MessageBox.Show("Cập nhật trạng thái bàn thành công");
-            else
-                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
-        }
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            string error = "";
-            HoaDon hoaDon = GetHoaDonFromControls();
-            if (hoaDon == null)
-                return;
-            if (businessDonHang.AddHoaDon(hoaDon, ref error))
-            {
-                MessageBox.Show("Thêm hóa đơn thành công");
-                SuaTrangThaiBan(hoaDon.MaBan);
-            }
-            else
-                MessageBox.Show(string.Format("Vui lòng thử lại sau\n{0}", error));
- 
-            QuanLyBanHang_Load(null, null);
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

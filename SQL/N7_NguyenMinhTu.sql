@@ -477,6 +477,9 @@ AS BEGIN
 		    @maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
 		    NULL         -- maNhanVienThuNgan - char(10)
 		    )
+
+		UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
+		WHERE maBan=@maBan
 END
 GO
 
@@ -790,16 +793,6 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE spUpdateTrangThaiBan (
-	@maBan CHAR(10)
-)
-AS
-BEGIN
-    UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
-	WHERE maBan=@maBan
-END
-GO
-
 CREATE PROC spUpdateCoupon(
 	@maCoupon CHAR(10),
 	@ngayBatDau DATE,
@@ -923,6 +916,14 @@ RETURNS TABLE AS
 RETURN (
 	SELECT * FROM dbo.DonHang
 	WHERE maDonHang LIKE  '%' + @text + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchMonAnTrongDonHang (@text NVARCHAR(150), @maDonHang CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT ChiTietDonHang.maMonAn, tenMonAn, soLuong, giaTien, hinhAnh FROM dbo.ChiTietDonHang INNER JOIN dbo.MonAn ON maDonHang = @maDonHang AND ChiTietDonHang.maMonAn = MonAn.maMonAn
+	WHERE ChiTietDonHang.maMonAn LIKE  '%' + @text + '%' OR tenMonAn LIKE '%' + @text + '%'
 )
 GO
 
@@ -1261,6 +1262,15 @@ RETURN(
 	SELECT hoTen, soDienThoai, ngaySinh, thoiGianDatTruoc, soLuongNguoi, maBan, maDatTruoc FROM dbo.DatTruoc, dbo.KhachHang
 	WHERE DatTruoc.maKhachHang = KhachHang.maKhachHang AND trangThaiDatTruoc = N'Chờ xác nhận'
 	)
+GO
+
+CREATE FUNCTION fnLayDanhSachMonAnChuaCo (@maDonHang CHAR(10))
+RETURNS TABLE AS
+RETURN (
+	SELECT maMonAn, tenMonAn FROM dbo.MonAn
+	EXCEPT
+	SELECT MonAn.maMonAn, tenMonAn FROM dbo.ChiTietDonHang INNER JOIN dbo.MonAn ON maDonHang = @maDonHang AND ChiTietDonHang.maMonAn = MonAn.maMonAn
+)
 GO
 
 CREATE PROCEDURE spChapNhanDatTruoc(@maDatTruoc CHAR(10))

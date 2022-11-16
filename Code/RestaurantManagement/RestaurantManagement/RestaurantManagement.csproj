@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BussinessLayer\BusinessChiTietDonHang.cs" />
     <Compile Include="BussinessLayer\BusinessDonHang.cs" />
     <Compile Include="BussinessLayer\BusinessTaiKhoan.cs" />
     <Compile Include="BussinessLayer\BusinessThanhToan.cs" />

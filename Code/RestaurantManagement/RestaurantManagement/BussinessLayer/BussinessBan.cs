@@ -73,16 +73,6 @@ namespace RestaurantManagement.BussinessLayer
             return conn.MyExecuteNonQuery(cmd,CommandType.StoredProcedure, ref error, parameters);
         }
 
-        public bool UpdateTrangThaiBan(Ban ban, ref string error)
-        {
-            string cmd = "dbo.spUpdateTrangThaiBan";
-            SqlParameter[] parameters =
-            {
-                new SqlParameter("@maBan", ban.MaBan),
-            };
-            return conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
-        }
-
         public bool DeleteBan(string maBan, ref string error)
         {
             string cmd = "DELETE FROM Ban WHERE maBan = @maBan";

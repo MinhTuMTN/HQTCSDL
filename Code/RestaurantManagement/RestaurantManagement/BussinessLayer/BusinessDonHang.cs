@@ -55,15 +55,5 @@ namespace RestaurantManagement.BussinessLayer
             result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, sqlParameter);
             return result;
         }
-
-      /*  public bool AddDonHang(HoaDon hoaDon, ref string error)
-        {
-            string cmd = "dbo.spInsertDonHang";
-            SqlParameter[] parameters =
-            {
-
-            };
-            return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
-        }*/
     }
 }

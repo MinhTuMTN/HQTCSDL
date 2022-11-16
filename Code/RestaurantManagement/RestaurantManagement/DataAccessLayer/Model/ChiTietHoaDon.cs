@@ -8,8 +8,8 @@ namespace RestaurantManagement.DataAccessLayer.Model
 {
     public class ChiTietHoaDon
     {
-        private HoaDon hoaDon;
-        private MonAn monAn;
+        private string maHoaDon;
+        private string maMonAn;
         private int soLuong;
 
         public ChiTietHoaDon()
@@ -17,15 +17,15 @@ namespace RestaurantManagement.DataAccessLayer.Model
 
         }
 
-        public ChiTietHoaDon(HoaDon hoaDon, MonAn monAn, int soLuong)
+        public ChiTietHoaDon(string maHoaDon, string maMonAn, int soLuong)
         {
-            this.hoaDon = hoaDon;
-            this.monAn = monAn;
+            this.maHoaDon = maHoaDon;
+            this.maMonAn = maMonAn;
             this.soLuong = soLuong;
         }
 
-        public MonAn MonAn { get => monAn; set => monAn = value; }
+        public string MaMonAn { get => maMonAn; set => maMonAn = value; }
         public int SoLuong { get => soLuong; set => soLuong = value; }
-        internal HoaDon HoaDon { get => hoaDon; set => hoaDon = value; }
+        public string MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
     }
 }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyBanHang));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyBanHang));
             this.gbThemDonHang = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.rdbDatTruoc = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -44,17 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnReset = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDonHang = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.lblChucNang = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.maDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thoiGianCheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phuThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,12 +56,21 @@
             this.maDauBep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maNhanVienPhucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maNhanVienThuNgan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblChucNang = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pnQuanLyNhaHang = new Guna.UI2.WinForms.Guna2Panel();
             this.gbThemDonHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).BeginInit();
             this.txtSearch.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            this.pnMain.SuspendLayout();
+            this.pnQuanLyNhaHang.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbThemDonHang
@@ -93,7 +92,6 @@
             this.gbThemDonHang.Controls.Add(this.label7);
             this.gbThemDonHang.Controls.Add(this.btnThem);
             this.gbThemDonHang.Controls.Add(this.label8);
-            this.gbThemDonHang.Controls.Add(this.btnReset);
             this.gbThemDonHang.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbThemDonHang.FillColor = System.Drawing.Color.Black;
             this.gbThemDonHang.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,6 +160,7 @@
             this.rdbThuong.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdbThuong.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdbThuong.UseVisualStyleBackColor = true;
+            this.rdbThuong.CheckedChanged += new System.EventHandler(this.rdbThuong_CheckedChanged);
             // 
             // cbMaBan
             // 
@@ -187,7 +186,6 @@
             this.cbMaBan.ShadowDecoration.Parent = this.cbMaBan;
             this.cbMaBan.Size = new System.Drawing.Size(309, 36);
             this.cbMaBan.TabIndex = 65;
-            this.cbMaBan.Click += new System.EventHandler(this.cbMaBan_Click);
             // 
             // label14
             // 
@@ -251,7 +249,7 @@
             this.btnThem.HoverState.Parent = this.btnThem;
             this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnThem.Location = new System.Drawing.Point(1129, 81);
+            this.btnThem.Location = new System.Drawing.Point(1257, 81);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.ShadowDecoration.Parent = this.btnThem;
@@ -271,29 +269,6 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 20);
             this.label8.TabIndex = 35;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnReset.BackColor = System.Drawing.Color.Transparent;
-            this.btnReset.BorderRadius = 15;
-            this.btnReset.CheckedState.Parent = this.btnReset;
-            this.btnReset.CustomImages.Parent = this.btnReset;
-            this.btnReset.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.HoverState.Parent = this.btnReset;
-            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReset.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnReset.Location = new System.Drawing.Point(1324, 81);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.ShadowDecoration.Parent = this.btnReset;
-            this.btnReset.Size = new System.Drawing.Size(137, 44);
-            this.btnReset.TabIndex = 25;
-            this.btnReset.Text = "     Reset";
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dgvDonHang
             // 
@@ -380,6 +355,95 @@
             this.dgvDonHang.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDonHang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDonHang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvDonHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDonHang_CellClick);
+            // 
+            // maDonHang
+            // 
+            this.maDonHang.DataPropertyName = "maDonHang";
+            this.maDonHang.HeaderText = "Mã đơn hàng";
+            this.maDonHang.MinimumWidth = 6;
+            this.maDonHang.Name = "maDonHang";
+            this.maDonHang.ReadOnly = true;
+            // 
+            // thoiGianCheckIn
+            // 
+            this.thoiGianCheckIn.DataPropertyName = "thoiGianCheckIn";
+            this.thoiGianCheckIn.HeaderText = "Thời gian check-in";
+            this.thoiGianCheckIn.MinimumWidth = 6;
+            this.thoiGianCheckIn.Name = "thoiGianCheckIn";
+            this.thoiGianCheckIn.ReadOnly = true;
+            // 
+            // phuThu
+            // 
+            this.phuThu.DataPropertyName = "phuThu";
+            this.phuThu.HeaderText = "Phụ thu";
+            this.phuThu.MinimumWidth = 6;
+            this.phuThu.Name = "phuThu";
+            this.phuThu.ReadOnly = true;
+            // 
+            // maCoupon
+            // 
+            this.maCoupon.DataPropertyName = "maCoupon";
+            this.maCoupon.HeaderText = "Mã coupon";
+            this.maCoupon.MinimumWidth = 6;
+            this.maCoupon.Name = "maCoupon";
+            this.maCoupon.ReadOnly = true;
+            // 
+            // soTienThanhToan
+            // 
+            this.soTienThanhToan.DataPropertyName = "soTienThanhToan";
+            this.soTienThanhToan.HeaderText = "Số tiền thanh toán";
+            this.soTienThanhToan.MinimumWidth = 6;
+            this.soTienThanhToan.Name = "soTienThanhToan";
+            this.soTienThanhToan.ReadOnly = true;
+            // 
+            // trangThaiDonHang
+            // 
+            this.trangThaiDonHang.DataPropertyName = "trangThaiDonHang";
+            this.trangThaiDonHang.HeaderText = "Trạng thái đơn hàng";
+            this.trangThaiDonHang.MinimumWidth = 6;
+            this.trangThaiDonHang.Name = "trangThaiDonHang";
+            this.trangThaiDonHang.ReadOnly = true;
+            // 
+            // maBan
+            // 
+            this.maBan.DataPropertyName = "maBan";
+            this.maBan.HeaderText = "Mã bàn";
+            this.maBan.MinimumWidth = 6;
+            this.maBan.Name = "maBan";
+            this.maBan.ReadOnly = true;
+            // 
+            // maKhachHang
+            // 
+            this.maKhachHang.DataPropertyName = "maKhachHang";
+            this.maKhachHang.HeaderText = "Mã khách hàng";
+            this.maKhachHang.MinimumWidth = 6;
+            this.maKhachHang.Name = "maKhachHang";
+            this.maKhachHang.ReadOnly = true;
+            // 
+            // maDauBep
+            // 
+            this.maDauBep.DataPropertyName = "maDauBep";
+            this.maDauBep.HeaderText = "Mã đầu bếp";
+            this.maDauBep.MinimumWidth = 6;
+            this.maDauBep.Name = "maDauBep";
+            this.maDauBep.ReadOnly = true;
+            // 
+            // maNhanVienPhucVu
+            // 
+            this.maNhanVienPhucVu.DataPropertyName = "maNhanVienPhucVu";
+            this.maNhanVienPhucVu.HeaderText = "Mã nhân viên phục vụ";
+            this.maNhanVienPhucVu.MinimumWidth = 6;
+            this.maNhanVienPhucVu.Name = "maNhanVienPhucVu";
+            this.maNhanVienPhucVu.ReadOnly = true;
+            // 
+            // maNhanVienThuNgan
+            // 
+            this.maNhanVienThuNgan.DataPropertyName = "maNhanVienThuNgan";
+            this.maNhanVienThuNgan.HeaderText = "Mã nhân viên thu ngân";
+            this.maNhanVienThuNgan.MinimumWidth = 6;
+            this.maNhanVienThuNgan.Name = "maNhanVienThuNgan";
+            this.maNhanVienThuNgan.ReadOnly = true;
             // 
             // txtSearch
             // 
@@ -514,106 +578,18 @@
             this.txtTimKiem.TabIndex = 8;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
-            // pnMain
+            // pnQuanLyNhaHang
             // 
-            this.pnMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
-            this.pnMain.Controls.Add(this.gbThemDonHang);
-            this.pnMain.Controls.Add(this.dgvDonHang);
-            this.pnMain.Location = new System.Drawing.Point(15, 103);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.ShadowDecoration.Parent = this.pnMain;
-            this.pnMain.Size = new System.Drawing.Size(1531, 748);
-            this.pnMain.TabIndex = 20;
-            // 
-            // maDonHang
-            // 
-            this.maDonHang.DataPropertyName = "maDonHang";
-            this.maDonHang.HeaderText = "Mã đơn hàng";
-            this.maDonHang.MinimumWidth = 6;
-            this.maDonHang.Name = "maDonHang";
-            this.maDonHang.ReadOnly = true;
-            // 
-            // thoiGianCheckIn
-            // 
-            this.thoiGianCheckIn.DataPropertyName = "thoiGianCheckIn";
-            this.thoiGianCheckIn.HeaderText = "Thời gian check-in";
-            this.thoiGianCheckIn.MinimumWidth = 6;
-            this.thoiGianCheckIn.Name = "thoiGianCheckIn";
-            this.thoiGianCheckIn.ReadOnly = true;
-            // 
-            // phuThu
-            // 
-            this.phuThu.DataPropertyName = "phuThu";
-            this.phuThu.HeaderText = "Phụ thu";
-            this.phuThu.MinimumWidth = 6;
-            this.phuThu.Name = "phuThu";
-            this.phuThu.ReadOnly = true;
-            // 
-            // maCoupon
-            // 
-            this.maCoupon.DataPropertyName = "maCoupon";
-            this.maCoupon.HeaderText = "Mã coupon";
-            this.maCoupon.MinimumWidth = 6;
-            this.maCoupon.Name = "maCoupon";
-            this.maCoupon.ReadOnly = true;
-            // 
-            // soTienThanhToan
-            // 
-            this.soTienThanhToan.DataPropertyName = "soTienThanhToan";
-            this.soTienThanhToan.HeaderText = "Số tiền thanh toán";
-            this.soTienThanhToan.MinimumWidth = 6;
-            this.soTienThanhToan.Name = "soTienThanhToan";
-            this.soTienThanhToan.ReadOnly = true;
-            // 
-            // trangThaiDonHang
-            // 
-            this.trangThaiDonHang.DataPropertyName = "trangThaiDonHang";
-            this.trangThaiDonHang.HeaderText = "Trạng thái đơn hàng";
-            this.trangThaiDonHang.MinimumWidth = 6;
-            this.trangThaiDonHang.Name = "trangThaiDonHang";
-            this.trangThaiDonHang.ReadOnly = true;
-            // 
-            // maBan
-            // 
-            this.maBan.DataPropertyName = "maBan";
-            this.maBan.HeaderText = "Mã bàn";
-            this.maBan.MinimumWidth = 6;
-            this.maBan.Name = "maBan";
-            this.maBan.ReadOnly = true;
-            // 
-            // maKhachHang
-            // 
-            this.maKhachHang.DataPropertyName = "maKhachHang";
-            this.maKhachHang.HeaderText = "Mã khách hàng";
-            this.maKhachHang.MinimumWidth = 6;
-            this.maKhachHang.Name = "maKhachHang";
-            this.maKhachHang.ReadOnly = true;
-            // 
-            // maDauBep
-            // 
-            this.maDauBep.DataPropertyName = "maDauBep";
-            this.maDauBep.HeaderText = "Mã đầu bếp";
-            this.maDauBep.MinimumWidth = 6;
-            this.maDauBep.Name = "maDauBep";
-            this.maDauBep.ReadOnly = true;
-            // 
-            // maNhanVienPhucVu
-            // 
-            this.maNhanVienPhucVu.DataPropertyName = "maNhanVienPhucVu";
-            this.maNhanVienPhucVu.HeaderText = "Mã nhân viên phục vụ";
-            this.maNhanVienPhucVu.MinimumWidth = 6;
-            this.maNhanVienPhucVu.Name = "maNhanVienPhucVu";
-            this.maNhanVienPhucVu.ReadOnly = true;
-            // 
-            // maNhanVienThuNgan
-            // 
-            this.maNhanVienThuNgan.DataPropertyName = "maNhanVienThuNgan";
-            this.maNhanVienThuNgan.HeaderText = "Mã nhân viên thu ngân";
-            this.maNhanVienThuNgan.MinimumWidth = 6;
-            this.maNhanVienThuNgan.Name = "maNhanVienThuNgan";
-            this.maNhanVienThuNgan.ReadOnly = true;
+            this.pnQuanLyNhaHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnQuanLyNhaHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
+            this.pnQuanLyNhaHang.Controls.Add(this.gbThemDonHang);
+            this.pnQuanLyNhaHang.Controls.Add(this.dgvDonHang);
+            this.pnQuanLyNhaHang.Location = new System.Drawing.Point(15, 103);
+            this.pnQuanLyNhaHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnQuanLyNhaHang.Name = "pnQuanLyNhaHang";
+            this.pnQuanLyNhaHang.ShadowDecoration.Parent = this.pnQuanLyNhaHang;
+            this.pnQuanLyNhaHang.Size = new System.Drawing.Size(1531, 748);
+            this.pnQuanLyNhaHang.TabIndex = 20;
             // 
             // frmQuanLyBanHang
             // 
@@ -622,7 +598,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1540, 846);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.pnMain);
+            this.Controls.Add(this.pnQuanLyNhaHang);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -630,7 +606,7 @@
             this.Name = "frmQuanLyBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
-            this.Load += new System.EventHandler(this.QuanLyBanHang_Load);
+            this.Load += new System.EventHandler(this.frmQuanLyBanHang_Load);
             this.gbThemDonHang.ResumeLayout(false);
             this.gbThemDonHang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).EndInit();
@@ -639,7 +615,7 @@
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            this.pnMain.ResumeLayout(false);
+            this.pnQuanLyNhaHang.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -647,7 +623,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2GroupBox gbThemDonHang;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2Button btnReset;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDonHang;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel txtSearch;
         private Guna.UI2.WinForms.Guna2CircleButton btnCaiDat;
@@ -657,7 +632,7 @@
         private System.Windows.Forms.Label lblChucNang;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
-        private Guna.UI2.WinForms.Guna2Panel pnMain;
+        private Guna.UI2.WinForms.Guna2Panel pnQuanLyNhaHang;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
