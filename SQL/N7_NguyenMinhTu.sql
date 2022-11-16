@@ -305,7 +305,7 @@ BEGIN
 		ROLLBACK
 		RETURN
 	END
-	COMMIT
+	COMMIT TRANSACTION
 END
 GO
 
@@ -542,8 +542,25 @@ CREATE PROC spUpdateNhanVien (
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@hoTen is NULL OR @ngaySinh is NULL OR @gioiTinh is NULL OR @diaChi is NULL OR @soDienThoai is NULL OR @heSoLuong is NULL OR @loaiNhanVien is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
 	UPDATE dbo.NhanVien SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
 	WHERE maNhanVien=@maNhanVien
+
+	IF(@@ERROR <> 0)
+	BEGIN
+		RAISERROR(N'Lỗi', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+	COMMIT TRANSACTION
 END
 GO
 
@@ -554,8 +571,25 @@ CREATE PROC spUpdateCaTruc (
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
     UPDATE dbo.CaTruc SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc 
 	WHERE maCaTruc=@maCaTruc
+
+	IF(@@ERROR <> 0)
+	 BEGIN
+	 	 RAISERROR(N'Lỗi', 16, 1)
+	 	 ROLLBACK
+		 RETURN
+	 END
+	 COMMIT TRANSACTION
 END
 GO
 
@@ -566,8 +600,25 @@ CREATE PROC spUpdateTaiKhoan(
 )
 AS
 BEGIN
+SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@matKhau is NULL OR @trangThaiTaiKhoan is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
     UPDATE dbo.TaiKhoan SET matKhau=@matKhau, trangThaiTaiKhoan=@trangThaiTaiKhoan 
 	WHERE tenDangNhap=@tenDangNhap
+
+	IF(@@ERROR <> 0)
+	 BEGIN
+	 	 RAISERROR(N'Lỗi', 16, 1)
+	 	 ROLLBACK
+		 RETURN
+	 END
+	 COMMIT TRANSACTION
 END
 GO
 
@@ -595,8 +646,25 @@ CREATE PROC spUpdateBan (
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@trangThaiBan is NULL OR @loaiBan is NULL OR @soLuongGheToiDa is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
     UPDATE dbo.Ban SET trangThaiBan=@trangThaiBan, loaiBan=@loaiBan, soLuongGheToiDa=@soLuongGheToiDa
 	WHERE maBan=@maBan
+
+	IF(@@ERROR <> 0)
+	 BEGIN
+	 	 RAISERROR(N'Lỗi', 16, 1)
+	 	 ROLLBACK
+		 RETURN
+	 END
+	 COMMIT TRANSACTION
 END
 GO
 
@@ -627,8 +695,25 @@ CREATE PROC spUpdateCoupon(
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL OR @phanTramGiam is NULL OR @giamToiDa is NULL OR @donToiThieu is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
 	UPDATE dbo.Coupon SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc, phanTramGiam=@phanTramGiam, giamToiDa=@giamToiDa, donToiThieu=@donToiThieu
 	WHERE maCoupon=@maCoupon
+
+	IF(@@ERROR <> 0)
+	 BEGIN
+	 	 RAISERROR(N'Lỗi', 16, 1)
+	 	 ROLLBACK
+		 RETURN
+	 END
+	 COMMIT TRANSACTION
 END
 GO
 
@@ -659,8 +744,25 @@ CREATE PROC spUpdateMonAn(
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@tenMonAn is NULL OR @giaTien is NULL OR @hinhAnh is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
     UPDATE dbo.MonAn SET tenMonAn=@tenMonAn, giaTien=@giaTien, hinhAnh=@hinhAnh
 	WHERE maMonAn=@maMonAn
+
+	IF(@@ERROR <> 0)
+	 BEGIN
+	 	 RAISERROR(N'Lỗi', 16, 1)
+	 	 ROLLBACK
+		 RETURN
+	 END
+	 COMMIT TRANSACTION
 END
 GO
 
@@ -1049,7 +1151,17 @@ GO
 
 -- SP thực hiện khi nhân viên thu ngân thực hiện ấn nút Thanh toán hóa đơn cho khách
 CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maNhanVienThuNgan CHAR(10))
-AS BEGIN
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@maBan is NULL OR @maNhanVienThuNgan is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+
 	-- Tìm mã đơn hàng từ mã bàn
      DECLARE @maDonHang CHAR(10)	 
 	 SELECT @maDonHang = maDonHang FROM dbo.DonHang
@@ -1062,10 +1174,17 @@ AS BEGIN
 	 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
 	 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
 
-	 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phc
+	 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phục vụ
 	 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
 	 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
 							WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
+	 IF(@@ERROR <> 0)
+	 BEGIN
+	 	 RAISERROR(N'Lỗi', 16, 1)
+	 	 ROLLBACK
+		 RETURN
+	 END
+	 COMMIT TRANSACTION
    END
 GO
 
