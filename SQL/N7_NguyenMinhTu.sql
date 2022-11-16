@@ -1218,21 +1218,21 @@ RETURN (
 )
 GO
 
-CREATE PROCEDURE spChapNhanDatTruoc(@maDatTruoc CHAR(10))
+CREATE PROCEDURE spChapNhanDatTruoc(@maDatTruoc CHAR(10), @maNhanVien CHAR(10))
  AS BEGIN
-        UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã xác nhận'
+        UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã xác nhận', maNhanVienTiepNhan=@maNhanVien
 		WHERE maDatTruoc = @maDatTruoc
     END
 GO
 
-CREATE PROCEDURE spTuChoiDatTruoc(@maDatTruoc CHAR(10))
+CREATE PROCEDURE spTuChoiDatTruoc(@maDatTruoc CHAR(10), @maNhanVien CHAR(10))
 AS
 	BEGIN
 		DECLARE @maBan CHAR(10)
 		SELECT @maBan = maBan FROM dbo.DatTruoc 
 		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Chờ xác nhận'
 
-		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối'
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối', maNhanVienTiepNhan=@maNhanVien
 		WHERE maDatTruoc = @maDatTruoc
 
 		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
@@ -1240,22 +1240,78 @@ AS
 	END
 GO
 
-CREATE PROCEDURE spTaoDatTruoc(@maDatTruoc CHAR(10))
-AS
-	BEGIN
-		SELECT * FROM dbo.DatTruoc
-	END
-GO
-
 CREATE PROCEDURE spGetNhanVienByTaiKhoan(@tenDangNhap varchar(50), @matKhau varchar(50))
 AS
 BEGIN
-PRINT(@tenDangNhap)
     SELECT N.maNhanVien, N.loaiNhanVien FROM dbo.NhanVien N, dbo.TaiKhoan T
 	WHERE N.maNhanVien = T.maNhanVien AND T.tenDangNhap = @tenDangNhap AND T.matKhau = @matKhau
 END
 GO
 
+CREATE FUNCTION fnTaoMaKhachHang(@soDienThoai CHAR(10))
+RETURNS @result TABLE(maKhachHang CHAR(10), khachHangMoi BIT) AS
+BEGIN
+    DECLARE @maKhachHang CHAR(10)
+	DECLARE @khachHangMoi BIT
+
+	SET @khachHangMoi = 0
+	SELECT @maKhachHang=maKhachHang FROM dbo.KhachHang WHERE soDienThoai=@soDienThoai
+
+	IF(@maKhachHang IS NULL)
+		BEGIN
+			SET @khachHangMoi = 1
+
+			DECLARE @maKHMoiNhat CHAR(10)
+			SELECT TOP(1) @maKHMoiNhat=maKhachHang
+			FROM dbo.KhachHang
+			ORDER BY CONVERT(INT, SUBSTRING(maKhachHang, 3, LEN(maKhachHang) - 2)) DESC
+
+			SELECT @maKhachHang='KH' + CONVERT(CHAR(8), (CONVERT(INT, SUBSTRING(@maKHMoiNhat, 3, LEN(@maKHMoiNhat) - 2)) + 1))
+		END
+
+	INSERT INTO @result
+	(
+	    maKhachHang,
+	    khachHangMoi
+	)
+	VALUES
+	(   @maKhachHang,  -- maKhachHang - char(10)
+	    @khachHangMoi -- khachHangMoi - bit
+	    )
+	RETURN 
+END
+GO
+
+CREATE PROCEDURE spTaoDatTruoc(@trangThaiDatTruoc nvarchar(20),
+								@thoiGianCheckIn DATETIME,
+								@thoiGianDatTruoc DATETIME,
+								@soLuongNguoi INT,
+								@maKhachHang  char(10),
+								@maBan char(10),
+								@maNhanVienTiepNhan char(10))
+AS
+BEGIN
+    DECLARE @maDatTruocTao CHAR(10)
+	DECLARE @maDatTruocMoiNhat CHAR(10)
+	SELECT TOP(1) @maDatTruocMoiNhat=maDatTruoc
+	FROM dbo.DatTruoc
+	ORDER BY CONVERT(INT, SUBSTRING(maDatTruoc, 3, LEN(maDatTruoc) - 2)) DESC
+
+	--DT11
+	SET @maDatTruocTao='DT' + CONVERT(CHAR(8), (CONVERT(INT, SUBSTRING(@maDatTruocMoiNhat, 3, LEN(@maDatTruocMoiNhat) - 2)) + 1))
+
+	EXEC dbo.spInsertDatTruoc @maDatTruoc = @maDatTruocTao,                          -- char(10)
+	                          @trangThaiDatTruoc = @trangThaiDatTruoc,                  -- nvarchar(20)
+	                          @thoiGianCheckIn = @thoiGianCheckIn,  -- datetime
+	                          @thoiGianDatTruoc = @trangThaiDatTruoc, -- datetime
+	                          @soLuongNguoi = @soLuongNguoi,                         -- int
+	                          @maKhachHang = @maKhachHang,                         -- char(10)
+	                          @maBan = @maBan,                               -- char(10)
+	                          @maNhanVienTiepNhan = @maNhanVienTiepNhan                   -- char(10)
+	
+	UPDATE dbo.Ban SET trangThaiBan=N'Đang chờ' WHERE maBan=@maBan	
+END
+GO
 
 --- Thực hiện phân quyền
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
