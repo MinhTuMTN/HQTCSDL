@@ -1187,6 +1187,8 @@ GO
 
 -- Khách hàng chỉ có thể tạo các đơn đặt trước
 GRANT EXECUTE ON dbo.spTaoDatTruoc TO KhachHangRole
+GRANT SELECT ON dbo.fnTaoMaKhachHang TO KhachHangRole
+GRANT EXECUTE ON dbo.spInsertKhachHang TO KhachHangRole
 GO
 
 -- Quản lý có toàn quyền(truy vấn) tất cả đối tượng trong CSDL
