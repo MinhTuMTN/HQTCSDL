@@ -17,10 +17,10 @@ namespace RestaurantManagement.PresentationLayer.DauBepView
         BusinessDonHang businessDonHang = new BusinessDonHang();
 
         private string maDauBepThucHien;
-        public frmThucHienDonHang()
+        public frmThucHienDonHang(string maDauBepThucHien)
         {
             InitializeComponent();
-            maDauBepThucHien = "NV220333";
+            this.maDauBepThucHien = maDauBepThucHien;
         }
 
         private void frmThucHienDonHang_Load(object sender, EventArgs e)

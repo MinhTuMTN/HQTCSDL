@@ -20,11 +20,11 @@ namespace RestaurantManagement.PresentationLayer.StaffView
         BussinessNhanVien businessNhanVien = new BussinessNhanVien();
 
         private string maPhucVu;
-        public frmQuanLyBanHang()
+        public frmQuanLyBanHang(string maPhucVu)
         {
             InitializeComponent();
             rdbThuong.Checked = true;
-            maPhucVu = "NV330103";
+            this.maPhucVu = maPhucVu;
         }
 
         public void RefeshDgvDonHang()
