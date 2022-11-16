@@ -17,7 +17,10 @@ namespace RestaurantManagement.DataAccessLayer.Model
         {
 
         }
-
+        public Ban(string maBan)
+        {
+            this.maBan = maBan;
+        }
         public Ban(string maBan, string trangThaiBan, int soLuongGheToiDa, string loaiBan)
         {
             this.maBan = maBan;

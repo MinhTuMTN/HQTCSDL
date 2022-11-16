@@ -22,6 +22,22 @@ namespace RestaurantManagement.BussinessLayer
             return table;
         }
 
+        public DataTable GetMaBanThuong(ref string error)
+        {
+            DataTable table = new DataTable();
+            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'đang có sẵn'";
+            table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return table;
+        }
+
+        public DataTable GetMaBanDatTruoc(ref string error)
+        {
+            DataTable table = new DataTable();
+            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'đã đặt trước'";
+            table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return table;
+        }
+
         public DataTable FindBan (string text, ref string error)
         {
             DataTable table = new DataTable();

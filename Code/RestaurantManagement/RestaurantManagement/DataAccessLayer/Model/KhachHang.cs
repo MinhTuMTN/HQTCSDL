@@ -17,7 +17,10 @@ namespace RestaurantManagement.DataAccessLayer.Model
         public KhachHang()
         {
         }
-
+        public KhachHang(string maKhachHang)
+        {
+            this.maKhachHang = maKhachHang;
+        }
         public KhachHang(string maKhachHang, string hoTen, string soDienThoai, DateTime ngaySinh, bool gioiTinh)
         {
             this.maKhachHang = maKhachHang;
