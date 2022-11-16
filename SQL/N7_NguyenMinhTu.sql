@@ -257,38 +257,55 @@ AS BEGIN
 		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
 	END
 GO
-CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
-AS BEGIN
-		INSERT INTO dbo.DonHang
-		(
-		    maDonHang,
-		    thoiGianCheckIn,
-		    phuThu,
-		    maCoupon,
-		    soTienThanhToan,
-		    trangThaiDonHang,
-		    maBan,
-		    maKhachHang,
-		    maDauBep,
-		    maNhanVienPhucVu,
-		    maNhanVienThuNgan
-		)
-		VALUES
-		(   @maDonHang,        -- maDonHang - char(10)
-		    @thoiGianCheckIn, -- thoiGianCheckIn - datetime
-		    @phuThu,       -- phuThu - float
-		    NULL,        -- maCoupon - char(10)
-		    0.0,       -- soTienThanhToan - float
-		    N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
-		    @maBan,        -- maBan - char(10)
-		    @maKhachHang,        -- maKhachHang - char(10)
-		    @maDauBep,        -- maDauBep - char(10)
-		    @maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
-		    NULL         -- maNhanVienThuNgan - char(10)
-		    )
 
-		UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
-		WHERE maBan=@maBan
+CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRANSACTION
+	IF(@maDonHang is NULL OR @maBan is NULL OR @maKhachHang is NULL OR @maDauBep is NULL OR @maNhanVienPhucVu is NULL)
+	BEGIN
+		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+	INSERT INTO dbo.DonHang
+	(
+		maDonHang,
+		thoiGianCheckIn,
+		phuThu,
+		maCoupon,
+		soTienThanhToan,
+		trangThaiDonHang,
+		maBan,
+		maKhachHang,
+		maDauBep,
+		maNhanVienPhucVu,
+		maNhanVienThuNgan
+	)
+	VALUES
+	(   @maDonHang,        -- maDonHang - char(10)
+		@thoiGianCheckIn, -- thoiGianCheckIn - datetime
+		@phuThu,       -- phuThu - float
+		NULL,        -- maCoupon - char(10)
+		0.0,       -- soTienThanhToan - float
+		N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
+		@maBan,        -- maBan - char(10)
+		@maKhachHang,        -- maKhachHang - char(10)
+		@maDauBep,        -- maDauBep - char(10)
+		@maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
+		NULL         -- maNhanVienThuNgan - char(10)
+		)
+
+	UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
+	WHERE maBan=@maBan
+	IF(@@ERROR <> 0)
+	BEGIN
+		RAISERROR(N'Lỗi', 16, 1)
+		ROLLBACK
+		RETURN
+	END
+	COMMIT
 END
 GO
 
