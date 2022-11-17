@@ -407,14 +407,6 @@ AS BEGIN
 END
 GO
 
-CREATE PROCEDURE spSearchMonAn(@maMonAn CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.MonAn
-	   WHERE maMonAn = @maMonAn
-   END
-GO
-
 CREATE PROCEDURE spSearchCoupon(@maCoupon CHAR(10))
 AS BEGIN
        SELECT *
@@ -882,14 +874,6 @@ RETURN (
 )
 GO
 
-CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
-RETURNS TABLE AS
-RETURN(
-	SELECT * FROM dbo.Coupon
-	WHERE maCoupon LIKE '%' + @maCoupon + '%'
-)
-GO
-
 CREATE FUNCTION fnSearchDonHang (@text NVARCHAR(150))
 RETURNS TABLE AS
 RETURN (
@@ -906,11 +890,44 @@ RETURN (
 )
 GO
 
+CREATE FUNCTION fnSearchMonAn(@text NVARCHAR(150))
+RETURNS TABLE
+AS RETURN(
+       SELECT *
+	   FROM dbo.MonAn
+	   WHERE maMonAn LIKE  '%' + @text + '%' OR tenMonAn LIKE '%' + @text + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchCaTrucByDate(@date DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.CaTruc
+	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
+)
+GO
+
+CREATE FUNCTION fnSearchCaTrucByID(@maCaTruc NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.CaTruc
+	WHERE maCaTruc LIKE '%' + @maCaTruc + '%'
+)
+GO
+
 CREATE FUNCTION fnSearchCouponByDate(@date DATE)
 RETURNS TABLE AS
 RETURN(
 	SELECT * FROM dbo.Coupon
 	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
+)
+GO
+
+CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Coupon
+	WHERE maCoupon LIKE '%' + @maCoupon + '%'
 )
 GO
 
