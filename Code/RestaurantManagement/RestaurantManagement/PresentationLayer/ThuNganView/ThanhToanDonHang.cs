@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.BussinessLayer;
+using RestaurantManagement.PresentationLayer.StaffView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -196,6 +197,24 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         private void frmMainThuNgan_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tcMain.SelectedIndex == 2)
+            {
+                DangKyCaTruc target = new DangKyCaTruc(maNhanVienThuNgan);
+                target.FormBorderStyle = FormBorderStyle.None;
+                target.TopLevel = false;
+                target.Parent = tpDangKyCaTruc;
+
+                tpDangKyCaTruc.Controls.Clear();
+                tpDangKyCaTruc.Controls.Add(target);
+                target.Dock = DockStyle.Fill;
+                //target.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom);
+
+                target.Show();
+            }
         }
     }
 }

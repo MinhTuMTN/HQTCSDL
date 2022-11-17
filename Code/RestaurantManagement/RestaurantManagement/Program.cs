@@ -25,15 +25,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangKyCaTruc("NV220111"));
-
-            string error = "";
-            //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);
-
-            BussinessKhachHang donHang = new BussinessKhachHang();
-            donHang.CreateMaKhachHang(ref error);
-
-            new BusinessDonHang().CreateMaDonHang(ref error);
+            Application.Run(new frmDangNhap());
         }
     }
 }

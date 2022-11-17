@@ -56,6 +56,15 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             else
                 MessageBox.Show("Đã xảy ra lỗi. Vui lòng thử lại!", "Lỗi",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            LoadCaTruc();
+        }
+
+        private void DangKyCaTruc_Resize(object sender, EventArgs e)
+        {
+            guna2GroupBox1.Width = this.Width / 2;
+            guna2GroupBox2.Width = this.Width / 2;
+
+            guna2GroupBox2.Location = new Point(this.Width / 2 + 10, 0);
         }
     }
 }
