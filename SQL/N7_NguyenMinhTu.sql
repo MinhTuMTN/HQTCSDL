@@ -258,9 +258,18 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
+CREATE PROCEDURE spInsertDonHang
+(
+	@maDonHang char(10),
+	@thoiGianCheckIn datetime,
+	@phuThu float, @maBan char(10),
+	@maKhachHang char(10),
+	@maDauBep char(10),
+	@maNhanVienPhucVu char(10)
+)
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
 
@@ -544,15 +553,18 @@ CREATE PROC spUpdateNhanVien (
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
-		IF(@hoTen is NULL OR @ngaySinh is NULL OR @gioiTinh is NULL OR @diaChi is NULL OR @soDienThoai is NULL OR @heSoLuong is NULL OR @loaiNhanVien is NULL)
+		IF(@maNhanVien is NULL OR @hoTen is NULL OR @ngaySinh is NULL OR @gioiTinh is NULL OR @diaChi is NULL OR @soDienThoai is NULL 
+		OR @heSoLuong is NULL OR @loaiNhanVien is NULL)
 		BEGIN
 			ROLLBACK
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
 		END
 
-		UPDATE dbo.NhanVien SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
+		UPDATE dbo.NhanVien
+		SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
 		WHERE maNhanVien=@maNhanVien
 
 		COMMIT TRANSACTION
@@ -572,9 +584,10 @@ CREATE PROC spUpdateCaTruc (
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
-		IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL)
+		IF(@maCaTruc is NULL OR @ngayBatDau is NULL OR @ngayKetThuc is NULL)
 		BEGIN
 			ROLLBACK
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
@@ -600,9 +613,10 @@ CREATE PROC spUpdateTaiKhoan(
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
-		IF(@matKhau is NULL OR @trangThaiTaiKhoan is NULL)
+		IF(@tenDangNhap is NULL OR @matKhau is NULL OR @trangThaiTaiKhoan is NULL)
 		BEGIN
 			ROLLBACK
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
@@ -645,9 +659,10 @@ CREATE PROC spUpdateBan (
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
-		IF(@trangThaiBan is NULL OR @loaiBan is NULL OR @soLuongGheToiDa is NULL)
+		IF(@maBan is NULL OR @trangThaiBan is NULL OR @loaiBan is NULL OR @soLuongGheToiDa is NULL)
 		BEGIN
 			ROLLBACK
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
@@ -693,9 +708,10 @@ CREATE PROC spUpdateCoupon(
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
-		IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL OR @phanTramGiam is NULL OR @giamToiDa is NULL OR @donToiThieu is NULL)
+		IF(@maCoupon is NULL OR @ngayBatDau is NULL OR @ngayKetThuc is NULL OR @phanTramGiam is NULL OR @giamToiDa is NULL OR @donToiThieu is NULL)
 		BEGIN
 			ROLLBACK
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
@@ -741,9 +757,10 @@ CREATE PROC spUpdateMonAn(
 )
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
-		IF(@tenMonAn is NULL OR @giaTien is NULL OR @hinhAnh is NULL)
+		IF(@maMonAn is NULL OR @tenMonAn is NULL OR @giaTien is NULL OR @hinhAnh is NULL)
 		BEGIN
 			ROLLBACK
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
@@ -1149,6 +1166,7 @@ GO
 CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maNhanVienThuNgan CHAR(10))
 AS
 BEGIN
+	SET XACT_ABORT ON
 	BEGIN TRY
 		BEGIN TRANSACTION
 		IF(@maBan is NULL OR @maNhanVienThuNgan is NULL)
