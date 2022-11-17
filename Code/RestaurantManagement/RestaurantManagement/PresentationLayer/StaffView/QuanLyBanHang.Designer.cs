@@ -543,7 +543,7 @@
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(31, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 26);
+            this.label1.Size = new System.Drawing.Size(261, 27);
             this.label1.TabIndex = 9;
             this.label1.Text = "The Moon Restaurant";
             // 
@@ -580,7 +580,9 @@
             // 
             // pnQuanLyNhaHang
             // 
-            this.pnQuanLyNhaHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnQuanLyNhaHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnQuanLyNhaHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
             this.pnQuanLyNhaHang.Controls.Add(this.gbThemDonHang);
             this.pnQuanLyNhaHang.Controls.Add(this.dgvDonHang);

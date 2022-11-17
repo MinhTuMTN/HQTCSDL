@@ -1254,6 +1254,24 @@ GRANT EXECUTE ON dbo.spChapNhanDatTruoc TO ThuNganRole
 GRANT EXECUTE ON dbo.spTuChoiDatTruoc TO ThuNganRole
 GO
 
+-- Quyền cho nhân viên phục vụ
+GRANT SELECT ON dbo.DonHang TO PhucVuRole
+GRANT SELECT ON dbo.fnSearchDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spInsertKhachHang TO PhucVuRole
+GRANT SELECT ON dbo.NhanVien TO PhucVuRole
+GRANT SELECT ON dbo.DatTruoc TO PhucVuRole
+GRANT SELECT ON dbo.KhachHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spInsertDonHang TO PhucVuRole
+GRANT SELECT ON dbo.Ban TO PhucVuRole
+
+GRANT SELECT ON dbo.MonAn TO PhucVuRole
+GRANT SELECT ON dbo.ChiTietDonHang TO PhucVuRole
+GRANT SELECT ON dbo.fnLayDanhSachMonAnChuaCo TO PhucVuRole
+GRANT SELECT ON dbo.fnSearchMonAnTrongDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spInsertChiTietDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spUpdateChiTietDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spUpdateTrangThaiDonHang TO PhucVuRole
+
 -- Quyền của toàn bộ nhân viên
 GRANT EXECUTE ON dbo.spGetNhanVienByTaiKhoan TO NhanVienRole
 GRANT EXECUTE ON dbo.spInsertDangKyCaTruc TO NhanVienRole

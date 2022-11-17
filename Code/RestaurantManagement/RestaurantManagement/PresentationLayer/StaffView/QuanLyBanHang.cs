@@ -148,6 +148,9 @@ namespace RestaurantManagement.PresentationLayer.StaffView
 
         private void dgvDonHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             string maDonHang;
             maDonHang = dgvDonHang.CurrentRow.Cells["maDonHang"].Value.ToString();
 

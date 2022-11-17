@@ -25,7 +25,7 @@ namespace RestaurantManagement.BussinessLayer
         public DataTable GetMaBanThuong(ref string error)
         {
             DataTable table = new DataTable();
-            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'đang có sẵn'";
+            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'Đang có sẵn'";
             table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
             return table;
         }
@@ -33,7 +33,7 @@ namespace RestaurantManagement.BussinessLayer
         public DataTable GetMaBanDatTruoc(ref string error)
         {
             DataTable table = new DataTable();
-            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'đã đặt trước'";
+            string cmd = "SELECT maBan FROM dbo.Ban WHERE trangThaiBan = N'Đã đặt trước'";
             table = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
             return table;
         }
