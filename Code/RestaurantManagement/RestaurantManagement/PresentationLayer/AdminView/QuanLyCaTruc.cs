@@ -59,6 +59,24 @@ namespace RestaurantManagement.PresentationLayer.AdminView
             QuanLyCaTruc_Load(null, null);
         }
 
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            string error = "";
+            try
+            {
+                string text = txtTimKiem.Text.Trim();
+                dgvCaTruc.DataSource = bussinessCaTruc.FindCaTruc(text, ref error);
 
+                if (dgvCaTruc.RowCount > 0)
+                {
+                    DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
+                    dgvCaTruc_CellClick(sender, ev);
+                }
+
+            }
+            catch
+            {
+            }
+        }
     }
 }

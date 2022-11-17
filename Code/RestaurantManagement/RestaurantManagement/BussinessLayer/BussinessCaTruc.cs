@@ -51,6 +51,28 @@ namespace RestaurantManagement.BussinessLayer
             SqlParameter parameter = new SqlParameter("@maCaTruc", maCaTruc);
             return conn.MyExecuteNonQuery(cmd, CommandType.Text, ref error, parameter);
         }
-        
+
+        public DataTable FindCaTruc(string text, ref string error)
+        {
+            DateTime dateTime = new DateTime();
+            DataTable results = new DataTable();
+            SqlParameter parameter;
+            string cmd;
+            try
+            {
+                dateTime = DateTime.Parse(text.Trim());
+
+                cmd = "SELECT * FROM dbo.fnSearchCaTrucByDate(@date)";
+                parameter = new SqlParameter("@date", dateTime);
+            }
+            catch
+            {
+                cmd = "SELECT * FROM dbo.fnSearchCaTrucByID(@maCaTruc)";
+                parameter = new SqlParameter("@maCaTruc", text.Trim());
+            }
+
+            results = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parameter);
+            return results;
+        }
     }
 }

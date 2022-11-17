@@ -1136,7 +1136,7 @@ AS
 		SELECT @maBan = maBan FROM dbo.DatTruoc 
 		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Đã xác nhận'
 
-		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối', maNhanVienTiepNhan=@maNhanVien
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Bị hủy', maNhanVienTiepNhan=@maNhanVien
 		WHERE maDatTruoc = @maDatTruoc
 
 		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
