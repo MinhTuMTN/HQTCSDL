@@ -1247,6 +1247,14 @@ RETURN(
 	)
 GO
 
+CREATE FUNCTION fnLayDanhSachDaTiepNhan()
+RETURNS TABLE AS
+RETURN(
+	SELECT hoTen, soDienThoai, ngaySinh, thoiGianDatTruoc, soLuongNguoi, maBan, maDatTruoc FROM dbo.DatTruoc, dbo.KhachHang
+	WHERE DatTruoc.maKhachHang = KhachHang.maKhachHang AND trangThaiDatTruoc = N'Đã xác nhận'
+	)
+GO
+
 CREATE FUNCTION fnLayDanhSachMonAnChuaCo (@maDonHang CHAR(10))
 RETURNS TABLE AS
 RETURN (
@@ -1269,6 +1277,21 @@ AS
 		DECLARE @maBan CHAR(10)
 		SELECT @maBan = maBan FROM dbo.DatTruoc 
 		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Chờ xác nhận'
+
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối', maNhanVienTiepNhan=@maNhanVien
+		WHERE maDatTruoc = @maDatTruoc
+
+		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
+		WHERE maBan=@maBan
+	END
+GO
+
+CREATE PROCEDURE spHuyDatTruoc(@maDatTruoc CHAR(10), @maNhanVien CHAR(10))
+AS
+	BEGIN
+	    DECLARE @maBan CHAR(10)
+		SELECT @maBan = maBan FROM dbo.DatTruoc 
+		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Đã xác nhận'
 
 		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối', maNhanVienTiepNhan=@maNhanVien
 		WHERE maDatTruoc = @maDatTruoc
@@ -1402,6 +1425,8 @@ GRANT EXECUTE ON dbo.fnTinhTienDonHangTheoMaBan TO ThuNganRole
 GRANT SELECT ON dbo.fnLayDanhSachTiepNhan TO ThuNganRole
 GRANT EXECUTE ON dbo.spChapNhanDatTruoc TO ThuNganRole
 GRANT EXECUTE ON dbo.spTuChoiDatTruoc TO ThuNganRole
+GRANT SELECT ON dbo.fnLayDanhSachDaTiepNhan TO ThuNganRole
+GRANT EXECUTE ON dbo.spHuyDatTruoc TO ThuNganRole
 GO
 
 -- Quyền cho nhân viên phục vụ
