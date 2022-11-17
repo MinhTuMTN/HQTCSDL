@@ -28,7 +28,7 @@ namespace RestaurantManagement.BussinessLayer
         public DataTable GetAllHoaDon(ref string error)
         {
             DataTable result = new DataTable();
-            string cmd = "SELECT* FROM dbo.DonHang";
+            string cmd = "SELECT * FROM dbo.DonHang WHERE trangThaiDonHang = N'Đang chuẩn bị' ";
             result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
             return result;
         }
