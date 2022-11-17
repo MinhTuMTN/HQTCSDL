@@ -1426,6 +1426,10 @@ GO
 -- Quyền cho nhân viên đầu bếp
 GRANT SELECT ON dbo.fnLayDanhSachDonHangDauBep TO DauBepRole
 GRANT SELECT ON dbo.fnSearchDonHangDauBep TO DauBepRole
+GRANT SELECT ON dbo.ChiTietDonHang TO DauBepRole
+GRANT SELECT ON dbo.MonAn TO DauBepRole
+GRANT EXECUTE ON dbo.spUpdateTrangThaiDonHang TO DauBepRole
+GRANT SELECT ON dbo.fnSearchMonAnTrongDonHang TO DauBepRole
 
 
 -- Quyền của toàn bộ nhân viên
@@ -1468,6 +1472,10 @@ BEGIN
 	ELSE IF (@loaiNhanVien = N'Phục Vụ')
 		EXEC sys.sp_addrolemember @rolename = PhucVuRole,  -- sysname
                           @membername = @tenDangNhap -- sysname
+	ELSE IF (@loaiNhanVien = N'Đầu bếp')
+		EXEC sys.sp_addrolemember @rolename = DauBepRole,  -- sysname
+		                          @membername = @tenDangNhap -- sysname
+		
 	EXEC sys.sp_addrolemember @rolename = NhanVienRole,  -- sysname
 	                     @membername = @tenDangNhap -- sysname		
 END
@@ -1538,6 +1546,8 @@ BEGIN
 		SET @myrolename='ThuNganRole'
 	ELSE IF (@oldPosition = N'Phục Vụ')
 		SET @myrolename='PhucVuRole'
+	ELSE IF (@oldPosition = N'Đầu bếp')
+		SET @myrolename='DauBepRole'
 	EXEC sys.sp_droprolemember @rolename = @myrolename,  -- sysname
 	                           @membername = @tenDangNhap -- sysname
 
@@ -1547,6 +1557,8 @@ BEGIN
 		SET @myrolename='ThuNganRole'
 	ELSE IF (@newPosition = N'Phục Vụ')
 		SET @myrolename='PhucVuRole'
+	ELSE IF (@newPosition = N'Đầu bếp')
+		SET @myrolename='DauBepRole'
 	EXEC sys.sp_addrolemember @rolename = @myrolename,  -- sysname
 	                     @membername = @tenDangNhap -- sysname	
 END
