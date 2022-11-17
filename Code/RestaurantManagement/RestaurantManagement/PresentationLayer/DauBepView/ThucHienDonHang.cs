@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestaurantManagement.PresentationLayer.StaffView;
 
 namespace RestaurantManagement.PresentationLayer.DauBepView
 {
@@ -76,6 +77,11 @@ namespace RestaurantManagement.PresentationLayer.DauBepView
             }
         }
 
+        private void btnDangKyCaTruc_Click(object sender, EventArgs e)
+        {
+            frmDangKyCaTruc dangKyCaTruc = new frmDangKyCaTruc(maDauBepThucHien);
+            dangKyCaTruc.Show();
+        }
         private void frmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);

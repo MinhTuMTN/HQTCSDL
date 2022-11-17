@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace RestaurantManagement.PresentationLayer.StaffView
 {
-    public partial class DangKyCaTruc : Form
+    public partial class frmDangKyCaTruc : Form
     {
         BusinessDangKyCaTruc business = new BusinessDangKyCaTruc();
         private string _maCaTruc;
         private string maNhanVien;
-        public DangKyCaTruc(string maNhanVien)
+        public frmDangKyCaTruc(string maNhanVien)
         {
             InitializeComponent();
             this.maNhanVien = maNhanVien;

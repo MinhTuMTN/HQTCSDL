@@ -35,9 +35,9 @@ namespace RestaurantManagement
             Settings.Default.passLoginDb = userPass;
 
             DatabaseConnection connection = new DatabaseConnection();
-            //bool correct = connection.TestConnection();
+            bool correct = connection.TestConnection();
 
-            if (true)
+            if (correct)
             {
                 string error = "";
 

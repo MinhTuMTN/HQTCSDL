@@ -1,6 +1,6 @@
 ﻿namespace RestaurantManagement.PresentationLayer.StaffView
 {
-    partial class DangKyCaTruc
+    partial class frmDangKyCaTruc
     {
         /// <summary>
         /// Required designer variable.
@@ -374,7 +374,7 @@
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Ngày bắt đầu:";
             // 
-            // DangKyCaTruc
+            // frmDangKyCaTruc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -382,7 +382,7 @@
             this.Controls.Add(this.guna2GroupBox3);
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2GroupBox1);
-            this.Name = "DangKyCaTruc";
+            this.Name = "frmDangKyCaTruc";
             this.Text = "DangKyCaTruc";
             this.Resize += new System.EventHandler(this.DangKyCaTruc_Resize);
             this.guna2GroupBox1.ResumeLayout(false);
