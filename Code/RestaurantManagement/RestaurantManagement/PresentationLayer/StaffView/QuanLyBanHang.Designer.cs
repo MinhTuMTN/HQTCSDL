@@ -612,6 +612,8 @@
             this.Name = "frmQuanLyBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMainMenu_FormClosed);
             this.Load += new System.EventHandler(this.frmQuanLyBanHang_Load);
             this.gbThemDonHang.ResumeLayout(false);
             this.gbThemDonHang.PerformLayout();
