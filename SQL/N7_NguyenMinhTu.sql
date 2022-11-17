@@ -261,51 +261,53 @@ GO
 CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@maDonHang is NULL OR @maBan is NULL OR @maKhachHang is NULL OR @maDauBep is NULL OR @maNhanVienPhucVu is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
-	INSERT INTO dbo.DonHang
-	(
-		maDonHang,
-		thoiGianCheckIn,
-		phuThu,
-		maCoupon,
-		soTienThanhToan,
-		trangThaiDonHang,
-		maBan,
-		maKhachHang,
-		maDauBep,
-		maNhanVienPhucVu,
-		maNhanVienThuNgan
-	)
-	VALUES
-	(   @maDonHang,        -- maDonHang - char(10)
-		@thoiGianCheckIn, -- thoiGianCheckIn - datetime
-		@phuThu,       -- phuThu - float
-		NULL,        -- maCoupon - char(10)
-		0.0,       -- soTienThanhToan - float
-		N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
-		@maBan,        -- maBan - char(10)
-		@maKhachHang,        -- maKhachHang - char(10)
-		@maDauBep,        -- maDauBep - char(10)
-		@maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
-		NULL         -- maNhanVienThuNgan - char(10)
-		)
+	BEGIN TRY
+		BEGIN TRANSACTION
 
-	UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
-	WHERE maBan=@maBan
-	IF(@@ERROR <> 0)
-	BEGIN
-		RAISERROR(N'Lỗi', 16, 1)
-		ROLLBACK
-		RETURN
-	END
-	COMMIT TRANSACTION
+		IF(@maDonHang is NULL OR @maBan is NULL OR @maKhachHang is NULL OR @maDauBep is NULL OR @maNhanVienPhucVu is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		INSERT INTO dbo.DonHang
+		(
+			maDonHang,
+			thoiGianCheckIn,
+			phuThu,
+			maCoupon,
+			soTienThanhToan,
+			trangThaiDonHang,
+			maBan,
+			maKhachHang,
+			maDauBep,
+			maNhanVienPhucVu,
+			maNhanVienThuNgan
+		)
+		VALUES
+		(   @maDonHang,        -- maDonHang - char(10)
+			@thoiGianCheckIn, -- thoiGianCheckIn - datetime
+			@phuThu,       -- phuThu - float
+			NULL,        -- maCoupon - char(10)
+			0.0,       -- soTienThanhToan - float
+			N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
+			@maBan,        -- maBan - char(10)
+			@maKhachHang,        -- maKhachHang - char(10)
+			@maDauBep,        -- maDauBep - char(10)
+			@maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
+			NULL         -- maNhanVienThuNgan - char(10)
+			)
+
+		UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
+		WHERE maBan=@maBan
+
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	END CATCH
 END
 GO
 
@@ -542,25 +544,24 @@ CREATE PROC spUpdateNhanVien (
 )
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@hoTen is NULL OR @ngaySinh is NULL OR @gioiTinh is NULL OR @diaChi is NULL OR @soDienThoai is NULL OR @heSoLuong is NULL OR @loaiNhanVien is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@hoTen is NULL OR @ngaySinh is NULL OR @gioiTinh is NULL OR @diaChi is NULL OR @soDienThoai is NULL OR @heSoLuong is NULL OR @loaiNhanVien is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-	UPDATE dbo.NhanVien SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
-	WHERE maNhanVien=@maNhanVien
+		UPDATE dbo.NhanVien SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
+		WHERE maNhanVien=@maNhanVien
 
-	IF(@@ERROR <> 0)
-	BEGIN
-		RAISERROR(N'Lỗi', 16, 1)
-		ROLLBACK
-		RETURN
-	END
-	COMMIT TRANSACTION
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	END CATCH
 END
 GO
 
@@ -571,25 +572,24 @@ CREATE PROC spUpdateCaTruc (
 )
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-    UPDATE dbo.CaTruc SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc 
-	WHERE maCaTruc=@maCaTruc
+		UPDATE dbo.CaTruc SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc 
+		WHERE maCaTruc=@maCaTruc
 
-	IF(@@ERROR <> 0)
-	 BEGIN
-	 	 RAISERROR(N'Lỗi', 16, 1)
-	 	 ROLLBACK
-		 RETURN
-	 END
-	 COMMIT TRANSACTION
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -600,25 +600,24 @@ CREATE PROC spUpdateTaiKhoan(
 )
 AS
 BEGIN
-SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@matKhau is NULL OR @trangThaiTaiKhoan is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@matKhau is NULL OR @trangThaiTaiKhoan is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-    UPDATE dbo.TaiKhoan SET matKhau=@matKhau, trangThaiTaiKhoan=@trangThaiTaiKhoan 
-	WHERE tenDangNhap=@tenDangNhap
+		UPDATE dbo.TaiKhoan SET matKhau=@matKhau, trangThaiTaiKhoan=@trangThaiTaiKhoan 
+		WHERE tenDangNhap=@tenDangNhap
 
-	IF(@@ERROR <> 0)
-	 BEGIN
-	 	 RAISERROR(N'Lỗi', 16, 1)
-	 	 ROLLBACK
-		 RETURN
-	 END
-	 COMMIT TRANSACTION
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -646,25 +645,24 @@ CREATE PROC spUpdateBan (
 )
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@trangThaiBan is NULL OR @loaiBan is NULL OR @soLuongGheToiDa is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@trangThaiBan is NULL OR @loaiBan is NULL OR @soLuongGheToiDa is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-    UPDATE dbo.Ban SET trangThaiBan=@trangThaiBan, loaiBan=@loaiBan, soLuongGheToiDa=@soLuongGheToiDa
-	WHERE maBan=@maBan
+		UPDATE dbo.Ban SET trangThaiBan=@trangThaiBan, loaiBan=@loaiBan, soLuongGheToiDa=@soLuongGheToiDa
+		WHERE maBan=@maBan
 
-	IF(@@ERROR <> 0)
-	 BEGIN
-	 	 RAISERROR(N'Lỗi', 16, 1)
-	 	 ROLLBACK
-		 RETURN
-	 END
-	 COMMIT TRANSACTION
+		COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -695,25 +693,24 @@ CREATE PROC spUpdateCoupon(
 )
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL OR @phanTramGiam is NULL OR @giamToiDa is NULL OR @donToiThieu is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@ngayBatDau is NULL OR @ngayKetThuc is NULL OR @phanTramGiam is NULL OR @giamToiDa is NULL OR @donToiThieu is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-	UPDATE dbo.Coupon SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc, phanTramGiam=@phanTramGiam, giamToiDa=@giamToiDa, donToiThieu=@donToiThieu
-	WHERE maCoupon=@maCoupon
+		UPDATE dbo.Coupon SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc, phanTramGiam=@phanTramGiam, giamToiDa=@giamToiDa, donToiThieu=@donToiThieu
+		WHERE maCoupon=@maCoupon
 
-	IF(@@ERROR <> 0)
-	 BEGIN
-	 	 RAISERROR(N'Lỗi', 16, 1)
-	 	 ROLLBACK
-		 RETURN
-	 END
-	 COMMIT TRANSACTION
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK
+		THROW
+	END CATCH
 END
 GO
 
@@ -744,25 +741,24 @@ CREATE PROC spUpdateMonAn(
 )
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@tenMonAn is NULL OR @giaTien is NULL OR @hinhAnh is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@tenMonAn is NULL OR @giaTien is NULL OR @hinhAnh is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-    UPDATE dbo.MonAn SET tenMonAn=@tenMonAn, giaTien=@giaTien, hinhAnh=@hinhAnh
-	WHERE maMonAn=@maMonAn
+		UPDATE dbo.MonAn SET tenMonAn=@tenMonAn, giaTien=@giaTien, hinhAnh=@hinhAnh
+		WHERE maMonAn=@maMonAn
 
-	IF(@@ERROR <> 0)
-	 BEGIN
-	 	 RAISERROR(N'Lỗi', 16, 1)
-	 	 ROLLBACK
-		 RETURN
-	 END
-	 COMMIT TRANSACTION
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -1153,38 +1149,38 @@ GO
 CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maNhanVienThuNgan CHAR(10))
 AS
 BEGIN
-	SET XACT_ABORT ON
-	BEGIN TRANSACTION
-	IF(@maBan is NULL OR @maNhanVienThuNgan is NULL)
-	BEGIN
-		RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
-		ROLLBACK
-		RETURN
-	END
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maBan is NULL OR @maNhanVienThuNgan is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-	-- Tìm mã đơn hàng từ mã bàn
-     DECLARE @maDonHang CHAR(10)	 
-	 SELECT @maDonHang = maDonHang FROM dbo.DonHang
-	 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
+		-- Tìm mã đơn hàng từ mã bàn
+		 DECLARE @maDonHang CHAR(10)	 
+		 SELECT @maDonHang = maDonHang FROM dbo.DonHang
+		 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
 
-	 -- Cập nhật trạng thái đơn hàng thành Đã thanh toán
-	 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
-	 WHERE maDonHang = @maDonHang
+		 -- Cập nhật trạng thái đơn hàng thành Đã thanh toán
+		 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
+		 WHERE maDonHang = @maDonHang
 
-	 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
-	 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
+		 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
+		 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
 
-	 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phục vụ
-	 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
-	 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
-							WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
-	 IF(@@ERROR <> 0)
-	 BEGIN
-	 	 RAISERROR(N'Lỗi', 16, 1)
-	 	 ROLLBACK
-		 RETURN
-	 END
-	 COMMIT TRANSACTION
+		 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phục vụ
+		 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
+		 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
+								WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
+
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
    END
 GO
 
