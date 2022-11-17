@@ -25,7 +25,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainThuNgan("NV440123"));
+            Application.Run(new DangKyCaTruc("NV220111"));
 
             string error = "";
             //DataTable tabel = new BussinessNhanVien().FindNhanVien("NV", ref error);

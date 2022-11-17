@@ -1197,6 +1197,28 @@ BEGIN
 END
 GO
 
+
+CREATE FUNCTION fnGetCaTrucDK(@maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN
+(
+	SELECT * FROM dbo.CaTruc C
+	WHERE C.ngayBatDau > GETDATE() AND maCaTruc NOT IN (SELECT maCaTruc FROM dbo.DangKyCaTruc
+														WHERE maCaTruc = C.maCaTruc AND maNhanVien = @maNhanVien)
+	ORDER BY ngayBatDau OFFSET 0 ROWS
+)
+GO
+
+CREATE FUNCTION fnGetCaTrucDaDK(@maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN
+(
+	SELECT CT.* FROM dbo.DangKyCaTruc DK JOIN dbo.CaTruc CT ON CT.maCaTruc = DK.maCaTruc
+	WHERE CT.ngayBatDau > GETDATE() AND DK.maNhanVien = @maNhanVien
+)
+GO
+
+SELECT * FROM dbo.fnGetAllCaTrucDK()
 --- Thực hiện phân quyền
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
 EXEC sys.sp_addrole @rolename = 'NhanVienRole'
@@ -1209,10 +1231,15 @@ GO
 GRANT EXECUTE ON dbo.spTaoDatTruoc TO KhachHangRole
 GRANT SELECT ON dbo.fnTaoMaKhachHang TO KhachHangRole
 GRANT EXECUTE ON dbo.spInsertKhachHangDatTruoc TO KhachHangRole
+GRANT SELECT ON dbo.Ban TO KhachHangRole
 GO
 
 -- Quản lý có toàn quyền(truy vấn) tất cả đối tượng trong CSDL
 GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
+GRANT ALTER ON ROLE::NhanVienRole TO QuanLyRole
+GRANT ALTER ON ROLE::QuanLyRole TO QuanLyRole
+GRANT ALTER ON ROLE::ThuNganRole TO QuanLyRole
+GRANT ALTER ON ROLE::PhucVuRole TO QuanLyRole
 GO
 
 -- Cấp các quyền truy cập cần thiết cho Thu Ngân
@@ -1229,6 +1256,9 @@ GO
 
 -- Quyền của toàn bộ nhân viên
 GRANT EXECUTE ON dbo.spGetNhanVienByTaiKhoan TO NhanVienRole
+GRANT EXECUTE ON dbo.spInsertDangKyCaTruc TO NhanVienRole
+GRANT SELECT ON dbo.fnGetCaTrucDK TO NhanVienRole
+GRANT SELECT ON dbo.fnGetCaTrucDaDK TO NhanVienRole
 GO
 
 CREATE TRIGGER trigger_CreateUserDb ON dbo.TaiKhoan
@@ -1441,6 +1471,17 @@ insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
 values ('CT1001', '2022-09-26', '2022-09-28')
 	, ('CT1002', '2022-09-29', '2022-09-30')
 	, ('CT1003', '2022-10-01', '2022-10-02')
+INSERT INTO dbo.CaTruc
+(
+    maCaTruc,
+    ngayBatDau,
+    ngayKetThuc
+)
+VALUES
+(   'CT1004',        -- maCaTruc - char(10)
+    '20221201', -- ngayBatDau - date
+	'20221203'   -- ngayKetThuc - date
+    ),('CT1005', '20221204', '20221205'), ('CT1006', '20221206', '20221209')
 GO
 insert into DangKyCaTruc(maNhanVien, maCaTruc)
 values ('NV220111', 'CT1001')

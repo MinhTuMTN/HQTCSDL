@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BussinessLayer\BusinessChiTietDonHang.cs" />
+    <Compile Include="BussinessLayer\BusinessDangKyCaTruc.cs" />
     <Compile Include="BussinessLayer\BusinessDonHang.cs" />
     <Compile Include="BussinessLayer\BusinessTaiKhoan.cs" />
     <Compile Include="BussinessLayer\BusinessThanhToan.cs" />
@@ -220,6 +221,12 @@
     <Compile Include="PresentationLayer\StaffView\ChiTietDonHang.Designer.cs">
       <DependentUpon>ChiTietDonHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\StaffView\DangKyCaTruc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\StaffView\DangKyCaTruc.Designer.cs">
+      <DependentUpon>DangKyCaTruc.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\StaffView\QuanLyBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\StaffView\ChiTietDonHang.resx">
       <DependentUpon>ChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\StaffView\DangKyCaTruc.resx">
+      <DependentUpon>DangKyCaTruc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\StaffView\QuanLyBanHang.resx">
       <DependentUpon>QuanLyBanHang.cs</DependentUpon>
