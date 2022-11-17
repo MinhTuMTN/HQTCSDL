@@ -254,9 +254,9 @@
             this.lblChucNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChucNang.Location = new System.Drawing.Point(31, 54);
             this.lblChucNang.Name = "lblChucNang";
-            this.lblChucNang.Size = new System.Drawing.Size(139, 20);
+            this.lblChucNang.Size = new System.Drawing.Size(155, 20);
             this.lblChucNang.TabIndex = 10;
-            this.lblChucNang.Text = "Quản lý bán hàng";
+            this.lblChucNang.Text = "Thực hiện đơn hàng";
             // 
             // label1
             // 

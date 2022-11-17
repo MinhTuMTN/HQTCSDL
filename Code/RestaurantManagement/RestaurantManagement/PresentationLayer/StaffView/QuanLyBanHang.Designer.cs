@@ -247,6 +247,7 @@
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.HoverState.Parent = this.btnThem;
+            this.btnThem.Image = global::RestaurantManagement.Properties.Resources.Food_Donor_100px;
             this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(30, 30);
             this.btnThem.Location = new System.Drawing.Point(1257, 81);

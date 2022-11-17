@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChiTietDonHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnResetThem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -46,7 +46,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnCapNhat = new Guna.UI2.WinForms.Guna2Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnResetTao = new Guna.UI2.WinForms.Guna2Button();
+            this.btnResetCapNhat = new Guna.UI2.WinForms.Guna2Button();
             this.gbThemMonAn = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numSoLuongMonAnTao = new Guna.UI2.WinForms.Guna2NumericUpDown();
@@ -183,7 +183,7 @@
             this.gbCapNhatMonAn.Controls.Add(this.label10);
             this.gbCapNhatMonAn.Controls.Add(this.btnCapNhat);
             this.gbCapNhatMonAn.Controls.Add(this.label11);
-            this.gbCapNhatMonAn.Controls.Add(this.btnResetTao);
+            this.gbCapNhatMonAn.Controls.Add(this.btnResetCapNhat);
             this.gbCapNhatMonAn.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(60)))), ((int)(((byte)(86)))));
             this.gbCapNhatMonAn.FillColor = System.Drawing.Color.Black;
             this.gbCapNhatMonAn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,6 +287,7 @@
             this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
             this.btnCapNhat.HoverState.Parent = this.btnCapNhat;
+            this.btnCapNhat.Image = global::RestaurantManagement.Properties.Resources.Food_Donor_100px;
             this.btnCapNhat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCapNhat.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCapNhat.Location = new System.Drawing.Point(13, 148);
@@ -310,28 +311,28 @@
             this.label11.Size = new System.Drawing.Size(0, 20);
             this.label11.TabIndex = 35;
             // 
-            // btnResetTao
+            // btnResetCapNhat
             // 
-            this.btnResetTao.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnResetTao.BackColor = System.Drawing.Color.Transparent;
-            this.btnResetTao.BorderRadius = 15;
-            this.btnResetTao.CheckedState.Parent = this.btnResetTao;
-            this.btnResetTao.CustomImages.Parent = this.btnResetTao;
-            this.btnResetTao.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.btnResetTao.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnResetTao.ForeColor = System.Drawing.Color.White;
-            this.btnResetTao.HoverState.Parent = this.btnResetTao;
-            this.btnResetTao.Image = ((System.Drawing.Image)(resources.GetObject("btnResetTao.Image")));
-            this.btnResetTao.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnResetTao.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnResetTao.Location = new System.Drawing.Point(155, 148);
-            this.btnResetTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnResetTao.Name = "btnResetTao";
-            this.btnResetTao.ShadowDecoration.Parent = this.btnResetTao;
-            this.btnResetTao.Size = new System.Drawing.Size(137, 44);
-            this.btnResetTao.TabIndex = 25;
-            this.btnResetTao.Text = "     Reset";
-            this.btnResetTao.Click += new System.EventHandler(this.btnResetTao_Click);
+            this.btnResetCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnResetCapNhat.BackColor = System.Drawing.Color.Transparent;
+            this.btnResetCapNhat.BorderRadius = 15;
+            this.btnResetCapNhat.CheckedState.Parent = this.btnResetCapNhat;
+            this.btnResetCapNhat.CustomImages.Parent = this.btnResetCapNhat;
+            this.btnResetCapNhat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
+            this.btnResetCapNhat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnResetCapNhat.ForeColor = System.Drawing.Color.White;
+            this.btnResetCapNhat.HoverState.Parent = this.btnResetCapNhat;
+            this.btnResetCapNhat.Image = ((System.Drawing.Image)(resources.GetObject("btnResetCapNhat.Image")));
+            this.btnResetCapNhat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnResetCapNhat.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnResetCapNhat.Location = new System.Drawing.Point(155, 148);
+            this.btnResetCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnResetCapNhat.Name = "btnResetCapNhat";
+            this.btnResetCapNhat.ShadowDecoration.Parent = this.btnResetCapNhat;
+            this.btnResetCapNhat.Size = new System.Drawing.Size(137, 44);
+            this.btnResetCapNhat.TabIndex = 25;
+            this.btnResetCapNhat.Text = "     Reset";
+            this.btnResetCapNhat.Click += new System.EventHandler(this.btnResetCapNhat_Click);
             // 
             // gbThemMonAn
             // 
@@ -492,6 +493,7 @@
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.HoverState.Parent = this.btnThem;
+            this.btnThem.Image = global::RestaurantManagement.Properties.Resources.Food_Donor_100px;
             this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(30, 30);
             this.btnThem.Location = new System.Drawing.Point(13, 176);
@@ -520,9 +522,9 @@
             this.dgvChiTietDonHang.AllowUserToAddRows = false;
             this.dgvChiTietDonHang.AllowUserToDeleteRows = false;
             this.dgvChiTietDonHang.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvChiTietDonHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvChiTietDonHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvChiTietDonHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -531,14 +533,14 @@
             this.dgvChiTietDonHang.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvChiTietDonHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvChiTietDonHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvChiTietDonHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChiTietDonHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvChiTietDonHang.ColumnHeadersHeight = 50;
             this.dgvChiTietDonHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maMonAn,
@@ -546,14 +548,14 @@
             this.soLuong,
             this.giaTien,
             this.hinhAnh});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvChiTietDonHang.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvChiTietDonHang.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvChiTietDonHang.EnableHeadersVisualStyles = false;
             this.dgvChiTietDonHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvChiTietDonHang.Location = new System.Drawing.Point(11, 16);
@@ -563,9 +565,9 @@
             this.dgvChiTietDonHang.ReadOnly = true;
             this.dgvChiTietDonHang.RowHeadersVisible = false;
             this.dgvChiTietDonHang.RowHeadersWidth = 50;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.dgvChiTietDonHang.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvChiTietDonHang.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvChiTietDonHang.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvChiTietDonHang.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvChiTietDonHang.RowTemplate.Height = 40;
@@ -642,9 +644,9 @@
             this.lblChucNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChucNang.Location = new System.Drawing.Point(31, 54);
             this.lblChucNang.Name = "lblChucNang";
-            this.lblChucNang.Size = new System.Drawing.Size(139, 20);
+            this.lblChucNang.Size = new System.Drawing.Size(135, 20);
             this.lblChucNang.TabIndex = 10;
-            this.lblChucNang.Text = "Quản lý bán hàng";
+            this.lblChucNang.Text = "Chi tiết đơn hàng";
             // 
             // label1
             // 
@@ -799,7 +801,7 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2Button btnCapNhat;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2Button btnResetTao;
+        private Guna.UI2.WinForms.Guna2Button btnResetCapNhat;
         private Guna.UI2.WinForms.Guna2CirclePictureBox picMonAn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maMonAn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenMonAn;
