@@ -262,7 +262,8 @@ CREATE PROCEDURE spInsertDonHang
 (
 	@maDonHang char(10),
 	@thoiGianCheckIn datetime,
-	@phuThu float, @maBan char(10),
+	@phuThu float,
+	@maBan char(10),
 	@maKhachHang char(10),
 	@maDauBep char(10),
 	@maNhanVienPhucVu char(10)
@@ -310,6 +311,10 @@ BEGIN
 		UPDATE dbo.Ban SET trangThaiBan=N'Đang phục vụ'
 		WHERE maBan=@maBan
 
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã check-in'
+		WHERE maBan IN (SELECT maBan FROM dbo.DatTruoc
+						WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã xác nhận')
+
 		COMMIT TRANSACTION
 	END TRY
 	BEGIN CATCH
@@ -317,10 +322,6 @@ BEGIN
 			ROLLBACK;
 		THROW
 	END CATCH
-		
-		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã check-in'
-		WHERE maBan IN (SELECT maBan FROM dbo.DatTruoc
-						WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã xác nhận')
 END
 GO
 
