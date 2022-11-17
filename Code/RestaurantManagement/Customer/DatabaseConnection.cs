@@ -10,7 +10,7 @@ namespace Customer
 {
     public class DatabaseConnection
     {
-        private const string connectionString = "Data Source=MINHTUNGUYEN\\MINHTU_SERVER;Initial Catalog=QuanLyNhaHang;User ID=KhachHang;Password=themooon";
+        private const string connectionString = "Data Source=MINHTUNGUYEN\\MINHTU_SERVER;Initial Catalog=QuanLyNhaHang;User ID=KhachHang;Password=themoon";
         //private const string connectionString = "Data Source=MINHTUNGUYEN\\MINHTU_SERVER;Initial Catalog=QuanLyNhaHang;User ID=sa;Password=3052";
         private SqlCommand sqlCommand;
         private SqlConnection connection;
