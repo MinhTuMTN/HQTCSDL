@@ -101,6 +101,7 @@
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.tabDangKyCaTruc = new System.Windows.Forms.TabPage();
             this.tpTiepNhan.SuspendLayout();
             this.guna2GroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTiepNhan)).BeginInit();
@@ -122,10 +123,10 @@
             this.tpTiepNhan.Controls.Add(this.guna2GroupBox3);
             this.tpTiepNhan.Controls.Add(this.dgvTiepNhan);
             this.tpTiepNhan.Controls.Add(this.gbTimKiem);
-            this.tpTiepNhan.Location = new System.Drawing.Point(4, 26);
+            this.tpTiepNhan.Location = new System.Drawing.Point(4, 29);
             this.tpTiepNhan.Name = "tpTiepNhan";
             this.tpTiepNhan.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTiepNhan.Size = new System.Drawing.Size(1296, 953);
+            this.tpTiepNhan.Size = new System.Drawing.Size(1296, 950);
             this.tpTiepNhan.TabIndex = 1;
             this.tpTiepNhan.Text = "Tiếp nhận";
             this.tpTiepNhan.UseVisualStyleBackColor = true;
@@ -585,6 +586,7 @@
             // 
             this.tcMain.Controls.Add(this.tpThanhToan);
             this.tcMain.Controls.Add(this.tpTiepNhan);
+            this.tcMain.Controls.Add(this.tabDangKyCaTruc);
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcMain.Location = new System.Drawing.Point(0, 0);
@@ -1094,6 +1096,16 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "The Moon Restaurant";
             // 
+            // tabDangKyCaTruc
+            // 
+            this.tabDangKyCaTruc.Location = new System.Drawing.Point(4, 29);
+            this.tabDangKyCaTruc.Name = "tabDangKyCaTruc";
+            this.tabDangKyCaTruc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDangKyCaTruc.Size = new System.Drawing.Size(1296, 950);
+            this.tabDangKyCaTruc.TabIndex = 2;
+            this.tabDangKyCaTruc.Text = "Đăng ký ca trực";
+            this.tabDangKyCaTruc.UseVisualStyleBackColor = true;
+            // 
             // frmMainThuNgan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1198,5 +1210,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn thoiGianDatTruoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn maDatTruoc;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblMaDatTruoc;
+        private System.Windows.Forms.TabPage tabDangKyCaTruc;
     }
 }

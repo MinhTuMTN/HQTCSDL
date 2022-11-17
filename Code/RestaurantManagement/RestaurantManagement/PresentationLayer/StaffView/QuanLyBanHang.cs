@@ -111,7 +111,6 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                 {
                     maKhachHang = businessKhachHang.CreateMaKhachHang(ref error);
                     ThemKhachHangThuong(maKhachHang);
-
                 }
                 HoaDon hoaDon = new HoaDon(maDonHang, thoiGianCheckIn, phuThu, maBan, maPhucVu, maDauBep, maKhachHang);
                 return hoaDon;
