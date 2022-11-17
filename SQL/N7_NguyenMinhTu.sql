@@ -1368,13 +1368,13 @@ RETURN
 )
 GO
 
-SELECT * FROM dbo.fnGetAllCaTrucDK()
 --- Thực hiện phân quyền
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
 EXEC sys.sp_addrole @rolename = 'NhanVienRole'
 EXEC sys.sp_addrole @rolename = 'ThuNganRole'
 EXEC sys.sp_addrole @rolename = 'PhucVuRole'
 EXEC sys.sp_addrole @rolename = 'KhachHangRole'
+EXEC sys.sp_addrole @rolename = 'DauBepRole'
 GO
 
 -- Khách hàng chỉ có thể tạo các đơn đặt trước
@@ -1421,6 +1421,12 @@ GRANT SELECT ON dbo.fnSearchMonAnTrongDonHang TO PhucVuRole
 GRANT EXECUTE ON dbo.spInsertChiTietDonHang TO PhucVuRole
 GRANT EXECUTE ON dbo.spUpdateChiTietDonHang TO PhucVuRole
 GRANT EXECUTE ON dbo.spUpdateTrangThaiDonHang TO PhucVuRole
+GO
+
+-- Quyền cho nhân viên đầu bếp
+GRANT SELECT ON dbo.fnLayDanhSachDonHangDauBep TO DauBepRole
+GRANT SELECT ON dbo.fnSearchDonHangDauBep TO DauBepRole
+
 
 -- Quyền của toàn bộ nhân viên
 GRANT EXECUTE ON dbo.spGetNhanVienByTaiKhoan TO NhanVienRole

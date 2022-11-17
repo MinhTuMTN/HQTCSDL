@@ -264,7 +264,7 @@
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(31, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 26);
+            this.label1.Size = new System.Drawing.Size(261, 27);
             this.label1.TabIndex = 9;
             this.label1.Text = "The Moon Restaurant";
             // 
@@ -395,6 +395,8 @@
             this.Name = "frmThucHienDonHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMainMenu_FormClosed);
             this.Load += new System.EventHandler(this.frmThucHienDonHang_Load);
             this.pnQuanLyNhaHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHangDauBep)).EndInit();
