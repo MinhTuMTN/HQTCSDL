@@ -251,12 +251,13 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertDatTruoc(@maDatTruoc char(10), @trangThaiDatTruoc nvarchar(20), @thoiGianCheckIn datetime, @thoiGianDatTruoc datetime, @soLuongNguoi int, @maKhachHang char(10), @maBan char(10), @maNhanVienTiepNhan char(10))
+CREATE PROCEDURE spInsertDatTruoc(@maDatTruoc char(10), @thoiGianCheckIn datetime, @thoiGianDatTruoc datetime, @soLuongNguoi int, @maKhachHang char(10), @maBan char(10))
 AS BEGIN
 		INSERT INTO dbo.DatTruoc
-		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
+		VALUES (@maDatTruoc, N'Chờ xác nhận', @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, NULL)
 	END
 GO
+
 CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
 AS BEGIN
 		INSERT INTO dbo.DonHang
@@ -279,7 +280,7 @@ AS BEGIN
 		    @phuThu,       -- phuThu - float
 		    NULL,        -- maCoupon - char(10)
 		    0.0,       -- soTienThanhToan - float
-		    N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
+		    N'Chưa thanh toán',       -- trangThaiDonHang - nvarchar(50)
 		    @maBan,        -- maBan - char(10)
 		    @maKhachHang,        -- maKhachHang - char(10)
 		    @maDauBep,        -- maDauBep - char(10)
@@ -287,8 +288,12 @@ AS BEGIN
 		    NULL         -- maNhanVienThuNgan - char(10)
 		    )
 
-		UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
+		UPDATE dbo.Ban SET trangThaiBan=N'Đang phục vụ'
 		WHERE maBan=@maBan
+		
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã check-in'
+		WHERE maBan IN (SELECT maBan FROM dbo.DatTruoc
+						WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã xác nhận')
 END
 GO
 
@@ -299,6 +304,25 @@ AS BEGIN
 	END
 GO
 
+CREATE PROCEDURE spInsertKhachHangDatTruoc(
+	@maKhachHang CHAR(10),
+	@hoTen NVARCHAR(150),
+	@soDienThoai CHAR(10),
+	@ngaySinh DATE,
+	@gioiTinh BIT
+)
+AS BEGIN
+       INSERT INTO dbo.KhachHang
+       VALUES
+       (   @maKhachHang,        -- maKhachHang - char(10)
+           @hoTen,       -- hoTen - nvarchar(150)
+           @soDienThoai,        -- soDienThoai - char(10)
+           @ngaySinh, -- ngaySinh - date
+           @gioiTinh       -- gioiTinh - bit
+           )
+   END
+ GO
+ 
 CREATE PROCEDURE spInsertLuong @maNhanVien char(10), @maCaTruc char(10), @soNgayNghi int, @tongLuong float
 AS BEGIN
 		INSERT INTO dbo.Luong
@@ -1146,13 +1170,11 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE spTaoDatTruoc(@trangThaiDatTruoc nvarchar(20),
-								@thoiGianCheckIn DATETIME,
+CREATE PROCEDURE spTaoDatTruoc(@thoiGianCheckIn DATETIME,
 								@thoiGianDatTruoc DATETIME,
 								@soLuongNguoi INT,
 								@maKhachHang  char(10),
-								@maBan char(10),
-								@maNhanVienTiepNhan char(10))
+								@maBan char(10))
 AS
 BEGIN
     DECLARE @maDatTruocTao CHAR(10)
@@ -1164,16 +1186,14 @@ BEGIN
 	--DT11
 	SET @maDatTruocTao='DT' + CONVERT(CHAR(8), (CONVERT(INT, SUBSTRING(@maDatTruocMoiNhat, 3, LEN(@maDatTruocMoiNhat) - 2)) + 1))
 
-	EXEC dbo.spInsertDatTruoc @maDatTruoc = @maDatTruocTao,                          -- char(10)
-	                          @trangThaiDatTruoc = @trangThaiDatTruoc,                  -- nvarchar(20)
+	EXEC dbo.spInsertDatTruoc @maDatTruoc = @maDatTruocTao,                   -- nvarchar(20)
 	                          @thoiGianCheckIn = @thoiGianCheckIn,  -- datetime
-	                          @thoiGianDatTruoc = @trangThaiDatTruoc, -- datetime
+	                          @thoiGianDatTruoc = @thoiGianDatTruoc, -- datetime
 	                          @soLuongNguoi = @soLuongNguoi,                         -- int
 	                          @maKhachHang = @maKhachHang,                         -- char(10)
-	                          @maBan = @maBan,                               -- char(10)
-	                          @maNhanVienTiepNhan = @maNhanVienTiepNhan                   -- char(10)
+	                          @maBan = @maBan                               -- char(10)
 	
-	UPDATE dbo.Ban SET trangThaiBan=N'Đang chờ' WHERE maBan=@maBan	
+	UPDATE dbo.Ban SET trangThaiBan=N'Đã đặt trước' WHERE maBan=@maBan	
 END
 GO
 
@@ -1188,7 +1208,7 @@ GO
 -- Khách hàng chỉ có thể tạo các đơn đặt trước
 GRANT EXECUTE ON dbo.spTaoDatTruoc TO KhachHangRole
 GRANT SELECT ON dbo.fnTaoMaKhachHang TO KhachHangRole
-GRANT EXECUTE ON dbo.spInsertKhachHang TO KhachHangRole
+GRANT EXECUTE ON dbo.spInsertKhachHangDatTruoc TO KhachHangRole
 GO
 
 -- Quản lý có toàn quyền(truy vấn) tất cả đối tượng trong CSDL
@@ -1395,26 +1415,26 @@ GO
 
 insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien)
 values ('tamtranngocql001','110001qltam', N'Đang hoạt động', 'NV110001')
-insert into TaiKhoan VALUES('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
-insert into TaiKhoan VALUES('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
-insert into TaiKhoan VALUES('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
-insert into TaiKhoan VALUES('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
-insert into TaiKhoan VALUES('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
-insert into TaiKhoan VALUES('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
-insert into TaiKhoan VALUES('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
-insert into TaiKhoan VALUES('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
-insert into TaiKhoan VALUES('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
-insert into TaiKhoan VALUES('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
-insert into TaiKhoan VALUES('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
-insert into TaiKhoan VALUES('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
-insert into TaiKhoan VALUES('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
-insert into TaiKhoan VALUES('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
-insert into TaiKhoan VALUES('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
-insert into TaiKhoan VALUES('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
-insert into TaiKhoan VALUES('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
-insert into TaiKhoan VALUES('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
-insert into TaiKhoan VALUES('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
-insert into TaiKhoan VALUES('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
 GO
 
 insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
@@ -1559,3 +1579,23 @@ values ('NV110001', 'CT1001', 0, 1200000 )
 	, ('NV330101', 'CT1003', 0, 660000)
 	, ('NV440123', 'CT1001', 0, 810000)
 	, ('NV440123', 'CT1003', 1, 270000)
+GO
+
+IF NOT EXISTS 
+    (SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'KhachHang')
+	CREATE LOGIN KhachHang WITH PASSWORD='themoon'
+GO
+
+IF NOT EXISTS
+	(
+		SELECT name 
+		FROM QuanLyNhaHang.sys.sysusers
+		WHERE name = 'KhachHang'
+	)
+	CREATE USER KhachHang FOR LOGIN KhachHang
+GO
+
+EXEC sys.sp_addrolemember @rolename = KhachHangRole,  -- sysname
+                          @membername = KhachHang -- sysname
