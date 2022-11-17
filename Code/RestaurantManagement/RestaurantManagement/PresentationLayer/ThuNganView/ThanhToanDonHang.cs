@@ -203,7 +203,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         {
             if(tcMain.SelectedIndex == 2)
             {
-                DangKyCaTruc target = new DangKyCaTruc(maNhanVienThuNgan);
+                frmDangKyCaTruc target = new frmDangKyCaTruc(maNhanVienThuNgan);
                 target.FormBorderStyle = FormBorderStyle.None;
                 target.TopLevel = false;
                 target.Parent = tpDangKyCaTruc;

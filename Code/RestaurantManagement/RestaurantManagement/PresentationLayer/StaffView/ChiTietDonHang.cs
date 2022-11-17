@@ -20,7 +20,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
 
         string imagesFolderPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug", "") + @"FoodImages\";
         
-        private string maDonHang = "";
+        private string maDonHang;
         private frmQuanLyBanHang owner;
 
         public frmChiTietDonHang(string maDonHang, frmQuanLyBanHang owner)

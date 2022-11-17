@@ -192,5 +192,12 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                 MessageBox.Show("Lỗi", error);
             }
         }
+
+        private void btnDangKyCaTruc_Click(object sender, EventArgs e)
+        {
+            frmDangKyCaTruc dangKyCaTruc = new frmDangKyCaTruc(maPhucVu);
+            dangKyCaTruc.Show();
+        }
+
     }
 }

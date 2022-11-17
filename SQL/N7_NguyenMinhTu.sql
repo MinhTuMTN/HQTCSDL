@@ -1368,7 +1368,6 @@ RETURN
 )
 GO
 
-SELECT * FROM dbo.fnGetAllCaTrucDK()
 --- Thực hiện phân quyền
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
 EXEC sys.sp_addrole @rolename = 'NhanVienRole'

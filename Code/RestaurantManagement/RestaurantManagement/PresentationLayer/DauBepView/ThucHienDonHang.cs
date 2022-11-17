@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestaurantManagement.PresentationLayer.StaffView;
 
 namespace RestaurantManagement.PresentationLayer.DauBepView
 {
@@ -71,6 +72,12 @@ namespace RestaurantManagement.PresentationLayer.DauBepView
             {
                 MessageBox.Show("Lỗi", error);
             }
+        }
+
+        private void btnDangKyCaTruc_Click(object sender, EventArgs e)
+        {
+            frmDangKyCaTruc dangKyCaTruc = new frmDangKyCaTruc(maDauBepThucHien);
+            dangKyCaTruc.Show();
         }
     }
 }

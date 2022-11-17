@@ -1,6 +1,6 @@
 ﻿namespace RestaurantManagement.PresentationLayer.StaffView
 {
-    partial class DangKyCaTruc
+    partial class frmDangKyCaTruc
     {
         /// <summary>
         /// Required designer variable.
@@ -45,13 +45,13 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.btnDangKy = new Guna.UI2.WinForms.Guna2Button();
             this.lblNgayKetThuc = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblNgayBatDau = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblMaCaTruc = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnDangKy = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaTruc)).BeginInit();
             this.guna2GroupBox2.SuspendLayout();
@@ -297,6 +297,23 @@
             this.guna2GroupBox3.TabIndex = 4;
             this.guna2GroupBox3.Text = "Đăng ký ca trực";
             // 
+            // btnDangKy
+            // 
+            this.btnDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDangKy.BorderRadius = 15;
+            this.btnDangKy.CheckedState.Parent = this.btnDangKy;
+            this.btnDangKy.CustomImages.Parent = this.btnDangKy;
+            this.btnDangKy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDangKy.ForeColor = System.Drawing.Color.White;
+            this.btnDangKy.HoverState.Parent = this.btnDangKy;
+            this.btnDangKy.Location = new System.Drawing.Point(862, 211);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.ShadowDecoration.Parent = this.btnDangKy;
+            this.btnDangKy.Size = new System.Drawing.Size(180, 45);
+            this.btnDangKy.TabIndex = 8;
+            this.btnDangKy.Text = "Đăng ký";
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
+            // 
             // lblNgayKetThuc
             // 
             this.lblNgayKetThuc.BackColor = System.Drawing.Color.Transparent;
@@ -357,24 +374,7 @@
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Ngày bắt đầu:";
             // 
-            // btnDangKy
-            // 
-            this.btnDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDangKy.BorderRadius = 15;
-            this.btnDangKy.CheckedState.Parent = this.btnDangKy;
-            this.btnDangKy.CustomImages.Parent = this.btnDangKy;
-            this.btnDangKy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDangKy.ForeColor = System.Drawing.Color.White;
-            this.btnDangKy.HoverState.Parent = this.btnDangKy;
-            this.btnDangKy.Location = new System.Drawing.Point(862, 211);
-            this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.ShadowDecoration.Parent = this.btnDangKy;
-            this.btnDangKy.Size = new System.Drawing.Size(180, 45);
-            this.btnDangKy.TabIndex = 8;
-            this.btnDangKy.Text = "Đăng ký";
-            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
-            // 
-            // DangKyCaTruc
+            // frmDangKyCaTruc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -382,8 +382,7 @@
             this.Controls.Add(this.guna2GroupBox3);
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2GroupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DangKyCaTruc";
+            this.Name = "frmDangKyCaTruc";
             this.Text = "DangKyCaTruc";
             this.Resize += new System.EventHandler(this.DangKyCaTruc_Resize);
             this.guna2GroupBox1.ResumeLayout(false);
