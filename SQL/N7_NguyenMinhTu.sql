@@ -836,6 +836,19 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER triggerDangKyCaTruc ON dbo.DangKyCaTruc
+FOR INSERT AS
+BEGIN
+    DECLARE @maNhanVien CHAR(10)
+	DECLARE @maCaTruc CHAR(10)
+
+	SELECT @maNhanVien=Ins.maNhanVien, @maCaTruc=Ins.maCaTruc FROM Inserted Ins
+
+	INSERT INTO dbo.Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
+	VALUES(@maNhanVien, @maCaTruc, 0, 0)
+END
+GO
+
 -- Lấy giá tiền của một món ăn từ mã món ăn
 CREATE FUNCTION fnGiaTienMonAn(@maMonAn CHAR(10))
 RETURNS FLOAT AS
