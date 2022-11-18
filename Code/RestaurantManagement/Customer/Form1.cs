@@ -102,5 +102,19 @@ namespace Customer
                 cbBan.Text = "";
             }
         }
+
+        private void frmDatTruoc_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void frmDatTruoc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                return;
+
+            e.Cancel = true;
+        }
     }
 }
