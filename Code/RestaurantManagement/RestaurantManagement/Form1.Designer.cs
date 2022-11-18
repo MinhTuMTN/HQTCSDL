@@ -57,7 +57,7 @@ namespace RestaurantManagement
             this.panel1.Controls.Add(this.lblWelcome);
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(317, 43);
+            this.panel1.Location = new System.Drawing.Point(266, 37);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(511, 752);
             this.panel1.TabIndex = 1;
@@ -131,6 +131,7 @@ namespace RestaurantManagement
             this.txtPass.ShadowDecoration.Parent = this.txtPass;
             this.txtPass.Size = new System.Drawing.Size(468, 44);
             this.txtPass.TabIndex = 8;
+            this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // txtUser
             // 
@@ -161,6 +162,7 @@ namespace RestaurantManagement
             this.txtUser.ShadowDecoration.Parent = this.txtUser;
             this.txtUser.Size = new System.Drawing.Size(468, 44);
             this.txtUser.TabIndex = 7;
+            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // pictureBox2
             // 

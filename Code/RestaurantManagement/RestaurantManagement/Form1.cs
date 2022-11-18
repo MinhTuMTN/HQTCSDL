@@ -16,6 +16,7 @@ using RestaurantManagement.PresentationLayer.ThuNganView;
 using RestaurantManagement.PresentationLayer.StaffView;
 using RestaurantManagement.PresentationLayer.DauBepView;
 using RestaurantManagement.Properties;
+using Guna.UI2.WinForms;
 
 namespace RestaurantManagement
 {
@@ -74,6 +75,23 @@ namespace RestaurantManagement
             else
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             
+        }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            Guna2TextBox textBox = (Guna2TextBox)sender;
+            if (e.KeyCode == Keys.Enter)
+            {
+                switch(textBox.Name)
+                {
+                    case "txtUser":
+                        txtPass.Focus();
+                        break;
+                    case "txtPass":
+                        btnDangNhap_Click(null, null);
+                        break;
+                }
+            }
         }
     }
 }
