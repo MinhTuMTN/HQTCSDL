@@ -1235,6 +1235,7 @@ RETURN
 GO
 
 --- Thực hiện phân quyền
+-- Tạo ra các role
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
 EXEC sys.sp_addrole @rolename = 'NhanVienRole'
 EXEC sys.sp_addrole @rolename = 'ThuNganRole'
@@ -1321,25 +1322,28 @@ BEGIN
 	WHERE N.maNhanVien = T.maNhanVien AND T.maNhanVien = @maNhanVien
 
 	DECLARE @t nvarchar(4000)
-	IF NOT EXISTS 
-    (SELECT name  
-     FROM master.sys.server_principals
-     WHERE name = @tenDangNhap)
-	SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
-	EXEC(@t)
+	IF NOT EXISTS (SELECT name  FROM master.sys.server_principals WHERE name = @tenDangNhap)
+		BEGIN
+			SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
+			EXEC(@t)
+		END		
 
-	SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
-	EXEC(@t)
+	IF NOT EXISTS (SELECT name FROM QuanLyNhaHang.sys.sysusers WHERE name = @tenDangNhap)
+		BEGIN
+		    SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
+			EXEC(@t)
+		END
+		
 
 	IF (@loaiNhanVien = N'Quản Lý')
 	    EXEC sys.sp_addrolemember @rolename = QuanLyRole,  -- sysname
-                          @membername = @tenDangNhap -- sysname
+								  @membername = @tenDangNhap -- sysname
     ELSE IF (@loaiNhanVien = N'Thu Ngân')
 		EXEC sys.sp_addrolemember @rolename = ThuNganRole,  -- sysname
-                          @membername = @tenDangNhap -- sysname
+								  @membername = @tenDangNhap -- sysname
 	ELSE IF (@loaiNhanVien = N'Phục Vụ')
 		EXEC sys.sp_addrolemember @rolename = PhucVuRole,  -- sysname
-                          @membername = @tenDangNhap -- sysname
+								  @membername = @tenDangNhap -- sysname
 	ELSE IF (@loaiNhanVien = N'Đầu bếp')
 		EXEC sys.sp_addrolemember @rolename = DauBepRole,  -- sysname
 		                          @membername = @tenDangNhap -- sysname
