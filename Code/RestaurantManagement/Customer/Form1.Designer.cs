@@ -490,6 +490,8 @@
             this.MinimizeBox = false;
             this.Name = "frmDatTruoc";
             this.Text = "The Moon Restaurant";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDatTruoc_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDatTruoc_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
