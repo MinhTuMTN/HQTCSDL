@@ -1682,17 +1682,6 @@ VALUES
 ('HD5', '10006', 1), ('HD5', '10004', 1), ('HD5', '10014', 1), ('HD5', '10012', 1), ('HD5', '10010', 1)
 GO
 
-insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
-values ('NV110001', 'CT1001', 0, 1200000 )
-	, ('NV220111', 'CT1001', 1, 760000)
-	, ('NV220111', 'CT1003', 0, 760000)
-	, ('NV330101', 'CT1001', 2, 330000)
-	, ('NV330101', 'CT1002', 0, 660000)
-	, ('NV330101', 'CT1003', 0, 660000)
-	, ('NV440123', 'CT1001', 0, 810000)
-	, ('NV440123', 'CT1003', 1, 270000)
-GO
-
 IF NOT EXISTS 
     (SELECT name  
      FROM master.sys.server_principals
