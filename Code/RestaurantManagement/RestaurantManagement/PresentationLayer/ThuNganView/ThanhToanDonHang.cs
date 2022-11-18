@@ -18,6 +18,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         BusinessTiepNhan tiepNhan = new BusinessTiepNhan();
         private string maBan;
         private string maNhanVienThuNgan;
+        private string maDatTruocHuy;
 
         public frmMainThuNgan(string maNhanVienThuNgan)
         {
@@ -226,19 +227,19 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             int row = e.RowIndex;
             if (row < 0)
                 return;
-            lblHoTen.Text = dgvHuyDatTruoc.Rows[row].Cells[0].Value.ToString();
-            lblNgaySinh.Text = ((DateTime)(dgvHuyDatTruoc.Rows[row].Cells[1].Value)).ToString("dd/MM/yyyy");
-            lblSDT.Text = dgvHuyDatTruoc.Rows[row].Cells[2].Value.ToString();
-            lblSoBan.Text = dgvHuyDatTruoc.Rows[row].Cells[3].Value.ToString();
-            lblSoLuongNguoi.Text = dgvHuyDatTruoc.Rows[row].Cells[4].Value.ToString();
-            lblThoiGianDatTruoc.Text = dgvHuyDatTruoc.Rows[row].Cells[5].Value.ToString();
-            lblMaDatTruoc.Text = dgvHuyDatTruoc.Rows[row].Cells[6].Value.ToString();
+            lblMaKHDT.Text = dgvHuyDatTruoc.Rows[row].Cells[0].Value.ToString();
+            lblNgaySinhDT.Text = ((DateTime)(dgvHuyDatTruoc.Rows[row].Cells[1].Value)).ToString("dd/MM/yyyy");
+            lblSDTDT.Text = dgvHuyDatTruoc.Rows[row].Cells[2].Value.ToString();
+            lblSoBanDT.Text = dgvHuyDatTruoc.Rows[row].Cells[3].Value.ToString();
+            lblSoNguoiDT.Text = dgvHuyDatTruoc.Rows[row].Cells[4].Value.ToString();
+            lblThoiGianDTDT.Text = dgvHuyDatTruoc.Rows[row].Cells[5].Value.ToString();
+            maDatTruocHuy = dgvHuyDatTruoc.Rows[row].Cells[6].Value.ToString().Trim();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             string error = "";
-            string maDatTruoc = lblMaDatTruoc.Text;
+            string maDatTruoc = maDatTruocHuy;
             tiepNhan.HuyDatTruoc(maDatTruoc, maNhanVienThuNgan, ref error);
             MessageBox.Show("Hủy thành công đơn đặt trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmMainThuNgan_Load(null, null);
