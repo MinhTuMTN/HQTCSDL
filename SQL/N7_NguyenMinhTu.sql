@@ -350,13 +350,6 @@ AS BEGIN
            )
    END
  GO
- 
-CREATE PROCEDURE spInsertLuong @maNhanVien char(10), @maCaTruc char(10), @soNgayNghi int, @tongLuong float
-AS BEGIN
-		INSERT INTO dbo.Luong
-		VALUES (@maNhanVien, @maCaTruc, @soNgayNghi, @tongLuong)
-	END
-GO
 
 CREATE PROCEDURE spInsertMonAn @maMonAn char(10), @tenMonAn nvarchar(150), @giaTien float, @hinhAnh varchar(150)
 AS BEGIN
@@ -523,23 +516,6 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateDatTruoc(
-	@maDatTruoc CHAR(10),
-	@trangThaiDatTruoc NVARCHAR(20),
-	@thoiGianCheckIn DATETIME,
-	@thoiGianDatTruoc DATETIME,
-	@soLuongNguoi INT,
-	@maKhachHang CHAR(10),
-	@maBan CHAR(10),
-	@maNhanVienTiepNhan CHAR(10)
-)
-AS
-BEGIN
-    UPDATE dbo.DatTruoc SET trangThaiDatTruoc=@trangThaiDatTruoc, thoiGianCheckIn=@thoiGianCheckIn, thoiGianDatTruoc=@thoiGianDatTruoc, soLuongNguoi=@soLuongNguoi, maKhachHang=@maKhachHang, maBan=@maBan, maNhanVienTiepNhan=@maNhanVienTiepNhan
-	WHERE maDatTruoc=@maDatTruoc
-END
-GO
-
 CREATE PROC spUpdateCoupon(
 	@maCoupon CHAR(10),
 	@ngayBatDau DATE,
@@ -572,24 +548,6 @@ BEGIN
 END
 GO
 
-CREATE PROC spUpdateDonHang(
-	@maDonHang CHAR(10),
-	@thoiGianCheckIn DATETIME,
-	@phuThu FLOAT,
-	@maCoupon CHAR(10),
-	@maBan CHAR(10),
-	@maKhachHang CHAR(10),
-	@maDauBep CHAR(10),
-	@maNhanVienPhucVu CHAR(10),
-	@maNhanVienThuNgan CHAR(10)
-)
-AS
-BEGIN
-    UPDATE dbo.DonHang SET thoiGianCheckIn=@thoiGianCheckIn, phuThu=@phuThu, maCoupon=@maCoupon, maBan=@maBan, maKhachHang=@maKhachHang, maNhanVienPhucVu=@maNhanVienPhucVu, maDauBep=@maDauBep, maNhanVienThuNgan=@maNhanVienThuNgan
-	WHERE maDonHang=@maDonHang
-
-END
-GO
 
 CREATE PROC spUpdateMonAn(
 	@maMonAn CHAR(10),
@@ -642,18 +600,6 @@ END
 GO
 
 -- Tạo views
-CREATE VIEW viewNhanVienDangKyCaTruc -- Thông tin các nhân viên đăng ký các ca trực
-AS SELECT NhanVien.maNhanVien, CaTruc.maCaTruc, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien
-FROM dbo.NhanVien, dbo.DangKyCaTruc, dbo.CaTruc
-WHERE DangKyCaTruc.maNhanVien = NhanVien.maNhanVien AND CaTruc.maCaTruc = DangKyCaTruc.maCaTruc
-GO
-
-CREATE VIEW viewMonAnDuocPhucVu -- Thông tin các món ăn được phục vụ
-AS SELECT maKhachHang, hinhAnh, tenMonAn, soLuong, maCoupon, maBan, maDauBep, maNhanVienPhucVu, maNhanVienThuNgan, thoiGianCheckIn
-FROM dbo.MonAn, dbo.ChiTietDonHang, dbo.DonHang
-WHERE ChiTietDonHang.maDonHang = DonHang.maDonHang AND ChiTietDonHang.maMonAn = MonAn.maMonAn
-GO
-
 CREATE VIEW viewLuongNhanVien -- Thông tin về lương của các nhân viên
 AS SELECT CaTruc.maCaTruc, Luong.maNhanVien , hoTen, heSoLuong, loaiNhanVien, soNgayNghi, ngayBatDau, ngayKetThuc, tongLuong
 FROM dbo.Luong, dbo.CaTruc, dbo.NhanVien
@@ -708,6 +654,7 @@ RETURN (
 )
 GO
 
+--- Search món ăn ở chi tiết đơn hàng (phục vụ + đầu bếp)
 CREATE FUNCTION fnSearchMonAnTrongDonHang (@text NVARCHAR(150), @maDonHang CHAR(10))
 RETURNS TABLE AS
 RETURN (
@@ -716,6 +663,7 @@ RETURN (
 )
 GO
 
+-- Search món ăn ở form quản lý món ăn (quản lý)
 CREATE FUNCTION fnSearchMonAn(@text NVARCHAR(150))
 RETURNS TABLE
 AS RETURN(
@@ -725,6 +673,7 @@ AS RETURN(
 )
 GO
 
+-- Search Ca trực bằng ngày ở quản lý ca trực (quản lý)
 CREATE FUNCTION fnSearchCaTrucByDate(@date DATE)
 RETURNS TABLE AS
 RETURN(
@@ -757,6 +706,8 @@ RETURN(
 )
 GO
 
+-- Search tài khoản theo mã nhân viên hoặc họ tên hoặc tên đăng nhập 
+-- Ở form quản lý tài khoản (quản lý)
 CREATE FUNCTION fnSearchTaiKhoan (@text NVARCHAR(150))
 RETURNS TABLE AS
 RETURN(
@@ -783,6 +734,7 @@ RETURN (
 )
 GO
 
+-- Lương tạm tính trong Report trả lương (quản lý)
 CREATE FUNCTION fnTinhLuongTamTinh(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -799,6 +751,7 @@ BEGIN
 END
 GO
 
+-- Tính lương được gọi ở triggerUpdateLuong
 CREATE FUNCTION fnTinhLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -822,6 +775,9 @@ BEGIN
 END
 GO
 
+-- trigger thực hiện update tổng lương 
+-- khi nhân viên đăng ký ca trực sẽ insert vào lương nhờ triggerDangKyCaTruc
+-- hoặc khi quản lý chỉnh sửa số ngày nghỉ
 CREATE TRIGGER triggerUpdateLuong ON dbo.Luong
 FOR INSERT, UPDATE AS
 BEGIN
@@ -850,6 +806,7 @@ END
 GO
 
 -- Lấy giá tiền của một món ăn từ mã món ăn
+-- Được gọi ở fnTinhTamThu
 CREATE FUNCTION fnGiaTienMonAn(@maMonAn CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -863,6 +820,7 @@ GO
 
 
 --Bao gồm món ăn
+-- Được gọi ở fnTinhTienDonHang
 CREATE FUNCTION fnTinhTamThu(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -878,6 +836,7 @@ END
 GO
 
 -- Thực hiện tính toán tiền giảm khi mã coupon được cập nhật
+-- ĐƯợc gọi ở fnTinhTienDonHang
 CREATE FUNCTION fnTinhTienGiam(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -917,6 +876,7 @@ END
 GO
 
 -- Hàm thực hiện tính tổng của một đơn hàng
+-- ĐƯợc gọi trong triggerApDungCoupon(Thu ngân) và triggerUpdateChiTietDonHang(Phục vụ)
 CREATE FUNCTION fnTinhTienDonHang(@maDonHang CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -983,6 +943,8 @@ BEGIN
 END
 GO
 
+
+-- Report hoá đơn lương của nhân viên
 CREATE FUNCTION fnDetailLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
 RETURNS TABLE AS
 RETURN(
@@ -991,6 +953,8 @@ RETURN(
 )
 GO 
 
+-- Thống kê toàn bộ lương đã chi trả trong một khoảng thời gian
+-- Form thống kê (quản lý)
 CREATE FUNCTION fnThongKeLuong (@ngayBD DATE, @ngayKT DATE)
 RETURNS TABLE AS
 RETURN(
@@ -999,6 +963,7 @@ RETURN(
 )
 GO
 
+-- Thống kê doanh thu theo bàn
 CREATE FUNCTION fnThongKeDoanhThuTheoBan(@ngayBD DATE, @ngayKT DATE)
 RETURNS TABLE AS
 RETURN(
@@ -1008,6 +973,8 @@ RETURN(
 )
 GO
 
+-- Thống kê món ăn nào bán chạy nhất
+-- Thống kê (quản lý)
 CREATE FUNCTION fnThongKeMonAnBanChay(@ngayBD DATE, @ngayKT DATE)
 RETURNS TABLE AS
 RETURN (
@@ -1020,6 +987,7 @@ RETURN (
 GO
 
 -- Hàm lấy tất cả các chi tiết hóa đơn dựa trên mã bàn
+-- ThanhToan(Thu ngân)
 CREATE FUNCTION fnSearchChiTietHoaDonById(@maBan CHAR(10))
 RETURNS TABLE AS
 RETURN(
@@ -1030,6 +998,7 @@ RETURN(
 GO
 
 -- Hàm lấy phụ thu từ đơn hàng dựa trên mã bàn
+-- Thanh toán (thu ngân)
 CREATE FUNCTION fnGetPhuThu(@maBan CHAR(10))
 RETURNS FLOAT AS
 BEGIN
@@ -1095,6 +1064,7 @@ AS BEGIN
    END
 GO
 
+-- Hàm lấy ra danh sách những đơn đặt trước cần chờ xác nhận(Thu ngân - Tiếp nhận)
 CREATE FUNCTION fnLayDanhSachTiepNhan()
 RETURNS TABLE AS
 RETURN(
@@ -1103,6 +1073,7 @@ RETURN(
 	)
 GO
 
+-- Lấy ra các danh sách đơn đặt trước đã xác nhận (Thu ngân - Huỷ)
 CREATE FUNCTION fnLayDanhSachDaTiepNhan()
 RETURNS TABLE AS
 RETURN(
@@ -1111,6 +1082,7 @@ RETURN(
 	)
 GO
 
+-- Danh sách những món ăn chưa có trong đơn hàng(Phục vụ - Chi tiết đơn hàng)
 CREATE FUNCTION fnLayDanhSachMonAnChuaCo (@maDonHang CHAR(10))
 RETURNS TABLE AS
 RETURN (
@@ -1157,6 +1129,8 @@ AS
 	END
 GO
 
+-- Lấy thông tin của nhân viên từ tên đăng nhập
+-- Form Đăng nhập
 CREATE PROCEDURE spGetNhanVienByTaiKhoan(@tenDangNhap varchar(50), @matKhau varchar(50))
 AS
 BEGIN
@@ -1165,6 +1139,8 @@ BEGIN
 END
 GO
 
+-- Tạo một mã khách hàng mới nếu sdt chưa tồn tại
+-- Nếu đã tồn tại số điện thoại thì trả về mã kh cũ
 CREATE FUNCTION fnTaoMaKhachHang(@soDienThoai CHAR(10))
 RETURNS @result TABLE(maKhachHang CHAR(10), khachHangMoi BIT) AS
 BEGIN
@@ -1199,6 +1175,7 @@ BEGIN
 END
 GO
 
+-- Khách hàng tạo một đơn đặt trước
 CREATE PROCEDURE spTaoDatTruoc(@thoiGianCheckIn DATETIME,
 								@thoiGianDatTruoc DATETIME,
 								@soLuongNguoi INT,
@@ -1226,7 +1203,7 @@ BEGIN
 END
 GO
 
-
+-- Lấy danh sách các ca trực mà nhân viên có thể đăng ký
 CREATE FUNCTION fnGetCaTrucDK(@maNhanVien CHAR(10))
 RETURNS TABLE AS
 RETURN
@@ -1238,6 +1215,7 @@ RETURN
 )
 GO
 
+-- Danh sách các ca trực đã đăng ký và chưa tới ngày trực
 CREATE FUNCTION fnGetCaTrucDaDK(@maNhanVien CHAR(10))
 RETURNS TABLE AS
 RETURN
