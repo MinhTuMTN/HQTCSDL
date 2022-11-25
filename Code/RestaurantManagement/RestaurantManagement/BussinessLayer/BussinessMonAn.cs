@@ -51,5 +51,14 @@ namespace RestaurantManagement.BussinessLayer
             };
             return connection.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameters);
         }
+
+        public DataTable FindMonAn(string text, ref string error)
+        {
+            DataTable results = new DataTable();
+            string cmd = "SELECT * FROM dbo.fnSearchMonAn(@text)";
+            SqlParameter parameter = new SqlParameter("@text", text);
+            results = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, parameter);
+            return results;
+        }
     }
 }

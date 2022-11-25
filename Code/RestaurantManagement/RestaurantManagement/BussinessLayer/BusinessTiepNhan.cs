@@ -21,6 +21,14 @@ namespace RestaurantManagement.BussinessLayer
             return result;
         }
 
+        public DataTable GetAllDaTiepNhan(ref string error)
+        {
+            DataTable result = new DataTable();
+            string cmd = "SELECT * FROM dbo.fnLayDanhSachDaTiepNhan()";
+            result = conn.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
+            return result;
+        }
+
         public void ChapNhanDatTruoc(string maDatTruoc, string maNhanVien, ref string error)
         {
             string cmd = "spChapNhanDatTruoc";
@@ -32,6 +40,14 @@ namespace RestaurantManagement.BussinessLayer
         public void TuChoiDatTruoc(string maDatTruoc, string maNhanVien, ref string error)
         {
             string cmd = "spTuChoiDatTruoc";
+            SqlParameter parameter = new SqlParameter("@maDatTruoc", maDatTruoc);
+            SqlParameter parameter2 = new SqlParameter("@maNhanVien", maNhanVien);
+            conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameter, parameter2);
+        }
+
+        public void HuyDatTruoc(string maDatTruoc, string maNhanVien, ref string error)
+        {
+            string cmd = "spHuyDatTruoc";
             SqlParameter parameter = new SqlParameter("@maDatTruoc", maDatTruoc);
             SqlParameter parameter2 = new SqlParameter("@maNhanVien", maNhanVien);
             conn.MyExecuteNonQuery(cmd, CommandType.StoredProcedure, ref error, parameter, parameter2);

@@ -1,4 +1,5 @@
 ﻿using RestaurantManagement.BussinessLayer;
+using RestaurantManagement.PresentationLayer.StaffView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         BusinessTiepNhan tiepNhan = new BusinessTiepNhan();
         private string maBan;
         private string maNhanVienThuNgan;
+        private string maDatTruocHuy;
 
         public frmMainThuNgan(string maNhanVienThuNgan)
         {
@@ -26,6 +28,7 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
             lblMaDatTruoc.Visible = false;
             lblTongTienThanhToan.Text = "0đ";
             this.maNhanVienThuNgan = maNhanVienThuNgan;
+            dgvHuyDatTruoc.AutoGenerateColumns = false;
         }
 
         private void txtTimKiemThanhToan_TextChanged(object sender, EventArgs e)
@@ -145,11 +148,15 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         {
             string error = "";
             dgvTiepNhan.DataSource = tiepNhan.GetAllTiepNhan(ref error);
-            if (dgvTiepNhan.Rows.Count>0)
+            if (dgvTiepNhan.Rows.Count > 0)
             {
                 DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
                 dgvTiepNhan_CellClick(sender, ev);
-            }    
+            }
+
+            dgvHuyDatTruoc.DataSource = tiepNhan.GetAllDaTiepNhan(ref error);
+            if (dgvHuyDatTruoc.Rows.Count > 0)
+                dgvHuyDatTruoc_CellClick(sender, new DataGridViewCellEventArgs(0, 0));
         }
 
         private void dgvTiepNhan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -196,6 +203,46 @@ namespace RestaurantManagement.PresentationLayer.ThuNganView
         private void frmMainThuNgan_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tcMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tcMain.SelectedIndex == 3)
+            {
+                frmDangKyCaTruc target = new frmDangKyCaTruc(maNhanVienThuNgan);
+                target.FormBorderStyle = FormBorderStyle.None;
+                target.TopLevel = false;
+                target.Parent = tpDangKyCaTruc;
+
+                tpDangKyCaTruc.Controls.Clear();
+                tpDangKyCaTruc.Controls.Add(target);
+                target.Dock = DockStyle.Fill;
+
+                target.Show();
+            }
+        }
+
+        private void dgvHuyDatTruoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row < 0)
+                return;
+            lblMaKHDT.Text = dgvHuyDatTruoc.Rows[row].Cells[0].Value.ToString();
+            lblNgaySinhDT.Text = ((DateTime)(dgvHuyDatTruoc.Rows[row].Cells[1].Value)).ToString("dd/MM/yyyy");
+            lblSDTDT.Text = dgvHuyDatTruoc.Rows[row].Cells[2].Value.ToString();
+            lblSoBanDT.Text = dgvHuyDatTruoc.Rows[row].Cells[3].Value.ToString();
+            lblSoNguoiDT.Text = dgvHuyDatTruoc.Rows[row].Cells[4].Value.ToString();
+            lblThoiGianDTDT.Text = dgvHuyDatTruoc.Rows[row].Cells[5].Value.ToString();
+            maDatTruocHuy = dgvHuyDatTruoc.Rows[row].Cells[6].Value.ToString().Trim();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            string maDatTruoc = maDatTruocHuy;
+            tiepNhan.HuyDatTruoc(maDatTruoc, maNhanVienThuNgan, ref error);
+            MessageBox.Show("Hủy thành công đơn đặt trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmMainThuNgan_Load(null, null);
         }
     }
 }

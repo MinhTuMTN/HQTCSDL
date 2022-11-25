@@ -20,7 +20,7 @@ namespace RestaurantManagement.PresentationLayer.StaffView
 
         string imagesFolderPath = Path.GetDirectoryName(Application.ExecutablePath).Replace("bin\\Debug", "") + @"FoodImages\";
         
-        private string maDonHang = "";
+        private string maDonHang;
         private frmQuanLyBanHang owner;
 
         public frmChiTietDonHang(string maDonHang, frmQuanLyBanHang owner)
@@ -184,9 +184,10 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             numSoLuongMonAnTao.Value = 1;
         }
 
-        private void btnResetTao_Click(object sender, EventArgs e)
+        private void btnResetCapNhat_Click(object sender, EventArgs e)
         {
-            numSoLuongMonAnCapNhat.Value = 1;
+            numSoLuongMonAnCapNhat.Minimum = (int)dgvChiTietDonHang.CurrentRow.Cells["soLuong"].Value;
+            numSoLuongMonAnCapNhat.Value = (int)dgvChiTietDonHang.CurrentRow.Cells["soLuong"].Value;
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)

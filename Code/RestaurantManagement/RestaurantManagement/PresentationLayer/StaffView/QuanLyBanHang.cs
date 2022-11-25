@@ -111,7 +111,6 @@ namespace RestaurantManagement.PresentationLayer.StaffView
                 {
                     maKhachHang = businessKhachHang.CreateMaKhachHang(ref error);
                     ThemKhachHangThuong(maKhachHang);
-
                 }
                 HoaDon hoaDon = new HoaDon(maDonHang, thoiGianCheckIn, phuThu, maBan, maPhucVu, maDauBep, maKhachHang);
                 return hoaDon;
@@ -149,6 +148,9 @@ namespace RestaurantManagement.PresentationLayer.StaffView
 
         private void dgvDonHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             string maDonHang;
             maDonHang = dgvDonHang.CurrentRow.Cells["maDonHang"].Value.ToString();
 
@@ -189,6 +191,26 @@ namespace RestaurantManagement.PresentationLayer.StaffView
             {
                 MessageBox.Show("Lỗi", error);
             }
+        }
+
+        private void btnDangKyCaTruc_Click(object sender, EventArgs e)
+        {
+            frmDangKyCaTruc dangKyCaTruc = new frmDangKyCaTruc(maPhucVu);
+            dangKyCaTruc.Show();
+        }
+
+        private void frmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                return;
+
+            e.Cancel = true;
+        }
+
+        private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

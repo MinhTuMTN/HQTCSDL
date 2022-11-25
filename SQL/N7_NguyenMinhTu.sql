@@ -193,7 +193,7 @@ DECLARE @new FLOAT
 SELECT @new=ne.giaTien FROM Inserted ne
 IF (@new<0)
 BEGIN
-	PRINT(N'Giá tiền phải lớn hơn 0')
+	PRINT(N'Giá tiền phải lớn hơn hoặc bằng 0')
 	ROLLBACK;
 END
 GO
@@ -251,44 +251,77 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertDatTruoc(@maDatTruoc char(10), @trangThaiDatTruoc nvarchar(20), @thoiGianCheckIn datetime, @thoiGianDatTruoc datetime, @soLuongNguoi int, @maKhachHang char(10), @maBan char(10), @maNhanVienTiepNhan char(10))
+CREATE PROCEDURE spInsertDatTruoc(@maDatTruoc char(10), @thoiGianCheckIn datetime, @thoiGianDatTruoc datetime, @soLuongNguoi int, @maKhachHang char(10), @maBan char(10))
 AS BEGIN
 		INSERT INTO dbo.DatTruoc
-		VALUES (@maDatTruoc, @trangThaiDatTruoc, @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, @maNhanVienTiepNhan)
+		VALUES (@maDatTruoc, N'Chờ xác nhận', @thoiGianCheckIn, @thoiGianDatTruoc, @soLuongNguoi, @maKhachHang, @maBan, NULL)
 	END
 GO
-CREATE PROCEDURE spInsertDonHang(@maDonHang char(10), @thoiGianCheckIn datetime, @phuThu float, @maBan char(10), @maKhachHang char(10), @maDauBep char(10), @maNhanVienPhucVu char(10))
-AS BEGIN
+
+CREATE PROCEDURE spInsertDonHang
+(
+	@maDonHang char(10),
+	@thoiGianCheckIn datetime,
+	@phuThu float,
+	@maBan char(10),
+	@maKhachHang char(10),
+	@maDauBep char(10),
+	@maNhanVienPhucVu char(10)
+)
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+		IF(@maDonHang is NULL OR @maBan is NULL OR @maKhachHang is NULL OR @maDauBep is NULL OR @maNhanVienPhucVu is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
 		INSERT INTO dbo.DonHang
 		(
-		    maDonHang,
-		    thoiGianCheckIn,
-		    phuThu,
-		    maCoupon,
-		    soTienThanhToan,
-		    trangThaiDonHang,
-		    maBan,
-		    maKhachHang,
-		    maDauBep,
-		    maNhanVienPhucVu,
-		    maNhanVienThuNgan
+			maDonHang,
+			thoiGianCheckIn,
+			phuThu,
+			maCoupon,
+			soTienThanhToan,
+			trangThaiDonHang,
+			maBan,
+			maKhachHang,
+			maDauBep,
+			maNhanVienPhucVu,
+			maNhanVienThuNgan
 		)
 		VALUES
 		(   @maDonHang,        -- maDonHang - char(10)
-		    @thoiGianCheckIn, -- thoiGianCheckIn - datetime
-		    @phuThu,       -- phuThu - float
-		    NULL,        -- maCoupon - char(10)
-		    0.0,       -- soTienThanhToan - float
-		    N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
-		    @maBan,        -- maBan - char(10)
-		    @maKhachHang,        -- maKhachHang - char(10)
-		    @maDauBep,        -- maDauBep - char(10)
-		    @maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
-		    NULL         -- maNhanVienThuNgan - char(10)
-		    )
+			@thoiGianCheckIn, -- thoiGianCheckIn - datetime
+			@phuThu,       -- phuThu - float
+			NULL,        -- maCoupon - char(10)
+			0.0,       -- soTienThanhToan - float
+			N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
+			@maBan,        -- maBan - char(10)
+			@maKhachHang,        -- maKhachHang - char(10)
+			@maDauBep,        -- maDauBep - char(10)
+			@maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
+			NULL         -- maNhanVienThuNgan - char(10)
+			)
 
-		UPDATE dbo.Ban SET trangThaiBan=N'đang phục vụ'
+		UPDATE dbo.Ban SET trangThaiBan=N'Đang phục vụ'
 		WHERE maBan=@maBan
+
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã check-in'
+		WHERE maBan IN (SELECT maBan FROM dbo.DatTruoc
+						WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã xác nhận')
+
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	END CATCH
 END
 GO
 
@@ -299,6 +332,25 @@ AS BEGIN
 	END
 GO
 
+CREATE PROCEDURE spInsertKhachHangDatTruoc(
+	@maKhachHang CHAR(10),
+	@hoTen NVARCHAR(150),
+	@soDienThoai CHAR(10),
+	@ngaySinh DATE,
+	@gioiTinh BIT
+)
+AS BEGIN
+       INSERT INTO dbo.KhachHang
+       VALUES
+       (   @maKhachHang,        -- maKhachHang - char(10)
+           @hoTen,       -- hoTen - nvarchar(150)
+           @soDienThoai,        -- soDienThoai - char(10)
+           @ngaySinh, -- ngaySinh - date
+           @gioiTinh       -- gioiTinh - bit
+           )
+   END
+ GO
+ 
 CREATE PROCEDURE spInsertLuong @maNhanVien char(10), @maCaTruc char(10), @soNgayNghi int, @tongLuong float
 AS BEGIN
 		INSERT INTO dbo.Luong
@@ -330,188 +382,6 @@ AS BEGIN
 GO
 
 -- Stored Procedure tìm kiếm
--- Search procedure: tìm kiếm một đối tượng dựa theo khóa chính
-CREATE PROCEDURE spSearchNhanVien(@text CHAR(10))
-AS BEGIN
-    SELECT *
-	FROM dbo.NhanVien
-	WHERE hoTen LIKE @text OR maNhanVien LIKE @text
-END
-GO
-
-CREATE PROCEDURE spSearchBan(@maBan CHAR(10))
-AS BEGIN
-    SELECT *
-	FROM dbo.Ban
-	WHERE maBan = @maBan
-END
-GO
-
-CREATE PROCEDURE spSearchDonHang(@maDonHang CHAR(10))
-AS BEGIN
-    SELECT *
-	FROM dbo.DonHang
-	WHERE maDonHang = @maDonHang
-END
-GO
-
-CREATE PROCEDURE spSearchMonAn(@maMonAn CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.MonAn
-	   WHERE maMonAn = @maMonAn
-   END
-GO
-
-CREATE PROCEDURE spSearchCoupon(@maCoupon CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.Coupon
-	   WHERE maCoupon = @maCoupon
-   END
-GO
-
-CREATE PROCEDURE spSearchKhachHang(@maKhachHang CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.KhachHang
-	   WHERE maKhachHang = @maKhachHang
-   END
-GO
-
-CREATE PROCEDURE spSearchDatTruoc(@maDatTruoc CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.DatTruoc
-	   WHERE maDatTruoc = @maDatTruoc
-   END
-GO
-
-CREATE PROCEDURE spSearchCaTruc(@maCaTruc CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.CaTruc
-	   WHERE maCaTruc = @maCaTruc
-   END
-GO
-
-CREATE PROCEDURE spSearchTaiKhoan(@tenDangNhap VARCHAR(50))
-AS BEGIN
-       SELECT *
-	   FROM dbo.TaiKhoan
-	   WHERE tenDangNhap = @tenDangNhap
-   END
-GO
-
-CREATE PROCEDURE spSearchDangKyCaTruc(@maNhanVien CHAR(10), @maCatruc CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.DangKyCaTruc
-	   WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCatruc
-   END
-GO
-
-CREATE PROCEDURE spSearchLuong(@maNhanVien CHAR(10), @maCaTruc CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.Luong
-	   WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCaTruc
-   END
-GO
-
-CREATE PROCEDURE spSearchChiTietDonHang(@maDonHang CHAR(10), @maMonAn CHAR(10))
-AS BEGIN
-       SELECT *
-	   FROM dbo.ChiTietDonHang
-	   WHERE maDonHang = @maDonHang AND maMonAn = @maMonAn
-   END
-GO
-
--- Select procedure: in ra toàn bộ bảng
-CREATE PROCEDURE spSelectNhanVien
-AS BEGIN
-    SELECT *
-	FROM dbo.NhanVien
-END
-GO
-
-CREATE PROCEDURE spSelectBan
-AS BEGIN
-    SELECT *
-	FROM dbo.Ban
-END
-GO
-
-CREATE PROCEDURE spSelectDonHang
-AS BEGIN
-    SELECT *
-	FROM dbo.DonHang
-END
-GO
-
-CREATE PROCEDURE spSelectMonAn
-AS BEGIN
-       SELECT *
-	   FROM dbo.MonAn
-   END
-GO
-
-CREATE PROCEDURE spSelectCoupon
-AS BEGIN
-       SELECT *
-	   FROM dbo.Coupon
-   END
-GO
-
-CREATE PROCEDURE spSelectKhachHang
-AS BEGIN
-       SELECT *
-	   FROM dbo.KhachHang
-   END
-GO
-
-CREATE PROCEDURE spSelectDatTruoc
-AS BEGIN
-       SELECT *
-	   FROM dbo.DatTruoc
-   END
-GO
-
-CREATE PROCEDURE spSelectCaTruc
-AS BEGIN
-       SELECT *
-	   FROM dbo.CaTruc
-   END
-GO
-
-CREATE PROCEDURE spSelectTaiKhoan
-AS BEGIN
-       SELECT *
-	   FROM dbo.TaiKhoan
-   END
-GO
-
-CREATE PROCEDURE spSelectDangKyCaTruc
-AS BEGIN
-       SELECT *
-	   FROM dbo.DangKyCaTruc
-   END
-GO
-
-CREATE PROCEDURE spSelectLuong
-AS BEGIN
-       SELECT *
-	   FROM dbo.Luong
-   END
-GO
-
-CREATE PROCEDURE spSelectChiTietDonHang
-AS BEGIN
-       SELECT *
-	   FROM dbo.ChiTietDonHang
-   END
-GO
-
 -- Store Procedure Update
 CREATE PROC spUpdateNhanVien (
 	@maNhanVien CHAR(10),
@@ -525,8 +395,27 @@ CREATE PROC spUpdateNhanVien (
 )
 AS
 BEGIN
-	UPDATE dbo.NhanVien SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
-	WHERE maNhanVien=@maNhanVien
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maNhanVien is NULL OR @hoTen is NULL OR @ngaySinh is NULL OR @gioiTinh is NULL OR @diaChi is NULL OR @soDienThoai is NULL 
+		OR @heSoLuong is NULL OR @loaiNhanVien is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		UPDATE dbo.NhanVien
+		SET hoTen=@hoTen, ngaySinh=@ngaySinh, gioiTinh=@gioiTinh, diaChi=@diaChi,soDienThoai=@soDienThoai, heSoLuong=@heSoLuong, loaiNhanVien=@loaiNhanVien
+		WHERE maNhanVien=@maNhanVien
+
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	END CATCH
 END
 GO
 
@@ -537,8 +426,25 @@ CREATE PROC spUpdateCaTruc (
 )
 AS
 BEGIN
-    UPDATE dbo.CaTruc SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc 
-	WHERE maCaTruc=@maCaTruc
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maCaTruc is NULL OR @ngayBatDau is NULL OR @ngayKetThuc is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		UPDATE dbo.CaTruc SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc 
+		WHERE maCaTruc=@maCaTruc
+
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -549,8 +455,25 @@ CREATE PROC spUpdateTaiKhoan(
 )
 AS
 BEGIN
-    UPDATE dbo.TaiKhoan SET matKhau=@matKhau, trangThaiTaiKhoan=@trangThaiTaiKhoan 
-	WHERE tenDangNhap=@tenDangNhap
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@tenDangNhap is NULL OR @matKhau is NULL OR @trangThaiTaiKhoan is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		UPDATE dbo.TaiKhoan SET matKhau=@matKhau, trangThaiTaiKhoan=@trangThaiTaiKhoan 
+		WHERE tenDangNhap=@tenDangNhap
+
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -578,8 +501,25 @@ CREATE PROC spUpdateBan (
 )
 AS
 BEGIN
-    UPDATE dbo.Ban SET trangThaiBan=@trangThaiBan, loaiBan=@loaiBan, soLuongGheToiDa=@soLuongGheToiDa
-	WHERE maBan=@maBan
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maBan is NULL OR @trangThaiBan is NULL OR @loaiBan is NULL OR @soLuongGheToiDa is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		UPDATE dbo.Ban SET trangThaiBan=@trangThaiBan, loaiBan=@loaiBan, soLuongGheToiDa=@soLuongGheToiDa
+		WHERE maBan=@maBan
+
+		COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -610,8 +550,25 @@ CREATE PROC spUpdateCoupon(
 )
 AS
 BEGIN
-	UPDATE dbo.Coupon SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc, phanTramGiam=@phanTramGiam, giamToiDa=@giamToiDa, donToiThieu=@donToiThieu
-	WHERE maCoupon=@maCoupon
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maCoupon is NULL OR @ngayBatDau is NULL OR @ngayKetThuc is NULL OR @phanTramGiam is NULL OR @giamToiDa is NULL OR @donToiThieu is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		UPDATE dbo.Coupon SET ngayBatDau=@ngayBatDau, ngayKetThuc=@ngayKetThuc, phanTramGiam=@phanTramGiam, giamToiDa=@giamToiDa, donToiThieu=@donToiThieu
+		WHERE maCoupon=@maCoupon
+
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	END CATCH
 END
 GO
 
@@ -642,8 +599,25 @@ CREATE PROC spUpdateMonAn(
 )
 AS
 BEGIN
-    UPDATE dbo.MonAn SET tenMonAn=@tenMonAn, giaTien=@giaTien, hinhAnh=@hinhAnh
-	WHERE maMonAn=@maMonAn
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maMonAn is NULL OR @tenMonAn is NULL OR @giaTien is NULL OR @hinhAnh is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
+
+		UPDATE dbo.MonAn SET tenMonAn=@tenMonAn, giaTien=@giaTien, hinhAnh=@hinhAnh
+		WHERE maMonAn=@maMonAn
+
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
 END
 GO
 
@@ -726,14 +700,6 @@ RETURN (
 )
 GO
 
-CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
-RETURNS TABLE AS
-RETURN(
-	SELECT * FROM dbo.Coupon
-	WHERE maCoupon LIKE '%' + @maCoupon + '%'
-)
-GO
-
 CREATE FUNCTION fnSearchDonHang (@text NVARCHAR(150))
 RETURNS TABLE AS
 RETURN (
@@ -750,11 +716,44 @@ RETURN (
 )
 GO
 
+CREATE FUNCTION fnSearchMonAn(@text NVARCHAR(150))
+RETURNS TABLE
+AS RETURN(
+       SELECT *
+	   FROM dbo.MonAn
+	   WHERE maMonAn LIKE  '%' + @text + '%' OR tenMonAn LIKE '%' + @text + '%'
+)
+GO
+
+CREATE FUNCTION fnSearchCaTrucByDate(@date DATE)
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.CaTruc
+	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
+)
+GO
+
+CREATE FUNCTION fnSearchCaTrucByID(@maCaTruc NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.CaTruc
+	WHERE maCaTruc LIKE '%' + @maCaTruc + '%'
+)
+GO
+
 CREATE FUNCTION fnSearchCouponByDate(@date DATE)
 RETURNS TABLE AS
 RETURN(
 	SELECT * FROM dbo.Coupon
 	WHERE @date >= ngayBatDau AND @date <= ngayKetThuc
+)
+GO
+
+CREATE FUNCTION fnSearchCouponByID(@maCoupon NVARCHAR(10))
+RETURNS TABLE AS
+RETURN(
+	SELECT * FROM dbo.Coupon
+	WHERE maCoupon LIKE '%' + @maCoupon + '%'
 )
 GO
 
@@ -834,6 +833,19 @@ BEGIN
 	UPDATE dbo.Luong 
 	SET tongLuong = dbo.fnTinhLuong(@maNhanVien, @maCaTruc)
 	WHERE maNhanVien = @maNhanVien AND maCaTruc = @maCaTruc
+END
+GO
+
+CREATE TRIGGER triggerDangKyCaTruc ON dbo.DangKyCaTruc
+FOR INSERT AS
+BEGIN
+    DECLARE @maNhanVien CHAR(10)
+	DECLARE @maCaTruc CHAR(10)
+
+	SELECT @maNhanVien=Ins.maNhanVien, @maCaTruc=Ins.maCaTruc FROM Inserted Ins
+
+	INSERT INTO dbo.Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
+	VALUES(@maNhanVien, @maCaTruc, 0, 0)
 END
 GO
 
@@ -1032,23 +1044,41 @@ GO
 
 -- SP thực hiện khi nhân viên thu ngân thực hiện ấn nút Thanh toán hóa đơn cho khách
 CREATE PROCEDURE spThanhToan(@maBan CHAR(10), @maNhanVienThuNgan CHAR(10))
-AS BEGIN
-	-- Tìm mã đơn hàng từ mã bàn
-     DECLARE @maDonHang CHAR(10)	 
-	 SELECT @maDonHang = maDonHang FROM dbo.DonHang
-	 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
+AS
+BEGIN
+	SET XACT_ABORT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+		IF(@maBan is NULL OR @maNhanVienThuNgan is NULL)
+		BEGIN
+			ROLLBACK
+			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
+		END
 
-	 -- Cập nhật trạng thái đơn hàng thành Đã thanh toán
-	 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
-	 WHERE maDonHang = @maDonHang
+		-- Tìm mã đơn hàng từ mã bàn
+		 DECLARE @maDonHang CHAR(10)	 
+		 SELECT @maDonHang = maDonHang FROM dbo.DonHang
+		 WHERE maBan = @maBan AND trangThaiDonHang = N'Chưa thanh toán'
 
-	 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
-	 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
+		 -- Cập nhật trạng thái đơn hàng thành Đã thanh toán
+		 UPDATE dbo.DonHang SET maNhanVienThuNgan = @maNhanVienThuNgan, trangThaiDonHang = N'Đã thanh toán'
+		 WHERE maDonHang = @maDonHang
 
-	 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phc
-	 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
-	 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
-							WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
+		 -- Cập nhật trạng thái bàn từ Đang phục vụ chuyển sang Đang có sẵn
+		 UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn' WHERE maBan = @maBan
+
+		 -- Nếu đó là khách đặt trước thì tìm và chuyển sang trạng thái Đã phục vụ
+		 UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Đã phục vụ'
+		 WHERE maDatTruoc IN (SELECT maDatTruoc FROM dbo.DatTruoc
+								WHERE maBan = @maBan AND trangThaiDatTruoc = N'Đã check-in')
+
+		 COMMIT TRANSACTION
+	 END TRY
+	 BEGIN CATCH
+		IF(@@TRANCOUNT > 0)
+			ROLLBACK;
+		THROW
+	 END CATCH
    END
 GO
 
@@ -1070,6 +1100,14 @@ RETURNS TABLE AS
 RETURN(
 	SELECT hoTen, soDienThoai, ngaySinh, thoiGianDatTruoc, soLuongNguoi, maBan, maDatTruoc FROM dbo.DatTruoc, dbo.KhachHang
 	WHERE DatTruoc.maKhachHang = KhachHang.maKhachHang AND trangThaiDatTruoc = N'Chờ xác nhận'
+	)
+GO
+
+CREATE FUNCTION fnLayDanhSachDaTiepNhan()
+RETURNS TABLE AS
+RETURN(
+	SELECT hoTen, soDienThoai, ngaySinh, thoiGianDatTruoc, soLuongNguoi, maBan, maDatTruoc FROM dbo.DatTruoc, dbo.KhachHang
+	WHERE DatTruoc.maKhachHang = KhachHang.maKhachHang AND trangThaiDatTruoc = N'Đã xác nhận'
 	)
 GO
 
@@ -1097,6 +1135,21 @@ AS
 		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Chờ xác nhận'
 
 		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Từ chối', maNhanVienTiepNhan=@maNhanVien
+		WHERE maDatTruoc = @maDatTruoc
+
+		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
+		WHERE maBan=@maBan
+	END
+GO
+
+CREATE PROCEDURE spHuyDatTruoc(@maDatTruoc CHAR(10), @maNhanVien CHAR(10))
+AS
+	BEGIN
+	    DECLARE @maBan CHAR(10)
+		SELECT @maBan = maBan FROM dbo.DatTruoc 
+		WHERE maDatTruoc = @maDatTruoc AND trangThaiDatTruoc = N'Đã xác nhận'
+
+		UPDATE dbo.DatTruoc SET trangThaiDatTruoc = N'Bị hủy', maNhanVienTiepNhan=@maNhanVien
 		WHERE maDatTruoc = @maDatTruoc
 
 		UPDATE dbo.Ban SET trangThaiBan = N'Đang có sẵn'
@@ -1146,13 +1199,11 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE spTaoDatTruoc(@trangThaiDatTruoc nvarchar(20),
-								@thoiGianCheckIn DATETIME,
+CREATE PROCEDURE spTaoDatTruoc(@thoiGianCheckIn DATETIME,
 								@thoiGianDatTruoc DATETIME,
 								@soLuongNguoi INT,
 								@maKhachHang  char(10),
-								@maBan char(10),
-								@maNhanVienTiepNhan char(10))
+								@maBan char(10))
 AS
 BEGIN
     DECLARE @maDatTruocTao CHAR(10)
@@ -1164,37 +1215,61 @@ BEGIN
 	--DT11
 	SET @maDatTruocTao='DT' + CONVERT(CHAR(8), (CONVERT(INT, SUBSTRING(@maDatTruocMoiNhat, 3, LEN(@maDatTruocMoiNhat) - 2)) + 1))
 
-	EXEC dbo.spInsertDatTruoc @maDatTruoc = @maDatTruocTao,                          -- char(10)
-	                          @trangThaiDatTruoc = @trangThaiDatTruoc,                  -- nvarchar(20)
+	EXEC dbo.spInsertDatTruoc @maDatTruoc = @maDatTruocTao,                   -- nvarchar(20)
 	                          @thoiGianCheckIn = @thoiGianCheckIn,  -- datetime
-	                          @thoiGianDatTruoc = @trangThaiDatTruoc, -- datetime
+	                          @thoiGianDatTruoc = @thoiGianDatTruoc, -- datetime
 	                          @soLuongNguoi = @soLuongNguoi,                         -- int
 	                          @maKhachHang = @maKhachHang,                         -- char(10)
-	                          @maBan = @maBan,                               -- char(10)
-	                          @maNhanVienTiepNhan = @maNhanVienTiepNhan                   -- char(10)
+	                          @maBan = @maBan                               -- char(10)
 	
-	UPDATE dbo.Ban SET trangThaiBan=N'Đang chờ' WHERE maBan=@maBan	
+	UPDATE dbo.Ban SET trangThaiBan=N'Đã đặt trước' WHERE maBan=@maBan	
 END
 GO
 
+
+CREATE FUNCTION fnGetCaTrucDK(@maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN
+(
+	SELECT * FROM dbo.CaTruc C
+	WHERE C.ngayBatDau > GETDATE() AND maCaTruc NOT IN (SELECT maCaTruc FROM dbo.DangKyCaTruc
+														WHERE maCaTruc = C.maCaTruc AND maNhanVien = @maNhanVien)
+	ORDER BY ngayBatDau OFFSET 0 ROWS
+)
+GO
+
+CREATE FUNCTION fnGetCaTrucDaDK(@maNhanVien CHAR(10))
+RETURNS TABLE AS
+RETURN
+(
+	SELECT CT.* FROM dbo.DangKyCaTruc DK JOIN dbo.CaTruc CT ON CT.maCaTruc = DK.maCaTruc
+	WHERE CT.ngayBatDau > GETDATE() AND DK.maNhanVien = @maNhanVien
+)
+GO
+
 --- Thực hiện phân quyền
+-- Tạo ra các role
 EXEC sys.sp_addrole @rolename = 'QuanLyRole'
 EXEC sys.sp_addrole @rolename = 'NhanVienRole'
 EXEC sys.sp_addrole @rolename = 'ThuNganRole'
 EXEC sys.sp_addrole @rolename = 'PhucVuRole'
 EXEC sys.sp_addrole @rolename = 'KhachHangRole'
+EXEC sys.sp_addrole @rolename = 'DauBepRole'
 GO
 
 -- Khách hàng chỉ có thể tạo các đơn đặt trước
 GRANT EXECUTE ON dbo.spTaoDatTruoc TO KhachHangRole
+GRANT SELECT ON dbo.fnTaoMaKhachHang TO KhachHangRole
+GRANT EXECUTE ON dbo.spInsertKhachHangDatTruoc TO KhachHangRole
+GRANT SELECT ON dbo.Ban TO KhachHangRole
 GO
 
 -- Quản lý có toàn quyền(truy vấn) tất cả đối tượng trong CSDL
 GRANT EXECUTE, INSERT, SELECT, UPDATE, DELETE ON Database::QuanLyNhaHang TO QuanLyRole
-GRANT ALTER ON ROLE::QuanLyRole TO QuanLyRole
-GRANT ALTER ON ROLE::PhucVuRole TO QuanLyRole
 GRANT ALTER ON ROLE::NhanVienRole TO QuanLyRole
+GRANT ALTER ON ROLE::QuanLyRole TO QuanLyRole
 GRANT ALTER ON ROLE::ThuNganRole TO QuanLyRole
+GRANT ALTER ON ROLE::PhucVuRole TO QuanLyRole
 GO
 
 -- Cấp các quyền truy cập cần thiết cho Thu Ngân
@@ -1207,10 +1282,43 @@ GRANT EXECUTE ON dbo.fnTinhTienDonHangTheoMaBan TO ThuNganRole
 GRANT SELECT ON dbo.fnLayDanhSachTiepNhan TO ThuNganRole
 GRANT EXECUTE ON dbo.spChapNhanDatTruoc TO ThuNganRole
 GRANT EXECUTE ON dbo.spTuChoiDatTruoc TO ThuNganRole
+GRANT SELECT ON dbo.fnLayDanhSachDaTiepNhan TO ThuNganRole
+GRANT EXECUTE ON dbo.spHuyDatTruoc TO ThuNganRole
 GO
+
+-- Quyền cho nhân viên phục vụ
+GRANT SELECT ON dbo.DonHang TO PhucVuRole
+GRANT SELECT ON dbo.fnSearchDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spInsertKhachHang TO PhucVuRole
+GRANT SELECT ON dbo.NhanVien TO PhucVuRole
+GRANT SELECT ON dbo.DatTruoc TO PhucVuRole
+GRANT SELECT ON dbo.KhachHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spInsertDonHang TO PhucVuRole
+GRANT SELECT ON dbo.Ban TO PhucVuRole
+
+GRANT SELECT ON dbo.MonAn TO PhucVuRole
+GRANT SELECT ON dbo.ChiTietDonHang TO PhucVuRole
+GRANT SELECT ON dbo.fnLayDanhSachMonAnChuaCo TO PhucVuRole
+GRANT SELECT ON dbo.fnSearchMonAnTrongDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spInsertChiTietDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spUpdateChiTietDonHang TO PhucVuRole
+GRANT EXECUTE ON dbo.spUpdateTrangThaiDonHang TO PhucVuRole
+GO
+
+-- Quyền cho nhân viên đầu bếp
+GRANT SELECT ON dbo.fnLayDanhSachDonHangDauBep TO DauBepRole
+GRANT SELECT ON dbo.fnSearchDonHangDauBep TO DauBepRole
+GRANT SELECT ON dbo.ChiTietDonHang TO DauBepRole
+GRANT SELECT ON dbo.MonAn TO DauBepRole
+GRANT EXECUTE ON dbo.spUpdateTrangThaiDonHang TO DauBepRole
+GRANT SELECT ON dbo.fnSearchMonAnTrongDonHang TO DauBepRole
+
 
 -- Quyền của toàn bộ nhân viên
 GRANT EXECUTE ON dbo.spGetNhanVienByTaiKhoan TO NhanVienRole
+GRANT EXECUTE ON dbo.spInsertDangKyCaTruc TO NhanVienRole
+GRANT SELECT ON dbo.fnGetCaTrucDK TO NhanVienRole
+GRANT SELECT ON dbo.fnGetCaTrucDaDK TO NhanVienRole
 GO
 
 CREATE TRIGGER trigger_CreateUserDb ON dbo.TaiKhoan
@@ -1227,25 +1335,32 @@ BEGIN
 	WHERE N.maNhanVien = T.maNhanVien AND T.maNhanVien = @maNhanVien
 
 	DECLARE @t nvarchar(4000)
-	IF NOT EXISTS 
-    (SELECT name  
-     FROM master.sys.server_principals
-     WHERE name = @tenDangNhap)
-	SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
-	EXEC(@t)
+	IF NOT EXISTS (SELECT name  FROM master.sys.server_principals WHERE name = @tenDangNhap)
+		BEGIN
+			SET @t = N'CREATE LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@matKhau, '''') + ', default_database = QuanLyNhaHang'
+			EXEC(@t)
+		END		
 
-	SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
-	EXEC(@t)
+	IF NOT EXISTS (SELECT name FROM QuanLyNhaHang.sys.sysusers WHERE name = @tenDangNhap)
+		BEGIN
+		    SET @t = N'CREATE USER ' + QUOTENAME(@tenDangNhap) + ' FOR LOGIN ' + QUOTENAME(@tenDangNhap)
+			EXEC(@t)
+		END
+		
 
 	IF (@loaiNhanVien = N'Quản Lý')
 	    EXEC sys.sp_addrolemember @rolename = QuanLyRole,  -- sysname
-                          @membername = @tenDangNhap -- sysname
+								  @membername = @tenDangNhap -- sysname
     ELSE IF (@loaiNhanVien = N'Thu Ngân')
 		EXEC sys.sp_addrolemember @rolename = ThuNganRole,  -- sysname
-                          @membername = @tenDangNhap -- sysname
+								  @membername = @tenDangNhap -- sysname
 	ELSE IF (@loaiNhanVien = N'Phục Vụ')
 		EXEC sys.sp_addrolemember @rolename = PhucVuRole,  -- sysname
-                          @membername = @tenDangNhap -- sysname
+								  @membername = @tenDangNhap -- sysname
+	ELSE IF (@loaiNhanVien = N'Đầu bếp')
+		EXEC sys.sp_addrolemember @rolename = DauBepRole,  -- sysname
+		                          @membername = @tenDangNhap -- sysname
+		
 	EXEC sys.sp_addrolemember @rolename = NhanVienRole,  -- sysname
 	                     @membername = @tenDangNhap -- sysname		
 END
@@ -1316,6 +1431,8 @@ BEGIN
 		SET @myrolename='ThuNganRole'
 	ELSE IF (@oldPosition = N'Phục Vụ')
 		SET @myrolename='PhucVuRole'
+	ELSE IF (@oldPosition = N'Đầu bếp')
+		SET @myrolename='DauBepRole'
 	EXEC sys.sp_droprolemember @rolename = @myrolename,  -- sysname
 	                           @membername = @tenDangNhap -- sysname
 
@@ -1325,6 +1442,8 @@ BEGIN
 		SET @myrolename='ThuNganRole'
 	ELSE IF (@newPosition = N'Phục Vụ')
 		SET @myrolename='PhucVuRole'
+	ELSE IF (@newPosition = N'Đầu bếp')
+		SET @myrolename='DauBepRole'
 	EXEC sys.sp_addrolemember @rolename = @myrolename,  -- sysname
 	                     @membername = @tenDangNhap -- sysname	
 END
@@ -1369,7 +1488,7 @@ VALUES
     'NV110004'   -- maNhanVien - char(10)
     )
 GO
-	--------------------------------------------------------
+
 insert into NhanVien(maNhanVien, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, heSoLuong, loaiNhanVien)
 values ('NV110001', N'Trần Ngọc Tâm', '1990-01-01', 0, N'3 Phố Phúc, Xã Vương, Huyện 60 Ninh Thuận','0199178481', 400000, N'Quản Lý')
 	, ('NV110002', N'Phạm Phúc Hậu', '1991-03-30', 0, N'161, Thôn Liễu Thái, Phường 8, Quận Hạnh Quảng Bình', '0121585907', 400000, N'Quản Lý')
@@ -1397,71 +1516,116 @@ GO
 
 insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien)
 values ('tamtranngocql001','110001qltam', N'Đang hoạt động', 'NV110001')
-insert into TaiKhoan VALUES('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
-insert into TaiKhoan VALUES('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
-insert into TaiKhoan VALUES('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
-insert into TaiKhoan VALUES('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
-insert into TaiKhoan VALUES('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
-insert into TaiKhoan VALUES('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
-insert into TaiKhoan VALUES('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
-insert into TaiKhoan VALUES('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
-insert into TaiKhoan VALUES('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
-insert into TaiKhoan VALUES('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
-insert into TaiKhoan VALUES('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
-insert into TaiKhoan VALUES('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
-insert into TaiKhoan VALUES('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
-insert into TaiKhoan VALUES('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
-insert into TaiKhoan VALUES('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
-insert into TaiKhoan VALUES('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
-insert into TaiKhoan VALUES('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
-insert into TaiKhoan VALUES('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
-insert into TaiKhoan VALUES('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
-insert into TaiKhoan VALUES('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('hauphamphucql002', '110002qlhau', N'Đang hoạt động', 'NV110002')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('nganguyenphuongql003', '110003qlngan', N'Đang hoạt động', 'NV110003')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('dinhtruongquangdb111', '220111dbdinh', N'Đang hoạt động', 'NV220111')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('hoadotodb222', '220222dbhoa', N'Đang hoạt động', 'NV220222')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('minhbuicongdb333', '220333dbminh', N'Đang hoạt động', 'NV220333')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('macdaovandb444', '220444dbmac', N'Đang hoạt động', 'NV220444')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('lannguyenthingocdb555', '220555dbmac', N'Đang hoạt động', 'NV220555')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('huengocampv101', '330101pvhue', N'Đang hoạt động', 'NV330101')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('anhtranthienpv102', '330102pvanh', N'Đang hoạt động', 'NV330102')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('vinhdinhquangpv103', '330103pvvinh', N'Đang hoạt động', 'NV330103')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('hainguyentruongpv104', '330104pvhai', N'Đang hoạt động', 'NV330104')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('tiendangthicampv105', '330105pvtien', N'Đang hoạt động', 'NV330105')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('thuyphamhungpv106', '330106pvthuy', N'Đang hoạt động', 'NV330106')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('namlybacpv107', '330107pvnam', N'Đang hoạt động', 'NV330107')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('nhitrinhhoangyenpv108', '330108pvnhi', N'Đang hoạt động', 'NV330108')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('chauphanhoangpv109', '330109pvchau', N'Đang hoạt động', 'NV330109')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('phulaivanpv110', '330110pvphu', N'Đang hoạt động', 'NV330110')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('thitrantruongtn123', '440123tnthi', N'Đang hoạt động', 'NV440123')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('ngocmaibaotn456', '440456tnngoc', N'Đang hoạt động', 'NV440456')
+insert into TaiKhoan(tenDangNhap, matKhau, trangThaiTaiKhoan, maNhanVien) VALUES('ngandohongthaitn789', '440789tnngan', N'Đang hoạt động', 'NV440789')
 GO
 
 insert into CaTruc(maCaTruc, ngayBatDau, ngayKetThuc)
 values ('CT1001', '2022-09-26', '2022-09-28')
 	, ('CT1002', '2022-09-29', '2022-09-30')
 	, ('CT1003', '2022-10-01', '2022-10-02')
+INSERT INTO dbo.CaTruc
+(
+    maCaTruc,
+    ngayBatDau,
+    ngayKetThuc
+)
+VALUES
+(   'CT1004',        -- maCaTruc - char(10)
+    '20221201', -- ngayBatDau - date
+	'20221203'   -- ngayKetThuc - date
+    ),('CT1005', '20221204', '20221205'), ('CT1006', '20221206', '20221209')
 GO
 insert into DangKyCaTruc(maNhanVien, maCaTruc)
 values ('NV220111', 'CT1001')
-	, ('NV220222', 'CT1002')
-	, ('NV220333', 'CT1003')
-	, ('NV220444', 'CT1001')
-	, ('NV220555', 'CT1002')
-	, ('NV220111', 'CT1003')
-	, ('NV220222', 'CT1001')
-	, ('NV220333', 'CT1002')
-	, ('NV220444', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220222', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220333', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220444', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220555', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220111', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220222', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220333', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV220444', 'CT1003')
 
-	, ('NV330101', 'CT1001')
-	, ('NV330102', 'CT1002')
-	, ('NV330103', 'CT1003')
-	, ('NV330104', 'CT1001')
-	, ('NV330105', 'CT1002')
-	, ('NV330106', 'CT1003')
-	, ('NV330107', 'CT1001')
-	, ('NV330108', 'CT1002')
-	, ('NV330109', 'CT1003')
-	, ('NV330110', 'CT1001')
-	, ('NV330101', 'CT1002')
-	, ('NV330102', 'CT1003')
-	, ('NV330103', 'CT1001')
-	, ('NV330104', 'CT1002')
-	, ('NV330105', 'CT1003')
-	, ('NV330106', 'CT1001')
-	, ('NV330107', 'CT1002')
-	, ('NV330108', 'CT1003')
-	, ('NV330109', 'CT1001')
-	, ('NV330110', 'CT1002')
-	, ('NV330101', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330101', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330102', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330103', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330104', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330105', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330106', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330107', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330108', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330109', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330110', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330101', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330102', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330103', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330104', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330105', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330106', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330107', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330108', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330109', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330110', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV330101', 'CT1003')
 	
-	, ('NV440123', 'CT1001')
-	, ('NV440789', 'CT1003')
-	, ('NV440123', 'CT1003')
-	, ('NV440456', 'CT1002')
-	, ('NV440789', 'CT1001')	
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV440123', 'CT1001')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV440789', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV440123', 'CT1003')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV440456', 'CT1002')
+insert into DangKyCaTruc(maNhanVien, maCaTruc)
+values ('NV440789', 'CT1001')	
 GO
 
 insert into KhachHang(maKhachHang, hoTen, soDienThoai, ngaySinh, gioiTinh)
@@ -1552,12 +1716,21 @@ VALUES
 ('HD5', '10006', 1), ('HD5', '10004', 1), ('HD5', '10014', 1), ('HD5', '10012', 1), ('HD5', '10010', 1)
 GO
 
-insert into Luong(maNhanVien, maCaTruc, soNgayNghi, tongLuong)
-values ('NV110001', 'CT1001', 0, 1200000 )
-	, ('NV220111', 'CT1001', 1, 760000)
-	, ('NV220111', 'CT1003', 0, 760000)
-	, ('NV330101', 'CT1001', 2, 330000)
-	, ('NV330101', 'CT1002', 0, 660000)
-	, ('NV330101', 'CT1003', 0, 660000)
-	, ('NV440123', 'CT1001', 0, 810000)
-	, ('NV440123', 'CT1003', 1, 270000)
+IF NOT EXISTS 
+    (SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'KhachHang')
+	CREATE LOGIN KhachHang WITH PASSWORD='themoon'
+GO
+
+IF NOT EXISTS
+	(
+		SELECT name 
+		FROM QuanLyNhaHang.sys.sysusers
+		WHERE name = 'KhachHang'
+	)
+	CREATE USER KhachHang FOR LOGIN KhachHang
+GO
+
+EXEC sys.sp_addrolemember @rolename = KhachHangRole,  -- sysname
+                          @membername = KhachHang -- sysname

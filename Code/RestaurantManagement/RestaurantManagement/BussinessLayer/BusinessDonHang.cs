@@ -28,7 +28,7 @@ namespace RestaurantManagement.BussinessLayer
         public DataTable GetAllHoaDon(ref string error)
         {
             DataTable result = new DataTable();
-            string cmd = "SELECT* FROM dbo.DonHang";
+            string cmd = "SELECT * FROM dbo.DonHang WHERE trangThaiDonHang = N'Đang chuẩn bị' ";
             result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error);
             return result;
         }
@@ -36,7 +36,7 @@ namespace RestaurantManagement.BussinessLayer
         public DataTable GetHoaDonDauBep(string maDauBep, ref string error)
         {
             DataTable result = new DataTable();
-            string cmd = "SELECT* FROM dbo.fnLayDanhSachDonHangDauBep(@maDauBep)";
+            string cmd = "SELECT * FROM dbo.fnLayDanhSachDonHangDauBep(@maDauBep)";
             SqlParameter sqlParameter = new SqlParameter("@maDauBep", maDauBep);
             result = connection.MyExecuteQueryDataTable(cmd, CommandType.Text, ref error, sqlParameter);
             return result;

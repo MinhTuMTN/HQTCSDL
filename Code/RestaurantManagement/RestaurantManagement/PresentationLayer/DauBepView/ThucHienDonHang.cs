@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestaurantManagement.PresentationLayer.StaffView;
 
 namespace RestaurantManagement.PresentationLayer.DauBepView
 {
@@ -38,6 +39,9 @@ namespace RestaurantManagement.PresentationLayer.DauBepView
 
         private void dgvDonHangDauBep_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             string maDonHang;
             maDonHang = dgvDonHangDauBep.CurrentRow.Cells["maDonHang"].Value.ToString();
 
@@ -71,6 +75,25 @@ namespace RestaurantManagement.PresentationLayer.DauBepView
             {
                 MessageBox.Show("Lỗi", error);
             }
+        }
+
+        private void btnDangKyCaTruc_Click(object sender, EventArgs e)
+        {
+            frmDangKyCaTruc dangKyCaTruc = new frmDangKyCaTruc(maDauBepThucHien);
+            dangKyCaTruc.Show();
+        }
+        private void frmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                return;
+
+            e.Cancel = true;
+        }
+
+        private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

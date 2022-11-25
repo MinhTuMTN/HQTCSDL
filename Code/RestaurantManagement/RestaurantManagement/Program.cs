@@ -1,4 +1,4 @@
-﻿using RestaurantManagement.AdminController;
+using RestaurantManagement.AdminController;
 using RestaurantManagement.AsminController;
 using RestaurantManagement.BussinessLayer;
 using RestaurantManagement.DataAccessLayer;
@@ -27,8 +27,7 @@ namespace RestaurantManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmDangNhap());
-
-           
+            //Application.Run(new frmThucHienDonHang("NV220333"));
         }
     }
 }

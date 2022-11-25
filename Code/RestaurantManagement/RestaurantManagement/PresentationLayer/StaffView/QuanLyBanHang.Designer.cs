@@ -57,7 +57,7 @@
             this.maNhanVienPhucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maNhanVienThuNgan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearch = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.btnCaiDat = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnDangKyCaTruc = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -247,6 +247,7 @@
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.HoverState.Parent = this.btnThem;
+            this.btnThem.Image = global::RestaurantManagement.Properties.Resources.Food_Donor_100px;
             this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(30, 30);
             this.btnThem.Location = new System.Drawing.Point(1257, 81);
@@ -453,7 +454,7 @@
             this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txtSearch.BorderRadius = 20;
             this.txtSearch.BorderThickness = 3;
-            this.txtSearch.Controls.Add(this.btnCaiDat);
+            this.txtSearch.Controls.Add(this.btnDangKyCaTruc);
             this.txtSearch.Controls.Add(this.guna2GradientPanel1);
             this.txtSearch.Controls.Add(this.lblChucNang);
             this.txtSearch.Controls.Add(this.label1);
@@ -465,26 +466,29 @@
             this.txtSearch.Size = new System.Drawing.Size(1515, 85);
             this.txtSearch.TabIndex = 19;
             // 
-            // btnCaiDat
+            // btnDangKyCaTruc
             // 
-            this.btnCaiDat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCaiDat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCaiDat.CheckedState.Parent = this.btnCaiDat;
-            this.btnCaiDat.CustomImages.Parent = this.btnCaiDat;
-            this.btnCaiDat.FillColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnCaiDat.ForeColor = System.Drawing.Color.White;
-            this.btnCaiDat.HoverState.Parent = this.btnCaiDat;
-            this.btnCaiDat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.Image")));
-            this.btnCaiDat.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnCaiDat.Location = new System.Drawing.Point(1461, 25);
-            this.btnCaiDat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCaiDat.Name = "btnCaiDat";
-            this.btnCaiDat.PressedColor = System.Drawing.Color.Transparent;
-            this.btnCaiDat.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnCaiDat.ShadowDecoration.Parent = this.btnCaiDat;
-            this.btnCaiDat.Size = new System.Drawing.Size(43, 41);
-            this.btnCaiDat.TabIndex = 14;
+            this.btnDangKyCaTruc.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnDangKyCaTruc.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangKyCaTruc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDangKyCaTruc.CheckedState.Parent = this.btnDangKyCaTruc;
+            this.btnDangKyCaTruc.CustomImages.Parent = this.btnDangKyCaTruc;
+            this.btnDangKyCaTruc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(147)))), ((int)(((byte)(128)))));
+            this.btnDangKyCaTruc.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDangKyCaTruc.ForeColor = System.Drawing.Color.White;
+            this.btnDangKyCaTruc.HoverState.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDangKyCaTruc.HoverState.Parent = this.btnDangKyCaTruc;
+            this.btnDangKyCaTruc.ImageSize = new System.Drawing.Size(75, 75);
+            this.btnDangKyCaTruc.Location = new System.Drawing.Point(1426, 6);
+            this.btnDangKyCaTruc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDangKyCaTruc.Name = "btnDangKyCaTruc";
+            this.btnDangKyCaTruc.PressedColor = System.Drawing.Color.Salmon;
+            this.btnDangKyCaTruc.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnDangKyCaTruc.ShadowDecoration.Parent = this.btnDangKyCaTruc;
+            this.btnDangKyCaTruc.Size = new System.Drawing.Size(70, 71);
+            this.btnDangKyCaTruc.TabIndex = 14;
+            this.btnDangKyCaTruc.Text = "Đăng ký ca trực";
+            this.btnDangKyCaTruc.Click += new System.EventHandler(this.btnDangKyCaTruc_Click);
             // 
             // guna2GradientPanel1
             // 
@@ -494,7 +498,7 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(102)))), ((int)(((byte)(128)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(1299, 15);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(1261, 14);
             this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
@@ -580,7 +584,9 @@
             // 
             // pnQuanLyNhaHang
             // 
-            this.pnQuanLyNhaHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnQuanLyNhaHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnQuanLyNhaHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(25)))));
             this.pnQuanLyNhaHang.Controls.Add(this.gbThemDonHang);
             this.pnQuanLyNhaHang.Controls.Add(this.dgvDonHang);
@@ -606,6 +612,8 @@
             this.Name = "frmQuanLyBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Moon Restaurant - Quản lý nhà hàng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainMenu_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMainMenu_FormClosed);
             this.Load += new System.EventHandler(this.frmQuanLyBanHang_Load);
             this.gbThemDonHang.ResumeLayout(false);
             this.gbThemDonHang.PerformLayout();
@@ -625,7 +633,7 @@
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDonHang;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel txtSearch;
-        private Guna.UI2.WinForms.Guna2CircleButton btnCaiDat;
+        private Guna.UI2.WinForms.Guna2CircleButton btnDangKyCaTruc;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;

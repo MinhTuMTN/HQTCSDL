@@ -198,5 +198,26 @@ namespace RestaurantManagement.PresentationLayer.AdminView
                 MessageBox.Show("Vui lòng chọn hình ảnh của món ăn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtSearchMonAn_TextChanged(object sender, EventArgs e)
+        {
+            string error = "";
+            try
+            {
+                string text = txtSearchMonAn.Text.Trim();
+                dgvMonAn.DataSource = bussiness.FindMonAn(text, ref error);
+
+                if (dgvMonAn.RowCount > 0)
+                {
+                    DataGridViewCellEventArgs ev = new DataGridViewCellEventArgs(0, 0);
+                    dgvMonAn_CellClick(sender, ev);
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi", error);
+            }
+        }
     }
 }
