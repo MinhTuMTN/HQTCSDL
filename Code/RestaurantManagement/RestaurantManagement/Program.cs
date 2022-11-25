@@ -27,7 +27,7 @@ namespace RestaurantManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DangKyCaTruc());
+            Application.Run(new frmDangNhap());
 
            
         }

@@ -75,5 +75,10 @@ namespace RestaurantManagement
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             
         }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
