@@ -193,7 +193,7 @@ DECLARE @new FLOAT
 SELECT @new=ne.giaTien FROM Inserted ne
 IF (@new<0)
 BEGIN
-	PRINT(N'Giá tiền phải lớn hơn 0')
+	PRINT(N'Giá tiền phải lớn hơn hoặc bằng 0')
 	ROLLBACK;
 END
 GO
