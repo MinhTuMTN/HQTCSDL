@@ -258,16 +258,9 @@ AS BEGIN
 	END
 GO
 
-CREATE PROCEDURE spInsertDonHang
-(
-	@maDonHang char(10),
-	@thoiGianCheckIn datetime,
-	@phuThu float,
-	@maBan char(10),
-	@maKhachHang char(10),
-	@maDauBep char(10),
-	@maNhanVienPhucVu char(10)
-)
+CREATE PROCEDURE spInsertDonHang( @maDonHang char(10), @thoiGianCheckIn datetime,
+									@phuThu float, @maBan char(10), @maKhachHang char(10),
+									@maDauBep char(10), @maNhanVienPhucVu char(10))
 AS
 BEGIN
 	SET XACT_ABORT ON
@@ -280,34 +273,11 @@ BEGIN
 			RAISERROR(N'Thông tin chứa giá trị NULL', 16, 1)
 		END
 
-		INSERT INTO dbo.DonHang
-		(
-			maDonHang,
-			thoiGianCheckIn,
-			phuThu,
-			maCoupon,
-			soTienThanhToan,
-			trangThaiDonHang,
-			maBan,
-			maKhachHang,
-			maDauBep,
-			maNhanVienPhucVu,
-			maNhanVienThuNgan
-		)
+		INSERT INTO dbo.DonHang(maDonHang, thoiGianCheckIn, phuThu, maCoupon, soTienThanhToan, 
+								trangThaiDonHang, maBan, maKhachHang,maDauBep,maNhanVienPhucVu,maNhanVienThuNgan)
 		VALUES
-		(   @maDonHang,        -- maDonHang - char(10)
-			@thoiGianCheckIn, -- thoiGianCheckIn - datetime
-			@phuThu,       -- phuThu - float
-			NULL,        -- maCoupon - char(10)
-			0.0,       -- soTienThanhToan - float
-			N'Đang chuẩn bị',       -- trangThaiDonHang - nvarchar(50)
-			@maBan,        -- maBan - char(10)
-			@maKhachHang,        -- maKhachHang - char(10)
-			@maDauBep,        -- maDauBep - char(10)
-			@maNhanVienPhucVu,        -- maNhanVienPhucVu - char(10)
-			NULL         -- maNhanVienThuNgan - char(10)
-			)
-
+		(@maDonHang, @thoiGianCheckIn, @phuThu, NULL, 0.0, N'Đang chuẩn bị', @maBan, @maKhachHang, @maDauBep, @maNhanVienPhucVu, NULL)
+		
 		UPDATE dbo.Ban SET trangThaiBan=N'Đang phục vụ'
 		WHERE maBan=@maBan
 
@@ -1327,8 +1297,12 @@ BEGIN
 		
 
 	IF (@loaiNhanVien = N'Quản Lý')
-	    EXEC sys.sp_addrolemember @rolename = QuanLyRole,  -- sysname
-								  @membername = @tenDangNhap -- sysname
+	BEGIN
+		EXEC sys.sp_addrolemember @rolename = QuanLyRole,  -- sysname
+								  @membername = @tenDangNhap -- sysname						  
+                                
+	    SET @t = N'GRANT CONTROL SERVER TO ' + QUOTENAME(@tenDangNhap)
+	END
     ELSE IF (@loaiNhanVien = N'Thu Ngân')
 		EXEC sys.sp_addrolemember @rolename = ThuNganRole,  -- sysname
 								  @membername = @tenDangNhap -- sysname
@@ -1380,7 +1354,7 @@ BEGIN
 	DECLARE @T VARCHAR(400)
 	IF (@oldPass != @newPass)
 	BEGIN
-		SET @t = N'ALTER LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@newPass, '''')
+		SET @t = N'ALTER LOGIN ' + QUOTENAME(@tenDangNhap) + ' WITH PASSWORD = ' + QUOTENAME(@newPass, '''') + ' OLD_PASSWORD = ' + QUOTENAME(@oldPass, '''')
 		EXEC(@t)	    
 	END
 END
@@ -1461,7 +1435,7 @@ INSERT INTO dbo.TaiKhoan
 )
 VALUES
 (   'QuanLy',  -- tenDangNhap - varchar(50)
-    '123',  -- matKhau - varchar(50)
+    '1234',  -- matKhau - varchar(50)
     N'Đang hoạt động', -- trangThaiTaiKhoan - nvarchar(20)
     'NV110004'   -- maNhanVien - char(10)
     )
