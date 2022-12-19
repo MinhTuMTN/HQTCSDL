@@ -157,7 +157,7 @@ ALTER TABLE dbo.DatTruoc ADD CONSTRAINT check_thoiGianCheckinDatTruoc CHECK (tho
 GO
 
 ALTER TABLE dbo.NhanVien ADD CONSTRAINT check_heSoLuong CHECK (heSoLuong > 0);
-ALTER TABLE dbo.NhanVien ADD CONSTRAINT check_soDienThoai CHECK (soDienThoai LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]');
+ALTER TABLE dbo.NhanVien ADD CONSTRAINT check_soDienThoai CHECK (soDienThoai LIKE '0[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' AND LEN(soDienThoai)=10);
 ALTER TABLE dbo.NhanVien ADD CONSTRAINT check_tuoi CHECK (dbo.tinhTuoi(ngaySinh) >= 18)
 GO
 
@@ -1218,6 +1218,7 @@ GRANT ALTER ON ROLE::NhanVienRole TO QuanLyRole
 GRANT ALTER ON ROLE::QuanLyRole TO QuanLyRole
 GRANT ALTER ON ROLE::ThuNganRole TO QuanLyRole
 GRANT ALTER ON ROLE::PhucVuRole TO QuanLyRole
+GRANT ALTER ON ROLE::DauBepRole TO QuanLyRole
 GO
 
 -- Cấp các quyền truy cập cần thiết cho Thu Ngân
